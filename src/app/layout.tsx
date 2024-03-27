@@ -1,8 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import type { ReactNode } from "react";
+import { Inter } from "next/font/google";
+import "./globals.css";
 
-const APP_NAME = "RAU Eats";
-const APP_DESCRIPTION = "RAU Eats University canteen app";
+const inter = Inter({ subsets: ["latin"] });
+
+const APP_NAME = "Serwist example";
+const APP_DESCRIPTION = "This is an example of using Serwist with Next.js";
 
 export const metadata: Metadata = {
   applicationName: APP_NAME,
@@ -30,23 +33,15 @@ export const viewport: Viewport = {
   themeColor: "#FFFFFF",
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html lang="en" dir="ltr">
-      <head>
-        <style>{`
-            html, body, #__next {
-              height: 100%;
-            }
-            #__next {
-              margin: 0 auto;
-            }
-            h1 {
-              text-align: center;
-            }
-            `}</style>
-      </head>
-      <body>{children}</body>
+      <head></head>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }
