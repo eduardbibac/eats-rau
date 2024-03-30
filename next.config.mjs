@@ -1,6 +1,10 @@
 // @ts-check
 import withSerwistInit from "@serwist/next";
 
+import createNextIntlPlugin from 'next-intl/plugin';
+ 
+const withNextIntl = createNextIntlPlugin();
+
 const withSerwist = withSerwistInit({
   cacheOnFrontEndNav: true,
   swSrc: "src/app/sw.ts",
@@ -12,4 +16,4 @@ const nextConfig = {
   reactStrictMode: true,
 };
 
-export default withSerwist(nextConfig);
+export default withNextIntl(withSerwist(nextConfig));
