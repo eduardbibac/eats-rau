@@ -5,7 +5,6 @@ import LangSwitcher from "./LangSwitcher";
 
 export default function DesktopNavigation() {
     const t = useTranslations('Index');
-    
     return (
     <>  
     <div className="flex min-h-screen w-full flex-col">
@@ -14,7 +13,6 @@ export default function DesktopNavigation() {
           <div className="flex items-center gap-2 text-lg font-semibold md:text-base">
           <LangSwitcher ></LangSwitcher>
           </div>
-          
           <Link
             href="#"
             className="flex items-center gap-2 text-lg font-semibold md:text-base"
