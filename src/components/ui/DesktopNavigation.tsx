@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import LangSwitcher from "./LangSwitcher";
+import {ThemeSwitcher} from "@/components/ui/ThemeSwitcher";
 
 
 export default function DesktopNavigation() {
@@ -12,6 +13,7 @@ export default function DesktopNavigation() {
         <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
           <div className="flex items-center gap-2 text-lg font-semibold md:text-base">
           <LangSwitcher ></LangSwitcher>
+          <ThemeSwitcher></ThemeSwitcher>
           </div>
           <Link
             href="#"
