@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
-import Link from "next/link";
 import LangSwitcher from "./LangSwitcher";
 import {ThemeSwitcher} from "@/components/ui/ThemeSwitcher";
+import { Link } from "@/navigation";
 
 
 export default function DesktopNavigation() {
@@ -22,7 +22,7 @@ export default function DesktopNavigation() {
             <span className="sr-only">Acme Inc</span>
           </Link>
           <Link
-            href="#"
+            href="/dashboard"
             className="text-muted-foreground transition-colors hover:text-foreground"
           >
             Dashboard
