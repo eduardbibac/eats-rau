@@ -6,7 +6,7 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const withNextIntl = createNextIntlPlugin();
 
 const withSerwist = withSerwistInit({
-  cacheOnFrontEndNav: true,
+  cacheOnFrontEndNav: false,
   swSrc: "src/app/sw.ts",
   swDest: "public/sw.js",
 });
