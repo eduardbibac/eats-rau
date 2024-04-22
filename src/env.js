@@ -23,6 +23,12 @@ export const env = createEnv({
     ),
     DISCORD_CLIENT_ID: z.string(),
     DISCORD_CLIENT_SECRET: z.string(),
+
+    PG_HOST: z.string(),
+    PG_PORT: z.number(),
+    PG_DATABASE: z.string(),
+    PG_USERNAME: z.string(),
+    PG_PASSWORD: z.string(),
   },
 
   /**

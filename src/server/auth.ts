@@ -6,6 +6,7 @@ import {
 import DiscordProvider from "next-auth/providers/discord";
 
 import { env } from "@/env";
+import PorsagerPostgresAdapter from "./adapter";
 
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
@@ -58,6 +59,7 @@ export const authOptions: NextAuthOptions = {
      * @see https://next-auth.js.org/providers/github
      */
   ],
+  adapter: PorsagerPostgresAdapter(),
 };
 
 /**
