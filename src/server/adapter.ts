@@ -7,6 +7,7 @@ import type {
     AdapterUser,
     VerificationToken,
     AdapterSession,
+    AdapterAccount,
   } from "next-auth/adapters"
 
   import sql from "@/server/db"
@@ -167,16 +168,18 @@ import type {
         }
   
         const { id, name, email, emailVerified, image } = newUser
-        const query2 = await sql`
+        if(id === undefined) throw Error;
+
+        const query2 = await sql<AdapterUser[]>`
           UPDATE users set
-          name = ${name}, email = ${email}, "emailVerified" = ${emailVerified}, image = ${image}
+          name = ${name??null}, email = ${email??""}, "emailVerified" = ${emailVerified??null}, image = ${image??null}
           where id = ${id}
           RETURNING name, id, email, "emailVerified", image
         `
-        return query2[0]
+        return query2[0] as AdapterUser
       },
-      async linkAccount(account) {
-        const result = await sql`
+      async linkAccount(account) : Promise<AdapterAccount | null | undefined> {
+        const [result] = await sql`
         insert into accounts 
         (
           "userId", 
@@ -193,8 +196,8 @@ import type {
         )
         values (
           ${account.userId}, ${account.provider}, ${account.type}, ${account.providerAccountId}, 
-          ${account.access_token}, ${account.expires_at}, ${account.refresh_token}, ${account.id_token}, 
-          ${account.scope}, ${account.session_state}, ${account.token_type})
+          ${account.access_token??null}, ${account.expires_at??null}, ${account.refresh_token??null}, ${account.id_token??null}, 
+          ${account.scope??null}, ${account.session_state??null}, ${account.token_type??null})
         returning
           id,
           "userId", 
@@ -209,38 +212,37 @@ import type {
           session_state,
           token_type
         `
+        if(result === undefined) return null;
         return mapExpiresAt(result[0])
       },
-      async createSession({ sessionToken, userId, expires }) {
+      async createSession({ sessionToken, userId, expires }) :Promise<AdapterSession>{
         if (userId === undefined) {
           throw Error(`userId is undef in createSession`)
         }
-        const result = await sql`
+        const [result] : [AdapterSession?] = await sql`
         insert into sessions ("userId", expires, "sessionToken")
         values (${userId}, ${expires}, ${sessionToken})
         RETURNING id, "sessionToken", "userId", expires
         `
-        return result[0]
+
+        return result!
       },
   
-      async getSessionAndUser(sessionToken: string | undefined): Promise<{
-        session: AdapterSession
-        user: AdapterUser
-      } | null> {
+      async getSessionAndUser(sessionToken: string | undefined): Promise<{ session: AdapterSession; user: AdapterUser } | null> {
         if (sessionToken === undefined) {
           return null
         }
-        const result1 = await sql`select * from sessions where "sessionToken" = ${sessionToken}`
-        if (result1.count === 0) {
+        const result1 = await sql<AdapterSession[]>`select * from sessions where "sessionToken" = ${sessionToken}`
+        if (result1.length === 0) {
           return null
         }
-        let session: AdapterSession = result1[0]
+        let session: AdapterSession = result1[0]!
   
-        const result2 = await sql`select * from users where id = ${session.userId}`
-        if (result2.count === 0) {
+        const result2 = await sql<AdapterUser[]>`select * from users where id = ${session.userId}`
+        if (result2.length === 0) {
           return null
         }
-        const user = result2[0]
+        const user = result2[0]!
         return {
           session,
           user,
@@ -250,23 +252,24 @@ import type {
         session: Partial<AdapterSession> & Pick<AdapterSession, "sessionToken">
       ): Promise<AdapterSession | null | undefined> {
         const { sessionToken } = session
-        const result1 = await sql`select * from sessions where "sessionToken" = ${sessionToken}`
-        if (result1.count === 0) {
+        const result1 = await sql<AdapterSession[]>`select * from sessions where "sessionToken" = ${sessionToken}`
+        if (result1.length === 0) {
           return null
         }
-        const originalSession: AdapterSession = result1[0]
+        const originalSession: AdapterSession = result1[0]!
   
         const newSession: AdapterSession = {
           ...originalSession,
           ...session,
         }
-        const result = await sql`
+        
+        await sql`
         UPDATE sessions set
         expires = ${newSession.expires}
         where "sessionToken" = ${newSession.sessionToken}
         `
 
-        return result[0]
+        return newSession
       },
       async deleteSession(sessionToken) {
         await sql`delete from sessions where "sessionToken" = ${sessionToken}`
@@ -276,9 +279,9 @@ import type {
         await sql`delete from accounts where "providerAccountId" = ${providerAccountId} and provider = ${provider}`
       },
       async deleteUser(userId: string) {
-        await sql`delete from users where id = ${userId}`,
-        await sql`delete from sessions where "userId" = ${userId}`,
-        await sql`delete from accounts where "userId" = ${userId}`,
+        await sql`delete from users where id = ${userId}`
+        await sql`delete from sessions where "userId" = ${userId}`
+        await sql`delete from accounts where "userId" = ${userId}`
       },
     }
   }
