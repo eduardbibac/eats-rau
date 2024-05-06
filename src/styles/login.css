@@ -3,4 +3,15 @@
         /* background-image:url('https://images.unsplash.com/photo-1546514714-df0ccc50d7bf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=667&q=80'); */
         background-image:url('https://images.unsplash.com/photo-1615127039501-bdcc95f61c63?q=80&w=2853&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D=crop&w=667&q=80');
     }
+    & .qr-code {
+        border-radius: 20px;
+        margin: 15px;
+        width: 200px;
+        height: 200px;
+        justify-content: center;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+        object-fit: cover;
+    }
 }   
