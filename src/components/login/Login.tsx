@@ -1,6 +1,5 @@
 import "@/styles/login.css";
 import React, { ReactNode } from 'react';
-import LoginDividerSection from "@/components/LoginDividerSection";
 
 interface LoginProps {
     children : ReactNode;
@@ -24,6 +23,7 @@ export default function Login({children} : LoginProps) {
                 </a>
 
                 {children}
+                
             </div>
         </div>
     </div>

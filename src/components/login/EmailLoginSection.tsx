@@ -1,7 +1,7 @@
 export default function EmailLoginSection() {
     return (
         <>
-                        <div className="hidden lg:block mt-4">
+            <div className="hidden lg:block mt-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2">Username</label>
                 <input className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="email" />
             </div>
