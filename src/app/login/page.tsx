@@ -1,5 +1,4 @@
 // https://play.tailwindcss.com/MIwj5Sp9pw
-import { QRCode } from "@/components/qrcode";
 import "@/styles/login.css";
 import { QRCodeSVG } from "qrcode.react";
 
