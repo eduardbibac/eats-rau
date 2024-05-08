@@ -2,6 +2,7 @@ import BottomNavBar from "@/components/BottomNavBar";
 import Navbar from "@/components/NavBar";
 import Image from "next/image";
 import Shop from "@/components/Shop";
+import CartPage from "@/components/CartPage";
 
 export default function Home() {
   return (
@@ -116,6 +117,7 @@ export default function Home() {
       </div>
     </main> */}
     <BottomNavBar></BottomNavBar>
+    <CartPage></CartPage>
     </>
   );
 }
