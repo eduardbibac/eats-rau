@@ -1,3 +1,4 @@
+import BottomNavBar from "@/components/BottomNavBar";
 import Navbar from "@/components/NavBar";
 import Image from "next/image";
 
@@ -112,6 +113,7 @@ export default function Home() {
         </a>
       </div>
     </main>
+    <BottomNavBar></BottomNavBar>
     </>
   );
 }

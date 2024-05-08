@@ -1,5 +1,7 @@
 //https://preline.co/examples/navigations-navbars.html
 
+import Link from "next/link";
+
 export default function Navbar () {
     return(
         <>
@@ -21,9 +23,9 @@ export default function Navbar () {
 
     {/* <!-- Button Group --> */}
     <div className="flex items-center gap-x-2 ms-auto py-1 md:ps-6 md:order-3 md:col-span-3">
-      <button type="button" className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-xl border border-gray-200 text-black hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none">
+      <Link href="/login" className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-xl border border-gray-200 text-black hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none">
         Sign in
-      </button>
+      </Link>
       <button type="button" className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-xl border border-transparent bg-lime-400 text-black hover:bg-lime-500 transition disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-lime-500">
         Hire us
       </button>
@@ -41,20 +43,20 @@ export default function Navbar () {
     <div id="navbar-collapse-with-animation" className="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow md:block md:w-auto md:basis-auto md:order-2 md:col-span-6">
       <div className="flex flex-col gap-y-4 gap-x-0 mt-5 md:flex-row md:justify-center md:items-center md:gap-y-0 md:gap-x-7 md:mt-0">
         <div>
-          <a className="relative inline-block text-black before:absolute before:bottom-0.5 before:start-0 before:-z-[1] before:w-full before:h-1 before:bg-lime-400" href="#" aria-current="page">Work</a>
+          <a className="relative inline-block text-black before:absolute before:bottom-0.5 before:start-0 before:-z-[1] before:w-full before:h-1 before:bg-lime-400" href="#" aria-current="page">Home</a>
         </div>
         <div>
-          <a className="inline-block text-black hover:text-gray-600" href="#">Services</a>
+          <a className="inline-block text-black hover:text-gray-600" href="#">Menu</a>
         </div>
         <div>
           <a className="inline-block text-black hover:text-gray-600" href="#">About</a>
         </div>
-        <div>
+        {/* <div>
           <a className="inline-block text-black hover:text-gray-600" href="#">Careers</a>
         </div>
         <div>
           <a className="inline-block text-black hover:text-gray-600" href="#">Blog</a>
-        </div>
+        </div> */}
       </div>
     </div>
     {/* <!-- End Collapse --> */}
