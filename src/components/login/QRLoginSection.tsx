@@ -2,7 +2,7 @@
 
 import { QRCodeSVG } from "qrcode.react";
 
-export default function QRCodeLoginSection () {
+export default function QRLoginSection () {
     return (
         <>
         <QRCodeSVG className="hidden lg:flex bg-gray-50 py-5 qr-code" value="some-token-here"/>

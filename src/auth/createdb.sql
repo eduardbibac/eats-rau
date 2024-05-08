@@ -1,11 +1,11 @@
-CREATE TABLE user (
+CREATE TABLE users (
     id TEXT PRIMARY KEY,
-    ms_id NUMBER,
+    ms_id TEXT,
     username TEXT
-)
+);
 
 CREATE TABLE user_session (
     id TEXT PRIMARY KEY,
     expires_at TIMESTAMPTZ NOT NULL,
-    user_id TEXT NOT NULL REFERENCES user(id)
-)
+    user_id TEXT NOT NULL REFERENCES users(id)
+);

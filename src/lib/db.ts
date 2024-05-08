@@ -1,11 +1,5 @@
-import postgres from 'postgres'
+import postgres from 'postgres';
 
-const sql = postgres('postgres://username:password@host:port/database', {
-  host                 : 'localhost',            // Postgres ip address[s] or domain name[s]
-  port                 : 5432,          // Postgres server port[s]
-  database             : 'eats-rau',            // Name of database to connect to
-  username             : 'postgres',            // Username of database user
-  password             : 'admin',            // Password of database user
-});
+const sql = postgres('postgres://postgres:admin@localhost:5432/eats-rau');
 
-export default sql
+export default sql;

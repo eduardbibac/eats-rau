@@ -11,9 +11,11 @@ export async function GET(request: Request): Promise<Response> {
 	const state = url.searchParams.get("state");
     
     const storedCodeVerifier = cookies().get("ms_code_verifier")?.value ?? null;;
-
+    
+    
 	const storedState = cookies().get("ms_oauth_state")?.value ?? null;
-	if (!code  || !state || !storedState || !storedCodeVerifier || state !== storedState) {
+
+	if (!code || !state || !storedState || !storedCodeVerifier ||state !== storedState) {
 		return new Response(null, {
 			status: 400
 		});
@@ -33,13 +35,14 @@ export async function GET(request: Request): Promise<Response> {
 
         interface DatabaseUser {
             id: string;
-            ms_id: number;
+            ms_id: string;
             username: string;
         }
-
+       
 		// Replace this with your own DB client.
 		// const existingUser = await db.table("user").where("ms_id", "=", msUser.id).get();
-        const [existingUser]: [DatabaseUser?]  = await sql`SELECT ms_id FROM user WHERE ms_id = ${msUser.oid}`;
+        const [existingUser]: [DatabaseUser?]  
+            = await sql`SELECT * FROM users WHERE ms_id = ${msUser.sub}`;
 
 		if (existingUser) {
 			const session = await lucia.createSession(existingUser.id, {});
@@ -54,11 +57,12 @@ export async function GET(request: Request): Promise<Response> {
 		}
 
 		const userId = generateIdFromEntropySize(10); // 16 characters long
-        
+
         //TODO: msUser.email :GET EMAIL AS WELL https://learn.microsoft.com/en-us/entra/identity-platform/id-token-claims-reference
 		// Replace this with your own DB client.
-        await sql`INSERT INTO USER (id, ms_id, username) 
-                  VALUES (${userId}, ${msUser.oid}, ${msUser.name}) `;
+        await sql`INSERT INTO USERS (id, ms_id, username) 
+                  VALUES (${userId}, ${msUser.sub}, ${msUser.name}) `;
+
 		// await db.table("user").insert({
 		// 	id: userId,
 		// 	github_id: githubUser.id,
@@ -89,6 +93,10 @@ export async function GET(request: Request): Promise<Response> {
 }
 
 interface MicrosoftUser {
-	oid: string;
+	sub: string;
 	name: string;
+    given_name: string;
+    family_name: string;
+    profile_picture_link: string;
+    email: string;
 }
