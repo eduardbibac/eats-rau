@@ -1,7 +1,7 @@
 .homepage {
     padding: 20px;
     width: 100vw;
-
+    background-color: #f7f7f7;
     & .layout {
         width: 100%;
         display: grid;
@@ -12,18 +12,18 @@
     & .shop {
         display: grid;
         gap: 20px;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        grid-auto-rows: 200px;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        grid-auto-rows: auto;
     }
 
     & .cart {
         display: grid;
-        grid-auto-rows: 100px;
+        grid-auto-rows: auto;
         gap:20px
     }
     
     & .card {
-        background-color: #f0f0f0;
+        background-color: white;
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
