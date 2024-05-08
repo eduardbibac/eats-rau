@@ -9,6 +9,7 @@ import ShopCard from "@/components/ShopCard";
 export default function Home() {
   return (
     <>
+    <Navbar></Navbar>
     {/* <Navbar></Navbar>
     <Shop></Shop>
     <BottomNavBar></BottomNavBar>
