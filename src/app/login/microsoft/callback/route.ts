@@ -22,9 +22,6 @@ export async function GET(request: Request): Promise<Response> {
 	}
 
 	try {
-        // const url: URL = await microsoft_SSO.createAuthorizationURL(state, codeVerifier, {
-        //     scopes: ["profile", "email"]
-        // });
 		const tokens = await microsoft_SSO.validateAuthorizationCode(code, storedCodeVerifier);
         const response = await fetch("https://graph.microsoft.com/oidc/userinfo", {
             headers: {
@@ -39,8 +36,6 @@ export async function GET(request: Request): Promise<Response> {
             username: string;
         }
        
-		// Replace this with your own DB client.
-		// const existingUser = await db.table("user").where("ms_id", "=", msUser.id).get();
         const [existingUser]: [DatabaseUser?]  
             = await sql`SELECT * FROM users WHERE ms_id = ${msUser.sub}`;
 
@@ -58,17 +53,9 @@ export async function GET(request: Request): Promise<Response> {
 
 		const userId = generateIdFromEntropySize(10); // 16 characters long
 
-        //TODO: msUser.email :GET EMAIL AS WELL https://learn.microsoft.com/en-us/entra/identity-platform/id-token-claims-reference
-		// Replace this with your own DB client.
         await sql`INSERT INTO USERS (id, ms_id, username) 
-                  VALUES (${userId}, ${msUser.sub}, ${msUser.name}) `;
-
-		// await db.table("user").insert({
-		// 	id: userId,
-		// 	github_id: githubUser.id,
-		// 	username: githubUser.login
-		// });
-
+        VALUES (${userId}, ${msUser.sub}, ${msUser.name}) `;
+        
 		const session = await lucia.createSession(userId, {});
 		const sessionCookie = lucia.createSessionCookie(session.id);
 		cookies().set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes);
