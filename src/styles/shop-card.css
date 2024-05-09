@@ -1,0 +1,22 @@
+.shop-card {
+    @container (width < 900px) {
+        /* > * {display: block;} */
+
+        height: 150px;
+        display: grid;
+        grid-template-columns: 20% auto;
+        grid-row: auto;
+        /* grid-template-areas: 
+            "pic title title"
+            "pic price price"
+            "pic buttonxs remove"
+        ; */
+        & .text-section  {
+            display: grid;
+        }
+        & img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
