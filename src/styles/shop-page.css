@@ -7,9 +7,14 @@
       display: grid;
       grid-template-columns: 3fr minmax(200px, 35vw); 
       gap: 20px;  
+      max-width: 1920px;
+      margin-left: auto;
+      margin-right: auto;
+      justify-content: center;
   }
 
   & .shop {
+    /* max-width: 600px; */
   }
 
   & .products {
@@ -29,6 +34,8 @@
   }
 
   & .cart { 
+    max-width: 899px;
+    padding-left: 40px;
     container-type: inline-size;
     display: flex;
     flex-direction: column;
