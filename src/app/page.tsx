@@ -1,9 +1,10 @@
 import "@/styles/shop-page.css";
-import Navbar from "@/components/NavBar";
-import ShopCard from "@/components/ShopCard";
+import Shopper from "@/components/testing/StickyCart/Shopper";
 
 export default function Home() {
 return (
-<></>
+<>
+<Shopper></Shopper>
+</>
 );
 }
