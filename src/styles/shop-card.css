@@ -21,7 +21,7 @@
             width: 100%;
         }
     }
-    @media screen and (width < 900px) {
+    @media screen and (width < 540px) {
         height: 150px;
         display: grid;
         grid-template-columns: 20% auto;

@@ -11,7 +11,7 @@ return (
       <p>Click on the elements below to add them to the sidebar component.</p>
       <ul className="items grid">
         {[...Array(100)].map((_, index) => (
-          <li>
+          <li key={index}>
             <button className="item">
               <div className="thumbnail"></div>
               <div className="info">
