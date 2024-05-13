@@ -30,6 +30,10 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+  .split-text {
+    display: flex;
+    flex-direction: column;
+  }
 }
 ::-webkit-scrollbar {
   width: 20px;
