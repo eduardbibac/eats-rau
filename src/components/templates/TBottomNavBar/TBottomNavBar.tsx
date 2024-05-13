@@ -1,6 +1,6 @@
-import "@/styles/bottom-navbar.css";
+import "./TBottomNavBar.css";
 
-export default function BottomNavBar() {
+export default function TBottomNavBar() {
     return (
 <>
 <div className="bottom-navbar min-w-screen min-h-screen bg-gray-100 flex items-center justify-center px-5 pt-5 pb-24">

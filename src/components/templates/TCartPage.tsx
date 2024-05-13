@@ -1,6 +1,6 @@
 // <!-- Create By Joker Banny -->
 
-export default function CartPage() {
+export default function TCartPage() {
 return (
 <>
   <div className="h-screen bg-gray-100 pt-20">

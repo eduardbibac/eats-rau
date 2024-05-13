@@ -1,7 +1,7 @@
-import "./shop-v3.css";
+import "./TStickyShopLayout.css";
 
 
-export default function Shopper() {
+export default function TStickyShopLayout() {
 return (
     
   <>
