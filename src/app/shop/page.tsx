@@ -1,7 +1,7 @@
 "use client";
 
 import "@/styles/shop-page.css";
-import Navbar from "@/components/NavBar";
+import Navbar from "@/components/NavBar/NavBar";
 import ShopCard from "./_ShopCard";
 import Cart from "./_Cart";
 

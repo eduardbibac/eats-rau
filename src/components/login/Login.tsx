@@ -1,4 +1,4 @@
-import "@/styles/Login.css";
+import "./Login.css";
 import React, { ReactNode } from 'react';
 
 interface LoginProps {

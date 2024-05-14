@@ -1,7 +1,7 @@
 //https://preline.co/examples/navigations-navbars.html
 
 'use client';
-
+import "./BottomNavBar.css";
 import Link from "next/link";
 import "@/styles/navbar.css";
 import { usePathname  } from "next/navigation";
@@ -30,10 +30,10 @@ export default function Navbar () {
     ))
   });
 
-  return(
-        <>
-        {/* <!-- ========== HEADER ========== --> */}
-<header className="flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full py-7">
+return(
+<>
+{/* <!-- ========== DESKTOP ========== --> */}
+<header className="hidden md:flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full py-7">
   <nav className="relative max-w-7xl w-full flex flex-wrap md:grid md:grid-cols-12 basis-full items-center px-4 md:px-6 md:px-8 mx-auto" aria-label="Global">
     <div className="md:col-span-3">
       {/* <!-- Logo --> */}
@@ -80,7 +80,50 @@ export default function Navbar () {
     {/* <!-- End Collapse --> */}
   </nav>
 </header>
-{/* <!-- ========== END HEADER ========== --> */}
-        </>
-    );
+{/* <!-- ========== END DESKTOP ========== --> */}
+{/* <!-- ========== MOBILE ========== --> */}
+<div className="md:hidden fixed bottom-0 w-full max-w-md mx-auto">
+    <div className="px-7 bg-white shadow-lg rounded-2xl">
+        <div className="flex">
+            <div className="flex-1 group">
+                <a href="#" className="flex items-end justify-center text-center mx-auto px-4 pt-2 w-full text-gray-400 group-hover:text-orange-500">
+                    <span className="block px-1 pt-1 pb-1">
+                        <i className="far fa-home text-2xl pt-1 mb-1 block"></i>
+                        <span className="block text-xs pb-2">Home</span>
+                        <span className="block w-5 mx-auto h-1 group-hover:bg-orange-500 rounded-full"></span>
+                    </span>
+                </a>
+            </div>
+            <div className="flex-1 group">
+                <a href="#" className="flex items-end justify-center text-center mx-auto px-4 pt-2 w-full text-gray-400 group-hover:text-indigo-500">
+                    <span className="block px-1 pt-1 pb-1">
+                        <i className="far fa-compass text-2xl pt-1 mb-1 block"></i>
+                        <span className="block text-xs pb-2">Explore</span>
+                        <span className="block w-5 mx-auto h-1 group-hover:bg-indigo-500 rounded-full"></span>
+                    </span>
+                </a>
+            </div>
+            <div className="flex-1 group">
+                <a href="#" className="flex items-end justify-center text-center mx-auto px-4 pt-2 w-full text-gray-400 group-hover:text-indigo-500">
+                    <span className="block px-1 pt-1 pb-1">
+                        <i className="far fa-search text-2xl pt-1 mb-1 block"></i>
+                        <span className="block text-xs pb-2">Search</span>
+                        <span className="block w-5 mx-auto h-1 group-hover:bg-indigo-500 rounded-full"></span>
+                    </span>
+                </a>
+            </div>
+            <div className="flex-1 group">
+                <a href="#" className="flex items-end justify-center text-center mx-auto px-4 pt-2 w-full text-gray-400 group-hover:text-indigo-500">
+                    <span className="block px-1 pt-1 pb-1">
+                        <i className="far fa-cog text-2xl pt-1 mb-1 block"></i>
+                        <span className="block text-xs pb-2">Settings</span>
+                        <span className="block w-5 mx-auto h-1 group-hover:bg-indigo-500 rounded-full"></span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</>
+);
 }
