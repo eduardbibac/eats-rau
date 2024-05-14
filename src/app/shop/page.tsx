@@ -63,10 +63,6 @@ return (
         <div className="">OPEN</div>
       </>
       ) : null}
-
-      {/* MENU ORDERS (WITH A NOTIFICATION IF ONGOING ORDER) CART & sett*/}
-      {/* <TBottomNavBar></TBottomNavBar> */}
-
   </div>
 </div>
 </>
