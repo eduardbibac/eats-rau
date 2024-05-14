@@ -5,6 +5,7 @@ import TTable from "@/components/templates/TTable";
 import TSearchBar from "@/components/templates/TSearchBar";
 import TBottomNavBar from "@/components/templates/TBottomNavBar/TBottomNavBar";
 import TStickyShopLayout from "@/components/templates/TStickyShopLayout/TStickyShopLayout";
+import Drawer from "@/components/Drawer";
 
 export default function Temp() {
   return (
@@ -17,6 +18,7 @@ export default function Temp() {
       {/* <TBottomNavBar></TBottomNavBar> */}
 
       {/* <TStickyShopLayout></TStickyShopLayout> */}
+      <Drawer></Drawer>
 
     </>
   );

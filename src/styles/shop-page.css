@@ -42,7 +42,9 @@ body {
     width: 100%;
     max-width: 50em;
     max-height: 100vh;
-    padding-left: 40px;
+    padding: .35rem;
+    /* padding-left: 2rem;
+    padding-right: 2rem; */
     container-type: inline-size;
     display: flex;
     flex-direction: column;

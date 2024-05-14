@@ -1,5 +1,5 @@
 // https://demos.creative-tim.com/notus-design-system-pro/admin/components/headers.html
-export default function HeaderStatCards() {
+export default function THeaderStatCards() {
   return(
       <>
       <div className="w-full">
