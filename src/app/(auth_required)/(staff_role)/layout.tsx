@@ -4,9 +4,14 @@ import { isRoleOrHigher } from '@/lib/role';
 import { redirect } from 'next/navigation';
 
 
-export default async function withStaffRoleOrHigher() {
-  // const { user } = await validateRequest();
+export default async function withStaffRoleOrHigher({ children } : {children: ReactNode}) {
+  const { user } = await validateRequest();
   // Validate the user's role to be at least staff
-  // isRoleOrHigher('staff', user.role)  ? 
-  // isUserRoleOrHigher('staff'); redirect('/');
+  if (! isRoleOrHigher('staff', user!.arole)) { redirect('/'); }
+
+  return (
+    <>
+    {children}
+    </>
+  );
 };

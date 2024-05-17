@@ -1,14 +1,14 @@
-type Role = 'guest' | 'student' | 'staff' | 'manager' | 'admin';
+type Role = 'guest' | 'customer' | 'staff' | 'manager' | 'admin';
 
-const rolesHierarchy: Map<Role, number> = new Map([
+const rolesHierarchy: Map<string, number> = new Map([
   ['guest', 0],
-  ['student', 1],
+  ['customer', 1],
   ['staff', 2],
   ['manager', 3],
   ['admin', 4]
 ]);
 
-export const isRoleOrHigher = (role: Role, userRole: Role): boolean => {
+export const isRoleOrHigher = (role: Role, userRole: string): boolean => {
   const roleRank = rolesHierarchy.get(role);
   const userRoleRank = rolesHierarchy.get(userRole);
 

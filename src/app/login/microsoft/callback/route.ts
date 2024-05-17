@@ -34,6 +34,7 @@ export async function GET(request: Request): Promise<Response> {
             id: string;
             ms_id: string;
             username: string;
+						arole:string;
         }
        
         const [existingUser]: [DatabaseUser?]  

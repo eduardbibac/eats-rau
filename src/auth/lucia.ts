@@ -15,13 +15,14 @@ export const lucia = new Lucia(adapter, {
 		attributes: {
 			// set to `true` when using HTTPS
 			secure: process.env.NODE_ENV === "production"
-		}
+		},
 	},
     getUserAttributes: (attributes) => {
 		return {
 			// attributes has the type of DatabaseUserAttributes
 			entraID: attributes.ms_id,
-			username: attributes.username
+			username: attributes.username,
+			arole: attributes.arole
 		};
 	}
 });
@@ -37,4 +38,5 @@ declare module "lucia" {
 interface DatabaseUserAttributes {
 	ms_id: number;
 	username: string;
+	arole: string;
 }

@@ -4,15 +4,6 @@ import "@/styles/navbar.css";
 import NavBarUserSession from "./NavBarUserSession";
 import NavBarLinks from "./NavBarLinks";
 
-// TODO: Add mobile only flag that adds a hidden on desktop version through css (clsx)
-
-
-// {user && (
-//   <li>
-//     <Link href="/dashboard">Dashboard</Link>
-//   </li>
-// )}
-
 
 export default async function Navbar () {
 return(

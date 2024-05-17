@@ -2,12 +2,15 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+
+// TODO: Add mobile only flag that adds a hidden on desktop version through css (clsx)
 const linksData = [
   { href: '/', label: 'Home' },
   { href: '/shop', label: 'Menu' },
   { href: '/about', label: 'About' },
   // { href: '/settings', label: 'Settings', mobileOnly: true},
 ];
+
 export default function NavBarLinks() {
   const path = usePathname();
   const links = linksData.map((link) => {
