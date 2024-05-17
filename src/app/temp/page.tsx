@@ -7,19 +7,19 @@
 // import TStickyShopLayout from "@/components/templates/TStickyShopLayout/TStickyShopLayout";
 // import Drawer from "@/components/templates/Drawer";
 
-// export default function Temp() {
-//   return (
-//     <>
-//       <TPill></TPill>
-//       {/* <TNavBar></TNavBar> */}
-//       {/* <THeaderStatCards></THeaderStatCards> */}
-//       {/* <TTable></TTable> */}
-//       {/* <TSearchBar></TSearchBar> */}
-//       {/* <TBottomNavBar></TBottomNavBar> */}
+export default function Temp() {
+  return (
+    <>
+      {/* <TPill></TPill> */}
+      {/* <TNavBar></TNavBar> */}
+      {/* <THeaderStatCards></THeaderStatCards> */}
+      {/* <TTable></TTable> */}
+      {/* <TSearchBar></TSearchBar> */}
+      {/* <TBottomNavBar></TBottomNavBar> */}
 
-//       {/* <TStickyShopLayout></TStickyShopLayout> */}
-//       <Drawer></Drawer>
+      {/* <TStickyShopLayout></TStickyShopLayout> */}
+      {/* <Drawer></Drawer> */}
 
-//     </>
-//   );
-// }
+    </>
+  );
+}
