@@ -3,5 +3,5 @@ export default function getURL(path: string) {
   const baseURL = IS_SERVER
     ? process.env.NEXT_PUBLIC_APP_URL!
     : window.location.origin;
-  return new URL(path, baseURL).toString();
+  return `${baseURL}${path}`;
 }

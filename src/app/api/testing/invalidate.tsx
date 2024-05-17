@@ -1,2 +1,0 @@
-/*
-any request with a seesion here gets invalidated */
