@@ -3,7 +3,7 @@ import { PostgresJsAdapter } from "@lucia-auth/adapter-postgresql";
 import sql from "@/lib/db";
 
 const adapter = new PostgresJsAdapter(sql, {
-	user: "auth_user",
+	user: "users",
 	session: "user_session"
 });
 
