@@ -55,6 +55,9 @@ export async function GET(req: NextRequest) : Promise<Response> {
     
     return new Response(null, {
       status: 200,
+      headers: {
+        Location: "/"
+      }
     });
   }
 }
