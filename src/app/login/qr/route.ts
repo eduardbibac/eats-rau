@@ -54,7 +54,7 @@ export async function GET(req: NextRequest) : Promise<Response> {
       return new Response(null, { status: 500 });
     }
     
-    return NextResponse.redirect(getURL('/'), { status: 200 });
+    return NextResponse.redirect(getURL('/'), { status: 302 });
   }
 }
 
