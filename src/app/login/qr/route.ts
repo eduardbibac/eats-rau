@@ -53,8 +53,8 @@ export async function GET(req: NextRequest) : Promise<Response> {
       console.error(error);
       return new Response(null, { status: 500 });
     }
-    
-    return NextResponse.redirect('/', { status: 302 });
+    redirect('/');
+    // return NextResponse.redirect('/', { status: 302 });
   }
 }
 
