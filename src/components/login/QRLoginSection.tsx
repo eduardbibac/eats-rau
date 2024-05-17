@@ -1,50 +1,52 @@
 "use client";
 
+import { useEffectOnce } from "@/lib/useEffectOnce";
+import { useRouter } from 'next/navigation'
 import router from "next/router";
 import { QRCodeSVG } from "qrcode.react";
 import { useEffect, useState } from "react";
 
 export default function QRLoginSection () {
     const [qrCode, setQrCode] = useState<string>();
-    // const [startTime, setStartTime] = useState(Date.now());
+    const [startTime, setStartTime] = useState(Date.now());
+    const router = useRouter()
 
-    // // Polling
-    // useEffect(() => {
-    //     const interval = setInterval(async () => {
-    //       const response = await fetch(`/login/qr`, { 
-    //         cache: 'no-store',
-    //         method: "POST",
-    //         body: JSON.stringify({qr_string:qrCode})
-    //       })
+    // Polling
+    useEffect(() => {
+        const interval = setInterval(async () => {
+          const res = await fetch(`/login/qr`, { 
+            cache: 'no-store',
+            method: "POST",
+            body: JSON.stringify({qr_string:qrCode})
+          })
+          console.log(res.status);
+
+          // If the status is 201, update the data and clear the interval
+          if (res.status == 201) {
+            clearInterval(interval);
+            router.push('/');
+            router.refresh();
+          }
     
-    //       // If the status is 302, update the data and clear the interval
-    //       if (response.status == 302) {
-    //         const location = response.headers.get('Location');
-    //         if (location) {
-    //           router.push(location);
-    //         }
-    //         clearInterval(interval);
-    //       }
+          // If 5 minutes have passed, clear the interval 
+          // (stop polling)
+          if (Date.now() - startTime >= 1 * 60 * 1000) {
+            clearInterval(interval);
+          }
+        }, 4000); // Polls every 4 seconds
     
-    //       // If 5 minutes have passed, clear the interval 
-    //       // (stop polling)
-    //       if (Date.now() - startTime >= 5 * 60 * 1000) {
-    //         clearInterval(interval);
-    //       }
-    //     }, 4000); // Polls every 4 seconds
-    
-    //     // Cleanup function to clear the interval when the component unmounts
-    //     return () => clearInterval(interval);
-    //   }, [qrCode]);
+        // Cleanup function to clear the interval when the component unmounts
+        return () => clearInterval(interval);
+      }, [qrCode]);
       
-    // // QR String Fetch
-    // useEffect(() => {
-    //     fetch(`/login/qr`, { cache: 'no-store' })
-    //       .then((res) => res.json())
-    //       .then((data) => {
-    //         setQrCode(data)
-    //       })
-    //   }, [])
+    // QR String Fetch
+    useEffectOnce(() => {
+        fetch(`/login/qr`, { cache: 'no-store' })
+          .then((res) => res.json())
+          .then((data) => {
+            setQrCode(data)
+        })
+    })
 
 
     return (

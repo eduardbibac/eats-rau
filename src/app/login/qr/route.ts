@@ -7,6 +7,7 @@ import { generateIdFromEntropySize } from 'lucia';
 import { cookies } from 'next/headers';
 import { NextRequest } from 'next/server';
 import { redirect } from 'next/navigation';
+import { json } from 'stream/consumers';
 
 export async function GET(req: NextRequest) : Promise<Response> {
   const searchParams = req.nextUrl.searchParams;
@@ -62,6 +63,7 @@ export async function GET(req: NextRequest) : Promise<Response> {
 export async function POST(req: Request) : Promise<Response> {
   const data: QRPayload = await req.json();
   console.log(data)
+
   // Could cause big problems if we forget to check for null
   if(!data.qr_string) {
     return new Response(null, {
@@ -75,12 +77,7 @@ export async function POST(req: Request) : Promise<Response> {
       const session = await lucia.createSession(row.is_validated_by_user, {});
 			const sessionCookie = lucia.createSessionCookie(session.id);
 			cookies().set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes);
-			return new Response(null, {
-				status: 302,
-				headers: {
-					Location: "/"
-				}
-			});
+			return new Response(JSON.stringify({'isValid':'true'}), { status: 201 });
     } else {
       return new Response(null, {status: 200})
       // keep polling
