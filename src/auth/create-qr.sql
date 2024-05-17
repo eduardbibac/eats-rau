@@ -1,7 +1,4 @@
-CREATE TABLE QRSession (
-    code text PRIMARY KEY,
-    inserted_at timestamp
-);
+
 
 
 CREATE FUNCTION QRSession_delete_old_rows() RETURNS trigger

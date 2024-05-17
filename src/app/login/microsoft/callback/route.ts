@@ -1,3 +1,5 @@
+'use server';
+
 import { lucia } from "@/auth/lucia";
 import { microsoft_SSO } from "@/auth/sso";
 import { cookies } from "next/headers";
@@ -30,12 +32,7 @@ export async function GET(request: Request): Promise<Response> {
         });
         const msUser: MicrosoftUser = await response.json();
 
-        interface DatabaseUser {
-            id: string;
-            ms_id: string;
-            username: string;
-						arole:string;
-        }
+
        
         const [existingUser]: [DatabaseUser?]  
             = await sql`SELECT * FROM users WHERE ms_id = ${msUser.sub}`;

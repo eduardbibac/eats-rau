@@ -11,3 +11,9 @@ CREATE TABLE user_session (
     expires_at TIMESTAMPTZ NOT NULL,
     user_id TEXT NOT NULL REFERENCES users(id)
 );
+
+CREATE TABLE QRSession (
+    code text PRIMARY KEY,
+    inserted_at TIMESTAMP DEFAULT NOW(),
+	is_validated_by_user TEXT REFERENCES users(id)
+);

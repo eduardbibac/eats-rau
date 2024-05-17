@@ -1,5 +1,3 @@
-// import sql from "@/lib/db";
-
 // export async function GET(request: Request): Promise<Response> {
 
 //     // generate code
