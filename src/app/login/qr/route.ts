@@ -5,9 +5,10 @@ import { validateRequest } from '@/auth/validateRequest';
 import sql from '@/lib/db';
 import { generateIdFromEntropySize } from 'lucia';
 import { cookies } from 'next/headers';
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { redirect } from 'next/navigation';
 import { json } from 'stream/consumers';
+import getURL from '@/lib/getURL';
 
 export async function GET(req: NextRequest) : Promise<Response> {
   const searchParams = req.nextUrl.searchParams;
@@ -53,12 +54,7 @@ export async function GET(req: NextRequest) : Promise<Response> {
       return new Response(null, { status: 500 });
     }
     
-    return new Response(null, {
-      status: 200,
-      headers: {
-        Location: "/"
-      }
-    });
+    return NextResponse.redirect(getURL('/'), { status: 200 });
   }
 }
 
