@@ -36,7 +36,7 @@ return (
 
 
     {/* TODO: Does this render if hiiden in css ? */}
-    <Cart>
+    <Cart cart={cart}>
       {cart.map(cartItem => (
         <ShopCard key={cartItem.product.id} product={cartItem.product} cart={cart} setCart={setCart} />
       ))}
