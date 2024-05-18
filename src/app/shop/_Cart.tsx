@@ -3,18 +3,10 @@ import { ReactNode, use, useEffect, useState } from "react";
 
 interface CartProps {
   children: ReactNode; // Declare children as a property of type ReactNode
-  cart: CartItem[];
+  cartTotal: string;
 } 
-export default function Cart({ children, cart }: CartProps) {
-  const [cartTotal, setCartTotal] = useState('');
+export default function Cart({ children, cartTotal }: CartProps) {
 
-  useEffect(() =>{
-    let sum = 0;
-    cart.forEach((i) => {
-      sum += i.product.price * i.count;
-    })
-    setCartTotal(sum.toFixed(2));
-  },[cart])
 
   return(
     <div className="cart">

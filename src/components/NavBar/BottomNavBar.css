@@ -17,5 +17,4 @@
     & .group:hover .group-hover\:flex-grow {
         flex-grow: 1;
     }
-    
 }

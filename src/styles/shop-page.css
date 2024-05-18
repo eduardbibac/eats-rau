@@ -42,7 +42,8 @@ body {
     width: 100%;
     max-width: 50em;
     max-height: 100vh;
-    padding: .35rem;
+
+
     /* padding-left: 2rem;
     padding-right: 2rem; */
     container-type: inline-size;
@@ -54,7 +55,6 @@ body {
     top: 0;
     background-color: white;
     border-radius: 0.5rem;
-    margin-left: 50px;
         & .products {
           & > * {margin-bottom: .75rem;}
           display: block;
@@ -69,12 +69,6 @@ body {
         z-index: 1;
       }
 
-      /* & img {
-        width: 7rem;
-        height: 7rem;
-        overflow: hidden;
-        aspect-ratio: 1/1;
-      } */
       .scroll-padding-top {
         /* position: absolute; */
         width: 100%;
@@ -93,6 +87,5 @@ body {
   
   @media only screen and (max-width: 1300px) {
     & .layout {grid-template-columns: 1fr;}
-    & .cart {display: none;}
   }
 }

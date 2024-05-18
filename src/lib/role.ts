@@ -11,7 +11,7 @@ const rolesHierarchy: Map<Role, number> = new Map([
 export const isRoleOrHigher = (role: Role, userRole: string): boolean => {
   const roleRank = rolesHierarchy.get(role);
   const userRoleRank = rolesHierarchy.get(userRole as Role);
-
+  
   if (roleRank === undefined || userRoleRank === undefined) {
     throw new Error('Invalid role');
   }

@@ -1,54 +1,35 @@
 /* body::-webkit-scrollbar {width: 0 !important;} */
 
 .shop-card {
-    @container (width < 500px) {    
-        height: 150px;
+    /* If inside any container display vertical, basically...*/
+    @container (width < 19200px) {    
+        height: 10em;
+        min-height: 125px;
         display: grid;
-        grid-template-columns: 50% auto;
+        grid-template-columns: minmax(20%, 35%) auto;
         grid-row: auto;
-
-        * {
-            font-size: 0.75rem !important;
-            line-height: 1rem !important;
-        } 
-
-        button {
-            padding: 0.3rem;
-            max-height: 2rem;
-        }
-        svg {
-            display: none !important;
-        }
-
-        /* grid-template-areas: 
-            "pic title title"
-            "pic price price"
-            "pic buttonxs remove"
-        ; */
         & .text-section  {
             display: grid;
         }
         & img {
-            aspect-ratio: 1 / 1;
+            /* aspect-ratio: 1 / 1; */
             object-fit:cover;
             height: 100%;
             width: 100%;
         }
     }
     @media screen and (width < 540px) {
-        height: 150px;
+        height: 10em;
+        min-height: 125px;
         display: grid;
-        grid-template-columns: 20% auto;
+        grid-template-columns: minmax(20%, 35%) auto;
         grid-row: auto;
-        /* grid-template-areas: 
-            "pic title title"
-            "pic price price"
-            "pic buttonxs remove"
-        ; */
         & .text-section  {
             display: grid;
         }
         & img {
+            /* aspect-ratio: 1 / 1; */
+            object-fit:cover;
             height: 100%;
             width: 100%;
         }
