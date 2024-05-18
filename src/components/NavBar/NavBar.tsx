@@ -9,7 +9,7 @@ export default async function Navbar () {
 return(
 <>
 {/* <!-- ========== DESKTOP ========== --> */}
-<header className="hidden md:flex flex-wrap md:justify-start md:flex-nowrap z-50 w-dvw py-7">
+<header className="hidden md:flex flex-wrap md:justify-start md:flex-nowrap z-50 w-[98dvw] py-7">
   <nav className="relative max-w-7xl w-full flex flex-wrap md:grid md:grid-cols-12 basis-full items-center px-4 md:px-6 md:px-8 mx-auto" aria-label="Global">
     <div className="md:col-span-3">
       {/* <!-- Logo --> */}
