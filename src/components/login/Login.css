@@ -10,6 +10,7 @@
     }
     & .qr-code {
         border-radius: 20px;
+        border: 1px rgb(229, 231, 234) solid;
         margin: 15px;
         width: 200px;
         height: 200px;

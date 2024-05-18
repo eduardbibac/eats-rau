@@ -52,9 +52,7 @@ export default function QRLoginSection () {
 
     return (
         <>
-        {/* // TODO: RAU.BIBBAC.RO GETURL OR smth*/}
-        <h1>{qrCode}</h1>
-        <QRCodeSVG className="hidden lg:flex bg-gray-50 py-5 qr-code" value={getURL(`/login/qr?qr_string=${qrCode}`)}/>
+        <QRCodeSVG className="hidden lg:flex py-5 qr-code" value={getURL(`/login/qr?qr_string=${qrCode}`)}/>
         <div className="lg:flex mt-4 items-end justify-between">
             {/* <span className="border-b w-1/5 md:w-1/4"></span> */}
             <a href="#" className="text-xs text-gray-500">Are you a guest ? Request guest access</a>
