@@ -1,6 +1,7 @@
 'use client';
 
 import { ReactNode, useState } from "react";
+import CartMobile from "./_CartMobile";
 
 export default function CartTablet({children }:{children : ReactNode}) {
   const [widgetCartOpen, setWidgetCartOpen] = useState(false);
@@ -16,7 +17,9 @@ return (
       </button>
       {widgetCartOpen ? (
       <>
-        <div className="w-full bg-slate-300">{children}</div>
+        <CartMobile>
+          {children}
+        </CartMobile>
         
       </>
       ) : null}

@@ -1,8 +1,8 @@
 /* body::-webkit-scrollbar {width: 0 !important;} */
 
 .shop-card {
-    /* If inside any container display vertical, basically...*/
-    @container (width < 19200px) {    
+    
+    @container (width < 1920px) {     /* If inside any container display vertical, basically...*/
         height: 10em;
         min-height: 125px;
         display: grid;
