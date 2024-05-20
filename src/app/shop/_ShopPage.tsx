@@ -13,8 +13,10 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { getShopProducts } from "@/actions/getShopProducts";
 import { cn, unique } from "@/lib/utils";
 import {AnimatePresence, LayoutGroup, motion} from "framer-motion";
+import { Filters } from "./_Filters";
+import ScrollableTabs from "@/components/ScrollableTabs/ScrollableTabs";
 
-let SORT_OPTIONS = ['hm', '??']
+let SORT_OPTIONS = ['all']
 
 export default function ShopPage() {
   // Server Actions Tanstack Querry https://www.youtube.com/watch?v=OgVeQVXt7xU&t=358s
@@ -68,7 +70,12 @@ return (
   <div className="shop-page">
 <div className="layout">
     <div className="shop">
-      <div className="flex gap-5 filters mb-2 rounded-b-lg bg-white p-2">  
+      
+      {/* TODO: Fitlers break layout */}
+
+      <ScrollableTabs></ScrollableTabs>
+
+      <div className="filters flex gap-5 select-none mb-2 rounded-b-lg bg-white p-2">  
         {SORT_OPTIONS.map(i=>(
           <button 
           onClick={() => setActiveFilter(i)}
