@@ -2,7 +2,7 @@
 
 import "@/styles/shop-card.css";
 import type {Product, CartItem} from "@/types/ShopTypes";
-
+import Image from 'next/image'
 const mockdata = {
   image:"https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?q=80&w=2706&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   name: 'Pasta Sauce',
@@ -57,7 +57,16 @@ export default function ShopCard(props: ShopCardProps ) {
 return (
     <article className="shop-card max-w-lg rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 ">
       <div className="relative flex items-end overflow-hidden rounded-xl">
-        <img className="object-cover aspect-[4/3]" src={product.image} alt="Hotel Photo" />
+      <Image
+          className="object-cover aspect-[4/3]" src={product.image} alt={product.name}
+          width={500}
+          height={500}
+          // width={500} automatically provided for local
+          // height={500} automatically provided for local
+          // blurDataURL="data:..." automatically provided
+          // placeholder="blur" // Optional blur-up while loading
+        />
+        {/* <img className="object-cover aspect-[4/3]" src={product.image} alt={product.name} /> */}
       </div>
 
       <div className="text-section mt-1 p-2">
