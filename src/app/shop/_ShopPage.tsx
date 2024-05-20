@@ -13,7 +13,6 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { getShopProducts } from "@/actions/getShopProducts";
 import { cn, unique } from "@/lib/utils";
 import {AnimatePresence, LayoutGroup, motion} from "framer-motion";
-import { Filters } from "./_Filters";
 import ScrollableTabs from "@/components/ScrollableTabs/ScrollableTabs";
 
 let SORT_OPTIONS = ['all']
@@ -67,27 +66,29 @@ export default function ShopPage() {
   }
 
 return (
-  <div className="shop-page">
+<div className="shop-page">
 <div className="layout">
-    <div className="shop">
-      
+  <div className="shop grid lg:block">
+    <div className="flex overflow-x-scroll max-h-12 no-scrollbar filters gap-2 mb-2 rounded-b-lg bg-white p-2">  
+          {SORT_OPTIONS.map(i=>(
+            <ul className='list-none'>
+              <li
+              onClick={() => setActiveFilter(i)}
+              className={cn({
+                'bg-orange-500 text-white': activeFilter === i,
+                'font-normal whitespace-nowrap select-none align-center rounded-full max-h-fit outline hover:text-white flex outline-orange-500 hover:bg-orange-500 p-2 min-w-14 justify-center text-sm': true
+              })}
+              >
+              {i}
+              </li> 
+
+            </ul>
+          ))}
+    </div> 
       {/* TODO: Fitlers break layout */}
 
-      <ScrollableTabs></ScrollableTabs>
-
-      <div className="filters flex gap-5 select-none mb-2 rounded-b-lg bg-white p-2">  
-        {SORT_OPTIONS.map(i=>(
-          <button 
-          onClick={() => setActiveFilter(i)}
-          className={cn({
-            'bg-orange-500 text-white': activeFilter === i,
-            'align-center rounded-full h-8 w-24 outline hover:text-white outline-orange-500 hover:bg-orange-500 p-2 text-sm': true
-          })}
-          >
-            {i}
-          </button>
-        ))}
-      </div>  
+      {/* <ScrollableTabs></ScrollableTabs> */}
+ 
       {isPending ? (
         <div className="products">
           {new Array(12).fill(null).map((_, i) => <ShopSkeletonCard key={i} />)}
@@ -106,22 +107,19 @@ return (
 
     </div>
 
-
-    {/* TODO: Does this render if hiiden in css ? */}
-
     <CartDesktop>
       {renderedCart}
     </CartDesktop>
 
-      <CartTablet>
+    {/*  <CartTablet>
         {renderedCart}
       </CartTablet>
 
       <CartMobile>
         {renderedCart}
-      </CartMobile> 
+      </CartMobile>  */}
 
-  </div>
+</div>
 </div>
 );
 

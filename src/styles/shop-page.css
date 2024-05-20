@@ -10,6 +10,7 @@ body {
       display: grid;
       /* grid-template-columns: clamp(410px, 75vw, 1200px) clamp(200px, 35vw, 600px);  */
       grid-template-columns: clamp(240px, 70%, 1200px) clamp(250px, 30%, 600px); 
+      grid-row: auto;
       /* gap: 20px;   */
       max-width: 1920px;
       margin-left: auto;  
@@ -18,7 +19,6 @@ body {
   }
 
   & .shop {
-    /* max-width: 600px; */
   }
 
   & .products {
@@ -85,6 +85,6 @@ body {
   } 
   
   @media only screen and (max-width: 1300px) {
-    & .layout {grid-template-columns: 1fr;}
+    & .layout {grid-template-columns: auto;}
   }
 }
