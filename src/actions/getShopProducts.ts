@@ -24,5 +24,7 @@ export async function getShopProducts () {
     
   ];
   
+  // TODO:
+  await new Promise(r => setTimeout(r, 500));
   return productDB;
 }
