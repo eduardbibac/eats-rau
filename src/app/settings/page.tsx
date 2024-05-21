@@ -1,7 +1,13 @@
+import { getUserSessions } from "@/actions/(auth_required)/getUserSessions";
 import Navbar from "@/components/NavBar/NavBar";
 
-export default function Settings() {
+export default async function Settings() {
+    const data = await getUserSessions();
     return(
-      <><Navbar></Navbar><h1>Settings</h1></>
+      <>
+      <Navbar/>
+        <h1>{data}
+        </h1>
+      </>
     );
 }
