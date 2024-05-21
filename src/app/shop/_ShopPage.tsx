@@ -6,9 +6,8 @@ import ShopCard from "./_ShopCard";
 import CartTablet from "./_CartTablet";
 import CartDesktop from "./_CartDesktop";
 import CartMobile from "./_CartMobile";
-import ShopSkeletonCard from "./_ShopSkeletionCard";
 
-import { useState, useEffect, Suspense } from "react";
+import { useState, useEffect, Suspense, ReactNode } from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { getShopProducts } from "@/actions/getShopProducts";
 import { cn, unique } from "@/lib/utils";
@@ -17,7 +16,7 @@ import ScrollableTabs from "@/components/ScrollableTabs/ScrollableTabs";
 
 let SORT_OPTIONS = ['all']
 
-export default function ShopPage() {
+export default function ShopPage({children}:{children: ReactNode}) {
   // Server Actions Tanstack Querry https://www.youtube.com/watch?v=OgVeQVXt7xU&t=358s
   const [activeFilter, setActiveFilter] = useState('all');
   const [filter, setFilter] = useState<Product[]>();
@@ -91,7 +90,9 @@ return (
  
       {isPending ? (
         <div className="products">
-          {new Array(12).fill(null).map((_, i) => <ShopSkeletonCard key={i} />)}
+
+          {children}
+
         </div>
       ) : (
         <AnimatePresence initial={false}>
