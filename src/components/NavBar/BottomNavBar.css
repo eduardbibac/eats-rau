@@ -7,6 +7,9 @@
 .mb-active-nav .mb-active-text {
     color: rgb(249 115 22 / var(--tw-bg-opacity));
 }
+.mb-active-nav  .mb-underline-active {
+    background-color: rgb(249 115 22 / var(--tw-bg-opacity));
+}
 
 .bottom-navbar {
     & .hover\:w-full:hover {

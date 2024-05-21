@@ -3,8 +3,15 @@ import "./BottomNavBar.css";
 import "@/styles/navbar.css";
 import NavBarUserSession from "./NavBarUserSession";
 import NavBarLinks from "./NavBarLinks";
-import MobileNavBar from "./MobileNavbar";
+import MobileNavBar from "./MobileNavBar";
 
+/* TODO: Path to cleaning up:
+one source of truth 
+figure out active on the server or standardize all links to use the ActiveClientProvider
+<DesktopNav>
+  <DesktopLink active href='/settings' />
+</DesktopNav>
+*/
 // HMM?
 // const linksData = [
 //   { href: '/', label: 'Home', mobileIcon: '' },
@@ -13,7 +20,7 @@ import MobileNavBar from "./MobileNavbar";
 //   { href: '/dashboard', label: 'Dashboard', role: 'staff'},
 
 //   {loggedIn: [
-//     { href: '/settings', label: 'Settings', mobileIcon: 'Settings' }
+//     { href: '/settings', label: 'Settings', mobileIcon: 'Settings', mobileOnly: true }
 //   ]},
 //   {loggedOut: [
 //     { href: '/login', label: 'Login', mobileIcon: 'Login' }
