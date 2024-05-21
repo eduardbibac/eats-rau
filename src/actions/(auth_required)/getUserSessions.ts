@@ -11,5 +11,5 @@ export async function getUserSessions () {
 	}
   
   const data = await sql`SELECT * FROM user_session WHERE user_id=${user.id}`;
-  return JSON.stringify(data);
+  return data;
 }
