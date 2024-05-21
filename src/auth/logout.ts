@@ -15,6 +15,7 @@ import { cookies } from "next/headers";
 
 export async function logout(): Promise<ActionResult> {
 	"use server";
+	console.log("log");
 	const { session } = await validateRequest();
 	if (!session) {
 		return {
