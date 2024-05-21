@@ -1,3 +1,4 @@
+import 'server-only';
 import { Lucia } from "lucia";
 import { PostgresJsAdapter } from "@lucia-auth/adapter-postgresql";
 import sql from "@/lib/db";

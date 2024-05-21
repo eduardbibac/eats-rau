@@ -1,3 +1,5 @@
+import 'server-only';
+
 import { lucia,  } from "@/auth/lucia";
 import {validateRequest} from "@/auth/validateRequest";
 import { redirect } from "next/navigation";
