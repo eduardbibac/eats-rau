@@ -4,6 +4,20 @@ import "@/styles/navbar.css";
 import NavBarUserSession from "./NavBarUserSession";
 import NavBarLinks from "./NavBarLinks";
 
+// HMM?
+// const linksData = [
+//   { href: '/', label: 'Home', mobileIcon: '' },
+//   { href: '/shop', label: 'Menu', mobileIcon: '' },
+//   { href: '/about', label: 'About', mobileIcon: ''},
+//   { href: '/dashboard', label: 'Dashboard', role: 'staff'},
+
+//   {loggedIn: [
+//     { href: '/settings', label: 'Settings', mobileIcon: 'Settings' }
+//   ]},
+//   {loggedOut: [
+//     { href: '/login', label: 'Login', mobileIcon: 'Login' }
+//   ]}
+// ];
 
 export default async function Navbar () {
 return(
@@ -44,8 +58,8 @@ return(
 </header>
 {/* <!-- ========== END DESKTOP ========== --> */}
 {/* <!-- ========== MOBILE ========== --> */}
-<div className="md:hidden fixed bottom-0 w-full max-w-md mx-auto">
-    <div className="px-7 bg-white shadow-lg rounded-2xl">
+<div className="md:hidden fixed bottom-0 left-0 z-50 w-full mx-auto">
+    <div className="px-7 bg-white shadow-lg rounded-t-2xl">
         <div className="flex">
             <div className="flex-1 group">
                 <a href="#" className="flex items-end justify-center text-center mx-auto px-4 pt-2 w-full text-gray-400 group-hover:text-orange-500">
