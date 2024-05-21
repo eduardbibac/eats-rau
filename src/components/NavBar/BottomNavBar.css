@@ -4,6 +4,10 @@
 /* body {
     font-family: 'Poppins', sans-serif;
 } */
+.mb-active-nav .mb-active-text {
+    color: rgb(249 115 22 / var(--tw-bg-opacity));
+}
+
 .bottom-navbar {
     & .hover\:w-full:hover {
         width: 100%;
@@ -17,4 +21,6 @@
     & .group:hover .group-hover\:flex-grow {
         flex-grow: 1;
     }
+
+
 }

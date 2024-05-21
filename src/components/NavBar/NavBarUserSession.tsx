@@ -1,5 +1,3 @@
-'use server';
-
 import { validateRequest } from "@/auth/validateRequest";
 import { isRoleOrHigher } from "@/lib/role";
 import Link from "next/link";
