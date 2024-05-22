@@ -29,7 +29,7 @@ export default function QRLoginSection () {
             router.refresh();
           }
     
-          // If 5 minutes have passed, clear the interval 
+          // If 1 minute has passed, clear the interval 
           // (stop polling)
           if (Date.now() - startTime >= 1 * 60 * 1000) {
             clearInterval(interval);
@@ -42,6 +42,7 @@ export default function QRLoginSection () {
       
     // QR String Fetch
     useEffectOnce(() => {
+        if(window.innerWidth < 768) return; // Don't do polling on mobile devices
         fetch(`/login/qr`, { cache: 'no-store' })
           .then((res) => res.json())
           .then((data) => {
