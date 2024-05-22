@@ -1,18 +1,16 @@
 'use client';
 
-import { Product, CartItem } from "@/types/ShopTypes";
+import { Product } from "@/types/ShopTypes";
 import Cart from "./_Cart";
 import ShopCard from "./_ShopCard";
-import CartTablet from "./_CartTablet";
 import CartDesktop from "./_CartDesktop";
-import CartMobile from "./_CartMobile";
 
-import { useState, useEffect, Suspense, ReactNode } from "react";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useState, useEffect, ReactNode, useContext } from "react";
+import { useMutation } from "@tanstack/react-query";
 import { getShopProducts } from "@/actions/getShopProducts";
 import { cn, unique } from "@/lib/utils";
 import {AnimatePresence, LayoutGroup, motion} from "framer-motion";
-import ScrollableTabs from "@/components/ScrollableTabs/ScrollableTabs";
+import { CartContext } from "@/providers/CartContextProvider";
 
 let SORT_OPTIONS = ['all']
 
@@ -29,19 +27,12 @@ export default function ShopPage({children}:{children: ReactNode}) {
     server_getProducts();
   }, [])
 
-  const [cartTotal, setCartTotal] = useState('');
-  const [cart, setCart] = useState<CartItem[]>([]);
-  useEffect(() =>{
-    let sum = 0;
-    cart.forEach((i) => {
-      sum += i.product.price * i.count;
-    })
-    setCartTotal(sum.toFixed(2));
-  },[cart])
+  const {cart} = useContext(CartContext);
+
   const renderedCart = (
-    <Cart cartTotal={cartTotal}>
+    <Cart>
       {cart.map(cartItem => (
-        <ShopCard key={cartItem.product.id} product={cartItem.product} cart={cart} setCart={setCart} />
+        <ShopCard key={cartItem.product.id} product={cartItem.product}/>
       ))}
     </Cart>
   );
@@ -99,7 +90,7 @@ return (
           <motion.div initial={false} layout className="products">
             <LayoutGroup>
               {filter?.map(product => (
-                <ShopCard key={product.id} product={product} cart={cart} setCart={setCart} />
+                <ShopCard key={product.id} product={product} />
               ))}
             </LayoutGroup>
           </motion.div>
@@ -118,7 +109,7 @@ return (
 
       <CartMobile>
         {renderedCart}
-      </CartMobile>  */}
+      </CartMobile>  */}  
 
 </div>
 </div>

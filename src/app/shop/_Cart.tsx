@@ -1,13 +1,11 @@
+import { CartContext } from "@/providers/CartContextProvider";
 import { CartItem } from "@/types/ShopTypes";
-import { ReactNode, use, useEffect, useState } from "react";
+import { ReactNode, use, useContext, useEffect, useState } from "react";
 
-interface CartProps {
-  children: ReactNode; // Declare children as a property of type ReactNode
-  cartTotal: string;
-} 
-export default function Cart({ children, cartTotal }: CartProps) {
+export default function Cart({ children }: {children: ReactNode}) {
 
-
+  const {cartTotal} = useContext(CartContext) 
+  
   return(
     <div className="cart">
     <div className="flex justify-between">
