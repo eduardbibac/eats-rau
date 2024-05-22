@@ -33,6 +33,9 @@
             height: 100%;
             width: 100%;
         }
+        &:last-child{
+            margin-bottom: 5rem;
+        }
     }
 
 }
