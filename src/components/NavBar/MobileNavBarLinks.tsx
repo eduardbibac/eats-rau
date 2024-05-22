@@ -9,7 +9,7 @@ const linksData = [
   // { href: '/', label: 'Home', icon:'far fa-home text-2xl pt-1 mb-1 block' },
   { href: '/shop', label: 'Menu', icon:'far fa-utensils text-2xl pt-1 mb-1 block'},
   { href: '/orders', label: 'Orders', icon:'far fa-clipboard-list-check text-2xl pt-1 mb-1 block'},
-  { href: '/cart', label: 'Cart', icon:'far fa-shopping-cart text-2xl pt-1 mb-1 block' },
+  // { href: '/cart', label: 'Cart', icon:'far fa-shopping-cart text-2xl pt-1 mb-1 block' },
   // { href: '/settings', label: 'Settings', mobileOnly: true},
 ];
 

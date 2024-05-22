@@ -1,11 +1,13 @@
 import { CartContext } from "@/providers/CartContextProvider";
 import { CartItem } from "@/types/ShopTypes";
 import { ReactNode, use, useContext, useEffect, useState } from "react";
+import ShopCard from "../app/shop/_ShopCard";
 
-export default function Cart({ children }: {children: ReactNode}) {
-
-  const {cartTotal} = useContext(CartContext) 
+export default function Cart() {
   
+  const {cart} = useContext(CartContext);
+  const {cartTotal} = useContext(CartContext) 
+
   return(
     <div className="cart">
     <div className="flex justify-between">
@@ -16,7 +18,9 @@ export default function Cart({ children }: {children: ReactNode}) {
     <div className="scroll-padding-top"></div>  
     <div className="products">
      
-      {children}
+      {cart.map(cartItem => (
+        <ShopCard key={cartItem.product.id} product={cartItem.product}/>
+      ))}
 
     </div>
   </div>

@@ -6,7 +6,7 @@ import { ReactNode, createContext, useEffect, useState } from 'react'
 export const CartContext = createContext<any>([])
 
 export default function CartContextProvider({children}:{children:ReactNode}) {
-  const [cartTotal, setCartTotal] = useState('');
+const [cartTotal, setCartTotal] = useState('');
 const [cart, setCart] = useState<CartItem[]>([]);
 useEffect(() =>{
   let sum = 0;

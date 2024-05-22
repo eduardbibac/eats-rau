@@ -1,16 +1,15 @@
 'use client';
 
 import { Product } from "@/types/ShopTypes";
-import Cart from "./_Cart";
+import Cart from "../../components/Cart";
 import ShopCard from "./_ShopCard";
 import CartDesktop from "./_CartDesktop";
 
-import { useState, useEffect, ReactNode, useContext } from "react";
+import { useState, useEffect, ReactNode } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { getShopProducts } from "@/actions/getShopProducts";
 import { cn, unique } from "@/lib/utils";
 import {AnimatePresence, LayoutGroup, motion} from "framer-motion";
-import { CartContext } from "@/providers/CartContextProvider";
 
 let SORT_OPTIONS = ['all']
 
@@ -27,15 +26,6 @@ export default function ShopPage({children}:{children: ReactNode}) {
     server_getProducts();
   }, [])
 
-  const {cart} = useContext(CartContext);
-
-  const renderedCart = (
-    <Cart>
-      {cart.map(cartItem => (
-        <ShopCard key={cartItem.product.id} product={cartItem.product}/>
-      ))}
-    </Cart>
-  );
 
   useEffect(() => {
     if(activeFilter === 'all') {
@@ -100,7 +90,7 @@ return (
     </div>
 
     <CartDesktop>
-      {renderedCart}
+      <Cart/>
     </CartDesktop>
 
     {/*  <CartTablet>

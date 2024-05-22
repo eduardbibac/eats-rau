@@ -6,8 +6,8 @@ export default function Providers ({children}: {children: ReactNode})
 {
   return(
     <TanQuerryClientProvider>
-    <CartContextProvider>
-      {children}
-    </CartContextProvider>
+      <CartContextProvider>
+        {children}
+      </CartContextProvider>
   </TanQuerryClientProvider>
 )}

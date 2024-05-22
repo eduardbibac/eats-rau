@@ -4,6 +4,7 @@ import MobileNavBarLinks from "./MobileNavBarLinks";
 import NavActiveClient from "./NavActiveClient";
 import {Cog, LogIn} from "lucide-react";
 import { cn } from "@/lib/utils";
+import CartButton from "./CartButton";
 
 export default async function MobileNavBar() {
 const { user } = await validateRequest();
@@ -13,6 +14,9 @@ return (
         <div className="flex">
           <MobileNavBarLinks></MobileNavBarLinks>
 
+          <div className="flex-1 group">
+            <CartButton></CartButton>
+          </div>
            
           <NavActiveClient>
             {user ? (
