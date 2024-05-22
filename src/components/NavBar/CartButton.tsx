@@ -2,14 +2,8 @@
 
 import { DrawerTrigger, DrawerContent, DrawerHeader, Drawer, DrawerTitle, DrawerDescription } from "@/components/ui/drawer";
 import Cart from "../Cart";
-import { useContext } from "react";
-import { CartContext } from "@/providers/CartContextProvider";
-import ShopCard from "@/app/shop/_ShopCard";
 
 export default function CartButton() {
-  const {cart} = useContext(CartContext);
-  const {cartTotal} = useContext(CartContext) 
-  
 return (
   <div className="mb-active-text flex items-end justify-center text-center mx-auto px-4 pt-2 w-full text-gray-400 group-hover:text-orange-500">
   <Drawer>
@@ -23,10 +17,8 @@ return (
       <DrawerContent className="max-h-[80%] contain-content">
 
       <div className="flex flex-col gap-4 overflow-y-auto">
-        {cart.map(cartItem => (
-          <ShopCard key={cartItem.product.id} product={cartItem.product}/>
-        ))}
-        </div>
+        <Cart/>
+      </div>
 
       </DrawerContent>
     </Drawer>
