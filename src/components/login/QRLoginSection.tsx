@@ -3,7 +3,6 @@
 import getURL from "@/lib/getURL";
 import { useEffectOnce } from "@/lib/useEffectOnce";
 import { useRouter } from 'next/navigation'
-import router from "next/router";
 import { QRCodeSVG } from "qrcode.react";
 import { useEffect, useState } from "react";
 

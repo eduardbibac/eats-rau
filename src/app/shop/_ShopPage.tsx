@@ -51,7 +51,7 @@ return (
   <div className="shop grid lg:block">
     <div className="flex overflow-x-scroll max-h-12 no-scrollbar filters gap-2 mb-2 rounded-b-lg bg-white p-2">  
           {SORT_OPTIONS.map(i=>(
-            <ul className='list-none'>
+            <ul key={i} className='list-none'>
               <li
               onClick={() => setActiveFilter(i)}
               className={cn({

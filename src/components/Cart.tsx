@@ -18,7 +18,7 @@ export default function Cart() {
     <div className="scroll-padding-top"></div>  
     <div className="products">
      
-      {cart.map(cartItem => (
+      {cart.map((cartItem: CartItem) => (
         <ShopCard key={cartItem.product.id} product={cartItem.product}/>
       ))}
 

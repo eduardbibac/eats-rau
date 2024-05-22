@@ -17,7 +17,7 @@ export default function MobileNavBarLinks () {
   const path = usePathname();
   const mobileLinks = linksData.map(link => {
     const isActive = path === (link.href === "/home" ? "/" : link.href) === true;
-    return <Link href={link.href} className="flex-1 group">
+    return <Link key={link.href} href={link.href} className="flex-1 group">
       <div className={cn(
           'flex items-end justify-center text-center mx-auto px-4 pt-2 w-full text-gray-400 group-hover:text-orange-500',
           {'text-orange-500':isActive},
