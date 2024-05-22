@@ -8,6 +8,8 @@ import {
 } from "@/components/ui/card"
 import { Trash2 } from "lucide-react"
 import { invalidateUserSession } from "@/actions/invalidateUserSession"
+import { Button } from "@/components/ui/button"
+import { logout } from "@/auth/logout"
 
 export default async function Settings() {
   const sessions = await getUserSessions();
@@ -15,11 +17,14 @@ export default async function Settings() {
   return (
     <>
     <NavBar></NavBar>
-
+    <div className="mb-4 mt-10 flex justify-center text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">Settings</div>
     <div className="mt-12 container max-w-[900px] flex flex-col gap-5">
 
-      <div className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">Recent Sessions</div>
+    <form action={logout} className="mt-12 w-full ml-auto font-medium" >
+      <Button className="w-full" type="submit">Sing out</Button>
+    </form>
 
+      <div className="mb-4 mt-10 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">Recent Sessions</div>
       {sessions.map((s,i) => (
           <Card key={i}>
           <CardHeader>
