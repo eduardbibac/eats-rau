@@ -51,8 +51,8 @@ export async function GET(request: Request): Promise<Response> {
 
 		const userId = generateIdFromEntropySize(10); // 16 characters long
 
-        await sql`INSERT INTO USERS (id, ms_id, username) 
-        VALUES (${userId}, ${msUser.sub}, ${msUser.name}) `;
+        await sql`INSERT INTO USERS (id, ms_id, username, email) 
+        VALUES (${userId}, ${msUser.sub}, ${msUser.name}), ${msUser.email} `;
         
 		const session = await lucia.createSession(userId, {});
 		const sessionCookie = lucia.createSessionCookie(session.id);
@@ -80,8 +80,5 @@ export async function GET(request: Request): Promise<Response> {
 interface MicrosoftUser {
 	sub: string;
 	name: string;
-    given_name: string;
-    family_name: string;
-    profile_picture_link: string;
-    email: string;
+	email: string;
 }

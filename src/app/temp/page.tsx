@@ -7,6 +7,8 @@
 // import TStickyShopLayout from "@/components/templates/TStickyShopLayout/TStickyShopLayout";
 // import Drawer from "@/components/templates/Drawer";
 
+import THeroBits from "@/components/templates/Hero";
+
 export default function Temp() {
   return (
     <>
@@ -19,6 +21,7 @@ export default function Temp() {
 
       {/* <TStickyShopLayout></TStickyShopLayout> */}
       {/* <Drawer></Drawer> */}
+      {/* <THeroBits /> */}
 
     </>
   );
