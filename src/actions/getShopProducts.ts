@@ -1,5 +1,6 @@
 'use server';
 
+import sql from "@/lib/db";
 import { Product } from "@/types/ShopTypes";
 
 export async function getShopProducts () {
@@ -11,20 +12,27 @@ export async function getShopProducts () {
   ] as const
   
   const productDB: Product[] = [
-    { id: 1, name: 'Paste Sauce', price: 24.99, category:'breakfast', image: images[0] },
-    { id: 2, name: 'Pesto Tagli', price: 34.99, category:'drinks', image: images[1]},
-    { id: 3, name: 'Icecream', price: 5.99, category:'stuff', image: images[2]},
-    { id: 4, name: 'Pizza', price: 34.49, category:'some stuff 2', image: images[3]},
-    { id: 5, name: 'Pizza', price: 34.49, category:'hmmmm', image:images[1]},
-    { id: 6, name: 'Pizza', price: 34.49, category:'lunch', image:images[2]},
-    { id: 7, name: 'Pizza', price: 34.49, category:'lunch', image:images[3]},
-    { id: 8, name: 'Pizza', price: 34.49, category:'woooooow', image:images[3]},
-    { id: 9, name: 'Pizza', price: 34.49, category:'crazy stuff', image:images[0]},
-    { id: 10, name: 'Pizza', price: 34.49, category:'desert', image:images[1]},
+  //   { id: 1, name: 'Paste Sauce', price: 24.99, category:'breakfast', image: images[0] },
+  //   { id: 2, name: 'Pesto Tagli', price: 34.99, category:'drinks', image: images[1]},
+  //   { id: 3, name: 'Icecream', price: 5.99, category:'stuff', image: images[2]},
+  //   { id: 4, name: 'Pizza', price: 34.49, category:'some stuff 2', image: images[3]},
+  //   { id: 5, name: 'Pizza', price: 34.49, category:'hmmmm', image:images[1]},
+  //   { id: 6, name: 'Pizza', price: 34.49, category:'lunch', image:images[2]},
+  //   { id: 7, name: 'Pizza', price: 34.49, category:'lunch', image:images[3]},
+  //   { id: 8, name: 'Pizza', price: 34.49, category:'woooooow', image:images[3]},
+  //   { id: 9, name: 'Pizza', price: 34.49, category:'crazy stuff', image:images[0]},
+  //   { id: 10, name: 'Pizza', price: 34.49, category:'desert', image:images[1]},
     
   ];
   
+  
+  const products = await sql<Product[]>`
+    select
+      id, list_position, category, 
+      price, ro_product_name as name,
+      current_quantity, image
+    from products_on_sale;`;
   // TODO:
   await new Promise(r => setTimeout(r, 500));
-  return productDB;
+  return products;
 }

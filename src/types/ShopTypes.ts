@@ -1,9 +1,11 @@
 export type Product = {
   id: number;
+  list_position: number;
   name: string;
   price: number;
   category: string;
   image: string;
+  quantity: number;
 }
 
 export type CartItem = {

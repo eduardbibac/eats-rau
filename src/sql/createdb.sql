@@ -55,24 +55,30 @@ CREATE TABLE menu (
     menu_name           TEXT NOT NULL,
     is_active           BOOLEAN DEFAULT FALSE,
 
-    list_postion        INT UNIQUE,
+    list_position       INT UNIQUE
 );
 
 CREATE TABLE menu_products (
     menu_id             INT NOT NULL REFERENCES menu(id),
     product_id          INT NOT NULL,
-    menu_quantity      INT NOT NULL CHECK (quantity > 0),
+    menu_quantity       INT NOT NULL CHECK (menu_quantity > 0),
     -- Ask staff: Is the menu prepared today? if yes, then set current_quant = menu_quant;
     current_quantity    INT NOT NULL CHECK (current_quantity >= 0),
-    list_postion        INT UNIQUE,
+    list_position       INT UNIQUE,
 
     PRIMARY KEY (menu_id, product_id)
+);
+
+CREATE TABLE product_categories(
+    id                   SERIAL PRIMARY KEY,
+    ro_name              TEXT NOT NULL,
+    en_name              TEXT NOT NULL
 );
 
 CREATE TABLE products (
     id                   SERIAL PRIMARY KEY,
     price                NUMERIC(10,2) CHECK (price > 0),
-    category             TEXT NOT NULL REFERENCES product_categories(id),
+    category             INT NOT NULL REFERENCES product_categories(id),
     ro_product_name      TEXT NOT NULL,
     en_product_name      TEXT NOT NULL,
     image_link           TEXT NOT NULL
@@ -80,16 +86,11 @@ CREATE TABLE products (
     -- is_listed         BOOLEAN (not necessary because we will work with menu, if it's in the menu it's actively listed product)
 );
 
-CREATE TABLE product_categories(
-    id                   SERIAL PRIMARY KEY,
-    ro_name              TEXT NOT NULL CHECK (name = LOWER(name)),
-    en_name              TEXT NOT NULL CHECK (name = LOWER(name))
-)
 
 CREATE VIEW products_on_sale AS
-SELECT pc.category, p.id, p.price, p.category, p.ro_product_name, p.en_product_name, mp.quantity
+SELECT p.id, mp.list_position, pc.ro_name as category, p.price, p.ro_product_name, p.en_product_name, mp.current_quantity
 FROM products p
-JOIN product_categories pc ON p.id = pc.id
+JOIN product_categories pc ON p.category = pc.id
 JOIN menu_products mp ON p.id = mp.product_id
 JOIN menu m ON mp.menu_id = m.id
 WHERE m.is_active = TRUE;
