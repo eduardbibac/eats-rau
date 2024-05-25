@@ -24,15 +24,26 @@ export async function getShopProducts () {
   //   { id: 10, name: 'Pizza', price: 34.49, category:'desert', image:images[1]},
     
   ];
-  
-  
+
+
+  const isEnglish = true;
+  const name = isEnglish 
+    ? 'p.en_product_name'
+    : 'p.ro_product_name'
+  const cat = isEnglish 
+    ? 'p.en_categories'
+    : 'p.ro_categories'
+    // p.ro_product_name as name, p.ro_categories as categories,
   const products = await sql<Product[]>`
-    select
-      id, list_position, category, 
-      price, ro_product_name as name,
-      current_quantity, image
-    from products_on_sale;`;
-  // TODO:
-  await new Promise(r => setTimeout(r, 500));
-  return products;
+  SELECT p.id, p.list_position, p.price, 
+      ${ sql(name) } as name, ${ sql(cat) } as categories,
+      p.current_quantity as quantity, p.image
+    from products_on_sale p
+    order by list_position ASC;`;
+
+    console.log(products.flatMap(p => p))
+
+    // TODO:
+    await new Promise(r => setTimeout(r, 500));
+    return products;
 }

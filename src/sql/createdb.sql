@@ -69,7 +69,7 @@ CREATE TABLE menu_products (
     PRIMARY KEY (menu_id, product_id)
 );
 
-CREATE TABLE product_categories(
+CREATE TABLE categories(
     id                   SERIAL PRIMARY KEY,
     ro_name              TEXT NOT NULL,
     en_name              TEXT NOT NULL
@@ -78,7 +78,6 @@ CREATE TABLE product_categories(
 CREATE TABLE products (
     id                   SERIAL PRIMARY KEY,
     price                NUMERIC(10,2) CHECK (price > 0),
-    category             INT NOT NULL REFERENCES product_categories(id),
     ro_product_name      TEXT NOT NULL,
     en_product_name      TEXT NOT NULL,
     image_link           TEXT NOT NULL
@@ -86,11 +85,29 @@ CREATE TABLE products (
     -- is_listed         BOOLEAN (not necessary because we will work with menu, if it's in the menu it's actively listed product)
 );
 
+CREATE TABLE product_categories (
+    category_id         INT NOT NULL REFERENCES categories(id),
+    product_id          INT NOT NULL REFERENCES products(id),
 
-CREATE VIEW products_on_sale AS
-SELECT p.id, mp.list_position, pc.ro_name as category, p.price, p.ro_product_name, p.en_product_name, mp.current_quantity
+    PRIMARY KEY (category_id, product_id)
+);
+
+CREATE VIEW products_with_categories AS
+SELECT p.id, p.ro_product_name, p.en_product_name, p.price,
+    array_agg(c.ro_name) as ro_categories, 
+    array_agg(c.en_name) as en_categories,
+	p.image_link
 FROM products p
-JOIN product_categories pc ON p.category = pc.id
+JOIN product_categories pc ON pc.product_id = p.id
+JOIN categories c ON pc.category_id= c.id
+GROUP BY p.id;
+
+
+SELECT p.id, mp.list_position, p.price, 
+    p.en_product_name, p.en_categories, 
+    p.ro_product_name, p.ro_categories,
+    mp.current_quantity, p.image_link as image
+FROM products_with_categories p
 JOIN menu_products mp ON p.id = mp.product_id
 JOIN menu m ON mp.menu_id = m.id
 WHERE m.is_active = TRUE;

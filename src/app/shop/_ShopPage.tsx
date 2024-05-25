@@ -33,7 +33,7 @@ export default function ShopPage({children}:{children: ReactNode}) {
       return;
     }
     
-    setFilter(products?.filter((p) => p.category === activeFilter))
+    setFilter(products?.filter((p) => p.categories.includes(activeFilter)))
   }, [products, activeFilter])
 
   if (isError) {
@@ -42,7 +42,9 @@ export default function ShopPage({children}:{children: ReactNode}) {
 
   if(isSuccess){
     // TODO: fetch from DB (still unique)
-    SORT_OPTIONS = ['all', ...unique(products.map((i)=> i.category))];
+    const allCategories = products.flatMap(product => product.categories);
+
+    SORT_OPTIONS = ['all', ...unique(allCategories)];
   }
 
 return (
