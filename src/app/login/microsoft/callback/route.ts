@@ -6,6 +6,7 @@ import { cookies } from "next/headers";
 import { OAuth2RequestError } from "arctic";
 import { generateIdFromEntropySize } from "lucia";
 import sql from "@/lib/db";
+import { userAgent } from "next/server";
 
 export async function GET(request: Request): Promise<Response> {
 	const url = new URL(request.url);
@@ -49,12 +50,21 @@ export async function GET(request: Request): Promise<Response> {
 			});
 		}
 
+
+
 		const userId = generateIdFromEntropySize(10); // 16 characters long
 
         await sql`INSERT INTO USERS (id, ms_id, username, email) 
-        VALUES (${userId}, ${msUser.sub}, ${msUser.name}), ${msUser.email} `;
-        
-		const session = await lucia.createSession(userId, {});
+        VALUES (${userId}, ${msUser.sub}, ${msUser.name}, ${msUser.email})`;
+    
+		const { device, browser, os } = userAgent(request)
+		const deviceString = [
+			device.type ??  '',
+			browser.name ?? '',
+			os.name ?? ''
+		].join(' ').toString();
+		
+		const session = await lucia.createSession(userId, {device: deviceString});
 		const sessionCookie = lucia.createSessionCookie(session.id);
 		cookies().set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes);
 		return new Response(null, {
@@ -71,6 +81,7 @@ export async function GET(request: Request): Promise<Response> {
 				status: 400
 			});
 		}
+		console.log(e);
 		return new Response(null, {
 			status: 500
 		});

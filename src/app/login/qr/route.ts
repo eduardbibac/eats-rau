@@ -5,7 +5,7 @@ import { validateRequest } from '@/auth/validateRequest';
 import sql from '@/lib/db';
 import { generateIdFromEntropySize } from 'lucia';
 import { cookies } from 'next/headers';
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest, NextResponse, userAgent } from 'next/server';
 import { redirect } from 'next/navigation';
 import { json } from 'stream/consumers';
 import getURL from '@/lib/getURL';
@@ -73,7 +73,16 @@ export async function POST(req: Request) : Promise<Response> {
   try{
     const [row] = await sql`SELECT is_validated_by_user FROM QRSession WHERE code=${data.qr_string}`
     if(row.is_validated_by_user) {
-      const session = await lucia.createSession(row.is_validated_by_user, {});
+
+      const { device, browser, os } = userAgent(req)
+      const deviceString = [
+        'qr',
+        device.type ??  '',
+        browser.name ?? '',
+        os.name ?? ''
+      ].join(' ').toString();
+
+      const session = await lucia.createSession(row.is_validated_by_user, {device:deviceString});
 			const sessionCookie = lucia.createSessionCookie(session.id);
 			cookies().set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes);
 			return new Response(JSON.stringify({'isValid':'true'}), { status: 201 });

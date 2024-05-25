@@ -28,7 +28,7 @@ export default async function Settings() {
       {sessions.map((s,i) => (
           <Card key={i}>
           <CardHeader>
-          Windows PC
+          {s.device}
           </CardHeader>
           <CardContent className="grid gap-8">
             <div className="flex items-center gap-4">
@@ -36,7 +36,7 @@ export default async function Settings() {
                 <p className="text-sm font-medium leading-none">{s.id.slice(0,7)}</p>
                 <p className="text-sm text-muted-foreground">
                   {/* TODO: */}
-                  last used 12/04/2024 at 15PM
+                  {/* last used 12/04/2024 at 15PM */}
                 </p>
               </div>
               <form action={invalidateUserSession} className="ml-auto font-medium" >
