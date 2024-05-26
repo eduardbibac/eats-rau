@@ -1,3 +1,5 @@
+'use client';
+
 import { Button } from "@/components/ui/button"
 import {
   Dialog,
@@ -11,8 +13,17 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import PickDining from "./PickDining"
+import { useState } from "react";
+import PickPayment from "./PickPayment";
 
 export function CheckoutModal() {
+  const [selectedDining, setSelectedDining] = useState('');
+  const [selectedPayment, setSelectedPayment] = useState('');
+  const [step, setStep] = useState<1|2>(1);
+
+  function sendOrder() {
+    alert(selectedDining + selectedPayment)
+  }
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -20,11 +31,13 @@ export function CheckoutModal() {
       </DialogTrigger>
       <DialogContent className="sm:max-w-[625px] sm:min-h-[400px]">
 
+          {step  === 1 ? (
+            <PickDining setStep={setStep} selectedDining={selectedDining} setSelectedDining={setSelectedDining}/>
+          ): (
+            <PickPayment sendOrder={sendOrder} setStep={setStep} selectedPayment={selectedPayment} setSelectedPayment={setSelectedPayment}/>
+          )}
 
-          <PickDining />
-
-
-      </DialogContent>
+      </DialogContent>  
     </Dialog>
   )
 }
