@@ -26,7 +26,7 @@ export async function getShopProducts () {
   ];
 
 
-  const isEnglish = true;
+  const isEnglish = false;
   const name = isEnglish 
     ? 'p.en_product_name'
     : 'p.ro_product_name'
@@ -40,8 +40,6 @@ export async function getShopProducts () {
       p.current_quantity as quantity, p.image
     from products_on_sale p
     order by list_position ASC;`;
-
-    console.log(products.flatMap(p => p))
 
     // TODO:
     await new Promise(r => setTimeout(r, 500));
