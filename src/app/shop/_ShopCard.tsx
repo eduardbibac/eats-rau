@@ -26,7 +26,7 @@ return (
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}
       layout 
-      className="shop-card max-w-lg rounded-xl bg-white p-3 shadow-lg hover:shadow-xl ">
+      className="shop-card rounded-xl bg-white p-3 shadow-lg hover:shadow-xl ">
       {/* hover:transform hover:scale-105 duration-300 */}
       <div className="relative flex items-end overflow-hidden rounded-xl">
       <Image

@@ -1,15 +1,16 @@
 'use client';
 
 import { Product } from "@/types/ShopTypes";
-import Cart from "../../components/Cart";
 import ShopCard from "./_ShopCard";
-import CartDesktop from "./_CartDesktop";
 
 import { useState, useEffect, ReactNode } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { getShopProducts } from "@/actions/getShopProducts";
 import { cn, unique } from "@/lib/utils";
 import {AnimatePresence, LayoutGroup, motion} from "framer-motion";
+import CartTablet from "./_CartTablet";
+import Cart from "@/components/Cart";
+import CartDesktop from "./_CartDesktop";
 
 let SORT_OPTIONS = ['all']
 
@@ -95,13 +96,7 @@ return (
       <Cart/>
     </CartDesktop>
 
-    {/*  <CartTablet>
-        {renderedCart}
-      </CartTablet>
-
-      <CartMobile>
-        {renderedCart}
-      </CartMobile>  */}  
+    <CartTablet />
 
 </div>
 </div>
