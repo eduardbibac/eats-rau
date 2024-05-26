@@ -2,7 +2,7 @@ import { CartContext } from "@/providers/CartContextProvider";
 import { CartItem } from "@/types/ShopTypes";
 import { ReactNode, use, useContext, useEffect, useState } from "react";
 import ShopCard from "../app/shop/_ShopCard";
-import {CheckoutModal} from "@/components/CheckoutModal";
+import {CheckoutModal} from "@/components/CheckoutModal/CheckoutModal";
 
 export default function Cart() {
   

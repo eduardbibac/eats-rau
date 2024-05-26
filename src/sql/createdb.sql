@@ -102,7 +102,7 @@ JOIN product_categories pc ON pc.product_id = p.id
 JOIN categories c ON pc.category_id= c.id
 GROUP BY p.id;
 
-
+CREATE VIEW products_on_sale AS
 SELECT p.id, mp.list_position, p.price, 
     p.en_product_name, p.en_categories, 
     p.ro_product_name, p.ro_categories,
