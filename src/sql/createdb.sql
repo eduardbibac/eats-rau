@@ -35,12 +35,12 @@ CREATE TABLE operating_days (
 );
 
 CREATE TABLE operating_hours (
-    start       TIME NOT NULL,
-    end         TIME NOT NULL,
-    day         INT NOT NULL REFERENCES operating_days(id),
-
-    PRIMARY KEY (start, end),
-    CHECK (end_date > start_date)   -- Ensures that the end date is after the start date
+    hour_start       TIME NOT NULL,
+    hour_end         TIME NOT NULL,
+    operating_day    DATE NOT NULL REFERENCES operating_days(day),
+	
+	CHECK (hour_end > hour_start),   -- Ensures that the end date is after the start date
+    PRIMARY KEY (hour_start, hour_end)
 );
 
 -- Categories: id:1, name:breakfast
@@ -113,25 +113,36 @@ JOIN menu m ON mp.menu_id = m.id
 WHERE m.is_active = TRUE;
 
 
--- INSERT ONLY TABLE!
 CREATE TABLE orders (
     id                  SERIAL PRIMARY KEY,
-    user_id             INT NOT NULL REFERENCES users(id),
+    user_id             TEXT NOT NULL REFERENCES users(id),
+    order_status        TEXT NOT NULL CHECK (order_status IN ('pending', 'in_progress', 'ready_for_pickup', 'completed', 'canceled')),
+    order_type          TEXT NOT NULL CHECK (order_type IN ('dine_in', 'pickup')),
+    payment_method      TEXT NOT NULL CHECK (payment_method IN ('cash', 'card')),
+    payment_status      TEXT DEFAULT 'unpaid' CHECK (payment_status IN ('unpaid', 'paid')),
+    is_scheduled_at     TIMESTAMP DEFAULT NOW(),
+	
+	changed_by			TEXT
+);
+
+CREATE TABLE order_history (
+    id		            SERIAL PRIMARY KEY,
+    order_id 			INT NOT NULL REFERENCES orderS(id),
     order_status        TEXT NOT NULL CHECK (order_status IN ('pending', 'in_progress', 'ready_for_pickup', 'completed', 'canceled')),
     order_type          TEXT NOT NULL CHECK (order_type IN ('dine_in', 'pickup')),
     payment_method      TEXT NOT NULL CHECK (payment_method IN ('cash', 'card')),
     payment_status      TEXT DEFAULT 'unpaid' CHECK (payment_status IN ('unpaid', 'paid')) ,
     is_scheduled_at     TIMESTAMP DEFAULT NOW(),
-
-    version             INT DEFAULT 1
+	
+    change_timestamp    TIMESTAMP DEFAULT NOW(),
+	changed_by			TEXT
 );
-CREATE OR REPLACE VIEW current_orders AS
-SELECT *
-FROM orders o
-WHERE o.version = (
-    SELECT MAX(version)
-    FROM orders
-    WHERE id = o.id
+
+CREATE TABLE order_products (
+	order_id 			INT NOT NULL REFERENCES orderS(id),
+	product_id			INT NOT NULL REFERENCES products(id),
+	price_paid			NUMERIC(10,2) NOT NULL,
+	quantity            INT NOT NULL CHECK (quantity > 0)
 );
 
 
