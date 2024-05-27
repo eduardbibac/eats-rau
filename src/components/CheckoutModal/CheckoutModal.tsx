@@ -26,13 +26,10 @@ export function CheckoutModal() {
   const [step, setStep] = useState<1|2>(1);
   const {cart} = useContext(CartContext)
 
-  const products = cart.map((i: CartItem) => {
-    const productIds = [];
-    for (let j = 0; j < i.count; j++) {
-        productIds.push(i.product.id);
-    }
-    return productIds;
-});
+  const products = cart.map((item: CartItem) => ({
+    id: item.product.id,
+    quantity: item.count,
+  }));
 
   return (
     <Dialog>

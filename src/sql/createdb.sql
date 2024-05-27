@@ -139,10 +139,12 @@ CREATE TABLE order_history (
 );
 
 CREATE TABLE order_products (
-	order_id 			INT NOT NULL REFERENCES orderS(id),
+	id		            SERIAL PRIMARY KEY,
+	order_id 			INT NOT NULL REFERENCES orders(id),
 	product_id			INT NOT NULL REFERENCES products(id),
 	price_paid			NUMERIC(10,2) NOT NULL,
 	quantity            INT NOT NULL CHECK (quantity > 0)
 );
+
 
 
