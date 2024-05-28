@@ -39,3 +39,35 @@ WHERE id = 1;
 
 
 
+BEGIN;
+INSERT INTO orders (user_id, order_status, order_type, payment_method, payment_status)
+VALUES 
+    ('${user.id}', 'pending', '${dineIn}', '${payment_method}', 'unpaid', 'user', changed_by)
+RETURNING id as new_order_id;
+
+INSERT INTO order_products(order_id, product_id, price_paid, quantity)
+VALUES
+	(new_order_id, ${prduct.id}, (SELECT price FROM products p WHERE p.id = ${prduct.id}), {})
+
+COMMIT;
+
+
+
+CREATE TABLE order_products (
+	...
+	price_paid			NUMERIC(10,2) DEFAULT ;
+);
+
+
+select * from orders;
+
+CREATE VIEW admin_orders
+SELECT order_id, array_agg(p.en_product_name), array_agg(p.en_product_name), 
+user_id, order_status, order_type, payment_status, is_scheduled_at,
+
+FROM orders o
+JOIN order_products op ON o.id = op.order_id
+JOIN products p on op.product_id = p.id
+GROUP BY o.id;
+
+
