@@ -3,48 +3,34 @@
 import { useEffect, useState } from "react";
 
 export default function OrderPage()  {
-  const [orders, setOrders] = useState([]);
+  const [orders, setOrders] = useState<Order[]>([]);
+  const eventSource = new EventSource('/dashboard/orders');
 
   useEffect(() => {
-      // Initiate the first call to connect to SSE API
-      const eventSource = new EventSource('/dashboard/orders')
-      eventSource.addEventListener('message', (event) => {
-        // Parse the data received from the stream into JSON
-        // Add it the list of messages seen on the page
-        const tmp = JSON.parse(event.data)
-        // Do something with the obtained message
-        setOrders(tmp)
-      })
-      eventSource.addEventListener('error', () => {
-        eventSource.close()
-      })
+    // Initiate the first call to connect to SSE API
+    
+    eventSource.addEventListener('message', (event) => {
+      // Parse the data received from the stream into JSON
+      const newOrders: Order[] = JSON.parse(event.data);
+      // Update the list of orders
+      setOrders([...orders, ...newOrders]);
+    });
 
-      // As the component unmounts, close listener to SSE API
-      return () => {
-        eventSource.close()
-      }
-   
-    }, [])
+    eventSource.addEventListener('error', () => {
+      eventSource.close();
+      // Optionally, implement retry logic or inform the user here
+    });
 
+    // As the component unmounts, close listener to SSE API
+    return () => {
+      eventSource.close();
+    };
+  }, []);
 
-return (
-<>
-  {orders.map(order => {
-    <h1>{order}</h1>
-  })}
-</>
-);
+  return (
+    <>
+      <h1>All orders</h1>
+      {/* {orders.map((order,i) => <h1 key={i}>{order.id}</h1>)} */}
+    </>
+  );
 }
-
-
-
-// const event = new EventSource('/orders')
-// event.addEventListener('message', function(e) {     
-//   console.log(e.data);
-// }, false);
-// event.addEventListener('open', function(e) {
-// // successful connection.
-// }, false);
-// event.addEventListener('error', function(e) {
-// // error occurred
-// }, false);

@@ -15,3 +15,5 @@ drop table products cascade;
 
 drop view products_with_categories cascade;
 drop view products_on_sale cascade;
+
+drop PUBLICATION insert_orders;
