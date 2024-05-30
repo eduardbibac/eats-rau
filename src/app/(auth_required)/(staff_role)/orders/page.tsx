@@ -1,19 +1,18 @@
 'use client';
 
+import { Order } from "@/types/dbTypes";
 import { useEffect, useState } from "react";
 
 export default function OrderPage()  {
   const [orders, setOrders] = useState<Order[]>([]);
-  const eventSource = new EventSource('/dashboard/orders');
 
   useEffect(() => {
-    // Initiate the first call to connect to SSE API
+    const eventSource = new EventSource('/orders/updates');
     
     eventSource.addEventListener('message', (event) => {
-      // Parse the data received from the stream into JSON
-      const newOrders: Order[] = JSON.parse(event.data);
-      // Update the list of orders
-      setOrders([...orders, ...newOrders]);
+      let newOrders: Order[] = JSON.parse(event.data);
+      if (!Array.isArray(newOrders)) { newOrders = [newOrders]; }
+      setOrders((p) => [...p, ...newOrders])
     });
 
     eventSource.addEventListener('error', () => {
@@ -30,7 +29,7 @@ export default function OrderPage()  {
   return (
     <>
       <h1>All orders</h1>
-      {/* {orders.map((order,i) => <h1 key={i}>{order.id}</h1>)} */}
+      {orders.map((order,i) => <h1 key={i}>{`${order.id}: ${order.order_type} ${order.user_id}`}</h1>)}
     </>
   );
 }
