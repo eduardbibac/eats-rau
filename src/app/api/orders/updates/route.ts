@@ -49,7 +49,7 @@ export async function GET() {
       Connection: 'keep-alive',
       'Cache-Control': 'no-cache, no-transform',
       'Content-Encoding': 'none',
-      'X-Accel-Buffering': 'no;'
+      'X-Accel-Buffering': 'no'
     },
   });
 }
