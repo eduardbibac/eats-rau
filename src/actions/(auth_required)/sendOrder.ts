@@ -10,7 +10,7 @@ export default async function sendOrder (
   products: [{id: number, quantity:number}]
 ) {
   const { user } = await validateRequest();
-  if (!user) { redirect("/login"); }
+  if (!user) { redirect("/login"); return; }
   if (!['pickup', 'dine_in'].includes(dine_in)) return;
   if (!['cash', 'card'].includes(payment_method)) return;
   if (!products.length) return;

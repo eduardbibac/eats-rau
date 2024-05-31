@@ -7,7 +7,7 @@ import { OAuth2RequestError } from "arctic";
 import { generateIdFromEntropySize } from "lucia";
 import sql from "@/lib/db";
 import { userAgent } from "next/server";
-
+import type {DatabaseUser} from "@/types/dbTypes"
 export async function GET(request: Request): Promise<Response> {
 	const url = new URL(request.url);
 	const code = url.searchParams.get("code");
@@ -35,7 +35,7 @@ export async function GET(request: Request): Promise<Response> {
 
 
        
-        const [existingUser]: [DatabaseUser?]  
+        const [existingUser]: [DatabaseUser]  
             = await sql`SELECT * FROM users WHERE ms_id = ${msUser.sub}`;
 
 		if (existingUser) {

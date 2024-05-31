@@ -26,7 +26,7 @@ export default function ShopPage({children}:{children: ReactNode}) {
   })
   useEffect(() => {
     server_getProducts(locale);
-  }, [])
+  }, [locale])
 
 
   useEffect(() => {

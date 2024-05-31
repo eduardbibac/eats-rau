@@ -25,7 +25,7 @@ export default async function Settings() {
     </form>
 
       <div className="mb-4 mt-10 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">Recent Sessions</div>
-      {sessions.map((s,i) => (
+      {sessions!.map((s,i) => (
           <Card key={i}>
           <CardHeader>
           {s.device}

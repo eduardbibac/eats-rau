@@ -8,6 +8,7 @@ export async function getUserSessions () {
   const { user } = await validateRequest();
   if (!user) {
 		redirect("/login");
+    return;
 	}
   
   const data = await sql`SELECT * FROM user_session WHERE user_id=${user.id}`;

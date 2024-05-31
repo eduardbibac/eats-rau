@@ -1,4 +1,4 @@
-interface DatabaseUser {
+export type DatabaseUser = {
   id: string;
   ms_id: string;
   username: string;
