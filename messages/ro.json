@@ -1,0 +1,6 @@
+{
+  "Index": {
+    "title": "Salut lume!",
+    "hard_test" : "{count, plural, =0 {Nu ai urmăritori} =1 {Ai un urmăritor} =2 {Ai # urmăritori} =3 {Ai # urmăritori} =4 {Ai # urmăritori} =5 {Ai # urmăritori} =6 {Ai # urmăritori} =7 {Ai # urmăritori} =8 {Ai # urmăritori} =9 {Ai # urmăritori} =10 {Ai # urmăritori} =11 {Ai # urmăritori} =12 {Ai # urmăritori} =13 {Ai # urmăritori} =14 {Ai # urmăritori} =15 {Ai # urmăritori} =16 {Ai # urmăritori} =17 {Ai # urmăritori} =18 {Ai # urmăritori} =19 {Ai # urmăritori} other {Ai # de urmăritori}}."
+  }
+}

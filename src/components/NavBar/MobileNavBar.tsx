@@ -1,5 +1,5 @@
 import { validateRequest } from "@/auth/validateRequest";
-import Link from "next/link";
+import { Link } from "@/navigation";
 import MobileNavBarLinks from "./MobileNavBarLinks";
 import NavActiveClient from "./NavActiveClient";
 import {Cog, LogIn} from "lucide-react";

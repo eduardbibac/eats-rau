@@ -1,6 +1,6 @@
 'use client';
 
-import Link from "next/link";
+import { Link } from "@/navigation";
 import { usePathname } from "next/navigation";
 
 // TODO: Add mobile only flag that adds a hidden on desktop version through css (clsx)

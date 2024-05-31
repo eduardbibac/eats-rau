@@ -1,6 +1,6 @@
 import { validateRequest } from "@/auth/validateRequest";
 import { isRoleOrHigher } from "@/lib/role";
-import Link from "next/link";
+import { Link } from "@/navigation";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { AvatarMenu } from "./AvatarMenu";
 
