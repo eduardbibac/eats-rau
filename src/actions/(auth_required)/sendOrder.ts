@@ -2,7 +2,7 @@
 
 import { validateRequest } from "@/auth/validateRequest";
 import sql from "@/lib/db";
-import { redirect } from "next/navigation";
+import { redirect } from "@/navigation";
 
 export default async function sendOrder (
   dine_in:string,

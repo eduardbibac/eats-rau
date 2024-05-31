@@ -34,7 +34,7 @@ export const validateRequest = cache(
 :This function can then be used in server components and form actions to get the current session and user.
 
 
-import { redirect } from "next/navigation";
+import { redirect } from "@/navigation";
 import { validateRequest } from "@/lib/auth";
 
 export default async function Page() {

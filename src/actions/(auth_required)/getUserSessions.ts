@@ -2,7 +2,7 @@
 
 import { validateRequest } from "@/auth/validateRequest";
 import sql from "@/lib/db";
-import { redirect } from "next/navigation";
+import { redirect } from "@/navigation";
 
 export async function getUserSessions () {
   const { user } = await validateRequest();

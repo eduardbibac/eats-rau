@@ -2,7 +2,7 @@ import { validateRequest } from "@/auth/validateRequest";
 import sql from "@/lib/db";
 import { isRoleOrHigher } from "@/lib/role";
 import { Order } from "@/types/dbTypes";
-import { redirect } from "next/navigation";
+import { redirect } from "@/navigation";
 
 export const runtime = 'nodejs';
 // This is required to enable streaming
