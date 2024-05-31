@@ -25,11 +25,15 @@ export async function GET() {
     const jsonMessage = JSON.stringify(message);
     writer.write(encoder.encode(`data: ${jsonMessage}\n\n`));
   };
-  
+
+  let orders
   try {
-    const orders = await sql<Order[]>`SELECT * FROM orders`;
+    orders = await sql<Order[]>`SELECT * FROM orders`;
+  } catch (e) {orders = {}}
+  
     sendMessage(orders);
 
+  try {
     const { unsubscribe } = await sql.subscribe(
       'insert:orders', 
       (row) => {
