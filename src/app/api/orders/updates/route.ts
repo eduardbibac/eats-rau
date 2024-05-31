@@ -23,16 +23,13 @@ export async function GET() {
 
   const sendMessage = (message: any) => {
     const jsonMessage = JSON.stringify(message);
-    console.log('Is json bottleneck?')
     writer.write(encoder.encode(`data: ${jsonMessage}\n\n`));
-    console.log('Is writer bottleneck?')
   };
   
   try {
     const { unsubscribe } = await sql.subscribe(
       'insert:orders', 
       (row) => {
-        console.log('Is db bottleneck?')
         sendMessage([row]);
       },
       () => {
@@ -44,6 +41,7 @@ export async function GET() {
 
   // Return the stream response and keep the connection alive
   return new Response(responseStream.readable, {
+    //'X-Accel-Buffering': 'no' MUST BE SET OTHERWISE NGINX WILL BUFFER YOUR RESPONSES (meanign 2-3m delays)!
     headers: {
       'Content-Type': 'text/event-stream; charset=utf-8',
       Connection: 'keep-alive',
