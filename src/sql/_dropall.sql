@@ -1,24 +1,19 @@
-drop table users cascade; 
-drop table user_session cascade;
-drop table QRSession cascade;
-drop table guest_session_request cascade;
-drop table operating_days cascade;
-drop table operating_hours cascade;
-drop table menu cascade;
-drop table menu_products cascade;
-drop table categories cascade;
-drop table product_categories cascade;
-drop table orders cascade;
-drop table order_history cascade;
-drop table order_products cascade;
-drop table products cascade;
+DROP TABLE IF EXISTS users cascade; 
+DROP TABLE IF EXISTS user_session cascade;
+DROP TABLE IF EXISTS QRSession cascade;
+DROP TABLE IF EXISTS guest_session_request cascade;
+DROP TABLE IF EXISTS operating_days cascade;
+DROP TABLE IF EXISTS operating_hours cascade;
+DROP TABLE IF EXISTS menu cascade;
+DROP TABLE IF EXISTS menu_products cascade;
+DROP TABLE IF EXISTS categories cascade;
+DROP TABLE IF EXISTS product_categories cascade;
+DROP TABLE IF EXISTS orders cascade;
+DROP TABLE IF EXISTS order_history cascade;
+DROP TABLE IF EXISTS order_products cascade;
+DROP TABLE IF EXISTS products cascade;
 
-drop view products_with_categories cascade;
-drop view products_on_sale cascade;
+DROP VIEW IF EXISTS products_with_categories cascade;
+DROP VIEW IF EXISTS products_on_sale cascade;
 
-
-
-ALTER SYSTEM SET wal_level = logical;
-CREATE PUBLICATION insert_orders FOR TABLE orders
-    WITH (publish = 'insert');
-drop PUBLICATION insert_orders
+drop function if exists qrsession_delete_old_rows;
