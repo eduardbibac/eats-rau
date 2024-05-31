@@ -5,6 +5,12 @@
   },
 
   "Navigation": {
-    "Menu": "Meniu"
+    "Home": "Acasă",
+    "Menu": "Meniu",
+    "Orders": "Comenzi",
+    "Sign In": "Conectare",
+    "Dashboard": "Dashboard",
+    "Cart": "Coș",
+    "Settings":"Setări"
   }
 }

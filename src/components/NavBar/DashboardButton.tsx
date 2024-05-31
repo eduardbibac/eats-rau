@@ -7,14 +7,9 @@ return (
   <div className="flex flex-col gap-y-4 gap-x-0 mt-5 md:flex-row md:justify-center md:items-center md:gap-y-0 md:gap-x-7 md:mt-0">    
     
       <div>
-        <Link 
-        // data-hilight=
-        href={href}
-        className="
-        data-[hilight]:relative inline-block text-black before:absolute before:bottom-0.5 before:start-0 before:-z-[1] before:w-full before:h-1 before:bg-orange-400
-        inline-block text-black hover:text-gray-600">
-          {label}
-        </Link>
+      <Link href={href} className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-xl border border-gray-200 text-black hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none">
+      {label}
+      </Link>
       </div>
   
   </div>

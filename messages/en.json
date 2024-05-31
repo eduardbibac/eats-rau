@@ -5,7 +5,12 @@
   },
 
   "Navigation": {
+    "Home": "Home",
     "Menu": "Menu",
-    "Sign In": "Sign In"
+    "Orders": "Orders",
+    "Sign In": "Sign In",
+    "Dashboard": "Dashboard",
+    "Cart": "Cart",
+    "Settings":"Settings"
   }
 }
