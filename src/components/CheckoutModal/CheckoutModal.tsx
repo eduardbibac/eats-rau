@@ -19,13 +19,14 @@ import { validateAuth } from "@/actions/validateAuth";
 import sendOrder from "@/actions/(auth_required)/sendOrder";
 import { CartContext } from "@/providers/CartContextProvider";
 import { CartItem, Product } from "@/types/ShopTypes";
+import { useTranslations } from "next-intl";
 
 export function CheckoutModal() {
   const [selectedDining, setSelectedDining] = useState('');
   const [selectedPayment, setSelectedPayment] = useState('');
   const [step, setStep] = useState<1|2>(1);
   const {cart} = useContext(CartContext)
-
+  const t = useTranslations('Shop');
   const products = cart.map((item: CartItem) => ({
     id: item.product.id,
     quantity: item.count,
@@ -34,7 +35,7 @@ export function CheckoutModal() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-      <button onClick={() => validateAuth()} className=" text-lg items-center w-full h-30 rounded-lg bg-orange-500 py-1.5 text-white duration-100 hover:bg-orange-600">Checkout</button>
+      <button onClick={() => validateAuth()} className=" text-lg items-center w-full h-30 rounded-lg bg-orange-500 py-1.5 text-white duration-100 hover:bg-orange-600">{t('Checkout')}</button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[625px] sm:min-h-[400px]">
 

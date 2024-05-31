@@ -11,6 +11,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Armchair, CreditCard, DollarSign, MoveLeft, Package2 } from "lucide-react"
+import { useTranslations } from "next-intl"
 import { Dispatch, SetStateAction } from "react"
 
 type PickDiningProps = {
@@ -23,12 +24,14 @@ type PickDiningProps = {
 
 export default function PickDining (props: PickDiningProps) {
   const {selectedPayment, setSelectedPayment, setStep, sendOrder} = props;
+  const t = useTranslations('Shop');
+
 return (
   <>
   <DialogHeader>
-      <DialogTitle>Select your payment option</DialogTitle>
+      <DialogTitle>{t('Select your payment option')}</DialogTitle>
       <DialogDescription>
-        At pickup with cash/card or online with card
+        {t('Cash and card accepted')}
       </DialogDescription>
     </DialogHeader>
   {/* <h3 className="mb-5 text-lg font-medium text-gray-900 dark:text-white">How much do you expect to use each month?</h3> */}
@@ -37,8 +40,8 @@ return (
         <input type="radio" checked={selectedPayment === 'cash'} onChange={(e) => setSelectedPayment(e.target.value)} id="cash" name="hosting" value="cash" className="hidden peer" required />
         <Label htmlFor="cash" className="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-orange-500 peer-checked:border-orange-600 peer-checked:text-orange-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
             <div className="block">
-                <div className="w-full text-lg font-semibold">At pickup</div>
-                <div className="w-full">with cash or card</div>
+                <div className="w-full text-lg font-semibold">{t('On Premise')}</div>
+                <div className="w-full">{t('Pay with cash or card when you pick up your order')}</div>
             </div>
             <DollarSign />
             {/* <svg className="w-5 h-5 ms-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
@@ -50,8 +53,8 @@ return (
         <input type="radio" checked={selectedPayment === 'card'} onChange={(e) => setSelectedPayment(e.target.value)}  id="card" name="hosting" value="card" className="hidden peer"/>
         <Label htmlFor="card" className="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-orange-500 peer-checked:border-orange-600 peer-checked:text-orange-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
             <div className="block">
-                <div className="w-full text-lg font-semibold">Online</div>
-                <div className="w-full">With secure stripe payments</div>
+                <div className="w-full text-lg font-semibold">{t('Online')}</div>
+                <div className="w-full">{t('Pay securely online using Stripe')}</div>
             </div>
             <CreditCard />
             {/* <svg className="w-5 h-5 ms-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
@@ -64,9 +67,11 @@ return (
     <DialogFooter className="flex flex-row justify-between sm:justify-between">
       <Button onClick={()=>setStep(1)} variant={"outline"} type="submit">
         <MoveLeft className="mr-2"/>
-          Previous
+          {t('Previous')}
         </Button>
-      <Button disabled={selectedPayment.length === 0} onClick={sendOrder} className="bg-orange-500 hover:bg-orange-600" type="submit">{`Confirm ${selectedPayment === 'card' ? 'and Pay': 'Order'}`}</Button>
+      <Button disabled={selectedPayment.length === 0} onClick={sendOrder} className="bg-orange-500 hover:bg-orange-600" type="submit">{
+      selectedPayment === 'card' ? t('Confirm and Pay') : t('Confirm Order')
+      }</Button>
     </DialogFooter>
   </>
 );

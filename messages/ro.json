@@ -18,6 +18,37 @@
     "Sign In": "Conectare",
     "To continue, sign in using your university-issued Microsoft account": "Pentru a continua, conectați-vă utilizând contul Microsoft emis de universitate",
     "Sign in with Microsoft":"Conectare cu Microsoft",
-    "Are you a guest ? Request guest access":"Ești vizitator? Solicitați acces pentru vizitatori"
+    "Are you a guest ? Request guest access":"Ești vizitator? Solicitați acces pentru vizitatori",
+    "or quick session with QR": "sau sesiune rapidă cu QR"
+  },
+
+  "Shop" : {
+    "Add": "Adaugă",
+    "Checkout":"Contiună",
+
+    "For dine-in or pickup ?":"În cantină sau cu ridicare ?",
+    "Your meal, your way:":"Mâncarea și locația ta:",
+    
+    "Dine In":"În Cantină",
+    "Relax and enjoy your meal in our cafeteria":"Relaxați-vă și bucurați-vă de masă în cantina noastră.",
+
+    "Pickup":"Ridicare",
+    "Your order will be packaged and ready for you to take away":"Comanda va fi ambalată și gata de ridicare.",
+    
+    "Next":"Pasul Următor",
+
+
+    "Select your payment option":"Selectați opțiunea de plată",
+    "Cash and card accepted":"Se acceptă numerar și card",
+
+    "On Premise":"Pe Premisă",
+    "Pay with cash or card when you pick up your order":"Plătiți cu numerar sau cu cardul când vă luați comanda.",
+
+    "Online":"Online",
+    "Pay securely online using Stripe":"Plătiți în siguranță online folosind Stripe",
+
+    "Previous":"Înapoi",
+    "Confirm and Pay": "Confirmă și Plătește",
+    "Confirm Order": "Confirmă Comandă"
   }
 }

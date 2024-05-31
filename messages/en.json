@@ -18,6 +18,38 @@
     "Sign In": "Sign In",
     "To continue, sign in using your university-issued Microsoft account":"To continue, sign in using your university-issued Microsoft account",
     "Sign in with Microsoft":"Sign in with Microsoft",
-    "Are you a guest ? Request guest access":"Are you a guest ? Request guest access"
+    "Are you a guest ? Request guest access":"Are you a guest ? Request guest access",
+    "or quick session with QR":"or quick session with QR"
+  },
+
+  "Shop" : {
+    "Add": "Add",
+    "Checkout":"Checkout",
+    
+    "For dine-in or pickup ?":"For dine-in or pickup ?",
+    "Your meal, your way:":"Your meal, your way:",
+    
+    "Dine In":"Dine In",
+    "Relax and enjoy your meal in our cafeteria":"Relax and enjoy your meal in our cafeteria.",
+
+    "Pickup":"Pickup",
+    "Your order will be packaged and ready for you to take away":"Your order will be packaged and ready for you to take away.",
+    
+    "Next":"Next",
+
+
+
+    "Select your payment option":"Select your payment option",
+    "Cash and card accepted":"Cash and card accepted",
+
+    "On Premise":"On Premise",
+    "Pay with cash or card when you pick up your order":"Pay with cash or card when you get your order.",
+
+    "Online":"Online",
+    "Pay securely online using Stripe":"Pay securely online using Stripe.",
+
+    "Previous":"Previous",
+    "Confirm and Pay": "Confirm and Pay",
+    "Confirm Order": "Confirm Order"
   }
 }
