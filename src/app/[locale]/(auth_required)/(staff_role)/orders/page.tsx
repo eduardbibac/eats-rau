@@ -7,8 +7,26 @@ export default function OrderPage()  {
   const [orders, setOrders] = useState<Order[]>([]);
 
   useEffect(() => {
-    const eventSource = new EventSource('/api/orders');
-    
+    const fetchData = async () => {
+      try {
+        const res = await fetch('/api/orders');
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await res.json();
+        setOrders(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+  
+    fetchData();
+  }, []);
+  
+
+  
+  useEffect(() => {
+    const eventSource = new EventSource('/api/orders/updates');
     eventSource.addEventListener('message', (event) => {
       let newOrders: Order[] = JSON.parse(event.data);
       if (!Array.isArray(newOrders)) { newOrders = [newOrders]; }
