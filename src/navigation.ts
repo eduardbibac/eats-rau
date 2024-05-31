@@ -21,6 +21,12 @@ export const pathnames = {
     ro: '/meniu'
   },
 
+  '/login': {
+    en: '/login',
+    ro: '/login'
+  },
+
+
   '/settings' :{
     en:'/settings',
     ro:'/setari'
