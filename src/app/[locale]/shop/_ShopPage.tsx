@@ -11,6 +11,7 @@ import {AnimatePresence, LayoutGroup, motion} from "framer-motion";
 import CartTablet from "./_CartTablet";
 import Cart from "@/components/Cart";
 import CartDesktop from "./_CartDesktop";
+import { useLocale } from "next-intl";
 
 let SORT_OPTIONS = ['all']
 
@@ -18,13 +19,13 @@ export default function ShopPage({children}:{children: ReactNode}) {
   // Server Actions Tanstack Querry https://www.youtube.com/watch?v=OgVeQVXt7xU&t=358s
   const [activeFilter, setActiveFilter] = useState('all');
   const [filter, setFilter] = useState<Product[]>();
-  
+  const locale = useLocale();
 
   const { data: products, mutate: server_getProducts, error, isPending, isSuccess, isError} = useMutation({
     mutationFn: getShopProducts,
   })
   useEffect(() => {
-    server_getProducts();
+    server_getProducts(locale);
   }, [])
 
 
