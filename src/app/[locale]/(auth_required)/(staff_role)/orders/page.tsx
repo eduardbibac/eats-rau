@@ -7,7 +7,7 @@ export default function OrderPage()  {
   const [orders, setOrders] = useState<Order[]>([]);
 
   useEffect(() => {
-    const eventSource = new EventSource('/orders/updates');
+    const eventSource = new EventSource('/api/orders');
     
     eventSource.addEventListener('message', (event) => {
       let newOrders: Order[] = JSON.parse(event.data);

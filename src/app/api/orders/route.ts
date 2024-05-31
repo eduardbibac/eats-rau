@@ -1,4 +1,4 @@
-import { validateRequest } from "@/auth/validateRequest";
+import { validateRequest } from "@/actions/auth/validateRequest";
 import sql from "@/lib/db";
 import { isRoleOrHigher } from "@/lib/role";
 import { Order } from "@/types/dbTypes";

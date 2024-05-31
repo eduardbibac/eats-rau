@@ -1,6 +1,6 @@
 'use server';
 
-import { validateRequest } from "@/auth/validateRequest";
+import { validateRequest } from "@/actions/auth/validateRequest";
 import sql from "@/lib/db";
 import { redirect } from "@/navigation";
 

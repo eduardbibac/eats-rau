@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 import { cache } from "react";
 
 import { Lucia, type Session, type User } from "lucia";
-import { lucia } from "@/auth/lucia";
+import { lucia } from "@/actions/auth/lucia";
 
 // export const lucia = new Lucia();
 

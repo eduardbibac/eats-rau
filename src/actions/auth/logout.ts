@@ -1,7 +1,7 @@
 import 'server-only';
 
-import { lucia,  } from "@/auth/lucia";
-import {validateRequest} from "@/auth/validateRequest";
+import { lucia,  } from "@/actions/auth/lucia";
+import {validateRequest} from "@/actions/auth/validateRequest";
 import { redirect } from "@/navigation";
 import { cookies } from "next/headers";
 

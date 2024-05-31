@@ -9,7 +9,7 @@ import {
 import { Trash2 } from "lucide-react"
 import { invalidateUserSession } from "@/actions/invalidateUserSession"
 import { Button } from "@/components/ui/button"
-import { logout } from "@/auth/logout"
+import { logout } from "@/actions/auth/logout"
 
 export default async function Settings() {
   const sessions = await getUserSessions();

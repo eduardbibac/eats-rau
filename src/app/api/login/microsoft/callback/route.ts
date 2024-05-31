@@ -1,7 +1,7 @@
 'use server';
 
-import { lucia } from "@/auth/lucia";
-import { microsoft_SSO } from "@/auth/sso";
+import { lucia } from "@/actions/auth/lucia";
+import { microsoft_SSO } from "@/actions/auth/sso";
 import { cookies } from "next/headers";
 import { OAuth2RequestError } from "arctic";
 import { generateIdFromEntropySize } from "lucia";

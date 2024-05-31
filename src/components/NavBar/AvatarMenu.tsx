@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 import { Link } from "@/navigation";
-import { logout } from "@/auth/logout"
+import { logout } from "@/actions/auth/logout"
 
 export function AvatarMenu() {
   return (

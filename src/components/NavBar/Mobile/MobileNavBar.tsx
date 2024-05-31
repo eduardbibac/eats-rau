@@ -1,4 +1,4 @@
-import { validateRequest } from "@/auth/validateRequest";
+import { validateRequest } from "@/actions/auth/validateRequest";
 import CartButton from "./CartButton";
 import MobileNavButton from "./MobileNavButton";
 import { getTranslations } from "next-intl/server";

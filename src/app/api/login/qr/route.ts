@@ -1,7 +1,7 @@
 'use server';
 
-import { lucia } from '@/auth/lucia';
-import { validateRequest } from '@/auth/validateRequest';
+import { lucia } from '@/actions/auth/lucia';
+import { validateRequest } from '@/actions/auth/validateRequest';
 import sql from '@/lib/db';
 import { generateIdFromEntropySize } from 'lucia';
 import { cookies } from 'next/headers';

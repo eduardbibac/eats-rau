@@ -1,7 +1,7 @@
 import "@/styles/shop-page.css";
 import Navbar from "@/components/NavBar/NavBar";
 import ShopPage from "./_ShopPage";
-import { logout } from "@/auth/logout";
+import { logout } from "@/actions/auth/logout";
 import ShopSkeletonCard from "./_ShopSkeletionCard";
 
 export default async function Shop() {

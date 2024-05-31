@@ -7,7 +7,7 @@ import LogoButton from "./LogoButton";
 import { AvatarMenu } from "./AvatarMenu";
 import { getTranslations } from "next-intl/server";
 import DesktopNavButton from "./Desktop/DesktopNavButton";
-import { validateRequest } from "@/auth/validateRequest";
+import { validateRequest } from "@/actions/auth/validateRequest";
 import { isRoleOrHigher } from "@/lib/role";
 import DesktopSingInButton from "./Desktop/DesktopSingInButton";
 

@@ -1,7 +1,7 @@
 'use server';
 
 import { generateCodeVerifier, generateState } from "arctic";
-import { microsoft_SSO } from "@/auth/sso";
+import { microsoft_SSO } from "@/actions/auth/sso";
 import { cookies } from "next/headers";
 
 export async function GET(): Promise<Response> {

@@ -14,7 +14,7 @@ export default function QRLoginSection () {
     // Polling
     useEffect(() => {
         const interval = setInterval(async () => {
-          const res = await fetch(`/login/qr`, { 
+          const res = await fetch(`/api/login/qr`, { 
             cache: 'no-store',
             method: "POST",
             body: JSON.stringify({qr_string:qrCode})
@@ -42,7 +42,7 @@ export default function QRLoginSection () {
     // QR String Fetch
     useEffectOnce(() => {
         if(window.innerWidth < 768) return; // Don't do polling on mobile devices
-        fetch(`/login/qr`, { cache: 'no-store' })
+        fetch(`/api/login/qr`, { cache: 'no-store' })
           .then((res) => res.json())
           .then((data) => {
             setQrCode(data)
@@ -52,7 +52,7 @@ export default function QRLoginSection () {
 
     return (
         <>
-        <QRCodeSVG className="hidden lg:flex py-5 qr-code" value={getURL(`/login/qr?qr_string=${qrCode}`)}/>
+        <QRCodeSVG className="hidden lg:flex py-5 qr-code" value={getURL(`/api/login/qr?qr_string=${qrCode}`)}/>
         <div className="lg:flex mt-4 items-end justify-between">
             {/* <span className="border-b w-1/5 md:w-1/4"></span> */}
             <a href="#" className="text-xs text-gray-500">Are you a guest ? Request guest access</a>
