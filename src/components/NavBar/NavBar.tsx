@@ -1,15 +1,15 @@
 //https://preline.co/examples/navigations-navbars.html
 import "./BottomNavBar.css";
 import "@/styles/navbar.css";
-import MobileNavBar from "./MobileNavBar";
-import DashboardButton from "./DashboardButton";
+import MobileNavBar from "./Mobile/MobileNavBar";
+import DashboardButton from "./Desktop/DashboardButton";
 import LogoButton from "./LogoButton";
 import { AvatarMenu } from "./AvatarMenu";
 import { getTranslations } from "next-intl/server";
-import DesktopNavButton from "./DesktopNavButton";
+import DesktopNavButton from "./Desktop/DesktopNavButton";
 import { validateRequest } from "@/auth/validateRequest";
 import { isRoleOrHigher } from "@/lib/role";
-import DesktopSingInButton from "./DesktopSingInButton";
+import DesktopSingInButton from "./Desktop/DesktopSingInButton";
 
 export default async function Navbar () {
   const t = await getTranslations('Navigation');

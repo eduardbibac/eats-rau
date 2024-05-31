@@ -1,7 +1,7 @@
 'use client';
 
 import { DrawerTrigger, DrawerContent, DrawerHeader, Drawer, DrawerTitle, DrawerDescription } from "@/components/ui/drawer";
-import Cart from "../Cart";
+import Cart from "../../Cart";
 
 export default function CartButton({label}:{label:string}) {
 return (
