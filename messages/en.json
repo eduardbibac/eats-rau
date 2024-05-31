@@ -12,5 +12,12 @@
     "Dashboard": "Dashboard",
     "Cart": "Cart",
     "Settings":"Settings"
+  },
+
+  "Login": {
+    "Sign In": "Sign In",
+    "To continue, sign in using your university-issued Microsoft account":"To continue, sign in using your university-issued Microsoft account",
+    "Sign in with Microsoft":"Sign in with Microsoft",
+    "Are you a guest ? Request guest access":"Are you a guest ? Request guest access"
   }
 }

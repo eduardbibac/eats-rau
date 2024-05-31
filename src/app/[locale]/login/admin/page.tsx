@@ -1,6 +1,6 @@
-import EmailLoginSection from "@/components/login/EmailLoginSection";
-import Login from "@/components/login/Login";
-import LoginDividerSection from "@/components/login/LoginDividerSection";
+import EmailLoginSection from "@/app/[locale]/login/EmailLoginSection";
+import Login from "@/app/[locale]/login/Login";
+import LoginDividerSection from "@/app/[locale]/login/LoginDividerSection";
 
 export default function LoginUsersPage() {
     return(

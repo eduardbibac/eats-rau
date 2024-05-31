@@ -2,11 +2,13 @@
 
 import getURL from "@/lib/getURL";
 import { useEffectOnce } from "@/lib/useEffectOnce";
+import { useTranslations } from "next-intl";
 import { useRouter } from 'next/navigation'
 import { QRCodeSVG } from "qrcode.react";
 import { useEffect, useState } from "react";
 
 export default function QRLoginSection () {
+    const t = useTranslations('Login');
     const [qrCode, setQrCode] = useState<string>();
     const [startTime, setStartTime] = useState(Date.now());
     const router = useRouter()
@@ -55,7 +57,7 @@ export default function QRLoginSection () {
         <QRCodeSVG className="hidden lg:flex py-5 qr-code" value={getURL(`/api/login/qr?qr_string=${qrCode}`)}/>
         <div className="lg:flex mt-4 items-end justify-between">
             {/* <span className="border-b w-1/5 md:w-1/4"></span> */}
-            <a href="#" className="text-xs text-gray-500">Are you a guest ? Request guest access</a>
+            <a href="#" className="text-xs text-gray-500">{t('Are you a guest ? Request guest access')}</a>
             {/* <span className="border-b w-1/5 md:w-1/4"></span> */}
         </div>
         </>

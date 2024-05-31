@@ -1,7 +1,7 @@
 // https://play.tailwindcss.com/MIwj5Sp9pw
-import Login from "@/components/login/Login";
-import LoginDividerSection from "@/components/login/LoginDividerSection";
-import QRLoginSection from "@/components/login/QRLoginSection";
+import Login from "@/app/[locale]/login/Login";
+import LoginDividerSection from "@/app/[locale]/login/LoginDividerSection";
+import QRLoginSection from "@/app/[locale]/login/QRLoginSection";
 
 export default function LoginUsersPage() {
     return(

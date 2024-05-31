@@ -12,5 +12,12 @@
     "Dashboard": "Dashboard",
     "Cart": "Coș",
     "Settings":"Setări"
+  },
+
+  "Login": {
+    "Sign In": "Conectare",
+    "To continue, sign in using your university-issued Microsoft account": "Pentru a continua, conectați-vă utilizând contul Microsoft emis de universitate",
+    "Sign in with Microsoft":"Conectare cu Microsoft",
+    "Are you a guest ? Request guest access":"Ești vizitator? Solicitați acces pentru vizitatori"
   }
 }
