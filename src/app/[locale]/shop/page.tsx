@@ -16,7 +16,7 @@ return (
 <>
     <Navbar></Navbar>
     <ShopPage sort_options={sort_options}>
-      {new Array(12).fill(null).map((_, i) => <ShopSkeletonCard key={i} />)}
+      {new Array(32).fill(null).map((_, i) => <ShopSkeletonCard key={i} />)}
     </ShopPage>
 </>
 );
