@@ -11,15 +11,16 @@ import {AnimatePresence, LayoutGroup, motion} from "framer-motion";
 import CartTablet from "./_CartTablet";
 import Cart from "@/components/Cart";
 import CartDesktop from "./_CartDesktop";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
-let SORT_OPTIONS = ['all']
 
-export default function ShopPage({children}:{children: ReactNode}) {
+export default function ShopPage({children, sort_options}:{children: ReactNode, sort_options: string[]}) {
   // Server Actions Tanstack Querry https://www.youtube.com/watch?v=OgVeQVXt7xU&t=358s
-  const [activeFilter, setActiveFilter] = useState('all');
   const [filter, setFilter] = useState<Product[]>();
   const locale = useLocale();
+  const t = useTranslations('Shop');
+  const [activeFilter, setActiveFilter] = useState(t('Filter_All'));
+
 
   const { data: products, mutate: server_getProducts, error, isPending, isSuccess, isError} = useMutation({
     mutationFn: getShopProducts,
@@ -30,7 +31,7 @@ export default function ShopPage({children}:{children: ReactNode}) {
 
 
   useEffect(() => {
-    if(activeFilter === 'all') {
+    if(activeFilter === t('Filter_All')) {
       setFilter(products)
       return;
     }
@@ -42,19 +43,13 @@ export default function ShopPage({children}:{children: ReactNode}) {
     return <span>Error: {error.message}</span>
   }
 
-  if(isSuccess){
-    // TODO: fetch from DB (still unique)
-    const allCategories = products.flatMap(product => product.categories);
-
-    SORT_OPTIONS = ['all', ...unique(allCategories)];
-  }
 
 return (
 <div className="shop-page">
 <div className="layout">
   <div className="shop grid lg:block">
     <div className="flex overflow-x-scroll max-h-12 no-scrollbar filters gap-2 mb-2 rounded-b-lg bg-white p-2">  
-          {SORT_OPTIONS.map(i=>(
+          {sort_options.map(i=>(
             <ul key={i} className='list-none'>
               <li
               onClick={() => setActiveFilter(i)}

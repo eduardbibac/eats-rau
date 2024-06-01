@@ -23,6 +23,7 @@
   },
 
   "Shop" : {
+    "Filter_All": "All",
     "Add": "Add",
     "Checkout":"Checkout",
     

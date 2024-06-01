@@ -76,6 +76,7 @@ CREATE TABLE menu_products (
 
 CREATE TABLE categories(
     id                   SERIAL PRIMARY KEY,
+    list_position        INT NOT NULL UNIQUE,
     ro_name              TEXT NOT NULL,
     en_name              TEXT NOT NULL
 );
@@ -93,7 +94,7 @@ CREATE TABLE products (
 CREATE TABLE product_categories (
     category_id         INT NOT NULL REFERENCES categories(id),
     product_id          INT NOT NULL REFERENCES products(id),
-
+           
     PRIMARY KEY (category_id, product_id)
 );
 
@@ -117,7 +118,15 @@ JOIN menu_products mp ON p.id = mp.product_id
 JOIN menu m ON mp.menu_id = m.id
 WHERE m.is_active = TRUE;
 
+-- What about STALE ORDER?
+-- orders that are not in a finalized state: completed/canceled,
+-- or a valid running state: within schedule(under the scheduled time)
+-- AND haven't been touched ? 
 
+-- What about cancelation reason, for example 
+-- (staff canceled order because unpaid) : unpaid ready orders *_*
+-- (staff canceled order because spam)
+-- (user canceled order -within time- because changed his mind)
 CREATE TABLE orders (
     id                  SERIAL PRIMARY KEY,
     user_id             TEXT NOT NULL REFERENCES users(id),

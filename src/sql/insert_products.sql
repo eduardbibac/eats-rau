@@ -1,17 +1,17 @@
-INSERT INTO categories(id, ro_name, en_name) VALUES 
-  (1,  'Mic dejun', 'Breakfast'),
-  (2,  'Prânz',     'Lunch'),
-  (3,  'Cină',      'Dinner'),
-  (4,  'Gustări',   'Snacks'),
-  (5,  'Garnitură', 'Side Dish'),
-  (6,  'Băuturi',   'Beverages'),
-  (7,  'Supă',      'Soup'),
-  (8,  'Vegan',     'Vegan'),
-  (9,  'Porc',      'Pork'),
-  (10, 'Vită',      'Beef'),
-  (11, 'Pui',       'Chicken'),
-  (12, 'Pește',     'Fish'),
-  (13, 'Paste',     'Pasta')
+INSERT INTO categories(id, list_position, ro_name, en_name) VALUES 
+  (1,  1,  'Mic dejun', 'Breakfast'),
+  (2,  2,  'Prânz',     'Lunch'),
+  (3,  3,  'Cină',      'Dinner'),
+  (4,  4,  'Gustări',   'Snacks'),
+  (5,  5,  'Garnitură', 'Side Dish'),
+  (6,  6,  'Băuturi',   'Beverages'),
+  (7,  7,  'Supă',      'Soup'),
+  (8,  8,  'Vegan',     'Vegan'),
+  (9,  9,  'Porc',      'Pork'),
+  (10, 10, 'Vită',      'Beef'),
+  (11, 11, 'Pui',       'Chicken'),
+  (12, 14, 'Pește',     'Fish'),
+  (13, 13, 'Paste',     'Pasta')
 ;
 
 

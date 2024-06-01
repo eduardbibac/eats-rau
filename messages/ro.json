@@ -13,7 +13,7 @@
     "Cart": "Coș",
     "Settings":"Setări"
   },
-
+ 
   "Login": {
     "Sign In": "Conectare",
     "To continue, sign in using your university-issued Microsoft account": "Pentru a continua, conectați-vă utilizând contul Microsoft emis de universitate",
@@ -23,6 +23,7 @@
   },
 
   "Shop" : {
+    "Filter_All": "Tot",
     "Add": "Adaugă",
     "Checkout":"Contiună",
 
