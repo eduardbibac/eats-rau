@@ -32,6 +32,16 @@ export const pathnames = {
     ro:'/setari'
   },
 
+  '/dashboard' : {
+    en: '/dashboard',
+    ro: '/dashboard'
+  },
+
+  '/dashboard/orders' : {
+    en: '/dashboard/orders',
+    ro: '/dashboard/comenzi'
+  }
+
   // // Dynamic params are supported via square brackets
   // '/news/[articleSlug]-[articleId]': {
   //   en: '/news/[articleSlug]-[articleId]',

@@ -50,5 +50,9 @@
     "Previous":"Înapoi",
     "Confirm and Pay": "Confirmă și Plătește",
     "Confirm Order": "Confirmă Comandă"
+  },
+
+  "DashNav": {
+    "Orders": "Comenzi"
   }
 }

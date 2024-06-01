@@ -51,5 +51,10 @@
     "Previous":"Previous",
     "Confirm and Pay": "Confirm and Pay",
     "Confirm Order": "Confirm Order"
+  },
+
+
+  "DashNav": {
+    "Orders": "Orders"
   }
 }
