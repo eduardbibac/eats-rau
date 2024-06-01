@@ -12,9 +12,11 @@ export async function GET() {
   const { user } = await validateRequest();
   if (!user) {
     redirect("/login");
+    return;
   }
   if (!isRoleOrHigher('staff', user!.arole)) {
     redirect('/');
+    return;
   }
 
   let responseStream = new TransformStream();

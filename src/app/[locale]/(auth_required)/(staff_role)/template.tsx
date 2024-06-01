@@ -7,8 +7,14 @@ import { ReactNode } from 'react';
 
 export default async function withStaffRoleOrHigher({ children } : {children: ReactNode}) {
   const { user } = await validateRequest();
-  // Validate the user's role to be at least staff
-  if (! isRoleOrHigher('staff', user!.arole)) { redirect('/'); }
+  if (!user) {
+    redirect("/login");
+    return;
+  }
+  if (!isRoleOrHigher('staff', user!.arole)) {
+    redirect('/');
+    return;
+  }
 
   return (
     <>
