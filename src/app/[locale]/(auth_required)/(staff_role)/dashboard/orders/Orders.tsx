@@ -1,7 +1,5 @@
 'use client';
 
-import "./orders.css";
-
 import { Order } from "@/types/dbTypes";
 import { useEffect, useState } from "react";
 
@@ -53,10 +51,10 @@ return (
 
   <div className="overflow-y-scroll m-5">
   <span className="bg-white w-full rounded-xl"><h1 className="fixed ">Incoming</h1></span>
-    <div className="bg-white p-5 rounded-xl grid grid-cols-2">
+    <div className="bg-white p-5 rounded-xl gap-12 grid md:grid-cols-1 lg:grid-cols-2">
     {orders.map((order, i) => (
-      <div className="h-12">
-        <h1 key={i}>
+      <div key={order.id} className="h-12 ">
+        <h1>
           {`Order: ${order.id} | ${order.order_type} 
           ${Date.parse(order.is_scheduled_at) < Date.now() ? 'NOW' : `Scheduled_AT: ${order.is_scheduled_at}`} | user: ${order.user_id}`}
         </h1>
@@ -66,12 +64,12 @@ return (
   </div>
   <div className="overflow-y-scroll m-5">
     <span className="bg-white w-full rounded-xl"><h1 className="fixed ">Ready for Pickup</h1></span>
-    <div className="bg-white p-5 rounded-xl grid grid-cols-2">
+    <div className="bg-white p-5 rounded-xl gap-12 grid md:grid-cols-1 lg:grid-cols-2">
     {orders.map((order, i) => (
-      <div className="h-12">
-        <h1 key={i}>
+      <div key={order.id} className="h-12">
+        <h1>
           {`Order: ${order.id} | ${order.order_type} 
-          ${Date.parse(order.is_scheduled_at) < Date.now() ? 'NOW' : `Scheduled_AT: ${order.is_scheduled_at}`} | user: ${order.user_id}`}
+          ${Date.parse(order.is_scheduled_at) < Date.now() ? 'NOW' : `Scheduled_AT: ${order.is_scheduled_at}`}\n user: ${order.user_id}`}
         </h1>
       </div>
     ))}
@@ -79,7 +77,7 @@ return (
   </div>
 
 
-  <div className="grid grid-rows-[1fr_1fr]">
+  <div className="grid grid-rows-[3fr_1fr]">
       <h1 style={{ writingMode: 'vertical-lr' }} className="rotate-180 text-center direction-reverse bg-green-300">Completed</h1>
       <h1 style={{ writingMode: 'vertical-lr' }}  className="rotate-180 text-center bg-red-100">Canceled</h1>
   </div>
