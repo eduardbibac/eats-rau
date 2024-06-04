@@ -1,3 +1,3 @@
 type QRPayload = {
-  qr_string: string
-}
+  qr_string: string;
+};

@@ -44,7 +44,7 @@
 //       }}>
 //         {/* Your left arrow SVG goes here */}
 //       </div>
-//       <ul ref={tabsList} 
+//       <ul ref={tabsList}
 //           onMouseDown={() => setDragging(true)}
 //           onMouseMove={drag}
 //           onMouseUp={() => {

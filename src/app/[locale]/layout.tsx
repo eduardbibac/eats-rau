@@ -12,16 +12,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  params: {locale}
+  params: { locale },
 }: Readonly<{
   children: React.ReactNode;
-  params: {locale: string}
+  params: { locale: string };
 }>) {
   return (
     <Providers>
-    <html lang={locale}>
-      <body className={inter.className}>{children}</body>
-    </html>
+      <html lang={locale}>
+        <body className={inter.className}>{children}</body>
+      </html>
     </Providers>
   );
 }

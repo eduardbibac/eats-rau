@@ -1,7 +1,7 @@
 {
   "Index": {
     "title": "Salut lume!",
-    "hard_test" : "{count, plural, =0 {Nu ai urmăritori} =1 {Ai un urmăritor} =2 {Ai # urmăritori} =3 {Ai # urmăritori} =4 {Ai # urmăritori} =5 {Ai # urmăritori} =6 {Ai # urmăritori} =7 {Ai # urmăritori} =8 {Ai # urmăritori} =9 {Ai # urmăritori} =10 {Ai # urmăritori} =11 {Ai # urmăritori} =12 {Ai # urmăritori} =13 {Ai # urmăritori} =14 {Ai # urmăritori} =15 {Ai # urmăritori} =16 {Ai # urmăritori} =17 {Ai # urmăritori} =18 {Ai # urmăritori} =19 {Ai # urmăritori} other {Ai # de urmăritori}}."
+    "hard_test": "{count, plural, =0 {Nu ai urmăritori} =1 {Ai un urmăritor} =2 {Ai # urmăritori} =3 {Ai # urmăritori} =4 {Ai # urmăritori} =5 {Ai # urmăritori} =6 {Ai # urmăritori} =7 {Ai # urmăritori} =8 {Ai # urmăritori} =9 {Ai # urmăritori} =10 {Ai # urmăritori} =11 {Ai # urmăritori} =12 {Ai # urmăritori} =13 {Ai # urmăritori} =14 {Ai # urmăritori} =15 {Ai # urmăritori} =16 {Ai # urmăritori} =17 {Ai # urmăritori} =18 {Ai # urmăritori} =19 {Ai # urmăritori} other {Ai # de urmăritori}}."
   },
 
   "Navigation": {
@@ -11,44 +11,43 @@
     "Sign In": "Conectare",
     "Dashboard": "Dashboard",
     "Cart": "Coș",
-    "Settings":"Setări"
+    "Settings": "Setări"
   },
- 
+
   "Login": {
     "Sign In": "Conectare",
     "To continue, sign in using your university-issued Microsoft account": "Pentru a continua, conectați-vă utilizând contul Microsoft emis de universitate",
-    "Sign in with Microsoft":"Conectare cu Microsoft",
-    "Are you a guest ? Request guest access":"Ești vizitator? Solicitați acces pentru vizitatori",
+    "Sign in with Microsoft": "Conectare cu Microsoft",
+    "Are you a guest ? Request guest access": "Ești vizitator? Solicitați acces pentru vizitatori",
     "or quick session with QR": "sau sesiune rapidă cu QR"
   },
 
-  "Shop" : {
+  "Shop": {
     "Filter_All": "Tot",
     "Add": "Adaugă",
-    "Checkout":"Contiună",
+    "Checkout": "Contiună",
 
-    "For dine-in or pickup ?":"În cantină sau cu ridicare ?",
-    "Your meal, your way:":"Mâncarea și locația ta:",
-    
-    "Dine In":"În Cantină",
-    "Relax and enjoy your meal in our cafeteria":"Relaxați-vă și bucurați-vă de masă în cantina noastră.",
+    "For dine-in or pickup ?": "În cantină sau cu ridicare ?",
+    "Your meal, your way:": "Mâncarea și locația ta:",
 
-    "Pickup":"Ridicare",
-    "Your order will be packaged and ready for you to take away":"Comanda va fi ambalată și gata de ridicare.",
-    
-    "Next":"Pasul Următor",
+    "Dine In": "În Cantină",
+    "Relax and enjoy your meal in our cafeteria": "Relaxați-vă și bucurați-vă de masă în cantina noastră.",
 
+    "Pickup": "Ridicare",
+    "Your order will be packaged and ready for you to take away": "Comanda va fi ambalată și gata de ridicare.",
 
-    "Select your payment option":"Selectați opțiunea de plată",
-    "Cash and card accepted":"Se acceptă numerar și card",
+    "Next": "Pasul Următor",
 
-    "On Premise":"Pe Premisă",
-    "Pay with cash or card when you pick up your order":"Plătiți cu numerar sau cu cardul când vă luați comanda.",
+    "Select your payment option": "Selectați opțiunea de plată",
+    "Cash and card accepted": "Se acceptă numerar și card",
 
-    "Online":"Online",
-    "Pay securely online using Stripe":"Plătiți în siguranță online folosind Stripe",
+    "On Premise": "Pe Premisă",
+    "Pay with cash or card when you pick up your order": "Plătiți cu numerar sau cu cardul când vă luați comanda.",
 
-    "Previous":"Înapoi",
+    "Online": "Online",
+    "Pay securely online using Stripe": "Plătiți în siguranță online folosind Stripe",
+
+    "Previous": "Înapoi",
     "Confirm and Pay": "Confirmă și Plătește",
     "Confirm Order": "Confirmă Comandă"
   },

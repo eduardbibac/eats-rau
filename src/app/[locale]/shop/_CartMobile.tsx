@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import {
   Drawer,
@@ -9,18 +9,16 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/components/ui/drawer"
+} from "@/components/ui/drawer";
 import { ReactNode } from "react";
 
-export default function CartMobile ({children}:{children:ReactNode}) {
-return(
+export default function CartMobile({ children }: { children: ReactNode }) {
+  return (
     <Drawer>
       <DrawerTrigger>Open</DrawerTrigger>
       <DrawerContent>
-        <DrawerHeader>
-            {children}
-        </DrawerHeader>
+        <DrawerHeader>{children}</DrawerHeader>
       </DrawerContent>
     </Drawer>
-);
+  );
 }

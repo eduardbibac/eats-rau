@@ -6,9 +6,9 @@ export type Product = {
   categories: string[];
   image: string;
   quantity: number;
-}
+};
 
 export type CartItem = {
   product: Product;
   count: number;
-}
+};

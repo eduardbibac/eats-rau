@@ -38,7 +38,7 @@
 
 //   return (
 //     <div className="scrollable-tabs-container">
-//       <ul ref={tabsList} 
+//       <ul ref={tabsList}
 //           onMouseDown={() => setDragging(true)}
 //           onMouseMove={drag}
 //           onMouseUp={() => {

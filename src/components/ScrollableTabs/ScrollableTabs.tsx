@@ -19,61 +19,61 @@
 //         />
 //       </svg>
 //     </div>
-  
+
 //     <ul>
 //       <li>
 //         <a href="#" className="active">All</a>
 //       </li>
-  
+
 //       <li>
 //         <a href="#">Music</a>
 //       </li>
-  
+
 //       <li>
 //         <a href="#">Chess</a>
 //       </li>
-  
+
 //       <li>
 //         <a href="#">Live</a>
 //       </li>
-  
+
 //       <li>
 //         <a href="#">Gaming</a>
 //       </li>
-  
+
 //       <li>
 //         <a href="#">Editing</a>
 //       </li>
-  
+
 //       <li>
 //         <a href="#">Mixing consoles</a>
 //       </li>
-  
+
 //       <li>
 //         <a href="#">Comedy</a>
 //       </li>
-  
+
 //       <li>
 //         <a href="#">Computer Hardware</a>
 //       </li>
-  
+
 //       <li>
 //         <a href="#">News</a>
 //       </li>
-  
+
 //       <li>
 //         <a href="#">Computer Programming</a>
 //       </li>
-  
+
 //       <li>
 //         <a href="#">Video Editing Software</a>
 //       </li>
-  
+
 //       <li>
 //         <a href="#">Sports</a>
 //       </li>
 //     </ul>
-  
+
 //     <div className="right-arrow active">
 //       <svg
 //         xmlns="http://www.w3.org/2000/svg"

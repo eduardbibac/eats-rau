@@ -22,7 +22,6 @@ export default function Temp() {
       {/* <TStickyShopLayout></TStickyShopLayout> */}
       {/* <Drawer></Drawer> */}
       {/* <THeroBits /> */}
-
     </>
   );
 }

@@ -1,15 +1,15 @@
-import 'server-only';
+import "server-only";
 
 import { MicrosoftEntraId } from "arctic";
 
 // MICROSOFT SSO
 // const entraId = new MicrosoftEntraId(tenantId, clientId, clientSecret, redirectURI);
-export const microsoft_SSO  = new MicrosoftEntraId(
-        process.env.MS_TENANT_ID!,
-        process.env.MS_CLIENT_ID!,
-        process.env.MS_CLIENT_SECRET!,
-        process.env.MS_REDIRECT_URI!
-    );
+export const microsoft_SSO = new MicrosoftEntraId(
+  process.env.MS_TENANT_ID!,
+  process.env.MS_CLIENT_ID!,
+  process.env.MS_CLIENT_SECRET!,
+  process.env.MS_REDIRECT_URI!,
+);
 
 // Get user profile
 // const url: URL = await entraId.createAuthorizationURL(state, codeVerifier, {

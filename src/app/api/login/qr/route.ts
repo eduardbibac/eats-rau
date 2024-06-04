@@ -1,16 +1,16 @@
-'use server';
+"use server";
 
-import { lucia } from '@/actions/auth/lucia';
-import { validateRequest } from '@/actions/auth/validateRequest';
-import sql from '@/lib/db';
-import { generateIdFromEntropySize } from 'lucia';
-import { cookies } from 'next/headers';
-import { NextRequest, NextResponse, userAgent } from 'next/server';
-import { redirect } from 'next/navigation';
-import { json } from 'stream/consumers';
-import getURL from '@/lib/getURL';
+import { lucia } from "@/actions/auth/lucia";
+import { validateRequest } from "@/actions/auth/validateRequest";
+import sql from "@/lib/db";
+import { generateIdFromEntropySize } from "lucia";
+import { cookies } from "next/headers";
+import { NextRequest, NextResponse, userAgent } from "next/server";
+import { redirect } from "next/navigation";
+import { json } from "stream/consumers";
+import getURL from "@/lib/getURL";
 
-export async function GET(req: NextRequest) : Promise<Response> {
+export async function GET(req: NextRequest): Promise<Response> {
   const searchParams = req.nextUrl.searchParams;
   if (searchParams.toString()) {
     return validateExistingQR(req);
@@ -18,76 +18,85 @@ export async function GET(req: NextRequest) : Promise<Response> {
     return generateQRString();
   }
 
-  async function generateQRString() : Promise<Response> {
+  async function generateQRString(): Promise<Response> {
     const qr_string = generateIdFromEntropySize(32);
     try {
-      await sql`INSERT INTO QRSession VALUES (${qr_string})`
+      await sql`INSERT INTO QRSession VALUES (${qr_string})`;
     } catch (error) {
       console.error(error);
       return new Response(null, { status: 500 });
     }
-  
+
     return new Response(JSON.stringify(qr_string), {
-      status: 200
-    })
+      status: 200,
+    });
   }
 
-  async function validateExistingQR(req: NextRequest) : Promise<Response> {
-    const {user} = await validateRequest();
-    if(!user) return new Response(null, {
-      // TODO: mobile devie scanned QR but it's not logged in => 'redirect to page: your phone needs to be logged in to   authenticate with QR code'
-      status: 400,
-    });
-    
+  async function validateExistingQR(req: NextRequest): Promise<Response> {
+    const { user } = await validateRequest();
+    if (!user)
+      return new Response(null, {
+        // TODO: mobile devie scanned QR but it's not logged in => 'redirect to page: your phone needs to be logged in to   authenticate with QR code'
+        status: 400,
+      });
+
     // Could cause big problems if we forget to check for null
-    const qr_string = searchParams.get('qr_string');
-      if(!qr_string) {
-        return new Response(null, {
-          status: 404,
-        }); 
+    const qr_string = searchParams.get("qr_string");
+    if (!qr_string) {
+      return new Response(null, {
+        status: 404,
+      });
     }
 
-    try{
-      await sql`UPDATE QRSession SET is_validated_by_user = ${user.id} WHERE code=${qr_string}`
+    try {
+      await sql`UPDATE QRSession SET is_validated_by_user = ${user.id} WHERE code=${qr_string}`;
     } catch (error) {
       console.error(error);
       return new Response(null, { status: 500 });
     }
-    redirect('/');
+    redirect("/");
     // return NextResponse.redirect('/', { status: 302 });
   }
 }
 
-// Poll endpoint, gives a valid session if the req has a QR code that has been validated 
-export async function POST(req: Request) : Promise<Response> {
+// Poll endpoint, gives a valid session if the req has a QR code that has been validated
+export async function POST(req: Request): Promise<Response> {
   const data: QRPayload = await req.json();
-  console.log(data)
+  console.log(data);
 
   // Could cause big problems if we forget to check for null
-  if(!data.qr_string) {
+  if (!data.qr_string) {
     return new Response(null, {
       status: 404,
-    }); 
+    });
   }
 
-  try{
-    const [row] = await sql`SELECT is_validated_by_user FROM QRSession WHERE code=${data.qr_string}`
-    if(row.is_validated_by_user) {
-
-      const { device, browser, os } = userAgent(req)
+  try {
+    const [row] =
+      await sql`SELECT is_validated_by_user FROM QRSession WHERE code=${data.qr_string}`;
+    if (row.is_validated_by_user) {
+      const { device, browser, os } = userAgent(req);
       const deviceString = [
-        'qr',
-        device.type ??  '',
-        browser.name ?? '',
-        os.name ?? ''
-      ].join(' ').toString();
+        "qr",
+        device.type ?? "",
+        browser.name ?? "",
+        os.name ?? "",
+      ]
+        .join(" ")
+        .toString();
 
-      const session = await lucia.createSession(row.is_validated_by_user, {device:deviceString});
-			const sessionCookie = lucia.createSessionCookie(session.id);
-			cookies().set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes);
-			return new Response(JSON.stringify({'isValid':'true'}), { status: 201 });
+      const session = await lucia.createSession(row.is_validated_by_user, {
+        device: deviceString,
+      });
+      const sessionCookie = lucia.createSessionCookie(session.id);
+      cookies().set(
+        sessionCookie.name,
+        sessionCookie.value,
+        sessionCookie.attributes,
+      );
+      return new Response(JSON.stringify({ isValid: "true" }), { status: 201 });
     } else {
-      return new Response(null, {status: 200})
+      return new Response(null, { status: 200 });
       // keep polling
     }
   } catch (error) {

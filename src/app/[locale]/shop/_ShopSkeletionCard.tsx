@@ -1,19 +1,18 @@
-export default function ShopSkeletonCard () {
+export default function ShopSkeletonCard() {
   return (
-    <div className=' relative animate-pulse bg-gray-200 max-w-lg rounded-xl p-3' >
-      <div className='aspect-[4/3] w-full relative flex items-end overflow-hidden rounded-xl object-cover bg-gray-300 max-w-lg p-3'>
-        <div className='h-fu11 w-full bg-gray-200' />
+    <div className=" relative animate-pulse bg-gray-200 max-w-lg rounded-xl p-3">
+      <div className="aspect-[4/3] w-full relative flex items-end overflow-hidden rounded-xl object-cover bg-gray-300 max-w-lg p-3">
+        <div className="h-fu11 w-full bg-gray-200" />
       </div>
-        <div className='mt-4 flex flex-col gap-2 rounded-lg'/>
-        <div className='bg-gray-300 h-4 w-full mb-2'/>
-        <div className='flex items-center gap-10'>
-          <div className='bg-gray-300 h-12 w-full rounded-sm'/>
-          <div className='bg-gray-300 h-10 w-80 rounded-full'/>
-        </div>
+      <div className="mt-4 flex flex-col gap-2 rounded-lg" />
+      <div className="bg-gray-300 h-4 w-full mb-2" />
+      <div className="flex items-center gap-10">
+        <div className="bg-gray-300 h-12 w-full rounded-sm" />
+        <div className="bg-gray-300 h-10 w-80 rounded-full" />
+      </div>
     </div>
   );
 }
-
 
 // import "@/styles/shop-card.css";
 
@@ -46,5 +45,5 @@ export default function ShopSkeletonCard () {
 // </div>
 // </div>
 //   </article>
-// );  
+// );
 // }

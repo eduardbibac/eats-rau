@@ -7,17 +7,19 @@ import { getProductsSortOptions } from "@/actions/getProductsSortOptions";
 import { getLocale, getTranslations } from "next-intl/server";
 
 export default async function Shop() {
-  const t = await getTranslations('Shop');
+  const t = await getTranslations("Shop");
   const locale = await getLocale();
 
-  const categories : string[] = await getProductsSortOptions(locale);
-  const sort_options = [t('Filter_All'), ...categories];
-return (
-<>
-    <Navbar></Navbar>
-    <ShopPage sort_options={sort_options}>
-      {new Array(32).fill(null).map((_, i) => <ShopSkeletonCard key={i} />)}
-    </ShopPage>
-</>
-);
+  const categories: string[] = await getProductsSortOptions(locale);
+  const sort_options = [t("Filter_All"), ...categories];
+  return (
+    <>
+      <Navbar></Navbar>
+      <ShopPage sort_options={sort_options}>
+        {new Array(32).fill(null).map((_, i) => (
+          <ShopSkeletonCard key={i} />
+        ))}
+      </ShopPage>
+    </>
+  );
 }
