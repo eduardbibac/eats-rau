@@ -33,15 +33,16 @@ async function createOrder(
   payment_method: string,
   products: [{ id: number; quantity: number }],
 ) {
-  await sql.begin(async (sql) => {
-    const [order] = await sql`
+  await sql
+    .begin(async (sql) => {
+      const [order] = await sql`
     INSERT INTO orders (user_id, order_status, order_type, payment_method, payment_status, changed_by)
     VALUES 
         (${user_id}, 'pending', ${dine_in}, ${payment_method}, 'unpaid', 'user')
     RETURNING id;
     `;
-    const insert_products = products.map((product) => {
-      return sql`
+      const insert_products = products.map((product) => {
+        return sql`
       INSERT INTO order_products(order_id, product_id, price_paid, quantity)
       VALUES
         (
@@ -51,13 +52,17 @@ async function createOrder(
           ${product.quantity}
         )
       `;
+      });
+
+      for (const ip of insert_products) {
+        await ip;
+      }
+
+      // This is fake? it's gonna guanratee use one connection so....
+      // Promise.all(insert_products);
+    })
+    .catch((e) => {
+      console.log(e);
+      return [];
     });
-
-    for (const ip of insert_products) {
-      await ip;
-    }
-
-    // This is fake? it's gonna guanratee use one connection so....
-    // Promise.all(insert_products);
-  });
 }

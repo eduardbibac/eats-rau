@@ -11,6 +11,12 @@ export async function getUserSessions() {
     return;
   }
 
-  const data = await sql`SELECT * FROM user_session WHERE user_id=${user.id}`;
+  const data =
+    await sql`SELECT * FROM user_session WHERE user_id=${user.id}`.catch(
+      (e) => {
+        console.log(e);
+        return [];
+      },
+    );
   return data;
 }

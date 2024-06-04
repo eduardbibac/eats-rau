@@ -21,7 +21,10 @@ export async function GET() {
 
   let orders;
   try {
-    orders = await sql<Order[]>`SELECT * FROM orders`;
+    orders = await sql<Order[]>`SELECT * FROM orders`.catch((e) => {
+      console.log(e);
+      return [];
+    });
   } catch (e) {
     orders = {};
   }

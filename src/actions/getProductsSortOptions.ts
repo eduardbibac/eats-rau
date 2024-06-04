@@ -8,7 +8,12 @@ export async function getProductsSortOptions(userLocale: any) {
 
   const lang_name = userLocale === "en" ? `en_name` : `ro_name`;
   const categories =
-    await sql`SELECT ${sql(lang_name)} as name FROM categories ORDER BY list_position`;
+    await sql`SELECT ${sql(lang_name)} as name FROM categories ORDER BY list_position`.catch(
+      (e) => {
+        console.log(e);
+        return [];
+      },
+    );
 
-  return categories.map((i) => i.name);
+  return categories!.map((i) => i.name);
 }
