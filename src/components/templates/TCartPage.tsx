@@ -7,7 +7,7 @@ export default function TCartPage() {
         <h1 className="mb-10 text-center text-2xl font-bold">Cart Items</h1>
         <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
           <div className="rounded-lg md:w-2/3">
-            <div className="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
+            <div className="mb-6 justify-between rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
               <img
                 src="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
                 alt="product-image"
@@ -20,9 +20,9 @@ export default function TCartPage() {
                   </h2>
                   <p className="mt-1 text-xs text-gray-700">36EU - 4US</p>
                 </div>
-                <div className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
+                <div className="mt-4 flex justify-between sm:mt-0 sm:block sm:space-x-6 sm:space-y-6">
                   <div className="flex items-center border-gray-100">
-                    <span className="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50">
+                    <span className="cursor-pointer rounded-l bg-gray-100 px-3.5 py-1 duration-100 hover:bg-blue-500 hover:text-blue-50">
                       {" "}
                       -{" "}
                     </span>
@@ -32,7 +32,7 @@ export default function TCartPage() {
                       defaultValue="2"
                       min="1"
                     />
-                    <span className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50">
+                    <span className="cursor-pointer rounded-r bg-gray-100 px-3 py-1 duration-100 hover:bg-blue-500 hover:text-blue-50">
                       {" "}
                       +{" "}
                     </span>
@@ -57,7 +57,7 @@ export default function TCartPage() {
                 </div>
               </div>
             </div>
-            <div className="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
+            <div className="mb-6 justify-between rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
               <img
                 src="https://images.unsplash.com/photo-1587563871167-1ee9c731aefb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1131&q=80"
                 alt="product-image"
@@ -70,9 +70,9 @@ export default function TCartPage() {
                   </h2>
                   <p className="mt-1 text-xs text-gray-700">36EU - 4US</p>
                 </div>
-                <div className="mt-4 flex justify-between im sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
+                <div className="im mt-4 flex justify-between sm:mt-0 sm:block sm:space-x-6 sm:space-y-6">
                   <div className="flex items-center border-gray-100">
-                    <span className="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50">
+                    <span className="cursor-pointer rounded-l bg-gray-100 px-3.5 py-1 duration-100 hover:bg-blue-500 hover:text-blue-50">
                       {" "}
                       -{" "}
                     </span>
@@ -82,7 +82,7 @@ export default function TCartPage() {
                       defaultValue="2"
                       min="1"
                     />
-                    <span className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50">
+                    <span className="cursor-pointer rounded-r bg-gray-100 px-3 py-1 duration-100 hover:bg-blue-500 hover:text-blue-50">
                       {" "}
                       +{" "}
                     </span>

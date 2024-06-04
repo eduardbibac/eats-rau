@@ -57,14 +57,14 @@ export default function ShopPage({
     <div className="shop-page">
       <div className="layout">
         <div className="shop grid lg:block">
-          <div className="flex overflow-x-scroll max-h-12 no-scrollbar filters gap-2 mb-2 rounded-b-lg bg-white p-2">
+          <div className="no-scrollbar filters mb-2 flex max-h-12 gap-2 overflow-x-scroll rounded-b-lg bg-white p-2">
             {sort_options.map((i) => (
               <ul key={i} className="list-none">
                 <li
                   onClick={() => setActiveFilter(i)}
                   className={cn({
                     "bg-orange-500 text-white": activeFilter === i,
-                    "font-normal whitespace-nowrap select-none align-center rounded-full max-h-fit outline hover:text-white flex outline-orange-500 hover:bg-orange-500 p-2 min-w-14 justify-center text-sm":
+                    "align-center flex max-h-fit min-w-14 select-none justify-center whitespace-nowrap rounded-full p-2 text-sm font-normal outline outline-orange-500 hover:bg-orange-500 hover:text-white":
                       true,
                   })}
                 >

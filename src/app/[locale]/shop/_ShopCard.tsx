@@ -22,12 +22,12 @@ export default function ShopCard(props: ShopCardProps) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       layout
-      className="shop-card rounded-xl bg-white p-3 shadow-lg hover:shadow-xl "
+      className="shop-card rounded-xl bg-white p-3 shadow-lg hover:shadow-xl"
     >
       {/* hover:transform hover:scale-105 duration-300 */}
       <div className="relative flex items-end overflow-hidden rounded-xl">
         <Image
-          className="object-cover aspect-[4/3]"
+          className="aspect-[4/3] object-cover"
           src={product.image}
           alt={product.name}
           width={500}
@@ -41,15 +41,15 @@ export default function ShopCard(props: ShopCardProps) {
       </div>
 
       <div className="text-section mt-1 p-2">
-        <h2 className="text-slate-700 font-semibold">{product.name}</h2>
+        <h2 className="font-semibold text-slate-700">{product.name}</h2>
         {/* <p className="mt-1 text-sm text-slate-400">Lisbon, Portugal</p> */}
 
         <div className="bot-section mt-3 flex items-end justify-between">
           <span className="split-text">
-            <p className="text-lg font-bold text-black-500 leading-tight">
+            <p className="text-black-500 text-lg font-bold leading-tight">
               RON
             </p>
-            <p className="text-lg font-bold text-black-500 leading-tight">
+            <p className="text-black-500 text-lg font-bold leading-tight">
               {product.price}
             </p>
           </span>
@@ -58,7 +58,7 @@ export default function ShopCard(props: ShopCardProps) {
             {getCount(product) === 0 ? (
               <button
                 onClick={() => addToCart(product)}
-                className="w-full flex justify-center items-center space-x-1.5 outline-none mr-1 mb-1 border border-solid border-red-500 rounded-full lg:px-4 md:px-2 sm:px-2 py-2 bg-transparent text-xs text-orange-500 font-bold uppercase focus:outline-none active:bg-orange-600 hover:bg-orange-600 hover:text-white"
+                className="mb-1 mr-1 flex w-full items-center justify-center space-x-1.5 rounded-full border border-solid border-red-500 bg-transparent py-2 text-xs font-bold uppercase text-orange-500 outline-none hover:bg-orange-600 hover:text-white focus:outline-none active:bg-orange-600 sm:px-2 md:px-2 lg:px-4"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -77,15 +77,15 @@ export default function ShopCard(props: ShopCardProps) {
                 <p className="text-sm">{t("Add")}</p>
               </button>
             ) : (
-              <div className="w-full flex justify-center">
-                <div className="bg-orange-50 relative flex items-center w-full">
+              <div className="flex w-full justify-center">
+                <div className="relative flex w-full items-center bg-orange-50">
                   <button
                     onClick={() => subFromCart(product)}
                     type="button"
-                    className="rounded-full w-1/3 bg-orange-100 dark:bg-orange-700 dark:hover:bg-orange-600 dark:border-orange-600 hover:bg-orange-200 border border-orange-300 rounded-s-lg p-3 h-11 focus:ring-orange-100 dark:focus:ring-orange-700 focus:ring-2 focus:outline-none"
+                    className="h-11 w-1/3 rounded-full rounded-s-lg border border-orange-300 bg-orange-100 p-3 hover:bg-orange-200 focus:outline-none focus:ring-2 focus:ring-orange-100 dark:border-orange-600 dark:bg-orange-700 dark:hover:bg-orange-600 dark:focus:ring-orange-700"
                   >
                     <svg
-                      className="w-3 h-3 text-orange-900 dark:text-white"
+                      className="h-3 w-3 text-orange-900 dark:text-white"
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -106,17 +106,17 @@ export default function ShopCard(props: ShopCardProps) {
                     id="quantity-input"
                     data-input-counter
                     aria-describedby="helper-text-explanation"
-                    className="w-1/3 bg-orange-50 border-x-0 border-red-300 h-11 text-center text-orange-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 dark:bg-orange-700 dark:border-orange-600 dark:placeholder-orange-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    className="block h-11 w-1/3 w-full border-x-0 border-red-300 bg-orange-50 py-2.5 text-center text-sm text-orange-900 focus:border-blue-500 focus:ring-blue-500 dark:border-orange-600 dark:bg-orange-700 dark:text-white dark:placeholder-orange-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                     placeholder="999"
                     required
                   />
                   <button
                     onClick={() => addToCart(product)}
                     type="button"
-                    className="rounded-full w-1/3 bg-orange-100 dark:bg-orange-700 dark:hover:bg-orange-600 dark:border-orange-600 hover:bg-orange-200 border border-orange-300 rounded-e-lg p-3 h-11 focus:ring-orange-100 dark:focus:ring-orange-700 focus:ring-2 focus:outline-none"
+                    className="h-11 w-1/3 rounded-full rounded-e-lg border border-orange-300 bg-orange-100 p-3 hover:bg-orange-200 focus:outline-none focus:ring-2 focus:ring-orange-100 dark:border-orange-600 dark:bg-orange-700 dark:hover:bg-orange-600 dark:focus:ring-orange-700"
                   >
                     <svg
-                      className="w-3 h-3 text-orange-900 dark:text-white"
+                      className="h-3 w-3 text-orange-900 dark:text-white"
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"

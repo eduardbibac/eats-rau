@@ -54,10 +54,10 @@ export default function QRLoginSection() {
   return (
     <>
       <QRCodeSVG
-        className="hidden lg:flex py-5 qr-code"
+        className="qr-code hidden py-5 lg:flex"
         value={getURL(`/api/login/qr?qr_string=${qrCode}`)}
       />
-      <div className="lg:flex mt-4 items-end justify-between">
+      <div className="mt-4 items-end justify-between lg:flex">
         {/* <span className="border-b w-1/5 md:w-1/4"></span> */}
         <a href="#" className="text-xs text-gray-500">
           {t("Are you a guest ? Request guest access")}

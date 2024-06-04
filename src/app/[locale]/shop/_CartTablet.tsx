@@ -5,10 +5,10 @@ import { Drawer, DrawerTrigger, DrawerContent } from "@/components/ui/drawer";
 
 export default function CartTablet() {
   return (
-    <div className="mb-active-text flex items-end justify-center text-center mx-auto px-4 pt-2 w-full text-gray-400 group-hover:text-orange-500">
+    <div className="mb-active-text mx-auto flex w-full items-end justify-center px-4 pt-2 text-center text-gray-400 group-hover:text-orange-500">
       <Drawer>
         <DrawerTrigger>
-          <div className="hidden md:inline-flex lg:hidden fixed bottom-4 right-4  items-center justify-center text-sm font-medium disabled:pointer-events-none disabled:opacity-50 border rounded-full w-16 h-16 bg-amber-100 hover:bg-amber-200 m-0 cursor-pointer border-orange-400 bg-none p-0 normal-case leading-5 hover:text-white">
+          <div className="fixed bottom-4 right-4 m-0 hidden h-16 w-16 cursor-pointer items-center justify-center rounded-full border border-orange-400 bg-amber-100 bg-none p-0 text-sm font-medium normal-case leading-5 hover:bg-amber-200 hover:text-white disabled:pointer-events-none disabled:opacity-50 md:inline-flex lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -26,7 +26,7 @@ export default function CartTablet() {
           </div>
         </DrawerTrigger>
         <DrawerContent className="max-h-[80%] contain-content">
-          <div className="@container flex flex-col gap-4 overflow-y-auto">
+          <div className="flex flex-col gap-4 overflow-y-auto @container">
             <Cart />
           </div>
         </DrawerContent>

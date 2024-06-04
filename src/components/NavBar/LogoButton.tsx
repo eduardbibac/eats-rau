@@ -5,12 +5,12 @@ import { pathnames } from "@/navigation";
 export default async function LogoButton({ href }: { href: any }) {
   return (
     <Link
-      className="flex-none rounded-xl text-xl inline-block font-semibold focus:outline-none focus:opacity-80"
+      className="inline-block flex-none rounded-xl text-xl font-semibold focus:opacity-80 focus:outline-none"
       href={href}
       aria-label="Preline"
     >
       <svg
-        className="w-28 h-auto"
+        className="h-auto w-28"
         width="116"
         height="32"
         viewBox="0 0 116 32"

@@ -4,12 +4,12 @@ export default function THeroBits() {
     <>
       <div className="relative bg-gradient-to-b from-green-50 to-green-100">
         <header className="absolute inset-x-0 top-0 z-10 w-full">
-          <div className="px-4 mx-auto sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between h-16 lg:h-20">
+          <div className="mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex h-16 items-center justify-between lg:h-20">
               <div className="flex-shrink-0">
                 <a href="#" title="" className="flex">
                   <img
-                    className="w-auto h-8"
+                    className="h-8 w-auto"
                     src="https://cdn.rareblocks.xyz/collection/celebration/images/hero/4/logo.svg"
                     alt=""
                   />
@@ -18,11 +18,11 @@ export default function THeroBits() {
 
               <button
                 type="button"
-                className="inline-flex items-center p-2 text-sm text-white uppercase transition-all duration-200 bg-black lg:hidden focus:bg-gray-800 hover:bg-gray-800"
+                className="inline-flex items-center bg-black p-2 text-sm uppercase text-white transition-all duration-200 hover:bg-gray-800 focus:bg-gray-800 lg:hidden"
               >
                 {/* <!-- Menu open: "hidden", Menu closed: "block" --> */}
                 <svg
-                  className="block w-6 h-6 mr-2"
+                  className="mr-2 block h-6 w-6"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -37,7 +37,7 @@ export default function THeroBits() {
                 </svg>
                 {/* <!-- Menu open: "block", Menu closed: "hidden" --> */}
                 <svg
-                  className="hidden w-6 h-6 mr-2"
+                  className="mr-2 hidden h-6 w-6"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -53,7 +53,7 @@ export default function THeroBits() {
                 Menu
               </button>
 
-              <div className="hidden lg:flex lg:items-center lg:justify-center lg:ml-10 lg:mr-auto lg:space-x-10">
+              <div className="hidden lg:ml-10 lg:mr-auto lg:flex lg:items-center lg:justify-center lg:space-x-10">
                 <a
                   href="#"
                   title=""
@@ -94,7 +94,7 @@ export default function THeroBits() {
               <a
                 href="#"
                 title=""
-                className="hidden lg:inline-flex items-center justify-center px-5 py-2.5 text-base font-semibold text-black border-2 border-black hover:bg-black hover:text-white transition-all duration-200 focus:bg-black focus:text-white"
+                className="hidden items-center justify-center border-2 border-black px-5 py-2.5 text-base font-semibold text-black transition-all duration-200 hover:bg-black hover:text-white focus:bg-black focus:text-white lg:inline-flex"
                 role="button"
               >
                 {" "}
@@ -105,10 +105,10 @@ export default function THeroBits() {
         </header>
 
         <section className="overflow-hidden">
-          <div className="flex flex-col lg:flex-row lg:items-stretch lg:max-h-[900px] lg:min-h-[900px]">
-            <div className="flex items-center justify-center w-full lg:order-2 lg:w-7/12">
-              <div className="h-full px-4 pt-24 pb-16 sm:px-6 lg:px-24 2xl:px-32 lg:pt-40 lg:pb-14">
-                <div className="flex flex-col justify-between flex-1 h-full">
+          <div className="flex flex-col lg:max-h-[900px] lg:min-h-[900px] lg:flex-row lg:items-stretch">
+            <div className="flex w-full items-center justify-center lg:order-2 lg:w-7/12">
+              <div className="h-full px-4 pb-16 pt-24 sm:px-6 lg:px-24 lg:pb-14 lg:pt-40 2xl:px-32">
+                <div className="flex h-full flex-1 flex-col justify-between">
                   <div>
                     <h1 className="text-4xl font-bold text-black sm:text-6xl xl:text-7xl">
                       Take control <br />
@@ -122,7 +122,7 @@ export default function THeroBits() {
                     <a
                       href="#"
                       title=""
-                      className="inline-flex items-center px-6 py-5 text-base font-semibold text-black transition-all duration-200 bg-green-300 mt-9 hover:bg-green-400 focus:bg-green-400"
+                      className="mt-9 inline-flex items-center bg-green-300 px-6 py-5 text-base font-semibold text-black transition-all duration-200 hover:bg-green-400 focus:bg-green-400"
                       role="button"
                     >
                       {" "}
@@ -130,13 +130,13 @@ export default function THeroBits() {
                     </a>
                   </div>
 
-                  <div className="mt-8 border-t-2 border-black lg:mt-auto sm:mt-14">
+                  <div className="mt-8 border-t-2 border-black sm:mt-14 lg:mt-auto">
                     <div className="pt-8 sm:flex sm:items-center sm:justify-between sm:pt-14">
                       <p className="text-base font-semibold text-black">
                         App available on
                       </p>
 
-                      <div className="flex items-center mt-5 space-x-5 sm:mt-0">
+                      <div className="mt-5 flex items-center space-x-5 sm:mt-0">
                         <a
                           href="#"
                           title=""
@@ -144,7 +144,7 @@ export default function THeroBits() {
                           role="button"
                         >
                           <img
-                            className="w-auto rounded h-14 sm:h-16"
+                            className="h-14 w-auto rounded sm:h-16"
                             src="https://cdn.rareblocks.xyz/collection/celebration/images/hero/4/app-store-button.png"
                             alt=""
                           />
@@ -157,7 +157,7 @@ export default function THeroBits() {
                           role="button"
                         >
                           <img
-                            className="w-auto rounded h-14 sm:h-16"
+                            className="h-14 w-auto rounded sm:h-16"
                             src="https://cdn.rareblocks.xyz/collection/celebration/images/hero/4/play-store-button.png"
                             alt=""
                           />
@@ -169,7 +169,7 @@ export default function THeroBits() {
               </div>
             </div>
 
-            <div className="relative w-full overflow-hidden lg:w-5/12 lg:order-1">
+            <div className="relative w-full overflow-hidden lg:order-1 lg:w-5/12">
               <div className="lg:absolute lg:bottom-0 lg:left-0">
                 <img
                   className="w-full"

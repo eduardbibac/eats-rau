@@ -1,14 +1,14 @@
 export default function ShopSkeletonCard() {
   return (
-    <div className=" relative animate-pulse bg-gray-200 max-w-lg rounded-xl p-3">
-      <div className="aspect-[4/3] w-full relative flex items-end overflow-hidden rounded-xl object-cover bg-gray-300 max-w-lg p-3">
+    <div className="relative max-w-lg animate-pulse rounded-xl bg-gray-200 p-3">
+      <div className="relative flex aspect-[4/3] w-full max-w-lg items-end overflow-hidden rounded-xl bg-gray-300 object-cover p-3">
         <div className="h-fu11 w-full bg-gray-200" />
       </div>
       <div className="mt-4 flex flex-col gap-2 rounded-lg" />
-      <div className="bg-gray-300 h-4 w-full mb-2" />
+      <div className="mb-2 h-4 w-full bg-gray-300" />
       <div className="flex items-center gap-10">
-        <div className="bg-gray-300 h-12 w-full rounded-sm" />
-        <div className="bg-gray-300 h-10 w-80 rounded-full" />
+        <div className="h-12 w-full rounded-sm bg-gray-300" />
+        <div className="h-10 w-80 rounded-full bg-gray-300" />
       </div>
     </div>
   );

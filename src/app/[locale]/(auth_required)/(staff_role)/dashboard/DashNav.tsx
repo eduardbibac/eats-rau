@@ -8,9 +8,9 @@ export default function DashNav() {
   return (
     <>
       {/* <!-- ========== DESKTOP ========== --> */}
-      <header className="hidden md:flex flex-wrap md:justify-start md:flex-nowrap z-50 w-[98dvw] py-7">
+      <header className="z-50 hidden w-[98dvw] flex-wrap py-7 md:flex md:flex-nowrap md:justify-start">
         <nav
-          className="relative max-w-7xl w-full flex flex-wrap md:grid md:grid-cols-12 basis-full items-center px-4 md:px-8 mx-auto"
+          className="relative mx-auto flex w-full max-w-7xl basis-full flex-wrap items-center px-4 md:grid md:grid-cols-12 md:px-8"
           aria-label="Global"
         >
           <div className="md:col-span-3">
@@ -18,16 +18,16 @@ export default function DashNav() {
           </div>
 
           {/* <!-- Button Group --> */}
-          <div className="flex items-center gap-x-2 ms-auto py-1 md:ps-6 md:order-3 md:col-span-3">
+          <div className="ms-auto flex items-center gap-x-2 py-1 md:order-3 md:col-span-3 md:ps-6">
             <AvatarMenu />
           </div>
           {/* <!-- End Button Group --> */}
           {/* <!-- Collapse --> */}
           <div
             id="navbar-collapse-with-animation"
-            className="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow md:block md:w-auto md:basis-auto md:order-2 md:col-span-6"
+            className="hs-collapse hidden grow basis-full overflow-hidden transition-all duration-300 md:order-2 md:col-span-6 md:block md:w-auto md:basis-auto"
           >
-            <div className="flex flex-col gap-y-4 gap-x-0 mt-5 md:flex-row md:justify-center md:items-center md:gap-y-0 md:gap-x-7 md:mt-0">
+            <div className="mt-5 flex flex-col gap-x-0 gap-y-4 md:mt-0 md:flex-row md:items-center md:justify-center md:gap-x-7 md:gap-y-0">
               <DesktopNavButton href="/dashboard/orders" label={t("Orders")} />
 
               {/* <!-- End Collapse --> */}

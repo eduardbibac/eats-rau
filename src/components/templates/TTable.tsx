@@ -1,10 +1,10 @@
 export default function TTable() {
   return (
-    <article className="bg-gray-50 dark:bg-gray-900 py-3 sm:py-5">
-      <div className="px-4 mx-auto max-w-screen-2xl lg:px-12">
+    <article className="bg-gray-50 py-3 dark:bg-gray-900 sm:py-5">
+      <div className="mx-auto max-w-screen-2xl px-4 lg:px-12">
         <div className="relative overflow-hidden bg-white shadow-md dark:bg-gray-800 sm:rounded-lg">
-          <div className="flex flex-col px-4 py-3 space-y-3 lg:flex-row lg:items-center lg:justify-between lg:space-y-0 lg:space-x-4">
-            <div className="flex items-center flex-1 space-x-4">
+          <div className="flex flex-col space-y-3 px-4 py-3 lg:flex-row lg:items-center lg:justify-between lg:space-x-4 lg:space-y-0">
+            <div className="flex flex-1 items-center space-x-4">
               <h5>
                 <span className="text-gray-500">All Products:</span>
                 <span className="dark:text-white">123456</span>
@@ -14,13 +14,13 @@ export default function TTable() {
                 <span className="dark:text-white">$88.4k</span>
               </h5>
             </div>
-            <div className="flex flex-col flex-shrink-0 space-y-3 md:flex-row md:items-center lg:justify-end md:space-y-0 md:space-x-3">
+            <div className="flex flex-shrink-0 flex-col space-y-3 md:flex-row md:items-center md:space-x-3 md:space-y-0 lg:justify-end">
               <button
                 type="button"
-                className="flex items-center justify-center px-4 py-2 text-sm font-medium text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
+                className="bg-primary-700 hover:bg-primary-800 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 flex items-center justify-center rounded-lg px-4 py-2 text-sm font-medium text-white focus:outline-none focus:ring-4"
               >
                 <svg
-                  className="h-3.5 w-3.5 mr-2"
+                  className="mr-2 h-3.5 w-3.5"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -36,10 +36,10 @@ export default function TTable() {
               </button>
               <button
                 type="button"
-                className="flex items-center justify-center flex-shrink-0 px-3 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                className="hover:text-primary-700 flex flex-shrink-0 items-center justify-center rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700"
               >
                 <svg
-                  className="w-4 h-4 mr-2"
+                  className="mr-2 h-4 w-4"
                   xmlns="http://www.w3.org/2000/svg"
                   aria-hidden="true"
                   fill="none"
@@ -57,10 +57,10 @@ export default function TTable() {
               </button>
               <button
                 type="button"
-                className="flex items-center justify-center flex-shrink-0 px-3 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                className="hover:text-primary-700 flex flex-shrink-0 items-center justify-center rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700"
               >
                 <svg
-                  className="w-4 h-4 mr-2"
+                  className="mr-2 h-4 w-4"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -79,15 +79,15 @@ export default function TTable() {
             </div>
           </div>
           <div className="overflow-x-auto">
-            <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-              <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400">
+              <thead className="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                   <th scope="col" className="p-4">
                     <div className="flex items-center">
                       <input
                         id="checkbox-all"
                         type="checkbox"
-                        className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        className="text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 h-4 w-4 rounded border-gray-300 bg-gray-100 focus:ring-2 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800"
                       />
                       {/* for="checkbox-all"  */}
                       <label className="sr-only">checkbox</label>
@@ -123,14 +123,14 @@ export default function TTable() {
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                <tr className="border-b hover:bg-gray-100 dark:border-gray-600 dark:hover:bg-gray-700">
                   <td className="w-4 px-4 py-3">
                     <div className="flex items-center">
                       {/* onclick="event.stopPropagation()" */}
                       <input
                         id="checkbox-table-search-1"
                         type="checkbox"
-                        className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        className="text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 h-4 w-4 rounded border-gray-300 bg-gray-100 focus:ring-2 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800"
                       />
                       {/*for="checkbox-table-search-1"*/}
                       <label className="sr-only">checkbox</label>
@@ -138,37 +138,37 @@ export default function TTable() {
                   </td>
                   <th
                     scope="row"
-                    className="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                    className="flex items-center whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white"
                   >
                     <img
                       src="https://flowbite.s3.amazonaws.com/blocks/application-ui/products/imac-front-image.png"
                       alt="iMac Front Image"
-                      className="w-auto h-8 mr-3"
+                      className="mr-3 h-8 w-auto"
                     />
                     Apple iMac 27&#34;
                   </th>
                   <td className="px-4 py-2">
-                    <span className="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">
+                    <span className="bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-300 rounded px-2 py-0.5 text-xs font-medium">
                       Desktop PC
                     </span>
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     <div className="flex items-center">
-                      <div className="inline-block w-4 h-4 mr-2 bg-red-700 rounded-full"></div>
+                      <div className="mr-2 inline-block h-4 w-4 rounded-full bg-red-700"></div>
                       95
                     </div>
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     1.47
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     0.47
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     <div className="flex items-center">
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -177,7 +177,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -186,7 +186,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -195,7 +195,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -204,7 +204,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -216,13 +216,13 @@ export default function TTable() {
                       </span>
                     </div>
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     <div className="flex items-center">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
                         fill="currentColor"
-                        className="w-5 h-5 mr-2 text-gray-400"
+                        className="mr-2 h-5 w-5 text-gray-400"
                         aria-hidden="true"
                       >
                         <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
@@ -231,17 +231,17 @@ export default function TTable() {
                     </div>
                   </td>
                   <td className="px-4 py-2">$3.2M</td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     Just now
                   </td>
                 </tr>
-                <tr className="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                <tr className="border-b hover:bg-gray-100 dark:border-gray-600 dark:hover:bg-gray-700">
                   <td className="w-4 px-4 py-3">
                     <div className="flex items-center">
                       {/* type="checkbox" onclick="event.stopPropagation()" */}
                       <input
                         id="checkbox-table-search-1"
-                        className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        className="text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 h-4 w-4 rounded border-gray-300 bg-gray-100 focus:ring-2 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800"
                       />
                       {/* for="checkbox-table-search-1"  */}
                       <label className="sr-only">checkbox</label>
@@ -249,37 +249,37 @@ export default function TTable() {
                   </td>
                   <th
                     scope="row"
-                    className="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                    className="flex items-center whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white"
                   >
                     <img
                       src="https://flowbite.s3.amazonaws.com/blocks/application-ui/products/imac-front-image.png"
                       alt="iMac Front Image"
-                      className="w-auto h-8 mr-3"
+                      className="mr-3 h-8 w-auto"
                     />
                     Apple iMac 20&#34;
                   </th>
                   <td className="px-4 py-2">
-                    <span className="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">
+                    <span className="bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-300 rounded px-2 py-0.5 text-xs font-medium">
                       Desktop PC
                     </span>
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     <div className="flex items-center">
-                      <div className="inline-block w-4 h-4 mr-2 bg-red-700 rounded-full"></div>
+                      <div className="mr-2 inline-block h-4 w-4 rounded-full bg-red-700"></div>
                       108
                     </div>
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     1.15
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     0.32
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     <div className="flex items-center">
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -288,7 +288,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -297,7 +297,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -306,7 +306,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -315,7 +315,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -327,13 +327,13 @@ export default function TTable() {
                       </span>
                     </div>
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     <div className="flex items-center">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
                         fill="currentColor"
-                        className="w-5 h-5 mr-2 text-gray-400"
+                        className="mr-2 h-5 w-5 text-gray-400"
                         aria-hidden="true"
                       >
                         <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
@@ -342,18 +342,18 @@ export default function TTable() {
                     </div>
                   </td>
                   <td className="px-4 py-2">$785K</td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     This week
                   </td>
                 </tr>
-                <tr className="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                <tr className="border-b hover:bg-gray-100 dark:border-gray-600 dark:hover:bg-gray-700">
                   <td className="w-4 px-4 py-3">
                     <div className="flex items-center">
                       {/* onclick="event.stopPropagation()" */}
                       <input
                         id="checkbox-table-search-1"
                         type="checkbox"
-                        className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        className="text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 h-4 w-4 rounded border-gray-300 bg-gray-100 focus:ring-2 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800"
                       />
                       {/* for="checkbox-table-search-1" */}
                       <label className="sr-only">checkbox</label>
@@ -361,37 +361,37 @@ export default function TTable() {
                   </td>
                   <th
                     scope="row"
-                    className="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                    className="flex items-center whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white"
                   >
                     <img
                       src="https://flowbite.s3.amazonaws.com/blocks/application-ui/devices/apple-iphone-14.png"
                       alt="iMac Front Image"
-                      className="w-auto h-8 mr-3"
+                      className="mr-3 h-8 w-auto"
                     />
                     Apple iPhone 14
                   </th>
                   <td className="px-4 py-2">
-                    <span className="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">
+                    <span className="bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-300 rounded px-2 py-0.5 text-xs font-medium">
                       Phone
                     </span>
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     <div className="flex items-center">
-                      <div className="inline-block w-4 h-4 mr-2 bg-green-400 rounded-full"></div>
+                      <div className="mr-2 inline-block h-4 w-4 rounded-full bg-green-400"></div>
                       24
                     </div>
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     1.00
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     0.95
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     <div className="flex items-center">
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -400,7 +400,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -409,7 +409,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -418,7 +418,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -427,7 +427,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-gray-300 dark:text-gray-500"
+                        className="h-5 w-5 text-gray-300 dark:text-gray-500"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -439,13 +439,13 @@ export default function TTable() {
                       </span>
                     </div>
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     <div className="flex items-center">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
                         fill="currentColor"
-                        className="w-5 h-5 mr-2 text-gray-400"
+                        className="mr-2 h-5 w-5 text-gray-400"
                         aria-hidden="true"
                       >
                         <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
@@ -454,18 +454,18 @@ export default function TTable() {
                     </div>
                   </td>
                   <td className="px-4 py-2">$3.2M</td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     Just now
                   </td>
                 </tr>
-                <tr className="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                <tr className="border-b hover:bg-gray-100 dark:border-gray-600 dark:hover:bg-gray-700">
                   <td className="w-4 px-4 py-3">
                     <div className="flex items-center">
                       {/* onclick="event.stopPropagation()" */}
                       <input
                         id="checkbox-table-search-1"
                         type="checkbox"
-                        className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        className="text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 h-4 w-4 rounded border-gray-300 bg-gray-100 focus:ring-2 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800"
                       />
                       {/* for="checkbox-table-search-1" */}
                       <label className="sr-only">checkbox</label>
@@ -473,37 +473,37 @@ export default function TTable() {
                   </td>
                   <th
                     scope="row"
-                    className="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                    className="flex items-center whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white"
                   >
                     <img
                       src="https://flowbite.s3.amazonaws.com/blocks/application-ui/devices/apple-ipad-air.png"
                       alt="iMac Front Image"
-                      className="w-auto h-8 mr-3"
+                      className="mr-3 h-8 w-auto"
                     />
                     Apple iPad Air
                   </th>
                   <td className="px-4 py-2">
-                    <span className="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">
+                    <span className="bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-300 rounded px-2 py-0.5 text-xs font-medium">
                       Tablet
                     </span>
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     <div className="flex items-center">
-                      <div className="inline-block w-4 h-4 mr-2 bg-red-500 rounded-full"></div>
+                      <div className="mr-2 inline-block h-4 w-4 rounded-full bg-red-500"></div>
                       287
                     </div>
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     0.47
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     1.00
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     <div className="flex items-center">
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -512,7 +512,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -521,7 +521,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -530,7 +530,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -539,7 +539,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-gray-300 dark:text-gray-500"
+                        className="h-5 w-5 text-gray-300 dark:text-gray-500"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -551,13 +551,13 @@ export default function TTable() {
                       </span>
                     </div>
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     <div className="flex items-center">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
                         fill="currentColor"
-                        className="w-5 h-5 mr-2 text-gray-400"
+                        className="mr-2 h-5 w-5 text-gray-400"
                         aria-hidden="true"
                       >
                         <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
@@ -566,18 +566,18 @@ export default function TTable() {
                     </div>
                   </td>
                   <td className="px-4 py-2">$425K</td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     Just now
                   </td>
                 </tr>
-                <tr className="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                <tr className="border-b hover:bg-gray-100 dark:border-gray-600 dark:hover:bg-gray-700">
                   <td className="w-4 px-4 py-3">
                     <div className="flex items-center">
                       {/* onclick="event.stopPropagation()" */}
                       <input
                         id="checkbox-table-search-1"
                         type="checkbox"
-                        className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        className="text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 h-4 w-4 rounded border-gray-300 bg-gray-100 focus:ring-2 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800"
                       />
                       {/* for="checkbox-table-search-1" */}
                       <label className="sr-only">checkbox</label>
@@ -585,37 +585,37 @@ export default function TTable() {
                   </td>
                   <th
                     scope="row"
-                    className="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                    className="flex items-center whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white"
                   >
                     <img
                       src="https://flowbite.s3.amazonaws.com/blocks/application-ui/devices/xbox-series-s.png"
                       alt="iMac Front Image"
-                      className="w-auto h-8 mr-3"
+                      className="mr-3 h-8 w-auto"
                     />
                     Xbox Series S
                   </th>
                   <td className="px-4 py-2">
-                    <span className="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">
+                    <span className="bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-300 rounded px-2 py-0.5 text-xs font-medium">
                       Console
                     </span>
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     <div className="flex items-center">
-                      <div className="inline-block w-4 h-4 mr-2 bg-yellow-300 rounded-full"></div>
+                      <div className="mr-2 inline-block h-4 w-4 rounded-full bg-yellow-300"></div>
                       450
                     </div>
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     1.61
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     0.30
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     <div className="flex items-center">
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -624,7 +624,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -633,7 +633,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -642,7 +642,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -651,7 +651,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -663,13 +663,13 @@ export default function TTable() {
                       </span>
                     </div>
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     <div className="flex items-center">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
                         fill="currentColor"
-                        className="w-5 h-5 mr-2 text-gray-400"
+                        className="mr-2 h-5 w-5 text-gray-400"
                         aria-hidden="true"
                       >
                         <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
@@ -678,18 +678,18 @@ export default function TTable() {
                     </div>
                   </td>
                   <td className="px-4 py-2">$345K</td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     This week
                   </td>
                 </tr>
-                <tr className="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                <tr className="border-b hover:bg-gray-100 dark:border-gray-600 dark:hover:bg-gray-700">
                   <td className="w-4 px-4 py-3">
                     <div className="flex items-center">
                       {/* onclick="event.stopPropagation()" */}
                       <input
                         id="checkbox-table-search-1"
                         type="checkbox"
-                        className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        className="text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 h-4 w-4 rounded border-gray-300 bg-gray-100 focus:ring-2 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800"
                       />
                       {/* for="checkbox-table-search-1" */}
                       <label className="sr-only">checkbox</label>
@@ -697,37 +697,37 @@ export default function TTable() {
                   </td>
                   <th
                     scope="row"
-                    className="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                    className="flex items-center whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white"
                   >
                     <img
                       src="https://flowbite.s3.amazonaws.com/blocks/application-ui/devices/playstation-5.png"
                       alt="iMac Front Image"
-                      className="w-auto h-8 mr-3"
+                      className="mr-3 h-8 w-auto"
                     />
                     PlayStation 5
                   </th>
                   <td className="px-4 py-2">
-                    <span className="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">
+                    <span className="bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-300 rounded px-2 py-0.5 text-xs font-medium">
                       Console
                     </span>
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     <div className="flex items-center">
-                      <div className="inline-block w-4 h-4 mr-2 bg-green-400 rounded-full"></div>
+                      <div className="mr-2 inline-block h-4 w-4 rounded-full bg-green-400"></div>
                       2435
                     </div>
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     1.41
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     0.11
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     <div className="flex items-center">
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -736,7 +736,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -745,7 +745,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -754,7 +754,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -763,7 +763,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-gray-300 dark:text-gray-500"
+                        className="h-5 w-5 text-gray-300 dark:text-gray-500"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -775,13 +775,13 @@ export default function TTable() {
                       </span>
                     </div>
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     <div className="flex items-center">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
                         fill="currentColor"
-                        className="w-5 h-5 mr-2 text-gray-400"
+                        className="mr-2 h-5 w-5 text-gray-400"
                         aria-hidden="true"
                       >
                         <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
@@ -790,18 +790,18 @@ export default function TTable() {
                     </div>
                   </td>
                   <td className="px-4 py-2">$4.2M</td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     This week
                   </td>
                 </tr>
-                <tr className="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                <tr className="border-b hover:bg-gray-100 dark:border-gray-600 dark:hover:bg-gray-700">
                   <td className="w-4 px-4 py-3">
                     <div className="flex items-center">
                       {/* onclick="event.stopPropagation()" */}
                       <input
                         id="checkbox-table-search-1"
                         type="checkbox"
-                        className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        className="text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 h-4 w-4 rounded border-gray-300 bg-gray-100 focus:ring-2 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800"
                       />
                       {/* for="checkbox-table-search-1"  */}
                       <label className="sr-only">checkbox</label>
@@ -809,37 +809,37 @@ export default function TTable() {
                   </td>
                   <th
                     scope="row"
-                    className="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                    className="flex items-center whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white"
                   >
                     <img
                       src="https://flowbite.s3.amazonaws.com/blocks/application-ui/devices/xbox-series-x.png"
                       alt="iMac Front Image"
-                      className="w-auto h-8 mr-3"
+                      className="mr-3 h-8 w-auto"
                     />
                     Xbox Series X
                   </th>
                   <td className="px-4 py-2">
-                    <span className="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">
+                    <span className="bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-300 rounded px-2 py-0.5 text-xs font-medium">
                       Gaming/Console
                     </span>
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     <div className="flex items-center">
-                      <div className="inline-block w-4 h-4 mr-2 bg-orange-500 rounded-full"></div>
+                      <div className="mr-2 inline-block h-4 w-4 rounded-full bg-orange-500"></div>
                       235
                     </div>
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     7.09
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     3.32
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     <div className="flex items-center">
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -848,7 +848,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -857,7 +857,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -866,7 +866,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -875,7 +875,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -887,13 +887,13 @@ export default function TTable() {
                       </span>
                     </div>
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     <div className="flex items-center">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
                         fill="currentColor"
-                        className="w-5 h-5 mr-2 text-gray-400"
+                        className="mr-2 h-5 w-5 text-gray-400"
                         aria-hidden="true"
                       >
                         <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
@@ -902,18 +902,18 @@ export default function TTable() {
                     </div>
                   </td>
                   <td className="px-4 py-2">$2.27M</td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     This week
                   </td>
                 </tr>
-                <tr className="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                <tr className="border-b hover:bg-gray-100 dark:border-gray-600 dark:hover:bg-gray-700">
                   <td className="w-4 px-4 py-3">
                     <div className="flex items-center">
                       {/* onclick="event.stopPropagation()" */}
                       <input
                         id="checkbox-table-search-1"
                         type="checkbox"
-                        className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        className="text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 h-4 w-4 rounded border-gray-300 bg-gray-100 focus:ring-2 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800"
                       />
                       {/* for="checkbox-table-search-1"  */}
                       <label className="sr-only">checkbox</label>
@@ -921,37 +921,37 @@ export default function TTable() {
                   </td>
                   <th
                     scope="row"
-                    className="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                    className="flex items-center whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white"
                   >
                     <img
                       src="https://flowbite.s3.amazonaws.com/blocks/application-ui/devices/apple-watch-se.png"
                       alt="iMac Front Image"
-                      className="w-auto h-8 mr-3"
+                      className="mr-3 h-8 w-auto"
                     />
                     Apple Watch SE
                   </th>
                   <td className="px-4 py-2">
-                    <span className="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">
+                    <span className="bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-300 rounded px-2 py-0.5 text-xs font-medium">
                       Watch
                     </span>
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     <div className="flex items-center">
-                      <div className="inline-block w-4 h-4 mr-2 bg-yellow-300 rounded-full"></div>
+                      <div className="mr-2 inline-block h-4 w-4 rounded-full bg-yellow-300"></div>
                       433
                     </div>
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     4.96
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     0.74
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     <div className="flex items-center">
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -960,7 +960,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -969,7 +969,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -978,7 +978,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -987,7 +987,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -999,13 +999,13 @@ export default function TTable() {
                       </span>
                     </div>
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     <div className="flex items-center">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
                         fill="currentColor"
-                        className="w-5 h-5 mr-2 text-gray-400"
+                        className="mr-2 h-5 w-5 text-gray-400"
                         aria-hidden="true"
                       >
                         <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
@@ -1014,18 +1014,18 @@ export default function TTable() {
                     </div>
                   </td>
                   <td className="px-4 py-2">$45K</td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     2 weeks ago
                   </td>
                 </tr>
-                <tr className="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                <tr className="border-b hover:bg-gray-100 dark:border-gray-600 dark:hover:bg-gray-700">
                   <td className="w-4 px-4 py-3">
                     <div className="flex items-center">
                       {/* onclick="event.stopPropagation()" */}
                       <input
                         id="checkbox-table-search-1"
                         type="checkbox"
-                        className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        className="text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 h-4 w-4 rounded border-gray-300 bg-gray-100 focus:ring-2 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800"
                       />
                       {/* for="checkbox-table-search-1" */}
                       <label className="sr-only">checkbox</label>
@@ -1033,37 +1033,37 @@ export default function TTable() {
                   </td>
                   <th
                     scope="row"
-                    className="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                    className="flex items-center whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white"
                   >
                     <img
                       src="https://flowbite.s3.amazonaws.com/blocks/application-ui/devices/nikon-d850.png"
                       alt="iMac Front Image"
-                      className="w-auto h-8 mr-3"
+                      className="mr-3 h-8 w-auto"
                     />
                     NIKON D850
                   </th>
                   <td className="px-4 py-2">
-                    <span className="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">
+                    <span className="bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-300 rounded px-2 py-0.5 text-xs font-medium">
                       Photo/Video
                     </span>
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     <div className="flex items-center">
-                      <div className="inline-block w-4 h-4 mr-2 bg-orange-400 rounded-full"></div>
+                      <div className="mr-2 inline-block h-4 w-4 rounded-full bg-orange-400"></div>
                       351
                     </div>
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     0.20
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     0.74
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     <div className="flex items-center">
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -1072,7 +1072,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -1081,7 +1081,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -1090,7 +1090,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-gray-300 dark:text-gray-500"
+                        className="h-5 w-5 text-gray-300 dark:text-gray-500"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -1099,7 +1099,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-gray-300 dark:text-gray-500"
+                        className="h-5 w-5 text-gray-300 dark:text-gray-500"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -1111,13 +1111,13 @@ export default function TTable() {
                       </span>
                     </div>
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     <div className="flex items-center">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
                         fill="currentColor"
-                        className="w-5 h-5 mr-2 text-gray-400"
+                        className="mr-2 h-5 w-5 text-gray-400"
                         aria-hidden="true"
                       >
                         <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
@@ -1126,18 +1126,18 @@ export default function TTable() {
                     </div>
                   </td>
                   <td className="px-4 py-2">$1.52M</td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     3 weeks ago
                   </td>
                 </tr>
-                <tr className="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                <tr className="border-b hover:bg-gray-100 dark:border-gray-600 dark:hover:bg-gray-700">
                   <td className="w-4 px-4 py-3">
                     <div className="flex items-center">
                       {/* onclick="event.stopPropagation()" */}
                       <input
                         id="checkbox-table-search-1"
                         type="checkbox"
-                        className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        className="text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 h-4 w-4 rounded border-gray-300 bg-gray-100 focus:ring-2 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800"
                       />
                       {/* for="checkbox-table-search-1" */}
                       <label className="sr-only">checkbox</label>
@@ -1145,37 +1145,37 @@ export default function TTable() {
                   </td>
                   <th
                     scope="row"
-                    className="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                    className="flex items-center whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white"
                   >
                     <img
                       src="https://flowbite.s3.amazonaws.com/blocks/application-ui/devices/benq-ex2710q.png"
                       alt="iMac Front Image"
-                      className="w-auto h-8 mr-3"
+                      className="mr-3 h-8 w-auto"
                     />
                     Monitor BenQ EX2710Q
                   </th>
                   <td className="px-4 py-2">
-                    <span className="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">
+                    <span className="bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-300 rounded px-2 py-0.5 text-xs font-medium">
                       TV/Monitor
                     </span>
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     <div className="flex items-center">
-                      <div className="inline-block w-4 h-4 mr-2 bg-green-500 rounded-full"></div>
+                      <div className="mr-2 inline-block h-4 w-4 rounded-full bg-green-500"></div>
                       1242
                     </div>
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     4.12
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     0.30
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     <div className="flex items-center">
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -1184,7 +1184,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -1193,7 +1193,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -1202,7 +1202,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-yellow-400"
+                        className="h-5 w-5 text-yellow-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -1211,7 +1211,7 @@ export default function TTable() {
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="w-5 h-5 text-gray-300 dark:text-gray-500"
+                        className="h-5 w-5 text-gray-300 dark:text-gray-500"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -1223,13 +1223,13 @@ export default function TTable() {
                       </span>
                     </div>
                   </td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     <div className="flex items-center">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
                         fill="currentColor"
-                        className="w-5 h-5 mr-2 text-gray-400"
+                        className="mr-2 h-5 w-5 text-gray-400"
                         aria-hidden="true"
                       >
                         <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
@@ -1238,7 +1238,7 @@ export default function TTable() {
                     </div>
                   </td>
                   <td className="px-4 py-2">$1.2M</td>
-                  <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                     Just now
                   </td>
                 </tr>
@@ -1246,7 +1246,7 @@ export default function TTable() {
             </table>
           </div>
           <nav
-            className="flex flex-col items-start justify-between p-4 space-y-3 md:flex-row md:items-center md:space-y-0"
+            className="flex flex-col items-start justify-between space-y-3 p-4 md:flex-row md:items-center md:space-y-0"
             aria-label="Table navigation"
           >
             <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
@@ -1263,11 +1263,11 @@ export default function TTable() {
               <li>
                 <a
                   href="#"
-                  className="flex items-center justify-center h-full py-1.5 px-3 ml-0 text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                  className="ml-0 flex h-full items-center justify-center rounded-l-lg border border-gray-300 bg-white px-3 py-1.5 text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                 >
                   <span className="sr-only">Previous</span>
                   <svg
-                    className="w-5 h-5"
+                    className="h-5 w-5"
                     aria-hidden="true"
                     fill="currentColor"
                     viewBox="0 0 20 20"

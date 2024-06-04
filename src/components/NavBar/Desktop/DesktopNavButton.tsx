@@ -19,7 +19,7 @@ export default function DesktopNavButton({
           href={href}
           className={cn(
             {
-              "relative before:absolute before:bottom-0.5 before:start-0 before:-z-[1] before:w-full before:h-1 before:bg-orange-400":
+              "relative before:absolute before:bottom-0.5 before:start-0 before:-z-[1] before:h-1 before:w-full before:bg-orange-400":
                 isActive,
             },
             "inline-block text-black hover:text-gray-600",

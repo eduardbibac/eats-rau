@@ -47,14 +47,14 @@ export default function Orders() {
   return (
     <>
       {/* <h1>All orders</h1> */}
-      <div className="grid grid-cols-[1fr_1fr_100px] bg-blue-100 h-full max-h-full overflow-hidden">
-        <div className="overflow-y-scroll m-5">
-          <span className="bg-white w-full rounded-xl">
-            <h1 className="fixed ">Incoming</h1>
+      <div className="grid h-full max-h-full grid-cols-[1fr_1fr_100px] overflow-hidden bg-blue-100">
+        <div className="m-5 overflow-y-scroll">
+          <span className="w-full rounded-xl bg-white">
+            <h1 className="fixed">Incoming</h1>
           </span>
-          <div className="bg-white p-5 rounded-xl gap-12 grid md:grid-cols-1 lg:grid-cols-2">
+          <div className="grid gap-12 rounded-xl bg-white p-5 md:grid-cols-1 lg:grid-cols-2">
             {orders.map((order, i) => (
-              <div key={order.id} className="h-12 ">
+              <div key={order.id} className="h-12">
                 <h1>
                   {`Order: ${order.id} | ${order.order_type} 
           ${Date.parse(order.is_scheduled_at) < Date.now() ? "NOW" : `Scheduled_AT: ${order.is_scheduled_at}`} | user: ${order.user_id}`}
@@ -63,11 +63,11 @@ export default function Orders() {
             ))}
           </div>
         </div>
-        <div className="overflow-y-scroll m-5">
-          <span className="bg-white w-full rounded-xl">
-            <h1 className="fixed ">Ready for Pickup</h1>
+        <div className="m-5 overflow-y-scroll">
+          <span className="w-full rounded-xl bg-white">
+            <h1 className="fixed">Ready for Pickup</h1>
           </span>
-          <div className="bg-white p-5 rounded-xl gap-12 grid md:grid-cols-1 lg:grid-cols-2">
+          <div className="grid gap-12 rounded-xl bg-white p-5 md:grid-cols-1 lg:grid-cols-2">
             {orders.map((order, i) => (
               <div key={order.id} className="h-12">
                 <h1>
@@ -82,13 +82,13 @@ export default function Orders() {
         <div className="grid grid-rows-[3fr_1fr]">
           <h1
             style={{ writingMode: "vertical-lr" }}
-            className="rotate-180 text-center direction-reverse bg-green-300"
+            className="rotate-180 bg-green-300 text-center direction-reverse"
           >
             Completed
           </h1>
           <h1
             style={{ writingMode: "vertical-lr" }}
-            className="rotate-180 text-center bg-red-100"
+            className="rotate-180 bg-red-100 text-center"
           >
             Canceled
           </h1>

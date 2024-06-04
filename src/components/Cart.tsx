@@ -11,10 +11,10 @@ export default function Cart() {
   return (
     <div className="cart">
       <div className="flex justify-between">
-        <p className="self-start text-xl py-5 font-bold dark:text-white">
+        <p className="self-start py-5 text-xl font-bold dark:text-white">
           Total
         </p>
-        <p className="self-end text-xl py-5 font-bold dark:text-white pr-8">
+        <p className="self-end py-5 pr-8 text-xl font-bold dark:text-white">
           {cartTotal} RON
         </p>
       </div>

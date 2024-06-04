@@ -37,12 +37,12 @@ export function CheckoutModal() {
       <DialogTrigger asChild>
         <button
           onClick={() => validateAuth()}
-          className=" text-lg items-center w-full h-30 rounded-lg bg-orange-500 py-1.5 text-white duration-100 hover:bg-orange-600"
+          className="h-30 w-full items-center rounded-lg bg-orange-500 py-1.5 text-lg text-white duration-100 hover:bg-orange-600"
         >
           {t("Checkout")}
         </button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[625px] sm:min-h-[400px]">
+      <DialogContent className="sm:min-h-[400px] sm:max-w-[625px]">
         {step === 1 ? (
           <PickDining
             setStep={setStep}

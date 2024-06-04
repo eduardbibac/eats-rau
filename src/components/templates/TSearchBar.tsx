@@ -1,16 +1,16 @@
 export default function SearchBar() {
   return (
-    <div className="searchbar hidden sm:block flex-shrink flex-grow-0 justify-start px-2">
+    <div className="searchbar hidden flex-shrink flex-grow-0 justify-start px-2 sm:block">
       <div className="inline-block">
-        <div className="inline-flex items-center max-w-full">
+        <div className="inline-flex max-w-full items-center">
           <button
-            className="flex items-center flex-grow-0 flex-shrink pl-2 relative w-60 border rounded-full px-1  py-1"
+            className="relative flex w-60 flex-shrink flex-grow-0 items-center rounded-full border px-1 py-1 pl-2"
             type="button"
           >
-            <div className="block flex-grow flex-shrink overflow-hidden">
+            <div className="block flex-shrink flex-grow overflow-hidden">
               Start your search
             </div>
-            <div className="flex items-center justify-center relative  h-8 w-8 rounded-full">
+            <div className="relative flex h-8 w-8 items-center justify-center rounded-full">
               <svg
                 className="search-icon"
                 viewBox="0 0 32 32"

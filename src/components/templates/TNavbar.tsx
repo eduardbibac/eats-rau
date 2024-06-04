@@ -1,19 +1,19 @@
 export default function TNavBar() {
   return (
-    <header className="flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full py-7">
+    <header className="z-50 flex w-full flex-wrap py-7 md:flex-nowrap md:justify-start">
       <nav
-        className="relative max-w-7xl w-full flex flex-wrap md:grid md:grid-cols-12 basis-full items-center px-4 md:px-6 md:px-8 mx-auto"
+        className="relative mx-auto flex w-full max-w-7xl basis-full flex-wrap items-center px-4 md:grid md:grid-cols-12 md:px-6 md:px-8"
         aria-label="Global"
       >
         <div className="md:col-span-3">
           {/* <!-- Logo --> */}
           <a
-            className="flex-none rounded-xl text-xl inline-block font-semibold focus:outline-none focus:opacity-80"
+            className="inline-block flex-none rounded-xl text-xl font-semibold focus:opacity-80 focus:outline-none"
             href="../templates/creative-agency/index.html"
             aria-label="Preline"
           >
             <svg
-              className="w-28 h-auto"
+              className="h-auto w-28"
               width="116"
               height="32"
               viewBox="0 0 116 32"
@@ -50,16 +50,16 @@ export default function TNavBar() {
         </div>
 
         {/* <!-- Button Group --> */}
-        <div className="flex items-center gap-x-2 ms-auto py-1 md:ps-6 md:order-3 md:col-span-3">
+        <div className="ms-auto flex items-center gap-x-2 py-1 md:order-3 md:col-span-3 md:ps-6">
           <button
             type="button"
-            className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-xl border border-gray-200 text-black hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:border-neutral-700 dark:hover:bg-white/10 dark:text-white dark:hover:text-white"
+            className="inline-flex items-center gap-x-2 rounded-xl border border-gray-200 px-3 py-2 text-sm font-medium text-black hover:bg-gray-100 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:text-white dark:hover:bg-white/10 dark:hover:text-white"
           >
             Sign in
           </button>
           <button
             type="button"
-            className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-xl border border-transparent bg-lime-400 text-black hover:bg-lime-500 transition disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-lime-500"
+            className="inline-flex items-center gap-x-2 rounded-xl border border-transparent bg-lime-400 px-3 py-2 text-sm font-medium text-black transition hover:bg-lime-500 focus:bg-lime-500 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
           >
             Hire us
           </button>
@@ -67,13 +67,13 @@ export default function TNavBar() {
           <div className="md:hidden">
             <button
               type="button"
-              className="hs-collapse-toggle size-[38px] flex justify-center items-center text-sm font-semibold rounded-xl border border-gray-200 text-black hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:border-neutral-700 dark:hover:bg-neutral-700"
+              className="hs-collapse-toggle flex size-[38px] items-center justify-center rounded-xl border border-gray-200 text-sm font-semibold text-black hover:bg-gray-100 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700"
               data-hs-collapse="#navbar-collapse-with-animation"
               aria-controls="navbar-collapse-with-animation"
               aria-label="Toggle navigation"
             >
               <svg
-                className="hs-collapse-open:hidden flex-shrink-0 size-4"
+                className="hs-collapse-open:hidden size-4 flex-shrink-0"
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
                 height="24"
@@ -89,7 +89,7 @@ export default function TNavBar() {
                 <line x1="3" x2="21" y1="18" y2="18" />
               </svg>
               <svg
-                className="hs-collapse-open:block hidden flex-shrink-0 size-4"
+                className="hs-collapse-open:block hidden size-4 flex-shrink-0"
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
                 height="24"
@@ -111,12 +111,12 @@ export default function TNavBar() {
         {/* <!-- Collapse --> */}
         <div
           id="navbar-collapse-with-animation"
-          className="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow md:block md:w-auto md:basis-auto md:order-2 md:col-span-6"
+          className="hs-collapse hidden grow basis-full overflow-hidden transition-all duration-300 md:order-2 md:col-span-6 md:block md:w-auto md:basis-auto"
         >
-          <div className="flex flex-col gap-y-4 gap-x-0 mt-5 md:flex-row md:justify-center md:items-center md:gap-y-0 md:gap-x-7 md:mt-0">
+          <div className="mt-5 flex flex-col gap-x-0 gap-y-4 md:mt-0 md:flex-row md:items-center md:justify-center md:gap-x-7 md:gap-y-0">
             <div>
               <a
-                className="relative inline-block text-black before:absolute before:bottom-0.5 before:start-0 before:-z-[1] before:w-full before:h-1 before:bg-lime-400 dark:text-white"
+                className="relative inline-block text-black before:absolute before:bottom-0.5 before:start-0 before:-z-[1] before:h-1 before:w-full before:bg-lime-400 dark:text-white"
                 href="#"
                 aria-current="page"
               >

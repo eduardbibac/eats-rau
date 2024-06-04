@@ -1,10 +1,10 @@
 export default function LoginDividerSection({ text }: { text: string }) {
   return (
     <>
-      <div className="hidden lg:flex mt-4 items-center justify-between">
-        <span className="border-b w-1/6 lg:w-1/5"></span>
-        <p className="text-xs text-center text-gray-500 uppercase">{text}</p>
-        <span className="border-b w-1/6 lg:w-1/5"></span>
+      <div className="mt-4 hidden items-center justify-between lg:flex">
+        <span className="w-1/6 border-b lg:w-1/5"></span>
+        <p className="text-center text-xs uppercase text-gray-500">{text}</p>
+        <span className="w-1/6 border-b lg:w-1/5"></span>
       </div>
     </>
   );

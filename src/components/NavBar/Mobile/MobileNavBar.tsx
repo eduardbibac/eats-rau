@@ -7,8 +7,8 @@ export default async function MobileNavBar() {
   const { user } = await validateRequest();
   const t = await getTranslations("Navigation");
   return (
-    <div className="md:hidden fixed bottom-0 left-0 z-50 w-full mx-auto">
-      <div className="px-7 bg-white shadow-lg rounded-t-2xl">
+    <div className="fixed bottom-0 left-0 z-50 mx-auto w-full md:hidden">
+      <div className="rounded-t-2xl bg-white px-7 shadow-lg">
         <div className="flex">
           {/* <MobileNavBarLinks></MobileNavBarLinks> */}
 
@@ -23,7 +23,7 @@ export default async function MobileNavBar() {
             icon={"far fa-clipboard-list-check text-2xl pt-1 mb-1 block"}
           />
 
-          <div className="flex-1 group">
+          <div className="group flex-1">
             <CartButton label={t("Cart")}></CartButton>
           </div>
 
