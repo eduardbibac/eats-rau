@@ -2,6 +2,8 @@
 
 import { Order } from "@/types/dbTypes";
 import { useEffect, useState } from "react";
+import { MobileLayout } from "./MobileLayout";
+import CardOrder from "./CardOrder";
 
 export default function Orders() {
   const [orders, setOrders] = useState<Order[]>([]);
@@ -47,7 +49,8 @@ export default function Orders() {
   return (
     <>
       {/* <h1>All orders</h1> */}
-      <div className="grid h-full max-h-full grid-cols-[1fr_1fr_100px] overflow-hidden bg-blue-100">
+      <MobileLayout className="md:hidden" orders={orders} />
+      <div className="hidden h-full max-h-full grid-cols-[1fr_1fr_100px] overflow-hidden bg-blue-100 md:grid">
         <div className="m-5 overflow-y-scroll">
           <span className="w-full rounded-xl bg-white">
             <h1 className="fixed">Incoming</h1>
@@ -55,10 +58,11 @@ export default function Orders() {
           <div className="grid gap-12 rounded-xl bg-white p-5 md:grid-cols-1 lg:grid-cols-2">
             {orders.map((order, i) => (
               <div key={order.id} className="h-12">
-                <h1>
+                <CardOrder />
+                {/* <h1>
                   {`Order: ${order.id} | ${order.order_type} 
           ${Date.parse(order.is_scheduled_at) < Date.now() ? "NOW" : `Scheduled_AT: ${order.is_scheduled_at}`} | user: ${order.user_id}`}
-                </h1>
+                </h1> */}
               </div>
             ))}
           </div>
@@ -96,35 +100,4 @@ export default function Orders() {
       </div>
     </>
   );
-}
-{
-  /* <div className="h-[100dvh] bg-[#ebebe9]">
-  <div className="grid grid-cols-[1fr_1fr_100px] h-full">
-    <div className="overflow-scroll">
-      <h1 className="ml-24">Incoming</h1>
-      <div className="grid grid-cols-2">
-        {orders.map((order, i) => (
-          <div className="h-12">
-            <h1 key={i}>
-              {`Order: ${order.id} | ${order.order_type} 
-              ${Date.parse(order.is_scheduled_at) < Date.now() ? 'NOW' : `Scheduled_AT: ${order.is_scheduled_at}`} | user: ${order.user_id}`}
-            </h1>
-          </div>
-        ))}
-      </div>
-    </div>
-
-    <div>
-      <h1>Ready for Pickup</h1>
-      <div className="grid grid-cols-2">
-        <h1>Order</h1>
-      </div>
-    </div>
-
-    <div className="grid grid-rows-[1fr_1fr]">
-      <h1 className="bg-green-300">Completed</h1>
-      <h1 className="bg-red-100">Canceled</h1>
-    </div>
-  </div>
-</div> */
 }
