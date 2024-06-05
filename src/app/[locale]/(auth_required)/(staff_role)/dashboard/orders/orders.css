@@ -17,3 +17,9 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+@media only screen and (min-width: 2000px) {
+  .grid-3xl {
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  }
+}
