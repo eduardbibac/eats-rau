@@ -51,7 +51,7 @@ export default function Orders() {
     <>
       {/* <h1>All orders</h1> */}
       <MobileLayout className="custom-mobile-orders-layout" orders={orders} />
-      <div className="custom-desktop-orders-layout hidden gap-2 xl:gap-5 h-full max-h-full overflow-hidden gird grid-cols-[1fr_1fr_4em] xl:grid-cols-[2fr_1fr_4em] 2xl:grid-cols-[1fr_1fr_4em] bg-white md:grid">
+      <div className="custom-desktop-orders-layout hidden gap-2 xl:gap-5 h-full max-h-full overflow-hidden gird grid-cols-[1fr_1fr_4em] xl:grid-cols-[2fr_1fr_4em] main-grid-3xl bg-white md:grid">
         <div className="overflow-y-scroll">
           <div className="h-8 w-full bg-white">
             <h1 className="fixed">Incoming</h1>
@@ -70,7 +70,8 @@ export default function Orders() {
           <div className="h-8 w-full bg-white">
             <h1 className="fixed">Incoming</h1>
           </div>
-          <div className="grid grid-cols-1 2xl:grid-cols-2 gap-4 rounded-xl bg-white p-5">
+          {/* 3xl:  1660*/}
+          <div className="grid grid-cols-1 grid-3xl gap-4 rounded-xl bg-white p-5">
             {orders.map((order, i) => (
               <div key={order.id} className="">
                 <CardOrder />

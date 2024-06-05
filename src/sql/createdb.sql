@@ -139,6 +139,18 @@ CREATE TABLE orders (
 	changed_by			TEXT
 );
 
+CREATE VEIEW complete_orders AS
+SELECT o.id, o.order_status, o.payment_method, o.is_scheduled_at, o.changed_by,
+       p.ro_product_name, p.en_product_name, op.quantity, p.price, p.image_link,
+       p.en_categories, p.ro_categories
+FROM orders o 
+JOIN order_products op on op.order_id = o.id
+JOIN products_with_categories pc on pc.id = op.product_id
+JOIN users u ON u.id = o.user_id;
+
+
+select * from products_with_categories;
+
 CREATE TABLE order_history (
     id		            SERIAL PRIMARY KEY,
     order_id 			INT NOT NULL REFERENCES orderS(id),
