@@ -32,10 +32,10 @@ export function MobileLayout({
         <div className="m-5 w-full">
           <div className="grid gap-12 rounded-xl bg-white p-5 md:grid-cols-1">
             {orders.map((order, i) => (
-              <div key={order.id} className="h-12">
+              <div key={order.product_id} className="h-12">
                 <h1>
-                  {`Order: ${order.id} | ${order.order_type} 
-          ${Date.parse(order.is_scheduled_at) < Date.now() ? "NOW" : `Scheduled_AT: ${order.is_scheduled_at}`} | user: ${order.user_id}`}
+                  {`Order: ${order.product_id} | ${order.order_type} 
+          ${Date.parse(order.is_scheduled_at) < Date.now() ? "NOW" : `Scheduled_AT: ${order.is_scheduled_at}`} | user: ${order.username}`}
                 </h1>
               </div>
             ))}
@@ -43,12 +43,7 @@ export function MobileLayout({
         </div>
       </TabsContent>
       <TabsContent value="ready_for_pickup">
-        <div className="flex flex-col gap-5 p-5">
-          <CardOrder />
-          <CardOrder />
-          <CardOrder />
-          <CardOrder />
-        </div>
+
       </TabsContent>
       <TabsContent value="canceled"></TabsContent>
       <TabsContent value="completed"></TabsContent>
