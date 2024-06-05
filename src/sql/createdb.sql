@@ -139,14 +139,27 @@ CREATE TABLE orders (
 	changed_by			TEXT
 );
 
-CREATE VEIEW complete_orders AS
-SELECT o.id, o.order_status, o.payment_method, o.is_scheduled_at, o.changed_by,
-       p.ro_product_name, p.en_product_name, op.quantity, p.price, p.image_link,
-       p.en_categories, p.ro_categories
-FROM orders o 
-JOIN order_products op on op.order_id = o.id
-JOIN products_with_categories pc on pc.id = op.product_id
-JOIN users u ON u.id = o.user_id;
+CREATE VIEW view_complete_order AS
+SELECT 
+  o.id, o.user_id, o.order_status, o.order_type, o.payment_method, 
+  o.payment_status, o.is_scheduled_at, o.changed_by,
+  sum(pc.price * op.quantity) as total_cost,
+  json_agg(
+    json_build_object(
+	  'product_id',      op.product_id,
+      'ro_product_name', pc.ro_product_name, 
+      'en_product_name', pc.en_product_name, 
+      'price', pc.price, 
+      'quantity', op.quantity,
+	  'ro_categories', pc.ro_categories,
+	  'en_categories', pc.ro_categories
+    )
+  ) as products
+FROM orders o
+JOIN order_products op ON op.order_id = o.id
+JOIN products_with_categories pc ON pc.id = op.product_id
+GROUP BY o.id
+ORDER BY o.is_scheduled_at ASC
 
 
 select * from products_with_categories;

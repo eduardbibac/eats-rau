@@ -1,3 +1,5 @@
+import { CartItem } from "./ShopTypes";
+
 export type DatabaseUser = {
   id: string;
   ms_id: string;
@@ -10,11 +12,13 @@ export type DatabaseUser = {
 
 export type Order = {
   id: number;
-  user_id: string;
+  username: string;
   order_status: string;
   order_type: string;
   payment_method: string;
   payment_status: string;
   is_scheduled_at: string;
   changed_by: string;
+
+  products: CartItem[];
 };
