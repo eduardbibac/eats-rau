@@ -4,6 +4,7 @@ import { Order } from "@/types/dbTypes";
 import { useEffect, useState } from "react";
 import { MobileLayout } from "./MobileLayout";
 import CardOrder from "./CardOrder";
+import "./orders.css";
 
 export default function Orders() {
   const [orders, setOrders] = useState<Order[]>([]);
@@ -49,35 +50,30 @@ export default function Orders() {
   return (
     <>
       {/* <h1>All orders</h1> */}
-      <MobileLayout className="md:hidden" orders={orders} />
-      <div className="hidden h-full max-h-full grid-cols-[1fr_1fr_100px] overflow-hidden bg-blue-100 md:grid">
-        <div className="m-5 overflow-y-scroll">
-          <span className="w-full rounded-xl bg-white">
+      <MobileLayout className="custom-mobile-orders-layout" orders={orders} />
+      <div className="custom-desktop-orders-layout hidden gap-2 xl:gap-5 h-full max-h-full overflow-hidden gird grid-cols-[1fr_1fr_4em] xl:grid-cols-[2fr_1fr_4em] 2xl:grid-cols-[1fr_1fr_4em] bg-white md:grid">
+        <div className="overflow-y-scroll">
+          <div className="h-8 w-full bg-white">
             <h1 className="fixed">Incoming</h1>
-          </span>
-          <div className="grid gap-12 rounded-xl bg-white p-5 md:grid-cols-1 lg:grid-cols-2">
+          </div>
+          {/* grid-cols-[minmax(360px,_1fr)] lg:grid-cols-[repeat(2,_minmax(330px,_1fr))] */}
+
+          <div className="grid grid-cols-[repeat(auto-fit,_minmax(360px,_1fr))] gap-4 rounded-xl bg-white p-5">
             {orders.map((order, i) => (
-              <div key={order.id} className="h-12">
+              <div key={order.id} className="">
                 <CardOrder />
-                {/* <h1>
-                  {`Order: ${order.id} | ${order.order_type} 
-          ${Date.parse(order.is_scheduled_at) < Date.now() ? "NOW" : `Scheduled_AT: ${order.is_scheduled_at}`} | user: ${order.user_id}`}
-                </h1> */}
               </div>
             ))}
           </div>
         </div>
-        <div className="m-5 overflow-y-scroll">
-          <span className="w-full rounded-xl bg-white">
-            <h1 className="fixed">Ready for Pickup</h1>
-          </span>
-          <div className="grid gap-12 rounded-xl bg-white p-5 md:grid-cols-1 lg:grid-cols-2">
+        <div className="overflow-y-scroll">
+          <div className="h-8 w-full bg-white">
+            <h1 className="fixed">Incoming</h1>
+          </div>
+          <div className="grid grid-cols-1 2xl:grid-cols-2 gap-4 rounded-xl bg-white p-5">
             {orders.map((order, i) => (
-              <div key={order.id} className="h-12">
-                <h1>
-                  {`Order: ${order.id} | ${order.order_type} 
-          ${Date.parse(order.is_scheduled_at) < Date.now() ? "NOW" : `Scheduled_AT: ${order.is_scheduled_at}`}\n user: ${order.user_id}`}
-                </h1>
+              <div key={order.id} className="">
+                <CardOrder />
               </div>
             ))}
           </div>
@@ -86,7 +82,7 @@ export default function Orders() {
         <div className="grid grid-rows-[3fr_1fr]">
           <h1
             style={{ writingMode: "vertical-lr" }}
-            className="rotate-180 bg-green-300 text-center direction-reverse"
+            className="rotate-180  border-2 border-green-400 text-center direction-reverse"
           >
             Completed
           </h1>

@@ -1,0 +1,11 @@
+@media only screen and (min-width: 768px) and (max-width: 854px) {
+  .custom-desktop-orders-layout {
+    display: none;
+    background-color: red;
+  }
+}
+@media only screen and (min-width: 854px) {
+  .custom-mobile-orders-layout {
+    display: none;
+  }
+}
