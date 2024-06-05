@@ -141,7 +141,7 @@ CREATE TABLE orders (
 
 CREATE VIEW view_complete_order AS
 SELECT 
-  o.id, o.user_id, o.order_status, o.order_type, o.payment_method, 
+  o.id, u.username, o.order_status, o.order_type, o.payment_method, 
   o.payment_status, o.is_scheduled_at, o.changed_by,
   sum(pc.price * op.quantity) as total_cost,
   json_agg(
@@ -158,11 +158,10 @@ SELECT
 FROM orders o
 JOIN order_products op ON op.order_id = o.id
 JOIN products_with_categories pc ON pc.id = op.product_id
-GROUP BY o.id
+JOIN users u ON u.id = o.user_id
+GROUP BY o.id, u.username
 ORDER BY o.is_scheduled_at ASC
 
-
-select * from products_with_categories;
 
 CREATE TABLE order_history (
     id		            SERIAL PRIMARY KEY,
