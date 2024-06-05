@@ -11,7 +11,7 @@ export type DatabaseUser = {
 };
 
 export type Order = {
-  id: number;
+  product_id: number;
   username: string;
   order_status: string;
   order_type: string;
@@ -19,6 +19,17 @@ export type Order = {
   payment_status: string;
   is_scheduled_at: string;
   changed_by: string;
+  total_cost: number;
 
-  products: CartItem[];
+  products: OrderProduct[];
+};
+
+export type OrderProduct = {
+  product_id: number;
+  ro_name: string;
+  en_name: string;
+  price: number;
+  quantity: number;
+  ro_categories: string[];
+  en_categories: string[];
 };

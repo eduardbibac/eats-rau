@@ -2,6 +2,7 @@ import { validateRequest } from "@/actions/auth/validateRequest";
 import sql from "@/lib/db";
 import { isRoleOrHigher } from "@/lib/role";
 import { redirect } from "@/navigation";
+import { Order } from "@/types/dbTypes";
 
 export const runtime = "nodejs";
 // This is required to enable streaming
@@ -33,7 +34,12 @@ export async function GET() {
         .subscribe(
           "insert:orders",
           (row) => {
-            sendMessage([row]);
+            sql<Order[]>`SELECT * FROM view_complete_order where id=${row!.id}`
+              .catch((e) => {
+                console.log(e);
+                return {};
+              })
+              .then((orders) => sendMessage(orders));
           },
           () => {
             // Callback on initial connect and potential reconnects

@@ -8,7 +8,7 @@ export const runtime = "nodejs";
 // This is required to enable streaming
 export const dynamic = "force-dynamic";
 
-export async function GET() {
+export async function GET(request: Request) {
   const { user } = await validateRequest();
   if (!user) {
     redirect("/login");
@@ -19,15 +19,12 @@ export async function GET() {
     return;
   }
 
-  let orders;
-  try {
-    orders = await sql<Order[]>`SELECT * FROM orders`.catch((e) => {
+  const orders = await sql<Order[]>`SELECT * FROM view_complete_order`.catch(
+    (e) => {
       console.log(e);
-      return [];
-    });
-  } catch (e) {
-    orders = {};
-  }
+      return {};
+    },
+  );
 
   return new Response(JSON.stringify(orders), { status: 200 });
 }

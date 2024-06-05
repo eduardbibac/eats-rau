@@ -14,30 +14,32 @@ import { Label } from "@/components/ui/label";
 import PriceBadge from "./PriceBadge";
 import ProductsBadge from "./ProductsBadge";
 import { ChevronRight } from "lucide-react";
+import { Order } from "@/types/dbTypes";
 
-export default function CardOrder() {
+export default function CardOrder({ order }: { order: Order }) {
   return (
     <Card className="w-full select-none">
       <CardContent className="grid grid-cols-[80%_20%] p-4">
         <div className="flex flex-col justify-around gap-2">
           <p className="font-semibold leading-none tracking-tight text-gray-600">
-            #3123124{" "}
+            {order.product_id}
           </p>
           <p className="mb-2 font-semibold leading-none tracking-tight text-gray-500">
-            Bibac Eduard Cristian
+            {order.username}
           </p>
           <div className="inline-flex gap-2">
+            {/* TODO: iterate over products... and count categs */}
             <ProductsBadge />
-            <PriceBadge />
+            <PriceBadge price={order.total_cost} />
           </div>
 
           <div className="">
             <span className="inline-flex max-h-5 w-fit items-center rounded-xl border border-gray-500 bg-white px-2.5 py-0.5 text-xs font-medium text-gray-600">
-              Pickup today, at 19:30
+              {`${order.order_type === 'pickup' ? 'Pickup today' : 'Dine In'}, at ${Date.parse(order.is_scheduled_at)}`}
             </span>
 
             <span className="inline-flex max-h-5 w-fit items-center rounded-xl border border-gray-500 bg-white px-2.5 py-0.5 text-xs font-medium text-gray-600">
-              Unpaid
+              {`${order.payment_status}, with ${order.payment_method}`}
             </span>
           </div>
         </div>

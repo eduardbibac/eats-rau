@@ -29,11 +29,8 @@ export default function Orders() {
   useEffect(() => {
     const eventSource = new EventSource("/api/orders/updates");
     eventSource.addEventListener("message", (event) => {
-      let newOrders: Order[] = JSON.parse(event.data);
-      if (!Array.isArray(newOrders)) {
-        newOrders = [newOrders];
-      }
-      setOrders((p) => [...p, ...newOrders]);
+      const newOrder: Order[] = JSON.parse(event.data);
+      setOrders((p) => [...p, ...newOrder]);
     });
 
     eventSource.addEventListener("error", () => {
@@ -60,8 +57,8 @@ export default function Orders() {
 
           <div className="grid grid-cols-[repeat(auto-fit,_minmax(360px,_1fr))] gap-4 rounded-xl bg-white p-5">
             {orders.map((order, i) => (
-              <div key={order.id} className="">
-                <CardOrder />
+              <div key={order.product_id} className="">
+                <CardOrder order={order} />
               </div>
             ))}
           </div>
@@ -73,8 +70,8 @@ export default function Orders() {
           {/* 3xl:  1660*/}
           <div className="grid grid-cols-1 grid-3xl gap-4 rounded-xl bg-white p-5">
             {orders.map((order, i) => (
-              <div key={order.id} className="">
-                <CardOrder />
+              <div key={order.product_id} className="">
+                <CardOrder order={order} />
               </div>
             ))}
           </div>
