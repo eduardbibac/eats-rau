@@ -54,5 +54,12 @@
 
   "DashNav": {
     "Orders": "Comenzi"
+  },
+
+  "Orders": {
+    "Incoming": "Care Urmează",
+    "Ready for Pickup": "Gata de Ridicat",
+    "Completed": "Completate",
+    "Canceled": "Anulate"
   }
 }

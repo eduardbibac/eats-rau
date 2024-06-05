@@ -54,5 +54,12 @@
 
   "DashNav": {
     "Orders": "Orders"
+  },
+
+  "Orders": {
+    "Incoming": "Incoming",
+    "Ready for Pickup": "Ready for Pickup",
+    "Completed": "Completed",
+    "Canceled": "Canceled"
   }
 }
