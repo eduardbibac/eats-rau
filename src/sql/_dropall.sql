@@ -15,5 +15,6 @@ DROP TABLE IF EXISTS products cascade;
 
 DROP VIEW IF EXISTS products_with_categories cascade;
 DROP VIEW IF EXISTS products_on_sale cascade;
+DROP VIEW IF EXISTS view_complete_order cascade;
 
 drop function if exists qrsession_delete_old_rows;
