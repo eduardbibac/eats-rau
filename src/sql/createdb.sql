@@ -139,6 +139,27 @@ CREATE TABLE orders (
 	changed_by			TEXT
 );
 
+CREATE TABLE order_history (
+    id		            SERIAL PRIMARY KEY,
+    order_id 			INT NOT NULL REFERENCES orderS(id),
+    order_status        TEXT NOT NULL CHECK (order_status IN ('pending', 'in_progress', 'ready_for_pickup', 'completed', 'canceled')),
+    order_type          TEXT NOT NULL CHECK (order_type IN ('dine_in', 'pickup')),
+    payment_method      TEXT NOT NULL CHECK (payment_method IN ('cash', 'card')),
+    payment_status      TEXT DEFAULT 'unpaid' CHECK (payment_status IN ('unpaid', 'paid')) ,
+    is_scheduled_at     TIMESTAMP DEFAULT NOW(),
+	
+    change_timestamp    TIMESTAMP DEFAULT NOW(),
+	changed_by			TEXT
+);
+
+CREATE TABLE order_products (
+	id		            SERIAL PRIMARY KEY,
+	order_id 			INT NOT NULL REFERENCES orders(id),
+	product_id			INT NOT NULL REFERENCES products(id),
+	price_paid			NUMERIC(10,2) NOT NULL,
+	quantity            INT NOT NULL CHECK (quantity > 0)
+);
+
 CREATE VIEW view_complete_order AS
 SELECT 
   o.id, u.username, o.order_status, o.order_type, o.payment_method, 
@@ -160,29 +181,7 @@ JOIN order_products op ON op.order_id = o.id
 JOIN products_with_categories pc ON pc.id = op.product_id
 JOIN users u ON u.id = o.user_id
 GROUP BY o.id, u.username
-ORDER BY o.is_scheduled_at ASC
-
-
-CREATE TABLE order_history (
-    id		            SERIAL PRIMARY KEY,
-    order_id 			INT NOT NULL REFERENCES orderS(id),
-    order_status        TEXT NOT NULL CHECK (order_status IN ('pending', 'in_progress', 'ready_for_pickup', 'completed', 'canceled')),
-    order_type          TEXT NOT NULL CHECK (order_type IN ('dine_in', 'pickup')),
-    payment_method      TEXT NOT NULL CHECK (payment_method IN ('cash', 'card')),
-    payment_status      TEXT DEFAULT 'unpaid' CHECK (payment_status IN ('unpaid', 'paid')) ,
-    is_scheduled_at     TIMESTAMP DEFAULT NOW(),
-	
-    change_timestamp    TIMESTAMP DEFAULT NOW(),
-	changed_by			TEXT
-);
-
-CREATE TABLE order_products (
-	id		            SERIAL PRIMARY KEY,
-	order_id 			INT NOT NULL REFERENCES orders(id),
-	product_id			INT NOT NULL REFERENCES products(id),
-	price_paid			NUMERIC(10,2) NOT NULL,
-	quantity            INT NOT NULL CHECK (quantity > 0)
-);
+ORDER BY o.is_scheduled_at ASC;
 
 
 CREATE OR REPLACE FUNCTION log_order_change() 
@@ -214,8 +213,6 @@ CREATE TRIGGER after_order_change
 AFTER INSERT OR UPDATE ON orders
 FOR EACH ROW
 EXECUTE FUNCTION log_order_change();
-
-
 
 
 CREATE FUNCTION QRSession_delete_old_rows() RETURNS trigger

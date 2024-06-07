@@ -59,7 +59,7 @@
   "Orders": {
     "Incoming": "Care Urmează",
     "Ready for Pickup": "Gata de Ridicat",
-    "Completed": "Completate",
+    "Completed": "Terminate",
     "Canceled": "Anulate"
   }
 }
