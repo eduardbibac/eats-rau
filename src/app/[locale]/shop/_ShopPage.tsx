@@ -4,7 +4,7 @@ import { Product } from "@/types/ShopTypes";
 import ShopCard from "./_ShopCard";
 
 import { useState, useEffect, ReactNode } from "react";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { getShopProducts } from "@/actions/getShopProducts";
 import { cn, unique } from "@/lib/utils";
 import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
@@ -20,25 +20,16 @@ export default function ShopPage({
   children: ReactNode;
   sort_options: string[];
 }) {
-  // Server Actions Tanstack Querry https://www.youtube.com/watch?v=OgVeQVXt7xU&t=358s
   const [filter, setFilter] = useState<Product[]>();
   const locale = useLocale();
   const t = useTranslations("Shop");
   const [activeFilter, setActiveFilter] = useState(t("Filter_All"));
 
-  const {
-    data: products,
-    mutate: server_getProducts,
-    error,
-    isPending,
-    isSuccess,
-    isError,
-  } = useMutation({
-    mutationFn: getShopProducts,
+  // Server Actions Tanstack Querry https://www.youtube.com/watch?v=OgVeQVXt7xU&t=358s
+  const { data: products, error, isPending, isError } = useQuery<Product[]>({
+    queryKey: ['products'],
+    queryFn: () => getShopProducts(locale)
   });
-  useEffect(() => {
-    server_getProducts(locale);
-  }, [locale]);
 
   useEffect(() => {
     if (activeFilter === t("Filter_All")) {

@@ -12,6 +12,7 @@ export default async function Shop() {
 
   const categories: string[] = await getProductsSortOptions(locale);
   const sort_options = [t("Filter_All"), ...categories];
+
   return (
     <>
       <Navbar></Navbar>
