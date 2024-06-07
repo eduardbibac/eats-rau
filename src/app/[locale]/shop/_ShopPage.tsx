@@ -3,21 +3,20 @@
 import { Product } from "@/types/ShopTypes";
 import ShopCard from "./_ShopCard";
 
-import { useState, useEffect, ReactNode } from "react";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useState, useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { getShopProducts } from "@/actions/getShopProducts";
-import { cn, unique } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
 import CartTablet from "./_CartTablet";
 import Cart from "@/components/Cart";
 import CartDesktop from "./_CartDesktop";
 import { useLocale, useTranslations } from "next-intl";
+import ShopSkeletonCard from "./_ShopSkeletionCard";
 
 export default function ShopPage({
-  children,
   sort_options,
 }: {
-  children: ReactNode;
   sort_options: string[];
 }) {
   const [filter, setFilter] = useState<Product[]>();
@@ -69,7 +68,10 @@ export default function ShopPage({
           {/* <ScrollableTabs></ScrollableTabs> */}
 
           {isPending ? (
-            <div className="products">{children}</div>
+            <div className="products">
+              {new Array(32).fill(null).map((_, i) => (
+                <ShopSkeletonCard key={i} />))}
+            </div>
           ) : (
             <AnimatePresence initial={false}>
               <motion.div initial={false} layout className="products">
