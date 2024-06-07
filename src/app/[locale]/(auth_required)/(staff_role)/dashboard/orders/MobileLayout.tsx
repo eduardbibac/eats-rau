@@ -42,9 +42,7 @@ export function MobileLayout({
           </div>
         </div>
       </TabsContent>
-      <TabsContent value="ready_for_pickup">
-
-      </TabsContent>
+      <TabsContent value="ready_for_pickup"></TabsContent>
       <TabsContent value="canceled"></TabsContent>
       <TabsContent value="completed"></TabsContent>
     </Tabs>

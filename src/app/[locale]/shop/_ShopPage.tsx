@@ -14,20 +14,21 @@ import CartDesktop from "./_CartDesktop";
 import { useLocale, useTranslations } from "next-intl";
 import ShopSkeletonCard from "./_ShopSkeletionCard";
 
-export default function ShopPage({
-  sort_options,
-}: {
-  sort_options: string[];
-}) {
+export default function ShopPage({ sort_options }: { sort_options: string[] }) {
   const [filter, setFilter] = useState<Product[]>();
   const locale = useLocale();
   const t = useTranslations("Shop");
   const [activeFilter, setActiveFilter] = useState(t("Filter_All"));
 
   // Server Actions Tanstack Querry https://www.youtube.com/watch?v=OgVeQVXt7xU&t=358s
-  const { data: products, error, isPending, isError } = useQuery<Product[]>({
-    queryKey: ['products'],
-    queryFn: () => getShopProducts(locale)
+  const {
+    data: products,
+    error,
+    isPending,
+    isError,
+  } = useQuery<Product[]>({
+    queryKey: ["products"],
+    queryFn: () => getShopProducts(locale),
   });
 
   useEffect(() => {
@@ -70,7 +71,8 @@ export default function ShopPage({
           {isPending ? (
             <div className="products">
               {new Array(32).fill(null).map((_, i) => (
-                <ShopSkeletonCard key={i} />))}
+                <ShopSkeletonCard key={i} />
+              ))}
             </div>
           ) : (
             <AnimatePresence initial={false}>

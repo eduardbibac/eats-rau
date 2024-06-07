@@ -45,15 +45,15 @@ export default function Orders() {
     };
   }, []);
 
-  const t = useTranslations('Orders');
+  const t = useTranslations("Orders");
   return (
     <>
       {/* <h1>All orders</h1> */}
       <MobileLayout className="custom-mobile-orders-layout" orders={orders} />
-      <div className="custom-desktop-orders-layout hidden gap-2 xl:gap-5 h-full max-h-full overflow-hidden gird grid-cols-[1fr_1fr_4em] xl:grid-cols-[2fr_1fr_4em] main-grid-3xl bg-white md:grid">
+      <div className="custom-desktop-orders-layout gird main-grid-3xl hidden h-full max-h-full grid-cols-[1fr_1fr_4em] gap-2 overflow-hidden bg-white md:grid xl:grid-cols-[2fr_1fr_4em] xl:gap-5">
         <div className="overflow-y-scroll">
           <div className="h-8 w-full bg-white">
-            <h1 className="fixed">{t('Incoming')}</h1>
+            <h1 className="fixed">{t("Incoming")}</h1>
           </div>
           {/* grid-cols-[minmax(360px,_1fr)] lg:grid-cols-[repeat(2,_minmax(330px,_1fr))] */}
 
@@ -67,10 +67,10 @@ export default function Orders() {
         </div>
         <div className="overflow-y-scroll">
           <div className="h-8 w-full bg-white">
-            <h1 className="fixed">{t('Ready for Pickup')}</h1>
+            <h1 className="fixed">{t("Ready for Pickup")}</h1>
           </div>
           {/* 3xl:  1660*/}
-          <div className="grid grid-cols-1 grid-3xl gap-4 rounded-xl bg-white p-5">
+          <div className="grid-3xl grid grid-cols-1 gap-4 rounded-xl bg-white p-5">
             {orders.map((order, i) => (
               <div key={order.product_id} className="">
                 <CardOrder order={order} />
@@ -82,15 +82,15 @@ export default function Orders() {
         <div className="grid grid-rows-[3fr_1fr]">
           <h1
             style={{ writingMode: "vertical-lr" }}
-            className="rotate-180  border-2 border-green-400 text-center direction-reverse"
+            className="rotate-180 border-2 border-green-400 text-center direction-reverse"
           >
-            {t('Completed')}
+            {t("Completed")}
           </h1>
           <h1
             style={{ writingMode: "vertical-lr" }}
             className="rotate-180 bg-red-100 text-center"
           >
-            {t('Canceled')}
+            {t("Canceled")}
           </h1>
         </div>
       </div>

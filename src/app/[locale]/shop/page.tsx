@@ -16,9 +16,7 @@ export default async function Shop() {
   return (
     <>
       <Navbar></Navbar>
-      <ShopPage sort_options={sort_options}>
-        
-      </ShopPage>
+      <ShopPage sort_options={sort_options}></ShopPage>
     </>
   );
 }
