@@ -5,17 +5,11 @@ import { DashboardProduct } from "@/types/ShopTypes";
 import Image from "next/image"
 import Link from "next/link"
 import {
+  ChevronDown,
+  ChevronUp,
   File,
-  Home,
-  LineChart,
   MoreHorizontal,
-  Package,
-  Package2,
-  PanelLeft,
   PlusCircle,
-  Search,
-  ShoppingCart,
-  Users2,
 } from "lucide-react"
 
 import { Badge } from "@/components/ui/badge"
@@ -65,7 +59,7 @@ export default async function DashboardPorducts() {
       <div className="container">
         <h1>Add or Remove Products. Set Menu Items and Quantities. Organize with Drag-and-Drop: Easily arrange the order of menu items to highlight your best dishes.
         </h1>
-      
+
         <div className="flex min-h-screen w-full flex-col bg-muted/40">
           <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
             <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
@@ -121,6 +115,7 @@ export default async function DashboardPorducts() {
                       <Table>
                         <TableHeader>
                           <TableRow>
+                            <TableHead />
                             <TableHead className="hidden w-[100px] sm:table-cell">
                               <span className="sr-only">Image</span>
                             </TableHead>
@@ -129,11 +124,14 @@ export default async function DashboardPorducts() {
                             <TableHead className="hidden md:table-cell">
                               Price
                             </TableHead>
-                            <TableHead className="hidden md:table-cell">
-                              Total Sales
+                            <TableHead className="hidden md:table-cell text-right w-fit">
+                              Currently Available
                             </TableHead>
                             <TableHead className="hidden md:table-cell">
-                              Created at
+                              /
+                            </TableHead>
+                            <TableHead className="hidden md:table-cell text-left">
+                              Portions each day
                             </TableHead>
                             <TableHead>
                               <span className="sr-only">Actions</span>
@@ -143,6 +141,12 @@ export default async function DashboardPorducts() {
                         <TableBody>
                           {products.map(product => (
                             <TableRow>
+                              <TableCell>
+                                <div className="h-full flex flex-col justify-between">
+                                  <ChevronUp className="h-4 w-4" />
+                                  <ChevronDown className="h-4 w-4" />
+                                </div>
+                              </TableCell>
                               <TableCell className="hidden sm:table-cell">
                                 <Image
                                   alt="Product image"
@@ -161,11 +165,14 @@ export default async function DashboardPorducts() {
                               <TableCell className="hidden md:table-cell">
                                 {product.price}
                               </TableCell>
-                              <TableCell className="hidden md:table-cell">
+                              <TableCell className="hidden md:table-cell text-right">
                                 25
                               </TableCell>
                               <TableCell className="hidden md:table-cell">
-                                2023-07-12 10:42 AM
+                                /
+                              </TableCell>
+                              <TableCell className="hidden md:table-cell text-left">
+                                50
                               </TableCell>
                               <TableCell>
                                 <DropdownMenu>
