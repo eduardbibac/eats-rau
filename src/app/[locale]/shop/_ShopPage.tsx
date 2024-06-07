@@ -64,10 +64,6 @@ export default function ShopPage({ sort_options }: { sort_options: string[] }) {
               </ul>
             ))}
           </div>
-          {/* TODO: Fitlers break layout */}
-
-          {/* <ScrollableTabs></ScrollableTabs> */}
-
           {isPending ? (
             <div className="products">
               {new Array(32).fill(null).map((_, i) => (

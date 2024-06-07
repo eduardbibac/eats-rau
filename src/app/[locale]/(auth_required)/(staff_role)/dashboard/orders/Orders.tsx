@@ -4,8 +4,8 @@ import { Order } from "@/types/dbTypes";
 import { useEffect, useState } from "react";
 import { MobileLayout } from "./MobileLayout";
 import CardOrder from "./CardOrder";
-import "./orders.css";
 import { useTranslations } from "next-intl";
+import "./orders.css";
 
 export default function Orders() {
   const [orders, setOrders] = useState<Order[]>([]);

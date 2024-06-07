@@ -29,6 +29,9 @@ export default function DashNav() {
           >
             <div className="mt-5 flex flex-col gap-x-0 gap-y-4 md:mt-0 md:flex-row md:items-center md:justify-center md:gap-x-7 md:gap-y-0">
               <DesktopNavButton href="/dashboard/orders" label={t("Orders")} />
+              <DesktopNavButton href="/dashboard/products" label={t("Manage Products")} />
+              <DesktopNavButton href="/dashboard/sales" label={t("Sales")} />
+              <DesktopNavButton href="/dashboard/users" label={t("Users")} />
 
               {/* <!-- End Collapse --> */}
             </div>

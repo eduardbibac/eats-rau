@@ -53,7 +53,10 @@
   },
 
   "DashNav": {
-    "Orders": "Comenzi"
+    "Orders": "Comenzi",
+    "Manage Products": "Gestionează Produse & Meniu",
+    "Sales": "Vânzări",
+    "Users": "Utilizatori"
   },
 
   "Orders": {

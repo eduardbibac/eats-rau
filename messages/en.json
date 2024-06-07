@@ -53,7 +53,10 @@
   },
 
   "DashNav": {
-    "Orders": "Orders"
+    "Orders": "Orders",
+    "Manage Products": "Manage Products & Menu",
+    "Sales":"Sales",
+    "Users":"Users"
   },
 
   "Orders": {

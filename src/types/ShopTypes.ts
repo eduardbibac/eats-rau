@@ -12,3 +12,15 @@ export type CartItem = {
   product: Product;
   count: number;
 };
+
+export type DashboardProduct = {
+  id: number;
+  list_position: number;
+  ro_product_name: string;
+  en_product_name: string;
+  price: number;
+  ro_categories: string[];
+  en_categories: string[];
+  image_link: string;
+  quantity: number;
+};
