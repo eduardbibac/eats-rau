@@ -33,3 +33,10 @@ export type OrderProduct = {
   ro_categories: string[];
   en_categories: string[];
 };
+
+export type Menu = {
+  id: number;
+  menu_name: string;
+  is_active: boolean;
+  list_position: number;
+};
