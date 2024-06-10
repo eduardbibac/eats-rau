@@ -114,7 +114,7 @@ export function AllProductsColapseTable(
       onOpenChange={setIsOpen}
     >
 
-      <div className="relative flex flex-col justify-center">
+      <div className="bg-white sticky top-0 flex flex-col justify-center">
         {active !== undefined ? <Switch checked={isActiveMenu} onCheckedChange={setIsActiveMenu} className='ml-2 absolute' id="active-menu" /> : null}
         <div className="absolute flex gap-4 self-end mr-12">
           {checkedItems.length > 0 ? (

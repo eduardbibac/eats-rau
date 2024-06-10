@@ -84,7 +84,7 @@ export function MenuColapseTable(
       open={isOpen}
       onOpenChange={setIsOpen}
     >
-      <div className="relative flex flex-col justify-center">
+      <div className="bg-white sticky top-0 flex flex-col justify-center">
         {active !== undefined ? <Switch checked={isActiveMenu} onCheckedChange={setIsActiveMenu} className='ml-2 absolute' id="active-menu" /> : null}
 
         <DeleteMenu menu_id={menu_id} />
@@ -103,84 +103,80 @@ export function MenuColapseTable(
         </CollapsibleTrigger>
       </div>
       <CollapsibleContent className={cn({ "opacity-55": !isActiveMenu }, "space-y-2")}>
-        <Tabs defaultValue="all">
-          <TabsContent value="all">
-            <Card x-chunk="dashboard-06-chunk-0">
-              <CardHeader>
-              </CardHeader>
-              <CardContent>
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead />
-                      <TableHead className="hidden w-[100px] sm:table-cell">
-                        <span className="sr-only">Imagine</span>
-                      </TableHead>
-                      <TableHead>Nume</TableHead>
-                      <TableHead className="hidden md:table-cell">
-                        Preț
-                      </TableHead>
-                      <TableHead className="hidden md:table-cell text-right w-fit">
-                        Disponibil acum
-                      </TableHead>
-                      <TableHead className="hidden md:table-cell">
-                        /
-                      </TableHead>
-                      <TableHead className="hidden md:table-cell text-left">
-                        Porții în fiecare zi
-                      </TableHead>
-                      <TableHead>
-                        <span className="sr-only">Actions</span>
-                      </TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {items.map(product => (
-                      <TableRow className="group/row">
-                        <TableCell>
-                          <div className="h-full flex flex-col justify-between">
-                            <ChevronUp className="h-4 w-4" />
-                            <ChevronDown className="h-4 w-4" />
-                          </div>
-                        </TableCell>
-                        <TableCell className="hidden sm:table-cell">
-                          <Image
-                            alt="Product image"
-                            className="aspect-square rounded-md object-cover"
-                            height="64"
-                            src={product.image_link}
-                            width="64"
-                          />
-                        </TableCell>
-                        <TableCell className="font-medium">
-                          {product.ro_product_name}
-                        </TableCell>
-                        <TableCell className="hidden md:table-cell">
-                          {product.price}
-                        </TableCell>
-                        <TableCell className="hidden md:table-cell text-right">
-                          {product.current_quantity}
-                        </TableCell>
-                        <TableCell className="hidden md:table-cell">
-                          /
-                        </TableCell>
-                        <TableCell className="hidden md:table-cell text-left">
-                          {product.menu_quantity}
-                        </TableCell>
-                        <TableCell className="w-[12em]">
-                          <div className="hidden group-hover/row:flex gap-8">
-                            <ClipboardX onClick={() => handleMenuRemove(product.id)} className="hover:text-blue-500 hover:cursor-pointer" />
-                          </div>
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </CardContent>
-            </Card>
-          </TabsContent>
-        </Tabs>
-      </CollapsibleContent>
-    </Collapsible>
+        <Card x-chunk="dashboard-06-chunk-0">
+          <CardHeader>
+          </CardHeader>
+          <CardContent>
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead />
+                  <TableHead className="hidden w-[100px] sm:table-cell">
+                    <span className="sr-only">Imagine</span>
+                  </TableHead>
+                  <TableHead>Nume</TableHead>
+                  <TableHead className="hidden md:table-cell">
+                    Preț
+                  </TableHead>
+                  <TableHead className="hidden md:table-cell text-right w-fit">
+                    Disponibil acum
+                  </TableHead>
+                  <TableHead className="hidden md:table-cell">
+                    /
+                  </TableHead>
+                  <TableHead className="hidden md:table-cell text-left">
+                    Porții în fiecare zi
+                  </TableHead>
+                  <TableHead>
+                    <span className="sr-only">Actions</span>
+                  </TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {items.map(product => (
+                  <TableRow className="group/row">
+                    <TableCell>
+                      <div className="h-full flex flex-col justify-between">
+                        <ChevronUp className="h-4 w-4" />
+                        <ChevronDown className="h-4 w-4" />
+                      </div>
+                    </TableCell>
+                    <TableCell className="hidden sm:table-cell">
+                      <Image
+                        alt="Product image"
+                        className="aspect-square rounded-md object-cover"
+                        height="64"
+                        src={product.image_link}
+                        width="64"
+                      />
+                    </TableCell>
+                    <TableCell className="font-medium">
+                      {product.ro_product_name}
+                    </TableCell>
+                    <TableCell className="hidden md:table-cell">
+                      {product.price}
+                    </TableCell>
+                    <TableCell className="hidden md:table-cell text-right">
+                      {product.current_quantity}
+                    </TableCell>
+                    <TableCell className="hidden md:table-cell">
+                      /
+                    </TableCell>
+                    <TableCell className="hidden md:table-cell text-left">
+                      {product.menu_quantity}
+                    </TableCell>
+                    <TableCell className="w-[12em]">
+                      <div className="hidden group-hover/row:flex gap-8">
+                        <ClipboardX onClick={() => handleMenuRemove(product.id)} className="hover:text-blue-500 hover:cursor-pointer" />
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </CardContent>
+        </Card>
+      </CollapsibleContent >
+    </Collapsible >
   )
 }
