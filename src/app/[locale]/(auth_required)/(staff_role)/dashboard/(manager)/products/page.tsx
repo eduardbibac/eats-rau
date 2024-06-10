@@ -1,11 +1,12 @@
 import { getAllProducts } from "@/actions/Dashboard/getAllProducts";
 import DashNav from "../../DashNav";
 import { DashboardProduct } from "@/types/ShopTypes";
-import { ColapseTable } from "./ColapseTable";
+import { AllProductsColapseTable, ColapseTable } from "./AllProductsColapseTable";
 import MenuTable from "./MenuTable";
 import { getMenus } from "@/actions/Dashboard/getMenus";
 import { getMenuProducts } from "@/actions/Dashboard/getMenuProducts";
 import AllProductsTable from "./AllProductsTable";
+import { MenuColapseTable } from "./MenuColapseTable";
 
 
 export default async function DashboardPorducts() {
@@ -29,20 +30,11 @@ export default async function DashboardPorducts() {
         <div className="flex min-h-screen w-full flex-col bg-muted/40">
           <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
             <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
-              <ColapseTable label={'Toate Produsele'}>
-                <AllProductsTable items={products} />
-              </ColapseTable>
+              <AllProductsColapseTable items={products} label={'Toate Produsele'} menus={menus} />
 
               {menus_with_products?.map(menu => (
-                <ColapseTable key={menu.menu_name} label={menu.menu_name} active={menu.is_active} menu_id={menu.id}>
-
-                  <MenuTable items={menu.products as DashboardProduct[]} />
-                </ColapseTable>
+                <MenuColapseTable all_products={products} items={menu.products as DashboardProduct[]} key={menu.menu_name} label={menu.menu_name} active={menu.is_active} menu_id={menu.id} />
               ))}
-
-              <ColapseTable label={'stuff'} active={true}>
-                {null}
-              </ColapseTable>
 
             </main>
           </div>
