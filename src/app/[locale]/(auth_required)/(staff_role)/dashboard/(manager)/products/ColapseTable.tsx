@@ -10,9 +10,21 @@ import {
 } from "@/components/ui/collapsible"
 import { Switch } from "@/components/ui/switch"
 import { Label } from "@/components/ui/label"
+import { updateMenuActiveState } from "@/actions/Dashboard/updateMenuActiveState"
 
-export function ColapseTable({ children, label, activeSwitch }: { children: React.ReactNode, label: string, activeSwitch: any }) {
+export function ColapseTable(
+  { children, label, active, menu_id }:
+    { children: React.ReactNode, label: string, active?: (any | undefined), menu_id?: number }) {
+
+
   const [isOpen, setIsOpen] = React.useState(false)
+  const [isActiveMenu, setIsActiveMenu] = React.useState<boolean>(active !== undefined ? active : false);
+
+  React.useEffect(() => {
+    if (menu_id)
+      updateMenuActiveState(menu_id, isActiveMenu)
+        .then()
+  }, [isActiveMenu])
 
   return (
     <Collapsible
@@ -20,7 +32,7 @@ export function ColapseTable({ children, label, activeSwitch }: { children: Reac
       onOpenChange={setIsOpen}
     >
       <div className="relative flex items-center">
-        {activeSwitch ? <Switch className='ml-2 absolute' id="active-menu" /> : null}
+        {active !== undefined ? <Switch checked={isActiveMenu} onCheckedChange={setIsActiveMenu} className='ml-2 absolute' id="active-menu" /> : null}
         <CollapsibleTrigger className="pl-14" asChild>
           <button type="button" className="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-black border border-orange-300 rounded-xl focus:ring-4 focus:ring-orange-200 dark:focus:ring-orange-800 dark:border-orange-700 dark:text-black hover:bg-orange-50 dark:hover:bg-orange-800 gap-3" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
             <span>{label}</span>
