@@ -17,31 +17,14 @@ import Image from "next/image"
 import {
   ChevronDown,
   ChevronUp,
-  File,
-  MoreHorizontal,
-  Pencil,
-  PlusCircle,
-  Trash2,
 } from "lucide-react"
 
 import { Badge } from "@/components/ui/badge"
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
   CardHeader,
-  CardTitle,
 } from "@/components/ui/card"
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
 import {
   Table,
   TableBody,
@@ -50,16 +33,11 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button"
 import { removeItemFromMenu } from "@/actions/Dashboard/removeItemFromMenu"
 import { useRouter } from "next/navigation"
 import DeleteMenu from "./DeleteMenu"
+import { Input } from "@/components/ui/input"
 export function MenuColapseTable(
   { items, label, active, menu_id }:
     { items: DashboardProduct[], label: string, active?: (any | undefined), menu_id: number }) {
@@ -136,9 +114,16 @@ export function MenuColapseTable(
                 {items.map(product => (
                   <TableRow className="group/row">
                     <TableCell>
-                      <div className="h-full flex flex-col justify-between">
-                        <ChevronUp className="h-4 w-4" />
-                        <ChevronDown className="h-4 w-4" />
+                      <div className="flex gap-3 items-center">
+                        <Input value={product.list_position} className="w-10 text-center" />
+                        <div className="h-full flex flex-col gap-1">
+                          <Button variant={'outline'}>
+                            <ChevronUp className="" />
+                          </Button>
+                          <Button variant={'outline'}>
+                            <ChevronDown className="h-6 w-6" />
+                          </Button>
+                        </div>
                       </div>
                     </TableCell>
                     <TableCell className="hidden sm:table-cell">
