@@ -3,11 +3,11 @@ import Image from "next/image"
 import {
   ChevronDown,
   ChevronUp,
-  ClipboardPlus,
-  ClipboardX,
   File,
   MoreHorizontal,
+  Pencil,
   PlusCircle,
+  Trash2,
 } from "lucide-react"
 
 import { Badge } from "@/components/ui/badge"
@@ -44,26 +44,17 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs"
 
-export default function MenuTable({ items }: { items: DashboardProduct[] }) {
+export default function AllProductsTable({ items }: { items: DashboardProduct[] }) {
   return (
     <Tabs defaultValue="all">
       <div className="flex items-center">
         <div className="ml-auto flex items-center gap-2">
-          <DropdownMenu>
-            <DropdownMenuContent align="end">
-              <DropdownMenuLabel>Filter by</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuCheckboxItem checked>
-                Active
-              </DropdownMenuCheckboxItem>
-              <DropdownMenuCheckboxItem>
-                Draft
-              </DropdownMenuCheckboxItem>
-              <DropdownMenuCheckboxItem>
-                Archived
-              </DropdownMenuCheckboxItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <Button size="sm" className="h-8 gap-1">
+            <PlusCircle className="h-3.5 w-3.5" />
+            <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
+              Adaugă Produs Nou
+            </span>
+          </Button>
         </div>
       </div>
       <TabsContent value="all">
@@ -78,19 +69,9 @@ export default function MenuTable({ items }: { items: DashboardProduct[] }) {
                   <TableHead className="hidden w-[100px] sm:table-cell">
                     <span className="sr-only">Image</span>
                   </TableHead>
-                  <TableHead>Name</TableHead>
-                  <TableHead>Status</TableHead>
+                  <TableHead>Nume</TableHead>
                   <TableHead className="hidden md:table-cell">
-                    Price
-                  </TableHead>
-                  <TableHead className="hidden md:table-cell text-right w-fit">
-                    Currently Available
-                  </TableHead>
-                  <TableHead className="hidden md:table-cell">
-                    /
-                  </TableHead>
-                  <TableHead className="hidden md:table-cell text-left">
-                    Portions each day
+                    Preț
                   </TableHead>
                   <TableHead>
                     <span className="sr-only">Actions</span>
@@ -118,24 +99,13 @@ export default function MenuTable({ items }: { items: DashboardProduct[] }) {
                     <TableCell className="font-medium">
                       {product.ro_product_name}
                     </TableCell>
-                    <TableCell>
-                      <Badge variant="outline">Draft</Badge>
-                    </TableCell>
                     <TableCell className="hidden md:table-cell">
                       {product.price}
                     </TableCell>
-                    <TableCell className="hidden md:table-cell text-right">
-                      {product.current_quantity}
-                    </TableCell>
-                    <TableCell className="hidden md:table-cell">
-                      /
-                    </TableCell>
-                    <TableCell className="hidden md:table-cell text-left">
-                      {product.menu_quantity}
-                    </TableCell>
                     <TableCell className="w-[100px]">
                       <div className="hidden group-hover/row:flex gap-8">
-                        <ClipboardX className="hover:text-blue-500 hover:cursor-pointer" />
+                        <Pencil className="hover:text-blue-500 hover:cursor-pointer" />
+                        <Trash2 className="hover:text-red-500 hover:cursor-pointer" />
                       </div>
                     </TableCell>
                   </TableRow>
@@ -144,10 +114,6 @@ export default function MenuTable({ items }: { items: DashboardProduct[] }) {
             </Table>
           </CardContent>
           <CardFooter>
-            <div className="text-xs text-muted-foreground">
-              Showing <strong>1-10</strong> of <strong>32</strong>{" "}
-              products
-            </div>
           </CardFooter>
         </Card>
       </TabsContent>
