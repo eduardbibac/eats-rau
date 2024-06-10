@@ -59,22 +59,21 @@ import {
 import { Button } from "@/components/ui/button"
 import { removeItemFromMenu } from "@/actions/Dashboard/removeItemFromMenu"
 import { useRouter } from "next/navigation"
+import DeleteMenu from "./DeleteMenu"
 export function MenuColapseTable(
-  { items, label, active, menu_id, all_products }:
-    { items: DashboardProduct[], label: string, all_products: DashboardProduct[], active?: (any | undefined), menu_id?: number }) {
+  { items, label, active, menu_id }:
+    { items: DashboardProduct[], label: string, active?: (any | undefined), menu_id: number }) {
 
   const router = useRouter();
   const [isOpen, setIsOpen] = React.useState(false)
   const [isActiveMenu, setIsActiveMenu] = React.useState<boolean>(active !== undefined ? active : true);
 
   React.useEffect(() => {
-    if (menu_id)
-      updateMenuActiveState(menu_id, isActiveMenu)
-        .then()
+    updateMenuActiveState(menu_id, isActiveMenu)
+      .then()
   }, [isActiveMenu])
 
   async function handleMenuRemove(product_id: number) {
-    if (!menu_id) return;
     await removeItemFromMenu(product_id, menu_id)
     router.refresh()
 
@@ -87,12 +86,8 @@ export function MenuColapseTable(
     >
       <div className="relative flex flex-col justify-center">
         {active !== undefined ? <Switch checked={isActiveMenu} onCheckedChange={setIsActiveMenu} className='ml-2 absolute' id="active-menu" /> : null}
-        <Button size="sm" variant="destructive" className="absolute self-end mr-20 h-8 gap-1">
-          <Trash2 className="h-3.5 w-3.5" />
-          <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
-            Șterge Meniu
-          </span>
-        </Button>
+
+        <DeleteMenu menu_id={menu_id} />
 
 
         <CollapsibleTrigger className="pl-14" asChild>
@@ -119,20 +114,20 @@ export function MenuColapseTable(
                     <TableRow>
                       <TableHead />
                       <TableHead className="hidden w-[100px] sm:table-cell">
-                        <span className="sr-only">Image</span>
+                        <span className="sr-only">Imagine</span>
                       </TableHead>
-                      <TableHead>Name</TableHead>
+                      <TableHead>Nume</TableHead>
                       <TableHead className="hidden md:table-cell">
-                        Price
+                        Preț
                       </TableHead>
                       <TableHead className="hidden md:table-cell text-right w-fit">
-                        Currently Available
+                        Disponibil acum
                       </TableHead>
                       <TableHead className="hidden md:table-cell">
                         /
                       </TableHead>
                       <TableHead className="hidden md:table-cell text-left">
-                        Portions each day
+                        Porții în fiecare zi
                       </TableHead>
                       <TableHead>
                         <span className="sr-only">Actions</span>

@@ -64,7 +64,7 @@ CREATE TABLE menu (
 );
 
 CREATE TABLE menu_products (
-    menu_id             INT NOT NULL REFERENCES menu(id),
+    menu_id             INT NOT NULL REFERENCES menu(id) ON DELETE CASCADE,
     product_id          INT NOT NULL,
     menu_quantity       INT NOT NULL CHECK (menu_quantity > 0),
     -- Ask staff: Is the menu prepared today? if yes, then set current_quant = menu_quant;
