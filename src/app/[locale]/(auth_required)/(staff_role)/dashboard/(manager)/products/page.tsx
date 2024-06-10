@@ -1,12 +1,12 @@
 import { getAllProducts } from "@/actions/Dashboard/getAllProducts";
 import DashNav from "../../DashNav";
 import { DashboardProduct } from "@/types/ShopTypes";
-import { AllProductsColapseTable, ColapseTable } from "./AllProductsColapseTable";
-import MenuTable from "./MenuTable";
+import { AllProductsColapseTable } from "./AllProductsColapseTable";
 import { getMenus } from "@/actions/Dashboard/getMenus";
 import { getMenuProducts } from "@/actions/Dashboard/getMenuProducts";
-import AllProductsTable from "./AllProductsTable";
 import { MenuColapseTable } from "./MenuColapseTable";
+
+import CreateMenu from "./CreateMenu";
 
 
 export default async function DashboardPorducts() {
@@ -36,6 +36,7 @@ export default async function DashboardPorducts() {
                 <MenuColapseTable all_products={products} items={menu.products as DashboardProduct[]} key={menu.menu_name} label={menu.menu_name} active={menu.is_active} menu_id={menu.id} />
               ))}
 
+              <CreateMenu />
             </main>
           </div>
         </div>
