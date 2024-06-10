@@ -147,13 +147,13 @@ export default function MenuTable({ items }: { items: DashboardProduct[] }) {
                       {product.price}
                     </TableCell>
                     <TableCell className="hidden md:table-cell text-right">
-                      25
+                      {product.current_quantity}
                     </TableCell>
                     <TableCell className="hidden md:table-cell">
                       /
                     </TableCell>
                     <TableCell className="hidden md:table-cell text-left">
-                      50
+                      {product.menu_quantity}
                     </TableCell>
                     <TableCell>
                       <DropdownMenu>

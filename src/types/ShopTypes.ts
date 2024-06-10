@@ -22,5 +22,6 @@ export type DashboardProduct = {
   ro_categories: string[];
   en_categories: string[];
   image_link: string;
-  quantity: number;
+  menu_quantity: number;
+  current_quantity: number;
 };
