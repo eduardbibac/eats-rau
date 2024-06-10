@@ -33,7 +33,7 @@ export default async function DashboardPorducts() {
               <AllProductsColapseTable items={products} label={'Toate Produsele'} menus={menus} />
 
               {menus_with_products?.map(menu => (
-                <MenuColapseTable all_products={products} items={menu.products as DashboardProduct[]} key={menu.menu_name} label={menu.menu_name} active={menu.is_active} menu_id={menu.id} />
+                <MenuColapseTable items={menu.products as DashboardProduct[]} key={menu.menu_name} label={menu.menu_name} active={menu.is_active} menu_id={menu.id} />
               ))}
 
               <CreateMenu />

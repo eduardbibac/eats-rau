@@ -133,6 +133,7 @@ export function AllProductsColapseTable(
                     <li>
                       <input
                         type="radio"
+                        checked={selectedMenu === menu.id}
                         onChange={(e) => setSelectedMenu(menu.id)}
                         id={menu.id}
                         name={menu.id}
