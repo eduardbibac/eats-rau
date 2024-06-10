@@ -8,8 +8,10 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
+import { Switch } from "@/components/ui/switch"
+import { Label } from "@/components/ui/label"
 
-export function ColapseTable({ children, label }: { children: React.ReactNode, label: string }) {
+export function ColapseTable({ children, label, activeSwitch }: { children: React.ReactNode, label: string, activeSwitch: any }) {
   const [isOpen, setIsOpen] = React.useState(false)
 
   return (
@@ -17,8 +19,9 @@ export function ColapseTable({ children, label }: { children: React.ReactNode, l
       open={isOpen}
       onOpenChange={setIsOpen}
     >
-      <div className="">
-        <CollapsibleTrigger asChild>
+      <div className="relative flex items-center">
+        {activeSwitch ? <Switch className='ml-2 absolute' id="active-menu" /> : null}
+        <CollapsibleTrigger className="pl-14" asChild>
           <button type="button" className="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-black border border-orange-300 rounded-xl focus:ring-4 focus:ring-orange-200 dark:focus:ring-orange-800 dark:border-orange-700 dark:text-black hover:bg-orange-50 dark:hover:bg-orange-800 gap-3" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
             <span>{label}</span>
             <svg data-accordion-icon className="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">

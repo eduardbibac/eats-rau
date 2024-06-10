@@ -1,9 +1,5 @@
-import { getAllProducts } from "@/actions/Dashboard/getAllProducts";
-import DashNav from "../../DashNav";
-import DashboardProducts from "./DashboardProducts";
 import { DashboardProduct } from "@/types/ShopTypes";
 import Image from "next/image"
-import Link from "next/link"
 import {
   ChevronDown,
   ChevronUp,
@@ -31,8 +27,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Input } from "@/components/ui/input"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import {
   Table,
   TableBody,
@@ -47,8 +41,6 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs"
-import { ColapseTable } from "./ColapseTable";
-import { getMenus } from "@/actions/Dashboard/getMenus";
 
 export default function MenuTable({ items }: { items: DashboardProduct[] }) {
   return (

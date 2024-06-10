@@ -53,6 +53,8 @@ import ListItem from "./MenuTable";
 import MenuTable from "./MenuTable";
 import { getMenus } from "@/actions/Dashboard/getMenus";
 import { getMenuProducts } from "@/actions/Dashboard/getMenuProducts";
+import { Switch } from "@/components/ui/switch";
+import { Label } from "@/components/ui/label";
 
 
 export default async function DashboardPorducts() {
@@ -64,7 +66,7 @@ export default async function DashboardPorducts() {
     return { ...menu, products };
   }))
 
-  
+
   if (!products) return <h1>Erorr..</h1>
   return (
     <>
@@ -76,13 +78,14 @@ export default async function DashboardPorducts() {
         <div className="flex min-h-screen w-full flex-col bg-muted/40">
           <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
             <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
-              <ColapseTable label={'All Products'}>
+              <ColapseTable label={'Toate Produsele'} activeSwitch={false}>
                 <MenuTable items={products} />
               </ColapseTable>
 
               {menus_with_products?.map(menu => (
-                <ColapseTable key={menu.menu_name} label={menu.menu_name}>
-                  <MenuTable items={menu.products} />
+                <ColapseTable key={menu.menu_name} label={menu.menu_name} activeSwitch={true}>
+
+                  <MenuTable items={menu.products as DashboardProduct[]} />
                 </ColapseTable>
               ))}
 
