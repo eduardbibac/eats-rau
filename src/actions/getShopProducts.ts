@@ -16,7 +16,7 @@ export async function getShopProducts(userLocale: any) {
       ${sql(name)} as name, ${sql(cat)} as categories,
       p.current_quantity as quantity, p.image
     from products_on_sale p
-    order by list_position ASC;`.catch((e) => {
+    order by menu_list_position ASC, p.list_position ASC;`.catch((e) => {
     console.log(e);
     return [];
   });

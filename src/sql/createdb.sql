@@ -112,7 +112,8 @@ CREATE VIEW products_on_sale AS
 SELECT p.id, mp.list_position, p.price, 
     p.en_product_name, p.en_categories, 
     p.ro_product_name, p.ro_categories,
-    mp.current_quantity, p.image_link as image
+    mp.current_quantity, p.image_link as image,
+    m.list_position as menu_list_position
 FROM products_with_categories p
 JOIN menu_products mp ON p.id = mp.product_id
 JOIN menu m ON mp.menu_id = m.id
