@@ -46,6 +46,7 @@ export default function MenuColapseTable(
   const [isActiveMenu, setIsActiveMenu] = React.useState<boolean>(active !== undefined ? active : true);
   const [products, setProducts] = React.useState<DashboardProduct[]>(initialPorducts)
   const [inputValues, setInputValues] = React.useState<number[]>([]);
+  
   React.useEffect(() => {
     updateMenuActiveState(menu_id, isActiveMenu)
       .then()
@@ -84,13 +85,10 @@ export default function MenuColapseTable(
   }, 1500)
 
   // const isMounted = React.useRef(false);
-  // React.useEffect(() => {
-  //   if (!isMounted.current) {
-  //     isMounted.current = true;
-  //     return;
-  //   }
-  //   debouncedUpdate()
-  // }, [products])
+  React.useEffect(() => {
+    initialPorducts = [...products]
+    router.refresh();
+  }, [products])
 
   React.useEffect(() => {
     const newInputs = products.map((_, i) => i + 1);
@@ -152,7 +150,7 @@ export default function MenuColapseTable(
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {products.map((product, i) =>
+                {initialPorducts.map((product, i) =>
                 (
                   <TableRow key={product.id} className="group/row">
                     <TableCell>
@@ -208,3 +206,33 @@ export default function MenuColapseTable(
   )
 }
 
+
+
+/* NEXTJS ROUTER.REFRESH() BUG?
+I think router.refresh() won't function properly if your render doesn't depend directly on a server prop
+I ran into this issue when I was passing props to a client component from a server component, then setting it to a useState variable to use in the client component, clientItems.map(...) wasn't working with router.refresh(), but using serverComponentProps made it so router.refresh() triggers the changes properly. Thankfully before getting to having issues, I was using serverComponentProps directly and it was working properly, the diff between the changes led me to believe this is the cause.
+
+For example
+'use client';
+export function ClientComponent({serverComponentProps}:{serverComponentProps:number[]})
+const  [items, setItems] = useState(serverComponentProps)
+
+// router.refresh() won't work here
+items.map(i=><h1>{i}</h1>)
+
+// if serverComponentProps changed then router.refresh() works here
+serverComponentProps.map(i=><h1>{i}</h1>)
+
+---- This doesn't actually work
+Now the problem is we can't use useEffect, to get around this
+Set it as normal
+const  [items, setItems] = useState(serverComponentProps)
+
+Now update the serverComponentProps on every items change
+React.useEffect(() => {
+  serverComponentProps = [...items]
+}, [items])
+
+And finally make it so your component triggers a rerender on serverComponentProps change
+
+ */
