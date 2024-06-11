@@ -60,7 +60,7 @@ CREATE TABLE menu (
     menu_name           TEXT NOT NULL,
     is_active           BOOLEAN DEFAULT FALSE,
 
-    list_position       INT UNIQUE
+    list_position       INT
 );
 
 CREATE TABLE menu_products (
@@ -69,7 +69,7 @@ CREATE TABLE menu_products (
     menu_quantity       INT NOT NULL CHECK (menu_quantity > 0),
     -- Ask staff: Is the menu prepared today? if yes, then set current_quant = menu_quant;
     current_quantity    INT NOT NULL CHECK (current_quantity >= 0),
-    list_position       INT UNIQUE,
+    list_position       INT,
 
     PRIMARY KEY (menu_id, product_id)
 );

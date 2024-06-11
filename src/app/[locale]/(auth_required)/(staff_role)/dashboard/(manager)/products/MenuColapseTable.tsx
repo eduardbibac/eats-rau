@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { ChevronsUpDown, ClipboardPlus, ClipboardX, Plus, X } from "lucide-react"
+import { debounce } from "lodash"
 
 import {
   Collapsible,
@@ -38,13 +39,16 @@ import { removeItemFromMenu } from "@/actions/Dashboard/removeItemFromMenu"
 import { useRouter } from "next/navigation"
 import DeleteMenu from "./DeleteMenu"
 import { Input } from "@/components/ui/input"
+import { updateMenuListPositions } from "@/actions/Dashboard/updateMenuListPositions"
 export function MenuColapseTable(
-  { items, label, active, menu_id }:
-    { items: DashboardProduct[], label: string, active?: (any | undefined), menu_id: number }) {
+  { initialPorducts, label, active, menu_id }:
+    { initialPorducts: DashboardProduct[], label: string, active?: (any | undefined), menu_id: number }) {
 
   const router = useRouter();
   const [isOpen, setIsOpen] = React.useState(false)
   const [isActiveMenu, setIsActiveMenu] = React.useState<boolean>(active !== undefined ? active : true);
+  const [products, setProducts] = React.useState<DashboardProduct[]>(initialPorducts)
+  const isMounted = React.useRef(false);
 
   React.useEffect(() => {
     updateMenuActiveState(menu_id, isActiveMenu)
@@ -54,8 +58,35 @@ export function MenuColapseTable(
   async function handleMenuRemove(product_id: number) {
     await removeItemFromMenu(product_id, menu_id)
     router.refresh()
-
   }
+
+  async function moveItemUp(index: number) {
+    if (index === 0) return; // Can't move the first item up
+    let newItems = [...products];
+    [newItems[index], newItems[index - 1]] = [newItems[index - 1], newItems[index]];
+    setProducts(newItems);
+  }
+
+  async function moveItemDown(index: number) {
+    if (index === products.length - 1) return; // Can't move the last item down
+    const newItems = [...products];
+    [newItems[index], newItems[index + 1]] = [newItems[index + 1], newItems[index]];
+    setProducts(newItems);
+  };
+
+  const debouncedUpdate = debounce(() => {
+    const newListPositions = products.map((p, i) => [p.id, i + 1])
+    updateMenuListPositions(menu_id, newListPositions)
+  }, 1500)
+
+  React.useEffect(() => {
+    if (!isMounted.current) {
+      isMounted.current = true;
+      return;
+    }
+    debouncedUpdate()
+  }, [products])
+
 
   return (
     <Collapsible
@@ -111,16 +142,16 @@ export function MenuColapseTable(
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {items.map(product => (
+                {products.map((product, i) => (
                   <TableRow className="group/row">
                     <TableCell>
                       <div className="flex gap-3 items-center">
-                        <Input value={product.list_position} className="w-10 text-center" />
+                        <Input value={i + 1} className="w-10 text-center" />
                         <div className="h-full flex flex-col gap-1">
-                          <Button variant={'outline'}>
+                          <Button onClick={() => moveItemUp(i)} variant={'outline'}>
                             <ChevronUp className="" />
                           </Button>
-                          <Button variant={'outline'}>
+                          <Button onClick={() => moveItemDown(i)} variant={'outline'}>
                             <ChevronDown className="h-6 w-6" />
                           </Button>
                         </div>
@@ -165,3 +196,4 @@ export function MenuColapseTable(
     </Collapsible >
   )
 }
+
