@@ -1,7 +1,7 @@
-"use client"
+'use client';
 
 import * as React from "react"
-import { ChevronsUpDown, ClipboardPlus, ClipboardX, Plus, X } from "lucide-react"
+import { ClipboardX } from "lucide-react"
 import { debounce } from "lodash"
 
 import {
@@ -10,7 +10,6 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
 import { Switch } from "@/components/ui/switch"
-import { Label } from "@/components/ui/label"
 import { updateMenuActiveState } from "@/actions/Dashboard/updateMenuActiveState"
 import { cn } from "@/lib/utils"
 import { DashboardProduct } from "@/types/ShopTypes";
@@ -19,8 +18,6 @@ import {
   ChevronDown,
   ChevronUp,
 } from "lucide-react"
-
-import { Badge } from "@/components/ui/badge"
 import {
   Card,
   CardContent,
@@ -36,11 +33,11 @@ import {
 } from "@/components/ui/table"
 import { Button } from "@/components/ui/button"
 import { removeItemFromMenu } from "@/actions/Dashboard/removeItemFromMenu"
-import { useRouter } from "next/navigation"
 import DeleteMenu from "./DeleteMenu"
 import { Input } from "@/components/ui/input"
 import { updateMenuListPositions } from "@/actions/Dashboard/updateMenuListPositions"
-export function MenuColapseTable(
+import { useRouter } from "next/navigation"
+export default function MenuColapseTable(
   { initialPorducts, label, active, menu_id }:
     { initialPorducts: DashboardProduct[], label: string, active?: (any | undefined), menu_id: number }) {
 
@@ -48,8 +45,7 @@ export function MenuColapseTable(
   const [isOpen, setIsOpen] = React.useState(false)
   const [isActiveMenu, setIsActiveMenu] = React.useState<boolean>(active !== undefined ? active : true);
   const [products, setProducts] = React.useState<DashboardProduct[]>(initialPorducts)
-  const isMounted = React.useRef(false);
-
+  const [inputValues, setInputValues] = React.useState<number[]>([]);
   React.useEffect(() => {
     updateMenuActiveState(menu_id, isActiveMenu)
       .then()
@@ -60,32 +56,46 @@ export function MenuColapseTable(
     router.refresh()
   }
 
-  async function moveItemUp(index: number) {
+  function moveItemUp(index: number) {
     if (index === 0) return; // Can't move the first item up
     let newItems = [...products];
     [newItems[index], newItems[index - 1]] = [newItems[index - 1], newItems[index]];
     setProducts(newItems);
+    debouncedUpdate(newItems)
   }
 
-  async function moveItemDown(index: number) {
+  function moveItemDown(index: number) {
     if (index === products.length - 1) return; // Can't move the last item down
     const newItems = [...products];
     [newItems[index], newItems[index + 1]] = [newItems[index + 1], newItems[index]];
     setProducts(newItems);
+    debouncedUpdate(newItems)
   };
 
-  const debouncedUpdate = debounce(() => {
-    const newListPositions = products.map((p, i) => [p.id, i + 1])
+  function handleInputChange(e: any, index: number) {
+    const newInputs = [...inputValues]
+
+    newInputs[index] = e.target.value;
+  }
+
+  const debouncedUpdate = debounce((items: DashboardProduct[]) => {
+    const newListPositions = items.map((p, i) => [p.id, i + 1])
     updateMenuListPositions(menu_id, newListPositions)
   }, 1500)
 
+  // const isMounted = React.useRef(false);
+  // React.useEffect(() => {
+  //   if (!isMounted.current) {
+  //     isMounted.current = true;
+  //     return;
+  //   }
+  //   debouncedUpdate()
+  // }, [products])
+
   React.useEffect(() => {
-    if (!isMounted.current) {
-      isMounted.current = true;
-      return;
-    }
-    debouncedUpdate()
-  }, [products])
+    const newInputs = products.map((_, i) => i + 1);
+    setInputValues(newInputs);
+  }, [])
 
 
   return (
@@ -106,7 +116,7 @@ export function MenuColapseTable(
             "flex items-center justify-between w-full p-5 font-medium rtl:text-right  border  rounded-xl focus:ring-4    gap-3")} data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
             <span>{label}</span>
             <svg data-accordion-icon className="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5" />
+              <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5 5 1 1 5" />
             </svg>
           </button>
         </CollapsibleTrigger>
@@ -142,11 +152,12 @@ export function MenuColapseTable(
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {products.map((product, i) => (
-                  <TableRow className="group/row">
+                {products.map((product, i) =>
+                (
+                  <TableRow key={product.id} className="group/row">
                     <TableCell>
                       <div className="flex gap-3 items-center">
-                        <Input value={i + 1} className="w-10 text-center" />
+                        <Input value={inputValues[i]} onChange={(e) => handleInputChange(e, i)} className="w-10 text-center" />
                         <div className="h-full flex flex-col gap-1">
                           <Button onClick={() => moveItemUp(i)} variant={'outline'}>
                             <ChevronUp className="" />

@@ -4,9 +4,9 @@ import { DashboardProduct } from "@/types/ShopTypes";
 import { AllProductsColapseTable } from "./AllProductsColapseTable";
 import { getMenus } from "@/actions/Dashboard/getMenus";
 import { getMenuProducts } from "@/actions/Dashboard/getMenuProducts";
-import { MenuColapseTable } from "./MenuColapseTable";
 
 import CreateMenu from "./CreateMenu";
+import MenuColapseTable from "./MenuColapseTable";
 
 
 export default async function DashboardPorducts() {

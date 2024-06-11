@@ -29,13 +29,13 @@ export default function TNavBar() {
                 d="M1 29.5V16.5C1 9.87258 6.37258 4.5 13 4.5C19.6274 4.5 25 9.87258 25 16.5C25 23.1274 19.6274 28.5 13 28.5H12"
                 className="stroke-black dark:stroke-white"
                 stroke="currentColor"
-                stroke-width="2"
+                strokeWidth="2"
               />
               <path
                 d="M5 29.5V16.66C5 12.1534 8.58172 8.5 13 8.5C17.4183 8.5 21 12.1534 21 16.66C21 21.1666 17.4183 24.82 13 24.82H12"
                 className="stroke-black dark:stroke-white"
                 stroke="currentColor"
-                stroke-width="2"
+                strokeWidth="2"
               />
               <circle
                 cx="13"
@@ -80,9 +80,9 @@ export default function TNavBar() {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
                 <line x1="3" x2="21" y1="6" y2="6" />
                 <line x1="3" x2="21" y1="12" y2="12" />
@@ -96,9 +96,9 @@ export default function TNavBar() {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
                 <path d="M18 6 6 18" />
                 <path d="m6 6 12 12" />

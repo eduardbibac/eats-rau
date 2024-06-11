@@ -32,10 +32,10 @@ export default function ShopCard(props: ShopCardProps) {
           alt={product.name}
           width={500}
           height={500}
-          // width={500} automatically provided for local
-          // height={500} automatically provided for local
-          // blurDataURL="data:..." automatically provided
-          // placeholder="blur" // Optional blur-up while loading
+        // width={500} automatically provided for local
+        // height={500} automatically provided for local
+        // blurDataURL="data:..." automatically provided
+        // placeholder="blur" // Optional blur-up while loading
         />
         {/* <img className="object-cover aspect-[4/3]" src={product.image} alt={product.name} /> */}
       </div>
@@ -95,7 +95,7 @@ export default function ShopCard(props: ShopCardProps) {
                         stroke="currentColor"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        stroke-width="2"
+                        strokeWidth="2"
                         d="M1 1h16"
                       />
                     </svg>
@@ -124,9 +124,9 @@ export default function ShopCard(props: ShopCardProps) {
                     >
                       <path
                         stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         d="M9 1v16M1 9h16"
                       />
                     </svg>

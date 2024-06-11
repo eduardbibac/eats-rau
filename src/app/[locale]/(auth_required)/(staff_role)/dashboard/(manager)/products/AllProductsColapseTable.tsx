@@ -1,23 +1,12 @@
 "use client"
 
 import * as React from "react"
-import { Check, ChevronsUpDown, CirclePlus, ClipboardPlus, Plus, X } from "lucide-react"
+import { CirclePlus } from "lucide-react"
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { useContext, useState } from "react";
-import { validateAuth } from "@/actions/validateAuth";
-import sendOrder from "@/actions/(auth_required)/sendOrder";
-import { CartContext } from "@/providers/CartContextProvider";
-import { CartItem, Product } from "@/types/ShopTypes";
-import { useTranslations } from "next-intl";
 import {
   Collapsible,
   CollapsibleContent,
@@ -25,38 +14,20 @@ import {
 } from "@/components/ui/collapsible"
 import { Switch } from "@/components/ui/switch"
 import { Label } from "@/components/ui/label"
-import { updateMenuActiveState } from "@/actions/Dashboard/updateMenuActiveState"
 import { cn } from "@/lib/utils"
 import { DashboardProduct } from "@/types/ShopTypes";
 import Image from "next/image"
 import {
-  ChevronDown,
-  ChevronUp,
-  File,
-  MoreHorizontal,
   Pencil,
-  PlusCircle,
   Trash2,
 } from "lucide-react"
 
-import { Badge } from "@/components/ui/badge"
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle,
 } from "@/components/ui/card"
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
 import {
   Table,
   TableBody,
@@ -65,14 +36,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button"
-import { Checkbox } from "@/components/ui/checkbox"
 import { addProductsToMenu } from "@/actions/Dashboard/addProductsToMenu";
 import { useRouter } from "next/navigation";
 
@@ -173,7 +137,7 @@ export function AllProductsColapseTable(
             "flex items-center justify-between w-full p-5 font-medium rtl:text-right  border  rounded-xl focus:ring-4    gap-3")} data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
             <span>{label}</span>
             <svg data-accordion-icon className="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5" />
+              <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5 5 1 1 5" />
             </svg>
           </button>
         </CollapsibleTrigger>
@@ -201,7 +165,7 @@ export function AllProductsColapseTable(
               </TableHeader>
               <TableBody>
                 {items.map(product => (
-                  <TableRow className="group/row" onClick={() => ''}>
+                  <TableRow key={product.id} className="group/row" onClick={() => ''}>
                     <TableCell className="w-[50px]">
                       <input className={cn(
                         "flex items-center justify-center text-current peer h-5 w-5 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground",
