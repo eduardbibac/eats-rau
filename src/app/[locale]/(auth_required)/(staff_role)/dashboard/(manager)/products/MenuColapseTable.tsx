@@ -38,15 +38,14 @@ import { Input } from "@/components/ui/input"
 import { updateMenuListPositions } from "@/actions/Dashboard/updateMenuListPositions"
 import { useRouter } from "next/navigation"
 export default function MenuColapseTable(
-  { initialPorducts, label, active, menu_id }:
-    { initialPorducts: DashboardProduct[], label: string, active?: (any | undefined), menu_id: number }) {
+  { products, label, active, menu_id }:
+    { products: DashboardProduct[], label: string, active?: (any | undefined), menu_id: number }) {
 
   const router = useRouter();
   const [isOpen, setIsOpen] = React.useState(false)
   const [isActiveMenu, setIsActiveMenu] = React.useState<boolean>(active !== undefined ? active : true);
-  const [products, setProducts] = React.useState<DashboardProduct[]>(initialPorducts)
-  const [inputValues, setInputValues] = React.useState<number[]>([]);
-  
+  const [inputValues, setInputValues] = React.useState<any[]>([]);
+
   React.useEffect(() => {
     updateMenuActiveState(menu_id, isActiveMenu)
       .then()
@@ -57,43 +56,66 @@ export default function MenuColapseTable(
     router.refresh()
   }
 
-  function moveItemUp(index: number) {
+  async function moveItemUp(index: number) {
     if (index === 0) return; // Can't move the first item up
     let newItems = [...products];
     [newItems[index], newItems[index - 1]] = [newItems[index - 1], newItems[index]];
-    setProducts(newItems);
-    debouncedUpdate(newItems)
+    products = [...newItems];
+    await updateList(newItems)
+    router.refresh()
   }
 
-  function moveItemDown(index: number) {
+  async function moveItemDown(index: number) {
     if (index === products.length - 1) return; // Can't move the last item down
     const newItems = [...products];
     [newItems[index], newItems[index + 1]] = [newItems[index + 1], newItems[index]];
-    setProducts(newItems);
-    debouncedUpdate(newItems)
+    products = [...newItems];
+    await updateList(newItems)
+    router.refresh()
   };
 
-  function handleInputChange(e: any, index: number) {
-    const newInputs = [...inputValues]
+  async function moveItemTo(index: number, to: number) {
+    const newItems = [...products];
+    [newItems[index], newItems[to]] = [newItems[to], newItems[index]];
+    products = [...newItems];
 
-    newInputs[index] = e.target.value;
+    await updateList(newItems)
+    router.refresh()
   }
 
-  const debouncedUpdate = debounce((items: DashboardProduct[]) => {
-    const newListPositions = items.map((p, i) => [p.id, i + 1])
-    updateMenuListPositions(menu_id, newListPositions)
-  }, 1500)
+  function handleLoseFocus(index: number) {
+    if (inputValues[index] === '') {
+      const newInputs = [...inputValues]
+      newInputs[index] = 1;
+      setInputValues(newInputs);
+    }
+    // The index of the input and (to) the value of the input 
+    moveItemTo(index, inputValues[index] - 1)
+  }
+  function handleInputChange(e: any, index: number) {
+    let { value } = e.target
 
-  // const isMounted = React.useRef(false);
-  React.useEffect(() => {
-    initialPorducts = [...products]
-    router.refresh();
-  }, [products])
+    console.log(value)
+
+    const re = /^[0-9\b]+$/;
+    if (value === '' || re.test(value)) {
+      if (value > products.length) value = products.length
+      if (value <= 0) if (value !== '') value = 1
+      const newInputs = [...inputValues]
+      newInputs[index] = value;
+      setInputValues(newInputs);
+    }
+  }
+
+  async function updateList(items: DashboardProduct[]) {
+    const newListPositions = items.map((p, i) => [p.id, i + 1])
+    await updateMenuListPositions(menu_id, newListPositions)
+  }
 
   React.useEffect(() => {
     const newInputs = products.map((_, i) => i + 1);
     setInputValues(newInputs);
-  }, [])
+  }, [products])
 
 
   return (
@@ -150,12 +172,12 @@ export default function MenuColapseTable(
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {initialPorducts.map((product, i) =>
+                {products.map((product, i) =>
                 (
                   <TableRow key={product.id} className="group/row">
                     <TableCell>
                       <div className="flex gap-3 items-center">
-                        <Input value={inputValues[i]} onChange={(e) => handleInputChange(e, i)} className="w-10 text-center" />
+                        <Input onBlur={() => handleLoseFocus(i)} value={inputValues[i]} onChange={(e) => handleInputChange(e, i)} className="w-10 text-center" />
                         <div className="h-full flex flex-col gap-1">
                           <Button onClick={() => moveItemUp(i)} variant={'outline'}>
                             <ChevronUp className="" />
@@ -223,16 +245,16 @@ items.map(i=><h1>{i}</h1>)
 // if serverComponentProps changed then router.refresh() works here
 serverComponentProps.map(i=><h1>{i}</h1>)
 
+Yes, so router.refresh() just triggers a rerender of the server component, if the way you fetch data doesn't change the serverComponent when you call router.refresh() then the component won't change it seems. Basically you have to write changes to DB (in my case at least) before calling router.refresh() then it will work. (fully SSR and UI updates fully latency dependent, lol literally liveware with zero benefits of using Nextjs since we can't mix the two, at least not how I was doing it)
+
 ---- This doesn't actually work
 Now the problem is we can't use useEffect, to get around this
 Set it as normal
 const  [items, setItems] = useState(serverComponentProps)
-
 Now update the serverComponentProps on every items change
 React.useEffect(() => {
   serverComponentProps = [...items]
 }, [items])
-
 And finally make it so your component triggers a rerender on serverComponentProps change
 
  */
