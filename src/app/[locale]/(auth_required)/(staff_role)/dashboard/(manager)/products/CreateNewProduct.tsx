@@ -1,6 +1,8 @@
 'use client';
 
+import { addProductsToMenu } from "@/actions/Dashboard/addProductsToMenu";
 import { createNewMenu } from "@/actions/Dashboard/createNewMenu";
+import { createNewProduct } from "@/actions/Dashboard/createNewProduct";
 import ShopCard from "@/components/ShopCard";
 import { RomaniaSVG } from "@/components/svg/RO";
 import { UnitedStatesSVG } from "@/components/svg/USA";
@@ -10,6 +12,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label";
 import { DashboardProduct, Product } from "@/types/ShopTypes";
 import { CirclePlus } from "lucide-react";
+import { revalidatePath } from "next/cache";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -27,35 +30,22 @@ const defaultProduct: DashboardProduct = {
   list_position: 0,
 }
 
+
 export default function CreateNewProduct() {
   const [dialog, setDialog] = useState(false)
   const [product, setProduct] = useState<DashboardProduct>(defaultProduct)
   const [image, setImage] = useState<File>();
-
   const router = useRouter();
-  async function handleClick() {
-    const fileInput = document.getElementById("fileInput"); // Replace with your HTML element ID
-    const file = fileInput.files[0];
 
-    const formData = new FormData();
-    formData.append("file", file);
-
-    fetch("/api/upload", {
-      method: "POST",
-      body: formData,
-    })
-      .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => console.error(error));
-
-    setDialog(false)
-    router.refresh()
+  async function addProduct() {
+    await createNewProduct(product)
+    setDialog(false);
+    router.refresh();
   }
 
   function uploadImage(e: any) {
     const { files } = e.target;
     if (!files) return;
-
 
     const formData = new FormData();
     formData.append("file", files[0]);
@@ -127,7 +117,7 @@ export default function CreateNewProduct() {
             && product.price > 0
             && product.image_link !== ''
           )}
-          onClick={handleClick} className="w-fit ml-auto ">Creează</Button>
+          onClick={addProduct} className="w-fit ml-auto ">Creează</Button>
 
         <div className="flex">
           <div className=" flex flex-col self-center mt-4 w-full h-full bg-slate-50 p-12 rounded-xl">

@@ -100,12 +100,12 @@ CREATE TABLE product_categories (
 
 CREATE VIEW products_with_categories AS
 SELECT p.id, p.ro_product_name, p.en_product_name, p.price,
-    array_agg(c.ro_name) as ro_categories, 
-    array_agg(c.en_name) as en_categories,
+    array_agg(COALESCE(c.ro_name, '')) as ro_categories, 
+    array_agg(COALESCE(c.en_name, '')) as en_categories,
 	p.image_link
 FROM products p
-JOIN product_categories pc ON pc.product_id = p.id
-JOIN categories c ON pc.category_id= c.id
+LEFT JOIN product_categories pc ON pc.product_id = p.id
+LEFT JOIN categories c ON pc.category_id= c.id
 GROUP BY p.id;
 
 CREATE VIEW products_on_sale AS

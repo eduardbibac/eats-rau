@@ -75,3 +75,9 @@ INSERT INTO menu_products (menu_id, product_id, menu_quantity, current_quantity,
   (1, 16, 20, 0, 16),           (1, 17, 20, 0, 17),           (1, 18, 20, 0, 18),
   (1, 19, 20, 0, 19),           (1, 20, 20, 0, 20),           (1, 21, 20, 0, 21)
 ;
+
+-- SET Sequences...
+SELECT setval('categories_id_seq', (SELECT MAX(id) FROM categories) + 1);
+SELECT setval('products_id_seq', (SELECT MAX(id) FROM Products) + 1);
+SELECT setval('menu_id_seq', (SELECT MAX(id) FROM menu) + 1);
+SELECT setval('menu_products_id_seq', (SELECT MAX(id) FROM menu_products) + 1);

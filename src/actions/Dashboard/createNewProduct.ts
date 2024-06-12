@@ -1,12 +1,14 @@
-'use server';
+"use server";
 
 import { isRoleOrHigher } from "@/lib/role";
 import { validateRequest } from "../auth/validateRequest";
 import { redirect } from "@/navigation";
 import sql from "@/lib/db";
 import { DashboardProduct } from "@/types/ShopTypes";
+import { Menu } from "@/types/dbTypes";
+import { revalidatePath } from "next/cache";
 
-export async function deleteMenu(menu_id: number) {
+export async function createNewProduct(product: DashboardProduct) {
   const { user } = await validateRequest();
   if (!user) {
     redirect("/login");
@@ -17,6 +19,6 @@ export async function deleteMenu(menu_id: number) {
     return;
   }
 
-
-  await sql`DELETE FROM menu WHERE id=${menu_id}`;
+  await sql`INSERT INTO Products(ro_product_name, en_product_name, price, image_link) VALUES 
+            (${product.ro_product_name}, ${product.en_product_name}, ${product.price}, ${product.image_link})`;
 }
