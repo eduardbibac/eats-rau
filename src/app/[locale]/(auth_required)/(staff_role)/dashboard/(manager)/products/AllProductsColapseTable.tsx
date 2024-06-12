@@ -39,6 +39,7 @@ import {
 import { Button } from "@/components/ui/button"
 import { addProductsToMenu } from "@/actions/Dashboard/addProductsToMenu";
 import { useRouter } from "next/navigation";
+import CreateNewProduct from "./CreateNewProduct";
 
 export function AllProductsColapseTable(
   { items, label, active, menus }:
@@ -122,12 +123,7 @@ export function AllProductsColapseTable(
 
             </Dialog>
           ) : null}
-          <Button size="sm" disabled={!isActiveMenu} className="">
-            <CirclePlus className="h-3.5 w-3.5 mr-1" />
-            <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
-              Adaugă Produs Nou
-            </span>
-          </Button>
+          <CreateNewProduct />
         </div>
 
         <CollapsibleTrigger className="pl-14" asChild>

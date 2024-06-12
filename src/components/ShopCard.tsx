@@ -10,10 +10,11 @@ import { useContext } from "react";
 
 type ShopCardProps = {
   product: Product;
+  disabled?: boolean;
 };
 
 export default function ShopCard(props: ShopCardProps) {
-  const { product } = props;
+  const { product, disabled = false } = props;
   const { getCount, addToCart, subFromCart } = useContext(CartContext);
   const t = useTranslations("Shop");
   return (
@@ -57,6 +58,7 @@ export default function ShopCard(props: ShopCardProps) {
           <div className="w-full max-w-28">
             {getCount(product) === 0 ? (
               <button
+                disabled={disabled}
                 onClick={() => addToCart(product)}
                 className="mb-1 mr-1 flex w-full items-center justify-center space-x-1.5 rounded-full border border-solid border-red-500 bg-transparent py-2 text-xs font-bold uppercase text-orange-500 outline-none hover:bg-orange-600 hover:text-white focus:outline-none active:bg-orange-600 sm:px-2 md:px-2 lg:px-4"
               >

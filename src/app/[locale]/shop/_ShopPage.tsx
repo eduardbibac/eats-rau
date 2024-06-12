@@ -1,7 +1,6 @@
 "use client";
 
 import { Product } from "@/types/ShopTypes";
-import ShopCard from "./_ShopCard";
 
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
@@ -13,6 +12,7 @@ import Cart from "@/components/Cart";
 import CartDesktop from "./_CartDesktop";
 import { useLocale, useTranslations } from "next-intl";
 import ShopSkeletonCard from "./_ShopSkeletionCard";
+import ShopCard from "@/components/ShopCard";
 
 export default function ShopPage({ sort_options }: { sort_options: string[] }) {
   const [filter, setFilter] = useState<Product[]>();
