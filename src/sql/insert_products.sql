@@ -80,4 +80,3 @@ INSERT INTO menu_products (menu_id, product_id, menu_quantity, current_quantity,
 SELECT setval('categories_id_seq', (SELECT MAX(id) FROM categories) + 1);
 SELECT setval('products_id_seq', (SELECT MAX(id) FROM Products) + 1);
 SELECT setval('menu_id_seq', (SELECT MAX(id) FROM menu) + 1);
-SELECT setval('menu_products_id_seq', (SELECT MAX(id) FROM menu_products) + 1);

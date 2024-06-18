@@ -14,7 +14,7 @@ import { DashboardProduct, Product } from "@/types/ShopTypes";
 import { CirclePlus } from "lucide-react";
 import { revalidatePath } from "next/cache";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const defaultProduct: DashboardProduct = {
   ro_product_name: 'Nume Produs',
@@ -111,11 +111,12 @@ export default function CreateNewProduct() {
         <Input id="picture" type="file"
           onChange={(e) => uploadImage(e)} />
 
+
         <Button disabled={
-          !(product.ro_product_name.length > 3
-            && product.en_product_name.length > 3
+          !(product.ro_product_name.length > 3 && product.ro_product_name != defaultProduct.ro_product_name
+            && product.en_product_name.length > 3 && product.en_product_name != defaultProduct.en_product_name
             && product.price > 0
-            && product.image_link !== ''
+            && product.image_link.length > 0 && product.image_link != defaultProduct.image_link
           )}
           onClick={addProduct} className="w-fit ml-auto ">Creează</Button>
 
