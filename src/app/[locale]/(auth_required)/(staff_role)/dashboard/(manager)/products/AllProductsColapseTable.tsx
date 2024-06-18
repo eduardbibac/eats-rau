@@ -41,6 +41,7 @@ import { addProductsToMenu } from "@/actions/Dashboard/addProductsToMenu";
 import { useRouter } from "next/navigation";
 import CreateNewProduct from "./CreateNewProduct";
 import DeleteProduct from "./DeleteProduct";
+import UpdateProduct from "./UpdateProduct";
 
 export function AllProductsColapseTable(
   { items, label, active, menus }:
@@ -185,7 +186,7 @@ export function AllProductsColapseTable(
                     </TableCell>
                     <TableCell className="w-[100px]">
                       <div className="hidden group-hover/row:flex gap-8">
-                        <Pencil className="hover:text-red-500 hover:cursor-pointer" />
+                        <UpdateProduct initialProduct={product}/>
                         <DeleteProduct product_id={product.id} />
                       </div>
                     </TableCell>
