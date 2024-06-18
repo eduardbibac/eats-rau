@@ -40,6 +40,7 @@ import { Button } from "@/components/ui/button"
 import { addProductsToMenu } from "@/actions/Dashboard/addProductsToMenu";
 import { useRouter } from "next/navigation";
 import CreateNewProduct from "./CreateNewProduct";
+import DeleteProduct from "./DeleteProduct";
 
 export function AllProductsColapseTable(
   { items, label, active, menus }:
@@ -184,8 +185,8 @@ export function AllProductsColapseTable(
                     </TableCell>
                     <TableCell className="w-[100px]">
                       <div className="hidden group-hover/row:flex gap-8">
-                        <Pencil className="hover:text-blue-500 hover:cursor-pointer" />
-                        <Trash2 className="hover:text-red-500 hover:cursor-pointer" />
+                        <Pencil className="hover:text-red-500 hover:cursor-pointer" />
+                        <DeleteProduct product_id={product.id} />
                       </div>
                     </TableCell>
                   </TableRow >

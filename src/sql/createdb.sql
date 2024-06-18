@@ -63,9 +63,19 @@ CREATE TABLE menu (
     list_position       INT
 );
 
+CREATE TABLE products (
+    id                   SERIAL PRIMARY KEY,
+    price                NUMERIC(10,2) CHECK (price > 0),
+    ro_product_name      TEXT NOT NULL,
+    en_product_name      TEXT NOT NULL,
+    image_link           TEXT NOT NULL
+    
+    -- is_listed         BOOLEAN (not necessary because we will work with menu, if it's in the menu it's actively listed product)
+);
+
 CREATE TABLE menu_products (
     menu_id             INT NOT NULL REFERENCES menu(id) ON DELETE CASCADE,
-    product_id          INT NOT NULL,
+    product_id          INT NOT NULL REFERENCES products(id) ON DELETE CASCADE,
     menu_quantity       INT NOT NULL CHECK (menu_quantity > 0),
     -- Ask staff: Is the menu prepared today? if yes, then set current_quant = menu_quant;
     current_quantity    INT NOT NULL CHECK (current_quantity >= 0),
@@ -81,19 +91,10 @@ CREATE TABLE categories(
     en_name              TEXT NOT NULL
 );
 
-CREATE TABLE products (
-    id                   SERIAL PRIMARY KEY,
-    price                NUMERIC(10,2) CHECK (price > 0),
-    ro_product_name      TEXT NOT NULL,
-    en_product_name      TEXT NOT NULL,
-    image_link           TEXT NOT NULL
-    
-    -- is_listed         BOOLEAN (not necessary because we will work with menu, if it's in the menu it's actively listed product)
-);
 
 CREATE TABLE product_categories (
     category_id         INT NOT NULL REFERENCES categories(id),
-    product_id          INT NOT NULL REFERENCES products(id),
+    product_id          INT NOT NULL REFERENCES products(id) ON DELETE CASCADE,
            
     PRIMARY KEY (category_id, product_id)
 );
