@@ -10,6 +10,7 @@ import DesktopNavButton from "./Desktop/DesktopNavButton";
 import { validateRequest } from "@/actions/auth/validateRequest";
 import { isRoleOrHigher } from "@/lib/role";
 import DesktopSingInButton from "./Desktop/DesktopSingInButton";
+import LangSwitcher from "../LocaleSwitcher";
 
 export default async function Navbar() {
   const t = await getTranslations("Navigation");
@@ -18,7 +19,7 @@ export default async function Navbar() {
   return (
     <>
       {/* <!-- ========== DESKTOP ========== --> */}
-      <header className="z-50 hidden w-[98dvw] flex-wrap py-7 md:flex md:flex-nowrap md:justify-start">
+      <header className="bg-white z-50 hidden w-[98dvw] flex-wrap py-7 md:flex md:flex-nowrap md:justify-start">
         <nav
           className="relative mx-auto flex w-full max-w-7xl basis-full flex-wrap items-center px-4 md:grid md:grid-cols-12 md:px-8"
           aria-label="Global"
@@ -28,13 +29,17 @@ export default async function Navbar() {
           </div>
 
           {/* <!-- Button Group --> */}
-          <div className="ms-auto flex items-center gap-x-2 py-1 md:order-3 md:col-span-3 md:ps-6">
+          <div className="ms-auto flex items-center gap-x-4 py-1 md:order-3 md:col-span-3 md:ps-6">
+            <LangSwitcher />
             {user ? (
               <>
                 {isRoleOrHigher("staff", user.arole) && (
-                  <DashboardButton href="/dashboard" label={t("Dashboard")} />
+                  <div className="float-end">
+                    <DashboardButton href="/dashboard" label={t("Dashboard")} />
+                  </div>
                 )}
                 <AvatarMenu />
+                <p>{user.username}</p>
               </>
             ) : (
               <DesktopSingInButton href="/login" label={t("Sign In")} />

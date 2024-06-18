@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,6 +13,8 @@ import {
 import { usePathname, useRouter } from "@/navigation";
 import { useParams } from "next/navigation";
 import { MouseEventHandler } from "react";
+import { UnitedStatesSVG } from "./svg/USA";
+import { RomaniaSVG } from "./svg/RO";
 
 export default function LangSwitcher() {
   function ChangeLanguage(lang: string): MouseEventHandler<HTMLButtonElement> {
@@ -31,16 +33,28 @@ export default function LangSwitcher() {
       );
     };
   }
+
+  const currentLocale = useLocale();
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger>Change Language</DropdownMenuTrigger>
+      <DropdownMenuTrigger>{currentLocale === 'ro' ? <RomaniaSVG /> : <UnitedStatesSVG />}</DropdownMenuTrigger>
       <DropdownMenuContent>
-        <DropdownMenuItem>
-          <button onClick={ChangeLanguage("ro")}>Romana</button>
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <button onClick={ChangeLanguage("en")}>English</button>
-        </DropdownMenuItem>
+        {currentLocale !== 'en' && (
+          <DropdownMenuItem>
+            <button className="flex items-center gap-1" onClick={ChangeLanguage("en")} >
+              <UnitedStatesSVG />
+              English
+            </button>
+          </DropdownMenuItem>
+        )}
+        {currentLocale !== 'ro' && (
+          <DropdownMenuItem>
+            <button className="flex items-center gap-1" onClick={ChangeLanguage("ro")} >
+              <RomaniaSVG />
+              Română
+            </button>
+          </DropdownMenuItem>
+        )}
       </DropdownMenuContent>
     </DropdownMenu>
   );
