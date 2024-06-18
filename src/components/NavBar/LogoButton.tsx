@@ -1,6 +1,7 @@
 import { Link } from "@/navigation";
 import { Pathnames } from "next-intl/navigation";
 import { pathnames } from "@/navigation";
+import RAUEATSLOGO from "../svg/LOGO";
 
 export default async function LogoButton({ href }: { href: any }) {
   return (
@@ -9,7 +10,8 @@ export default async function LogoButton({ href }: { href: any }) {
       href={href}
       aria-label="Preline"
     >
-      <svg
+      <RAUEATSLOGO className="h-24 w-80" />
+      {/* <svg
         className="h-auto w-28"
         width="116"
         height="32"
@@ -41,7 +43,7 @@ export default async function LogoButton({ href }: { href: any }) {
           className="fill-black"
           fill="currentColor"
         />
-      </svg>
+      </svg> */}
     </Link>
   );
 }
