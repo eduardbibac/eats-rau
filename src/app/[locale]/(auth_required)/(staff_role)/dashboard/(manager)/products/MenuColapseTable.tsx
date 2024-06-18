@@ -48,8 +48,7 @@ export default function MenuColapseTable(
 
   React.useEffect(() => {
     updateMenuActiveState(menu_id, isActiveMenu)
-      .then()
-  }, [isActiveMenu])
+  }, [isActiveMenu, menu_id])
 
   async function handleMenuRemove(product_id: number) {
     await removeItemFromMenu(product_id, menu_id)

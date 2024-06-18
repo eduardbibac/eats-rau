@@ -95,7 +95,7 @@ export function AllProductsColapseTable(
               <DialogContent className="mb-6 grid-rows-[80%_20%] w-full sm:min-h-[400px] sm:max-w-[625px]">
                 <ul className="overflow-y-scroll h-full mt-8 grid w-full gap-6">
                   {menus.map((menu: any) => (
-                    <li>
+                    <li key={menu.id}>
                       <input
                         type="radio"
                         checked={selectedMenu === menu.id}
