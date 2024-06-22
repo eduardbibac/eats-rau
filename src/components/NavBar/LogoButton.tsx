@@ -10,7 +10,7 @@ export default async function LogoButton({ href }: { href: any }) {
       href={href}
       aria-label="Preline"
     >
-      <RAUEATSLOGO className="h-24 w-80" />
+      <RAUEATSLOGO className="h-10 w-52 lg:h-24 lg:w-80" />
       {/* <svg
         className="h-auto w-28"
         width="116"
