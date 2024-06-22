@@ -29,7 +29,7 @@ export const POST = async (req: NextRequest) => {
   const fileExtension = file.type.split("/")[1];
   const filename = `${generateIdFromEntropySize(10)}.${fileExtension}`;
   try {
-    const imagePath = "/images/" + filename;
+    const imagePath = "/images/uploaded/" + filename;
     const systemPath = `${process.cwd()}/public${imagePath}`;
     await writeFile(systemPath, buffer);
     return NextResponse.json({
