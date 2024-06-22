@@ -3,7 +3,7 @@
 import { Product } from "@/types/ShopTypes";
 
 import { useState, useEffect } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { getShopProducts } from "@/actions/getShopProducts";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
@@ -18,6 +18,8 @@ export default function ShopPage({ sort_options }: { sort_options: string[] }) {
   const [filter, setFilter] = useState<Product[]>();
   const locale = useLocale();
   const t = useTranslations("Shop");
+  const queryClient = useQueryClient();
+
   const [activeFilter, setActiveFilter] = useState(t("Filter_All"));
 
   // Server Actions Tanstack Querry https://www.youtube.com/watch?v=OgVeQVXt7xU&t=358s
@@ -39,6 +41,10 @@ export default function ShopPage({ sort_options }: { sort_options: string[] }) {
 
     setFilter(products?.filter((p) => p.categories.includes(activeFilter)));
   }, [products, activeFilter]);
+
+  useEffect(() => {
+    queryClient.invalidateQueries({ queryKey: ['products'] });
+  }, [locale])
 
   if (isError) {
     return <span>Error: {error.message}</span>;

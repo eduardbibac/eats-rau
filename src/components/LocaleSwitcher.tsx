@@ -15,6 +15,7 @@ import { useParams } from "next/navigation";
 import { MouseEventHandler } from "react";
 import { UnitedStatesSVG } from "./svg/USA";
 import { RomaniaSVG } from "./svg/RO";
+import { useQueryClient } from "@tanstack/react-query";
 
 export default function LangSwitcher() {
   function ChangeLanguage(lang: string): MouseEventHandler<HTMLButtonElement> {
