@@ -1,6 +1,9 @@
 {
   "Index": {
-    "title": "Hello world!",
+    "title": "Avoid long lines and order your meal on the go.",
+    "subtitle": "RAU Eats is the platform that simplifies and makes canteen services more efficient for everyone in the university. Easy to access, convenient and modern, RAU Eats enhances every meal at the university canteen.",
+    "button_CTA": "The meal is a click away",
+    "responsive": "Great for mobile",
     "hard_test": "You have {count, plural, =0 {no followers yet} =1 {one follower} other {# followers}}."
   },
 
@@ -55,8 +58,8 @@
   "DashNav": {
     "Orders": "Orders",
     "Manage Products": "Manage Products & Menu",
-    "Sales":"Sales",
-    "Users":"Users"
+    "Sales": "Sales",
+    "Users": "Users"
   },
 
   "Orders": {

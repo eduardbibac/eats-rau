@@ -8,6 +8,9 @@
 // import Drawer from "@/components/templates/Drawer";
 
 import THeroBits from "@/components/templates/Hero";
+import THeaderStatCards from "@/components/templates/THeaderStatCards";
+import TPill from "@/components/templates/TPill";
+import TTable from "@/components/templates/TTable";
 
 export default function Temp() {
   return (

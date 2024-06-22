@@ -41,7 +41,7 @@ export default async function Navbar() {
                 <div className="hidden md:block">
                   <AvatarMenu />
                 </div>
-                <p className="hidden lg:block">{user.username}</p>
+                <p className="hidden xl:block">{user.username}</p>
               </>
             ) : (
               <DesktopSingInButton href="/login" label={t("Sign In")} />
