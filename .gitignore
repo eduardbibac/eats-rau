@@ -37,5 +37,5 @@ yarn-error.log*
 next-env.d.ts
 
 # other
-./public/images/uploaded/*
+/public/images/uploaded/*
 package-lock.json
