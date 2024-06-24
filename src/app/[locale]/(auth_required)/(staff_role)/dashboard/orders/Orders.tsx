@@ -11,6 +11,17 @@ import FromPendingUpdate from "./FromPendingModal";
 export default function Orders() {
   const [orders, setOrders] = useState<Order[]>([]);
 
+  function updateOrderStatus(orderId: number) {
+    const updatedOrders = orders.map(order => {
+      if (order.id === orderId) {
+        return { ...order, order_status: 'ready_for_pickup' };
+      }
+      return order;
+    });
+
+    setOrders(updatedOrders);
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -60,9 +71,9 @@ export default function Orders() {
 
           <div className="grid grid-cols-[repeat(auto-fit,_minmax(360px,_1fr))] gap-4 rounded-xl bg-white p-5">
             {orders.map((order: Order, i) => (
-              order.order_status === 'pending' ?
-                <div key={order.product_id} className="">
-                  <CardOrder order={order} modal={<FromPendingUpdate order={order} />} />
+              order.order_status === 'pending' || order.order_status === 'in_progress' ?
+                <div key={order.id} className="">
+                  <CardOrder order={order} modal={<FromPendingUpdate order={order} updateOrderStatus={updateOrderStatus} />} />
                 </div>
                 : null))}
           </div>
@@ -75,8 +86,8 @@ export default function Orders() {
           <div className="grid-3xl grid grid-cols-1 gap-4 rounded-xl bg-white p-5">
             {orders.map((order: Order, i) => (
               order.order_status === 'ready_for_pickup' ?
-                <div key={order.product_id} className="">
-                  <CardOrder order={order} modal={<FromPendingUpdate order={order} />} />
+                <div key={order.id} className="">
+                  <CardOrder order={order} modal={<></>} />
                 </div>
                 : null))}
           </div>

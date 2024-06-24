@@ -10,13 +10,26 @@ import { Order } from "@/types/dbTypes";
 import { Label } from "@radix-ui/react-dropdown-menu";
 import { ChevronRight, CirclePlus } from "lucide-react";
 import { Input } from "postcss";
-import { useState } from "react"
+import { Dispatch, SetStateAction, useEffect, useState } from "react"
 import OrderProduct from "./OrderProduct";
+import { updateOrderFromPending } from "@/actions/Dashboard/updateOrderFromPending";
+import { updateOrderFromInProgress } from "@/actions/Dashboard/updateOrderFromInProgress";
+import { useRouter } from "next/navigation";
 
-export default function FromPendingUpdate({ order }: { order: Order }) {
+export default function FromPendingUpdate({ order, updateOrderStatus }: { order: Order, updateOrderStatus: (orderId: number) => void }) {
   const [dialog, setDialog] = useState(false)
+
+
+
+  async function nextState() {
+    await updateOrderFromInProgress(order.id);
+    setDialog(false);
+
+    updateOrderStatus(order.id)
+  }
   return (
-    <Dialog open={dialog} onOpenChange={setDialog}>
+    <Dialog open={dialog} onOpenChange={() => { setDialog(p => !p); updateOrderFromPending(order.id); }
+    }>
       <DialogTrigger asChild>
         <div className="group/timer aspect-square w-full self-center rounded-full border-4 border-dotted border-gray-300">
           <ChevronRight className="ml-1 hidden h-full w-full justify-center self-center group-hover/timer:block" />
@@ -39,7 +52,7 @@ export default function FromPendingUpdate({ order }: { order: Order }) {
           ))
         ))}
 
-        <Button>Confirmă Preparare</Button>
+        <Button onClick={() => nextState()}>Confirmă Preparare</Button>
 
         <Card />
 

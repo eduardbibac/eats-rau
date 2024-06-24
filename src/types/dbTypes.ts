@@ -11,7 +11,7 @@ export type DatabaseUser = {
 };
 
 export type Order = {
-  product_id: number;
+  id: number;
   username: string;
   order_status: string;
   order_type: string;
