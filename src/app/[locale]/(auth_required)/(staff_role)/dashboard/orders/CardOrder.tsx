@@ -17,7 +17,19 @@ import { ChevronRight } from "lucide-react";
 import { Order } from "@/types/dbTypes";
 import { toLocalDate } from "@/lib/utils";
 
-export default function CardOrder({ order }: { order: Order }) {
+export default function CardOrder({ order, modal }: { order: Order, modal: React.ReactNode }) {
+  let drinks = 0, meals = 0, sancks = 0;
+
+  order.products.forEach(product => {
+    drinks
+    if (product.ro_categories.includes('Băuturi')) drinks += 1
+    if (product.ro_categories.includes('Gustări')) sancks += 1
+    product.ro_categories.map(i => {
+      if (!['Gustări', 'Băuturi'].includes(i)) meals += 1
+    })
+
+  });
+
   return (
     <Card className="w-full select-none">
       <CardContent className="grid grid-cols-[80%_20%] p-4">
@@ -30,7 +42,7 @@ export default function CardOrder({ order }: { order: Order }) {
           </p>
           <div className="inline-flex gap-2">
             {/* TODO: iterate over products... and count categs */}
-            <ProductsBadge />
+            <ProductsBadge drinks={drinks} snacks={sancks} meals={meals} />
             <PriceBadge price={order.total_cost} />
           </div>
 
@@ -45,12 +57,8 @@ export default function CardOrder({ order }: { order: Order }) {
           </div>
         </div>
 
-        <div className="group/timer aspect-square w-full self-center rounded-full border-4 border-dotted border-gray-300">
-          <ChevronRight className="ml-1 hidden h-full w-full justify-center self-center group-hover/timer:block" />
-          <span className="inline-block h-full w-full justify-center group-hover/timer:hidden">
-            <p className="text-center align-middle"> 1H24M</p>
-          </span>
-        </div>
+        {modal}
+
       </CardContent>
     </Card>
   );

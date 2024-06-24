@@ -6,6 +6,7 @@ import { MobileLayout } from "./MobileLayout";
 import CardOrder from "./CardOrder";
 import { useTranslations } from "next-intl";
 import "./orders.css";
+import FromPendingUpdate from "./FromPendingModal";
 
 export default function Orders() {
   const [orders, setOrders] = useState<Order[]>([]);
@@ -61,7 +62,7 @@ export default function Orders() {
             {orders.map((order: Order, i) => (
               order.order_status === 'pending' ?
                 <div key={order.product_id} className="">
-                  <CardOrder order={order} />
+                  <CardOrder order={order} modal={<FromPendingUpdate order={order} />} />
                 </div>
                 : null))}
           </div>
@@ -75,7 +76,7 @@ export default function Orders() {
             {orders.map((order: Order, i) => (
               order.order_status === 'ready_for_pickup' ?
                 <div key={order.product_id} className="">
-                  <CardOrder order={order} />
+                  <CardOrder order={order} modal={<FromPendingUpdate order={order} />} />
                 </div>
                 : null))}
           </div>

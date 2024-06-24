@@ -3,9 +3,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
 import { Order } from "@/types/dbTypes";
 import { Ban, CircleCheckBig } from "lucide-react";
-import ProductsBadge from "./ProductsBadge";
-import PriceBadge from "./PriceBadge";
 import CardOrder from "./CardOrder";
+import FromPendingUpdate from "./FromPendingModal";
 
 export function MobileLayout({
   orders,
@@ -31,14 +30,12 @@ export function MobileLayout({
       <TabsContent value="incoming">
         <div className="m-5 w-full">
           <div className="grid gap-12 rounded-xl bg-white p-5 md:grid-cols-1">
-            {orders.map((order, i) => (
-              <div key={order.product_id} className="h-12">
-                <h1>
-                  {`Order: ${order.product_id} | ${order.order_type} 
-          ${Date.parse(order.is_scheduled_at) < Date.now() ? "NOW" : `Scheduled_AT: ${order.is_scheduled_at}`} | user: ${order.username}`}
-                </h1>
-              </div>
-            ))}
+            {orders.map((order: Order, i) => (
+              order.order_status === 'pending' ?
+                <div key={order.product_id} className="">
+                  <CardOrder order={order} modal={<FromPendingUpdate order={order} />} />
+                </div>
+                : null))}
           </div>
         </div>
       </TabsContent>

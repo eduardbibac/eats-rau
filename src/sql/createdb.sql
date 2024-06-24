@@ -169,13 +169,15 @@ SELECT
   sum(pc.price * op.quantity) as total_cost,
   json_agg(
     json_build_object(
-	  'product_id',      op.product_id,
+	  'id',      op.product_id,
       'ro_product_name', pc.ro_product_name, 
       'en_product_name', pc.en_product_name, 
       'price', pc.price, 
       'quantity', op.quantity,
 	  'ro_categories', pc.ro_categories,
-	  'en_categories', pc.ro_categories
+	  'en_categories', pc.ro_categories,
+      'image_link', pc.image_link,
+      'list_position', 0
     )
   ) as products
 FROM orders o
@@ -184,7 +186,6 @@ JOIN products_with_categories pc ON pc.id = op.product_id
 JOIN users u ON u.id = o.user_id
 GROUP BY o.id, u.username
 ORDER BY o.is_scheduled_at ASC;
-
 
 CREATE OR REPLACE FUNCTION log_order_change() 
 RETURNS TRIGGER AS $$
