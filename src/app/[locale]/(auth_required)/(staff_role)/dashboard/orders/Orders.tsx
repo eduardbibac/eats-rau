@@ -58,11 +58,12 @@ export default function Orders() {
           {/* grid-cols-[minmax(360px,_1fr)] lg:grid-cols-[repeat(2,_minmax(330px,_1fr))] */}
 
           <div className="grid grid-cols-[repeat(auto-fit,_minmax(360px,_1fr))] gap-4 rounded-xl bg-white p-5">
-            {orders.map((order, i) => (
-              <div key={order.product_id} className="">
-                <CardOrder order={order} />
-              </div>
-            ))}
+            {orders.map((order: Order, i) => (
+              order.order_status === 'pending' ?
+                <div key={order.product_id} className="">
+                  <CardOrder order={order} />
+                </div>
+                : null))}
           </div>
         </div>
         <div className="overflow-y-scroll">
@@ -71,11 +72,12 @@ export default function Orders() {
           </div>
           {/* 3xl:  1660*/}
           <div className="grid-3xl grid grid-cols-1 gap-4 rounded-xl bg-white p-5">
-            {orders.map((order, i) => (
-              <div key={order.product_id} className="">
-                <CardOrder order={order} />
-              </div>
-            ))}
+            {orders.map((order: Order, i) => (
+              order.order_status === 'ready_for_pickup' ?
+                <div key={order.product_id} className="">
+                  <CardOrder order={order} />
+                </div>
+                : null))}
           </div>
         </div>
 

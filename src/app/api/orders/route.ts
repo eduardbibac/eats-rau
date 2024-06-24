@@ -19,7 +19,9 @@ export async function GET(request: Request) {
     return;
   }
 
-  const orders = await sql<Order[]>`SELECT * FROM view_complete_order`.catch(
+  const orders = await sql<
+    Order[]
+  >`SELECT * FROM view_complete_order WHERE date_part('day', is_scheduled_at) >= date_part('day', NOW())`.catch(
     (e) => {
       console.log(e);
       return {};
