@@ -2,7 +2,7 @@ ALTER SYSTEM SET wal_level = logical; -- NEEDS RESTART!
 CREATE PUBLICATION insert_orders FOR TABLE orders
     WITH (publish = 'insert');
 
-
+SET TIMEZONE='Europe/Bucharest';
 CREATE TABLE users (
     id              TEXT PRIMARY KEY,
     ms_id           TEXT,

@@ -31,7 +31,7 @@ export default function Orders() {
     const eventSource = new EventSource("/api/orders/updates");
     eventSource.addEventListener("message", (event) => {
       const newOrder: Order[] = JSON.parse(event.data);
-      setOrders((p) => [...p, ...newOrder]);
+      setOrders((p) => [...p, ...newOrder].sort((a, b) => new Date(a.is_scheduled_at) - new Date(b.is_scheduled_at)));
     });
 
     eventSource.addEventListener("error", () => {

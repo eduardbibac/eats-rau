@@ -15,6 +15,7 @@ import PriceBadge from "./PriceBadge";
 import ProductsBadge from "./ProductsBadge";
 import { ChevronRight } from "lucide-react";
 import { Order } from "@/types/dbTypes";
+import { toLocalDate } from "@/lib/utils";
 
 export default function CardOrder({ order }: { order: Order }) {
   return (
@@ -35,7 +36,7 @@ export default function CardOrder({ order }: { order: Order }) {
 
           <div className="">
             <span className="inline-flex max-h-5 w-fit items-center rounded-xl border border-gray-500 bg-white px-2.5 py-0.5 text-xs font-medium text-gray-600">
-              {`${order.order_type === "pickup" ? "Pickup today" : "Dine In"}, at ${Date.parse(order.is_scheduled_at)}`}
+              {`${order.order_type === "pickup" ? "Pickup today" : "Dine In"}, at ${toLocalDate(new Date(order.is_scheduled_at))}`}
             </span>
 
             <span className="inline-flex max-h-5 w-fit items-center rounded-xl border border-gray-500 bg-white px-2.5 py-0.5 text-xs font-medium text-gray-600">
