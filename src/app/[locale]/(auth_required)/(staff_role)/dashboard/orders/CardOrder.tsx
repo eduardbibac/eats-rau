@@ -31,11 +31,11 @@ export default function CardOrder({ order, modal }: { order: Order, modal: React
   });
 
   return (
-    <Card className="w-full select-none">
+    <Card className="w-full select-none lg:max-w-[500px]">
       <CardContent className="grid grid-cols-[80%_20%] p-4">
         <div className="flex flex-col justify-around gap-2">
           <p className="font-semibold leading-none tracking-tight text-gray-600">
-            {order.product_id}
+            order#{order.id}
           </p>
           <p className="mb-2 font-semibold leading-none tracking-tight text-gray-500">
             {order.username}
