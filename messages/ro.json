@@ -29,6 +29,7 @@
     "Filter_All": "Tot",
     "Add": "Adaugă",
     "Checkout": "Contiună",
+    "Available": "{count, plural, =0 {disponibil} =1 {disponibil} other {disponibile}}",
 
     "For dine-in or pickup ?": "În cantină sau cu ridicare ?",
     "Your meal, your way:": "Mâncarea și locația ta:",
