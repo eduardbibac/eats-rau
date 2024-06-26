@@ -15,16 +15,20 @@ type ShopCardProps = {
 };
 
 export default function ShopCard(props: ShopCardProps) {
-  const { product, disabled = false } = props;
+  let { product, disabled = false } = props;
   const { getCount, addToCart, subFromCart } = useContext(CartContext);
   const t = useTranslations("Shop");
+  disabled = product.quantity === 0
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       layout
-      className="shop-card rounded-xl bg-white p-3 shadow-lg hover:shadow-xl">
+      className={cn(
+        { "grayscale": product.quantity === 0 },
+        { "bg-white": product.quantity !== 0 },
+        "shop-card rounded-xl  shadow-lg p-3 hover:shadow-xl")}>
       {/* hover:transform hover:scale-105 duration-300 */}
       <div className="relative flex items-end overflow-hidden rounded-xl">
         <Image
@@ -145,6 +149,7 @@ export default function ShopCard(props: ShopCardProps) {
           </div>
         </div>
       </div>
+
     </motion.div>
   );
 }
