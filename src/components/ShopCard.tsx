@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { CartContext } from "@/providers/CartContextProvider";
 import "@/styles/shop-card.css";
 import type { Product, CartItem } from "@/types/ShopTypes";
@@ -23,8 +24,7 @@ export default function ShopCard(props: ShopCardProps) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       layout
-      className="shop-card rounded-xl bg-white p-3 shadow-lg hover:shadow-xl"
-    >
+      className="shop-card rounded-xl bg-white p-3 shadow-lg hover:shadow-xl">
       {/* hover:transform hover:scale-105 duration-300 */}
       <div className="relative flex items-end overflow-hidden rounded-xl">
         <Image
@@ -38,10 +38,7 @@ export default function ShopCard(props: ShopCardProps) {
         // blurDataURL="data:..." automatically provided
         // placeholder="blur" // Optional blur-up while loading
         />
-        /*
-        {
-          /* */
-        }
+
         {product.quantity <= 4 ? (<div className="card-avilability z-2 m-1 p-1 pl-3 pr-3 absolute w-fit h-8 bg-red-500 justify-center">
           <p className="text-gray-500 text-sm text-center">{product.quantity} disponibile</p>
         </div>) : null}

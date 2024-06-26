@@ -34,14 +34,33 @@ export default function ShopPage({ sort_options }: { sort_options: string[] }) {
     queryFn: () => getShopProducts(locale),
   });
 
+
+  function moveZeroToEnd(arr: Product[]) {
+    arr.map((elem, index) => {
+      if (elem.quantity === 0) {
+        console.log(elem.name)
+        arr.splice(index, 1);
+        arr.push(elem);
+      }
+    })
+    return arr;
+  }
+
   useEffect(() => {
     if (activeFilter === t("Filter_All")) {
-      setFilter(products);
+      if (products)
+        setFilter(moveZeroToEnd(products));
+      else setFilter(products);
       return;
     }
+    let f = products?.filter((p) => p.categories.includes(activeFilter))
 
-    setFilter(products?.filter((p) => p.categories.includes(activeFilter)));
+    if (f)
+      f = moveZeroToEnd(f)
+
+    setFilter(f);
   }, [products, activeFilter]);
+
 
   useEffect(() => {
     queryClient.invalidateQueries({ queryKey: ['products'] });
