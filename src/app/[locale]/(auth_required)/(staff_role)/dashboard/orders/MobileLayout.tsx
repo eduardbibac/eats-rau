@@ -32,7 +32,7 @@ export function MobileLayout({
           <div className="grid gap-12 rounded-xl bg-white p-5 md:grid-cols-1">
             {orders.map((order: Order, i) => (
               order.order_status === 'pending' ?
-                <div key={order.product_id} className="">
+                <div key={order.id} className="">
                   <CardOrder order={order} modal={<FromPendingUpdate order={order} />} />
                 </div>
                 : null))}

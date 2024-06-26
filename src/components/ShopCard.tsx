@@ -38,6 +38,14 @@ export default function ShopCard(props: ShopCardProps) {
         // blurDataURL="data:..." automatically provided
         // placeholder="blur" // Optional blur-up while loading
         />
+        /*
+        {
+          /* */
+        }
+        <div className="card-avilability z-2 m-1 p-1 pl-3 pr-3 absolute w-fit h-8 bg-red-500">
+          <p className="text-gray-500">3 disponibile</p>
+        </div>
+
         {/* <img className="object-cover aspect-[4/3]" src={product.image} alt={product.name} /> */}
       </div>
 

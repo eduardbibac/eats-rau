@@ -1,41 +1,49 @@
 /* body::-webkit-scrollbar {width: 0 !important;} */
 
 .shop-card {
-    
-    @container (width < 1920px) {     /* If inside any container display vertical, basically...*/
-        height: 10em;
-        min-height: 125px;
-        display: grid;
-        grid-template-columns: minmax(20%, 35%) auto;
-        grid-row: auto;
-        & .text-section  {
-            display: grid;
-        }
-        & img {
-            /* aspect-ratio: 1 / 1; */
-            object-fit:cover;
-            height: 100%;
-            width: 100%;
-        }
-    }
-    @media screen and (width < 540px) {
-        height: 10em;
-        min-height: 125px;
-        display: grid;
-        grid-template-columns: minmax(20%, 35%) auto;
-        grid-row: auto;
-        & .text-section  {
-            display: grid;
-        }
-        & img {
-            /* aspect-ratio: 1 / 1; */
-            object-fit:cover;
-            height: 100%;
-            width: 100%;
-        }
-        &:last-child{
-            margin-bottom: 5rem;
-        }
-    }
+  & .card-avilability {
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.52);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);    
+  }
 
+  @container (width < 1920px) {
+    /* If inside any container display vertical, basically...*/
+    height: 10em;
+    min-height: 125px;
+    display: grid;
+    grid-template-columns: minmax(20%, 35%) auto;
+    grid-row: auto;
+    & .text-section {
+      display: grid;
+    }
+    & img {
+      /* aspect-ratio: 1 / 1; */
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  @media screen and (width < 540px) {
+    height: 10em;
+    min-height: 125px;
+    display: grid;
+    grid-template-columns: minmax(20%, 35%) auto;
+    grid-row: auto;
+    & .text-section {
+      display: grid;
+    }
+    & img {
+      /* aspect-ratio: 1 / 1; */
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+    &:last-child {
+      margin-bottom: 5rem;
+    }
+  }
 }
