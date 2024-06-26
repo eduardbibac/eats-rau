@@ -108,7 +108,7 @@ export default function UpdateProduct({ initialProduct }: { initialProduct: Dash
 
         <div className="grid sm:flex">
           <div className=" flex flex-col self-center mt-4 w-full h-full bg-slate-50 p-12 rounded-xl">
-            <div className="self-center w-[300px]">
+            <div className="self-center w-[250px]">
               <ShopCard disabled={true} product={
                 {
                   name: product.ro_product_name,
@@ -118,7 +118,7 @@ export default function UpdateProduct({ initialProduct }: { initialProduct: Dash
                   categories: product.ro_categories,
                   id: product.id,
                   list_position: 0,
-                  quantity: 0
+                  quantity: 1
                 }
               } />
             </div>
@@ -128,7 +128,7 @@ export default function UpdateProduct({ initialProduct }: { initialProduct: Dash
             </div>
           </div>
           <div className=" flex flex-col self-center mt-4 w-full h-full bg-slate-50 p-12 rounded-xl">
-            <div className="self-center w-[300px]">
+            <div className="self-center w-[250px]">
               <ShopCard disabled={true} product={
                 {
                   name: product.en_product_name,
@@ -138,7 +138,7 @@ export default function UpdateProduct({ initialProduct }: { initialProduct: Dash
                   categories: product.ro_categories,
                   id: product.id,
                   list_position: 0,
-                  quantity: 0
+                  quantity: 1
                 }
               } />
             </div>

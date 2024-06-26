@@ -134,7 +134,7 @@ export default function CreateNewProduct() {
                   categories: product.ro_categories,
                   id: product.id,
                   list_position: 0,
-                  quantity: 0
+                  quantity: 1
                 }
               } />
             </div>
@@ -154,7 +154,7 @@ export default function CreateNewProduct() {
                   categories: product.ro_categories,
                   id: product.id,
                   list_position: 0,
-                  quantity: 0
+                  quantity: 1
                 }
               } />
             </div>
