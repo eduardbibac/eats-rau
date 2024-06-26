@@ -25,7 +25,7 @@ export default async function DashboardPorducts() {
       <DashNav />
       <div className="container">
         <h1 className="text-center text-balance m-4">
-          Add or Remove Products. Set Menu Items and Quantities. Organize with Drag-and-Drop: Easily arrange the order of menu items to highlight your best dishes.
+          Adăugați sau eliminați produse. Setați elementele și cantitățile din meniu. Creați meniuri noi. Organizați cu ușurință ordinea elementelor din meniu pentru a vă evidenția cele mai bune preparate.
         </h1>
         <div className="flex min-h-screen w-full flex-col bg-muted/40">
           <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">

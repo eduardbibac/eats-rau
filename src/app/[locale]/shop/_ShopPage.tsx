@@ -13,6 +13,7 @@ import CartDesktop from "./_CartDesktop";
 import { useLocale, useTranslations } from "next-intl";
 import ShopSkeletonCard from "./_ShopSkeletionCard";
 import ShopCard from "@/components/ShopCard";
+import { QuantityUpdate } from "@/types/dbTypes";
 
 export default function ShopPage({ sort_options }: { sort_options: string[] }) {
   const [filter, setFilter] = useState<Product[]>();
@@ -50,6 +51,39 @@ export default function ShopPage({ sort_options }: { sort_options: string[] }) {
     return <span>Error: {error.message}</span>;
   }
 
+
+  useEffect(() => {
+    const eventSource = new EventSource("/api/shop/updates");
+    eventSource.addEventListener("message", (event) => {
+      // TODO: this refreshes all data and it's not efficient, but it works.
+      queryClient.invalidateQueries({ queryKey: ['products'] });
+
+
+      // const newQuantities: QuantityUpdate[] = JSON.parse(event.data);
+      // setOrders((p) => [...p, ...newOrder].sort((a, b) => new Date(a.is_scheduled_at) - new Date(b.is_scheduled_at)));
+
+      // const updateQuantities = (updates: { id: number, quantity: number }[]) => {
+      //   setProducts(prevProducts => {
+      //     return prevProducts.map(product => {
+      //       const update = updates.find(u => u.id === product.id);
+      //       if (update) {
+      //         return { ...product, quantity: update.quantity };
+      //       }
+      //       return product;
+      //     });
+      //   });
+      // };
+    });
+
+    eventSource.addEventListener("error", () => {
+      eventSource.close();
+    });
+
+    // As the component unmounts, close listener to SSE API
+    return () => {
+      eventSource.close();
+    };
+  }, []);
   return (
     <div className="shop-page">
       <div className="layout">

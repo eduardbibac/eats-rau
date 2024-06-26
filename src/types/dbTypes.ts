@@ -24,6 +24,11 @@ export type Order = {
   products: OrderProduct[];
 };
 
+export type QuantityUpdate = {
+  product_id: number;
+  quantity: number;
+};
+
 export type OrderProduct = {
   product_id: number;
   ro_name: string;
