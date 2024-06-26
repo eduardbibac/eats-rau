@@ -58,41 +58,44 @@ export default function UpdateProduct({ initialProduct }: { initialProduct: Dash
         <Pencil className="hover:text-blue-500 hover:cursor-pointer" />
       </DialogTrigger>
 
-      <DialogContent className="mb-6 flex flex-col min-w-[1000px] p-8">
+      <DialogContent className="mb-6 flex flex-col max-h-[95vh] overflow-y-scroll min-w-[400px] lg:min-w-[1000px] p-8">
         <DialogTitle>
           Adaugă un Produs Nou
         </DialogTitle>
         <DialogDescription>
           Introduceți informații pentru produs
         </DialogDescription>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols--1 sm:grid-cols-2 gap-4">
           <div>
             <div className="flex gap-2">
               <RomaniaSVG className="w-6" />
               <Label className="mt-3" htmlFor="ro_name">Nume Produs Română</Label>
             </div>
 
-            <Input defaultValue={initialProduct.ro_product_name} onChange={(e) => setProduct(prevProduct => ({ ...prevProduct, ro_product_name: e.target.value }))} id="ro_name" type="text" placeholder="Nume Produs" />
+            <Input defaultValue={initialProduct.ro_product_name} onChange={(e) => setProduct(prevProduct => ({ ...prevProduct, ro_product_name: e.target.value }))} id="ro_name" type="text" placeholder="Nume Produs"
+              className="min-h-[40px]" />
           </div>
           <div>
             <div className="flex gap-2">
               <UnitedStatesSVG className="w-6" />
               <Label className="mt-3" htmlFor="en_name">Nume Produs Engleză </Label>
             </div>
-            <Input defaultValue={initialProduct.en_product_name} onChange={(e) => setProduct(prevProduct => ({ ...prevProduct, en_product_name: e.target.value }))} id="en_name" type="text" placeholder="Nume Produs" />
+            <Input defaultValue={initialProduct.en_product_name} onChange={(e) => setProduct(prevProduct => ({ ...prevProduct, en_product_name: e.target.value }))} id="en_name" type="text" placeholder="Nume Produs"
+              className="min-h-[40px]" />
           </div>
         </div>
 
         <Label className="mt-3" htmlFor="price">Preț RON</Label>
         <Input defaultValue={initialProduct.price} id="price" type="text" placeholder="Preț"
-          onChange={(e) => setProduct(prevProduct => ({ ...prevProduct, price: parseFloat(e.target.value) }))} />
+          onChange={(e) => setProduct(prevProduct => ({ ...prevProduct, price: parseFloat(e.target.value) }))}
+          className="min-h-[40px]" />
 
         <Label className="mt-3" htmlFor="categories">Categorii</Label>
-        <Input id="categories" type="text" placeholder="Categorii" />
+        <Input id="categories" type="text" placeholder="Categorii" className="min-h-[40px]" />
 
         <Label className="mt-3" htmlFor="picture">Poză</Label>
         <Input id="picture" type="file"
-          onChange={(e) => uploadImage(e)} />
+          onChange={(e) => uploadImage(e)} className="min-h-[40px]" />
 
 
         <Button disabled={
@@ -103,7 +106,7 @@ export default function UpdateProduct({ initialProduct }: { initialProduct: Dash
           )}
           onClick={update} className="w-fit ml-auto ">Actualizează</Button>
 
-        <div className="flex">
+        <div className="grid sm:flex">
           <div className=" flex flex-col self-center mt-4 w-full h-full bg-slate-50 p-12 rounded-xl">
             <div className="self-center w-[300px]">
               <ShopCard disabled={true} product={
