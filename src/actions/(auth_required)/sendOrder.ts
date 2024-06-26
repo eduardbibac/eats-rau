@@ -35,6 +35,7 @@ async function createOrder(
 ) {
   await sql
     .begin(async (sql) => {
+      // TODO: Update item quantities ?
       const [order] = await sql`
     INSERT INTO orders (user_id, order_status, order_type, payment_method, payment_status, changed_by)
     VALUES 
@@ -50,12 +51,24 @@ async function createOrder(
           ${product.id},
           (SELECT price FROM products p WHERE p.id = ${product.id}),
           ${product.quantity}
-        )
+        );
       `;
+      });
+
+      const update_products = products.map((product) => {
+        return sql`        
+        UPDATE menu_products 
+        SET current_quantity= current_quantity - ${product.quantity} 
+        WHERE product_id=${product.id}
+        `;
       });
 
       for (const ip of insert_products) {
         await ip;
+      }
+
+      for (const up of update_products) {
+        await up;
       }
 
       // This is fake? it's gonna guanratee use one connection so....

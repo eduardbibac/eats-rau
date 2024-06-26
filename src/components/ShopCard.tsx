@@ -42,9 +42,10 @@ export default function ShopCard(props: ShopCardProps) {
         {
           /* */
         }
-        <div className="card-avilability z-2 m-1 p-1 pl-3 pr-3 absolute w-fit h-8 bg-red-500">
-          <p className="text-gray-500">3 disponibile</p>
-        </div>
+        {product.quantity <= 4 ? (<div className="card-avilability z-2 m-1 p-1 pl-3 pr-3 absolute w-fit h-8 bg-red-500 justify-center">
+          <p className="text-gray-500 text-sm text-center">{product.quantity} disponibile</p>
+        </div>) : null}
+
 
         {/* <img className="object-cover aspect-[4/3]" src={product.image} alt={product.name} /> */}
       </div>
