@@ -1,20 +1,14 @@
 'use client';
 
-import ShopCard from "@/components/ShopCard";
-import { RomaniaSVG } from "@/components/svg/RO";
-import { UnitedStatesSVG } from "@/components/svg/USA";
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Order } from "@/types/dbTypes";
-import { Label } from "@radix-ui/react-dropdown-menu";
-import { ChevronRight, CirclePlus } from "lucide-react";
-import { Input } from "postcss";
-import { Dispatch, SetStateAction, useEffect, useState } from "react"
-import OrderProduct from "./OrderProduct";
+import { ChevronRight } from "lucide-react";
+import { useState } from "react"
+import ComponentOrderProduct from "./ComponentOrderProduct";
 import { updateOrderFromPending } from "@/actions/Dashboard/updateOrderFromPending";
 import { updateOrderFromInProgress } from "@/actions/Dashboard/updateOrderFromInProgress";
-import { useRouter } from "next/navigation";
 
 export default function FromPendingUpdate({ order, updateOrderStatus }: { order: Order, updateOrderStatus: (orderId: number) => void }) {
   const [dialog, setDialog] = useState(false)
@@ -48,7 +42,7 @@ export default function FromPendingUpdate({ order, updateOrderStatus }: { order:
         </DialogDescription>
         {order.products.map(product => (
           [...Array(product.quantity)].map((_, index) => (
-            <OrderProduct key={`${product.id}-${index}`} product={product} />
+            <ComponentOrderProduct key={`${product.product_id}-${index}`} product={product} />
           ))
         ))}
 

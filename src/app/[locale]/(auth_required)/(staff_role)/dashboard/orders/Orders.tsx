@@ -43,7 +43,7 @@ export default function Orders() {
     const eventSource = new EventSource("/api/orders/updates");
     eventSource.addEventListener("message", (event) => {
       const newOrder: Order[] = JSON.parse(event.data);
-      setOrders((p) => [...p, ...newOrder].sort((a, b) => new Date(a.is_scheduled_at) - new Date(b.is_scheduled_at)));
+      setOrders((p) => [...p, ...newOrder].sort((a, b) => new Date(a.is_scheduled_at).getTime() - new Date(b.is_scheduled_at).getTime()));
     });
 
     eventSource.addEventListener("error", () => {
@@ -61,7 +61,7 @@ export default function Orders() {
   return (
     <>
       {/* <h1>All orders</h1> */}
-      <MobileLayout className="custom-mobile-orders-layout" orders={orders} />
+      <MobileLayout className="custom-mobile-orders-layout" orders={orders} updateOrderStatus={updateOrderStatus} />
       <div className="custom-desktop-orders-layout gird main-grid-3xl hidden h-full max-h-full grid-cols-[1fr_1fr_4em] gap-2 overflow-hidden bg-white md:grid xl:grid-cols-[2fr_1fr_4em] xl:gap-5">
         <div className="overflow-y-scroll">
           <div className="h-8 w-full bg-white">

@@ -31,12 +31,14 @@ export type QuantityUpdate = {
 
 export type OrderProduct = {
   product_id: number;
-  ro_name: string;
-  en_name: string;
+  ro_product_name: string;
+  en_product_name: string;
   price: number;
   quantity: number;
   ro_categories: string[];
   en_categories: string[];
+  image_link: string;
+  list_position: number;
 };
 
 export type Menu = {

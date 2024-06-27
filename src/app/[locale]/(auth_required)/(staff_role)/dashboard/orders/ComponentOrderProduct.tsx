@@ -1,7 +1,8 @@
 import { DashboardProduct, Product } from "@/types/ShopTypes";
+import { OrderProduct } from "@/types/dbTypes";
 import Image from "next/image"
 
-export default function OrderProduct({ product }: { product: DashboardProduct }) {
+export default function ComponentOrderProduct({ product }: { product: OrderProduct }) {
   return (
     <div className="py-2">
       <div className="flex flex-wrap gap-2 sm:py-2.5 lg:gap-4">
