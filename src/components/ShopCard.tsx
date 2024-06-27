@@ -118,17 +118,17 @@ export default function ShopCard(props: ShopCardProps) {
                     id="quantity-input"
                     data-input-counter
                     aria-describedby="helper-text-explanation"
-                    className="block h-11 w-1/3 w-full border-x-0 border-red-300 bg-orange-50 py-2.5 text-center text-sm text-orange-900 focus:border-blue-500 focus:ring-blue-500 dark:border-orange-600 dark:bg-orange-700 dark:text-white dark:placeholder-orange-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                    className="block h-11 w-1/3 w-full border-x-0 border-red-300 bg-orange-50 py-2.5 text-center text-sm text-orange-900 focus:border-blue-500 focus:ring-blue-500 "
                     placeholder="999"
                     required
                   />
                   <button
-                    onClick={() => addToCart(product)}
+                    onClick={() => product.quantity > getCount(product) ? addToCart(product) : null}
                     type="button"
-                    className="h-11 w-1/3 rounded-full rounded-e-lg border border-orange-300 bg-orange-100 p-3 hover:bg-orange-200 focus:outline-none focus:ring-2 focus:ring-orange-100 dark:border-orange-600 dark:bg-orange-700 dark:hover:bg-orange-600 dark:focus:ring-orange-700"
+                    className={cn({ "grayscale": product.quantity == getCount(product) }, "h-11 w-1/3 rounded-full rounded-e-lg border border-orange-300 bg-orange-100 p-3 hover:bg-orange-200 focus:outline-none focus:ring-2 focus:ring-orange-100")}
                   >
                     <svg
-                      className="h-3 w-3 text-orange-900 dark:text-white"
+                      className="h-3 w-3 text-orange-900 "
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
