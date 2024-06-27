@@ -29,11 +29,10 @@ export default function CardOrder({
     sancks = 0;
 
   order.products.forEach((product) => {
-    drinks;
-    if (product.ro_categories.includes("Băuturi")) drinks += 1;
-    if (product.ro_categories.includes("Gustări")) sancks += 1;
+    if (product.ro_categories.includes("Băuturi")) drinks += 1 * product.quantity;
+    if (product.ro_categories.includes("Gustări")) sancks += 1 * product.quantity;
     product.ro_categories.map((i) => {
-      if (!["Gustări", "Băuturi"].includes(i)) meals += 1;
+      if (!["Gustări", "Băuturi"].includes(i)) meals += 1 * product.quantity;
     });
   });
 

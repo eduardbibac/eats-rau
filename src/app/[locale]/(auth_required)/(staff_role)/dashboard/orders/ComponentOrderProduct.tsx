@@ -23,7 +23,8 @@ export default function ComponentOrderProduct({
         </div>
 
         <div className="flex flex-1 flex-col justify-between">
-          <div>
+          <div className="flex gap-2">
+            <p className="text-lg font-bold text-red-500">{product.quantity}X</p>
             <p className="mb-1 inline-block text-lg font-bold text-gray-800 transition duration-100 hover:text-gray-500 lg:text-xl">
               {product.ro_product_name}
             </p>

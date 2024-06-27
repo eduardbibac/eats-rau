@@ -48,16 +48,14 @@ export default function FromPendingUpdate({
         </div>
       </DialogTrigger>
 
-      <DialogContent className="mb-6 flex min-w-[1000px] flex-col overflow-y-scroll p-8">
+      <DialogContent className="mb-6 flex min-w-[1000px] max-h-[90vh] flex-col overflow-y-scroll p-8">
         <DialogTitle>Comandă</DialogTitle>
         <DialogDescription>{order.username}</DialogDescription>
         {order.products.map((product) =>
-          [...Array(product.quantity)].map((_, index) => (
-            <ComponentOrderProduct
-              key={`${product.product_id}-${index}`}
-              product={product}
-            />
-          )),
+          <ComponentOrderProduct
+            key={`${product.product_id}`}
+            product={product}
+          />
         )}
 
         <Button onClick={() => nextState()}>Confirmă Preparare</Button>
