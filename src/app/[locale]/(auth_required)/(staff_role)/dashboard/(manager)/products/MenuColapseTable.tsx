@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { ClipboardX } from "lucide-react";
+import { ClipboardX, RotateCw, Unplug } from "lucide-react";
 import { debounce } from "lodash";
 
 import {
@@ -30,6 +30,8 @@ import DeleteMenu from "./DeleteMenu";
 import { Input } from "@/components/ui/input";
 import { updateMenuListPositions } from "@/actions/Dashboard/updateMenuListPositions";
 import { useRouter } from "next/navigation";
+import { refreshMenuProducts } from "@/actions/Dashboard/refreshMenuProducts";
+import { closeMneuProducts } from "@/actions/Dashboard/closeMneuProducts";
 export default function MenuColapseTable({
   products,
   label,
@@ -192,7 +194,14 @@ export default function MenuColapseTable({
                   <TableHead>Nume</TableHead>
                   <TableHead className="hidden md:table-cell">Preț</TableHead>
                   <TableHead className="hidden w-fit text-right md:table-cell">
-                    Disponibil acum
+                    <div className="flex items-center justify-end gap-2">
+                      Disponibil acum
+                      <Unplug className="hover:cursor-pointer hover:text-red-500"
+                        onClick={async () => { await closeMneuProducts(menu_id); router.refresh() }} />
+                      <RotateCw className="hover:cursor-pointer hover:text-blue-500"
+                        onClick={async () => { await refreshMenuProducts(menu_id); router.refresh() }} />
+
+                    </div>
                   </TableHead>
                   <TableHead className="hidden md:table-cell">/</TableHead>
                   <TableHead className="hidden text-left md:table-cell">
