@@ -60,11 +60,6 @@ export default function ShopPage({ sort_options }: { sort_options: string[] }) {
     queryClient.invalidateQueries({ queryKey: ['products'] });
   }, [locale])
 
-  if (isError) {
-    return <span>Error: {error.message}</span>;
-  }
-
-
   useEffect(() => {
     const eventSource = new EventSource("/api/shop/updates");
     eventSource.addEventListener("message", (event) => {
@@ -97,6 +92,10 @@ export default function ShopPage({ sort_options }: { sort_options: string[] }) {
       eventSource.close();
     };
   }, []);
+
+  if (isError) {
+    return <span>Error: {error.message}</span>;
+  }
 
   return (
     <div className="shop-page">
