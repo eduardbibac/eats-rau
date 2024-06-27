@@ -15,7 +15,7 @@ export async function createNewProduct(product: DashboardProduct) {
     return;
   }
   if (!isRoleOrHigher("manager", user!.arole)) {
-    redirect("/");
+    redirect("/");  
     return;
   }
 

@@ -22,10 +22,11 @@ import { CartItem, Product } from "@/types/ShopTypes";
 import { useTranslations } from "next-intl";
 
 export function CheckoutModal() {
+  const [dialog, setDialog] = useState(false)
   const [selectedDining, setSelectedDining] = useState("");
   const [selectedPayment, setSelectedPayment] = useState("");
   const [step, setStep] = useState<1 | 2>(1);
-  const { cart } = useContext(CartContext);
+  const { cart, setCart } = useContext(CartContext);
   const t = useTranslations("Shop");
   const products = cart.map((item: CartItem) => ({
     id: item.product.id,
@@ -33,7 +34,7 @@ export function CheckoutModal() {
   }));
 
   return (
-    <Dialog>
+    <Dialog open={dialog} onOpenChange={setDialog}>
       <DialogTrigger asChild>
         <button
           onClick={() => validateAuth()}
@@ -51,8 +52,11 @@ export function CheckoutModal() {
           />
         ) : (
           <PickPayment
-            sendOrder={() =>
-              sendOrder(selectedDining, selectedPayment, products)
+            sendOrder={() => {
+              sendOrder(selectedDining, selectedPayment, products);
+              setCart([]);
+              setDialog(false)
+            }
             }
             setStep={setStep}
             selectedPayment={selectedPayment}
