@@ -35,32 +35,26 @@ export default function ShopPage({ sort_options }: { sort_options: string[] }) {
   });
 
 
-  function moveZeroToEnd(arr: Product[]) {
-    arr.map((elem, index) => {
-      if (elem.quantity === 0) {
-        console.log(elem.name)
-        arr.splice(index, 1);
-        arr.push(elem);
-      }
-    })
-    return arr;
+  function moveZeroToEnd(arr: Product[]): Product[] {
+    const nonZeroItems = arr.filter(item => item.quantity !== 0);
+    const zeroItems = arr.filter(item => item.quantity === 0);
+
+    // Return the concatenated array of non-zero items followed by zero items
+    return [...nonZeroItems, ...zeroItems];
   }
 
+
   useEffect(() => {
+    const defaultProducts = products || [];
+
     if (activeFilter === t("Filter_All")) {
-      if (products)
-        setFilter(moveZeroToEnd(products));
-      else setFilter(products);
+      setFilter(moveZeroToEnd(defaultProducts));
       return;
     }
-    let f = products?.filter((p) => p.categories.includes(activeFilter))
 
-    if (f)
-      f = moveZeroToEnd(f)
-
-    setFilter(f);
-  }, [products, activeFilter]);
-
+    let filteredProducts = defaultProducts.filter(p => p.categories.includes(activeFilter));
+    setFilter(moveZeroToEnd(filteredProducts));
+  }, [products, activeFilter, t]);
 
   useEffect(() => {
     queryClient.invalidateQueries({ queryKey: ['products'] });
@@ -103,6 +97,7 @@ export default function ShopPage({ sort_options }: { sort_options: string[] }) {
       eventSource.close();
     };
   }, []);
+
   return (
     <div className="shop-page">
       <div className="layout">
