@@ -18,7 +18,7 @@ export default function ShopCard(props: ShopCardProps) {
   let { product, disabled = false } = props;
   const { getCount, addToCart, subFromCart } = useContext(CartContext);
   const t = useTranslations("Shop");
-  disabled = product.quantity === 0
+  disabled = product.quantity === 0;
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -26,9 +26,11 @@ export default function ShopCard(props: ShopCardProps) {
       exit={{ opacity: 0 }}
       layout
       className={cn(
-        { "grayscale": product.quantity === 0 },
+        { grayscale: product.quantity === 0 },
         { "bg-white": product.quantity !== 0 },
-        "shop-card rounded-xl  shadow-lg p-3 hover:shadow-xl")}>
+        "shop-card rounded-xl p-3 shadow-lg hover:shadow-xl",
+      )}
+    >
       {/* hover:transform hover:scale-105 duration-300 */}
       <div className="relative flex items-end overflow-hidden rounded-xl">
         <Image
@@ -37,16 +39,19 @@ export default function ShopCard(props: ShopCardProps) {
           alt={product.name}
           width={500}
           height={500}
-        // width={500} automatically provided for local
-        // height={500} automatically provided for local
-        // blurDataURL="data:..." automatically provided
-        // placeholder="blur" // Optional blur-up while loading
+          // width={500} automatically provided for local
+          // height={500} automatically provided for local
+          // blurDataURL="data:..." automatically provided
+          // placeholder="blur" // Optional blur-up while loading
         />
 
-        {product.quantity <= 4 ? (<div className="card-avilability z-2 m-1 p-1 pl-3 pr-3 absolute w-fit h-8 bg-red-500 justify-center">
-          <p className="text-gray-500 text-sm text-center">{product.quantity} {t('Available', { count: product.quantity })}</p>
-        </div>) : null}
-
+        {product.quantity <= 4 ? (
+          <div className="card-avilability z-2 absolute m-1 h-8 w-fit justify-center bg-red-500 p-1 pl-3 pr-3">
+            <p className="text-center text-sm text-gray-500">
+              {product.quantity} {t("Available", { count: product.quantity })}
+            </p>
+          </div>
+        ) : null}
 
         {/* <img className="object-cover aspect-[4/3]" src={product.image} alt={product.name} /> */}
       </div>
@@ -118,17 +123,24 @@ export default function ShopCard(props: ShopCardProps) {
                     id="quantity-input"
                     data-input-counter
                     aria-describedby="helper-text-explanation"
-                    className="block h-11 w-1/3 w-full border-x-0 border-red-300 bg-orange-50 py-2.5 text-center text-sm text-orange-900 focus:border-blue-500 focus:ring-blue-500 "
+                    className="block h-11 w-1/3 w-full border-x-0 border-red-300 bg-orange-50 py-2.5 text-center text-sm text-orange-900 focus:border-blue-500 focus:ring-blue-500"
                     placeholder="999"
                     required
                   />
                   <button
-                    onClick={() => product.quantity > getCount(product) ? addToCart(product) : null}
+                    onClick={() =>
+                      product.quantity > getCount(product)
+                        ? addToCart(product)
+                        : null
+                    }
                     type="button"
-                    className={cn({ "grayscale": product.quantity == getCount(product) }, "h-11 w-1/3 rounded-full rounded-e-lg border border-orange-300 bg-orange-100 p-3 hover:bg-orange-200 focus:outline-none focus:ring-2 focus:ring-orange-100")}
+                    className={cn(
+                      { grayscale: product.quantity == getCount(product) },
+                      "h-11 w-1/3 rounded-full rounded-e-lg border border-orange-300 bg-orange-100 p-3 hover:bg-orange-200 focus:outline-none focus:ring-2 focus:ring-orange-100",
+                    )}
                   >
                     <svg
-                      className="h-3 w-3 text-orange-900 "
+                      className="h-3 w-3 text-orange-900"
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -149,7 +161,6 @@ export default function ShopCard(props: ShopCardProps) {
           </div>
         </div>
       </div>
-
     </motion.div>
   );
 }

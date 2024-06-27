@@ -7,7 +7,10 @@ import sql from "@/lib/db";
 import { DashboardProduct } from "@/types/ShopTypes";
 import { Menu } from "@/types/dbTypes";
 
-export async function updateMenuActiveState(menu_id: number, isActiveMenu: boolean) {
+export async function updateMenuActiveState(
+  menu_id: number,
+  isActiveMenu: boolean,
+) {
   const { user } = await validateRequest();
   if (!user) {
     redirect("/login");
@@ -19,7 +22,7 @@ export async function updateMenuActiveState(menu_id: number, isActiveMenu: boole
   }
   await sql`UPDATE menu SET is_active = ${isActiveMenu} WHERE menu.id = ${menu_id}`;
   // return;
-  // const res = 
+  // const res =
   // if (res.count)
   //   return true;
   // else return false;

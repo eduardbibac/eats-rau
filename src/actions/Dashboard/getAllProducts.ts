@@ -1,4 +1,4 @@
-'use server';
+"use server";
 
 import { isRoleOrHigher } from "@/lib/role";
 import { validateRequest } from "../auth/validateRequest";
@@ -17,8 +17,9 @@ export async function getAllProducts() {
     return;
   }
 
-
-  const prod = await sql<DashboardProduct[]>`SELECT * FROM products_with_categories`;
+  const prod = await sql<
+    DashboardProduct[]
+  >`SELECT * FROM products_with_categories`;
   return prod;
 }
 

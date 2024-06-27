@@ -18,6 +18,5 @@ export async function updateOrderFromPending(order_id: number) {
     return;
   }
 
-
-  await sql`UPDATE orders SET order_status = 'in_progress', changed_by='staff' WHERE id=${order_id}`
+  await sql`UPDATE orders SET order_status = 'in_progress', changed_by='staff' WHERE id=${order_id}`;
 }

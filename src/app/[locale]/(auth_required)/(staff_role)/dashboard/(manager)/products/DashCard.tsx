@@ -30,7 +30,9 @@ export default function DashCard(props: ShopCardProps) {
       </div>
 
       <div className="text-section mt-1 p-2">
-        <h2 className="font-semibold text-slate-700">{product.ro_product_name}</h2>
+        <h2 className="font-semibold text-slate-700">
+          {product.ro_product_name}
+        </h2>
         {/* <p className="mt-1 text-sm text-slate-400">Lisbon, Portugal</p> */}
 
         <div className="bot-section mt-3 flex items-end justify-between">
@@ -43,10 +45,8 @@ export default function DashCard(props: ShopCardProps) {
             </p>
           </span>
           <div className="w-full max-w-28">
-            <button
-              className="mb-1 mr-1 flex w-full items-center justify-center space-x-1.5 rounded-full border border-solid border-red-500 bg-transparent py-2 text-xs font-bold uppercase text-orange-500 outline-none hover:bg-orange-600 hover:text-white focus:outline-none active:bg-orange-600 sm:px-2 md:px-2 lg:px-4"
-            >
-              <p className="text-sm">{'EDIT'}</p>
+            <button className="mb-1 mr-1 flex w-full items-center justify-center space-x-1.5 rounded-full border border-solid border-red-500 bg-transparent py-2 text-xs font-bold uppercase text-orange-500 outline-none hover:bg-orange-600 hover:text-white focus:outline-none active:bg-orange-600 sm:px-2 md:px-2 lg:px-4">
+              <p className="text-sm">{"EDIT"}</p>
             </button>
           </div>
         </div>

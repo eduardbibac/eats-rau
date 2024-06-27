@@ -17,17 +17,24 @@ import { ChevronRight } from "lucide-react";
 import { Order } from "@/types/dbTypes";
 import { toLocalDate } from "@/lib/utils";
 
-export default function CardOrder({ order, modal }: { order: Order, modal: React.ReactNode }) {
-  let drinks = 0, meals = 0, sancks = 0;
+export default function CardOrder({
+  order,
+  modal,
+}: {
+  order: Order;
+  modal: React.ReactNode;
+}) {
+  let drinks = 0,
+    meals = 0,
+    sancks = 0;
 
-  order.products.forEach(product => {
-    drinks
-    if (product.ro_categories.includes('Băuturi')) drinks += 1
-    if (product.ro_categories.includes('Gustări')) sancks += 1
-    product.ro_categories.map(i => {
-      if (!['Gustări', 'Băuturi'].includes(i)) meals += 1
-    })
-
+  order.products.forEach((product) => {
+    drinks;
+    if (product.ro_categories.includes("Băuturi")) drinks += 1;
+    if (product.ro_categories.includes("Gustări")) sancks += 1;
+    product.ro_categories.map((i) => {
+      if (!["Gustări", "Băuturi"].includes(i)) meals += 1;
+    });
   });
 
   return (
@@ -58,7 +65,6 @@ export default function CardOrder({ order, modal }: { order: Order, modal: React
         </div>
 
         {modal}
-
       </CardContent>
     </Card>
   );

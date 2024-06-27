@@ -48,7 +48,6 @@ export async function GET() {
         )
         .then((subscription) => {
           unsubscribe = subscription.unsubscribe;
-          
         })
         .catch((error) => {
           console.error("Subscription error:", error);

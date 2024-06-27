@@ -8,7 +8,7 @@ export default function DashNav() {
   return (
     <>
       {/* <!-- ========== DESKTOP ========== --> */}
-      <header className="bg-white z-50 hidden w-[98dvw] flex-wrap py-7 md:flex md:flex-nowrap md:justify-start">
+      <header className="z-50 hidden w-[98dvw] flex-wrap bg-white py-7 md:flex md:flex-nowrap md:justify-start">
         <nav
           className="relative mx-auto flex w-full max-w-7xl basis-full flex-wrap items-center px-4 md:grid md:grid-cols-12 md:px-8"
           aria-label="Global"
@@ -29,7 +29,10 @@ export default function DashNav() {
           >
             <div className="mt-5 flex flex-col gap-x-0 gap-y-4 md:mt-0 md:flex-row md:items-center md:justify-center md:gap-x-7 md:gap-y-0">
               <DesktopNavButton href="/dashboard/orders" label={t("Orders")} />
-              <DesktopNavButton href="/dashboard/products" label={t("Manage Products")} />
+              <DesktopNavButton
+                href="/dashboard/products"
+                label={t("Manage Products")}
+              />
               <DesktopNavButton href="/dashboard/sales" label={t("Sales")} />
               <DesktopNavButton href="/dashboard/users" label={t("Users")} />
 

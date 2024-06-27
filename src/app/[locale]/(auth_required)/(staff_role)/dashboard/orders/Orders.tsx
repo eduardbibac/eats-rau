@@ -12,15 +12,15 @@ export default function Orders() {
   const [orders, setOrders] = useState<Order[]>([]);
 
   function updateOrderStatus(orderId: number) {
-    const updatedOrders = orders.map(order => {
+    const updatedOrders = orders.map((order) => {
       if (order.id === orderId) {
-        return { ...order, order_status: 'ready_for_pickup' };
+        return { ...order, order_status: "ready_for_pickup" };
       }
       return order;
     });
 
     setOrders(updatedOrders);
-  };
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -43,7 +43,13 @@ export default function Orders() {
     const eventSource = new EventSource("/api/orders/updates");
     eventSource.addEventListener("message", (event) => {
       const newOrder: Order[] = JSON.parse(event.data);
-      setOrders((p) => [...p, ...newOrder].sort((a, b) => new Date(a.is_scheduled_at).getTime() - new Date(b.is_scheduled_at).getTime()));
+      setOrders((p) =>
+        [...p, ...newOrder].sort(
+          (a, b) =>
+            new Date(a.is_scheduled_at).getTime() -
+            new Date(b.is_scheduled_at).getTime(),
+        ),
+      );
     });
 
     eventSource.addEventListener("error", () => {
@@ -61,7 +67,11 @@ export default function Orders() {
   return (
     <>
       {/* <h1>All orders</h1> */}
-      <MobileLayout className="custom-mobile-orders-layout" orders={orders} updateOrderStatus={updateOrderStatus} />
+      <MobileLayout
+        className="custom-mobile-orders-layout"
+        orders={orders}
+        updateOrderStatus={updateOrderStatus}
+      />
       <div className="custom-desktop-orders-layout gird main-grid-3xl hidden h-full max-h-full grid-cols-[1fr_1fr_4em] gap-2 overflow-hidden bg-white md:grid xl:grid-cols-[2fr_1fr_4em] xl:gap-5">
         <div className="overflow-y-scroll">
           <div className="h-8 w-full bg-white">
@@ -70,12 +80,22 @@ export default function Orders() {
           {/* grid-cols-[minmax(360px,_1fr)] lg:grid-cols-[repeat(2,_minmax(330px,_1fr))] */}
 
           <div className="grid grid-cols-[repeat(auto-fit,_minmax(360px,_1fr))] gap-4 rounded-xl bg-white p-5">
-            {orders.map((order: Order, i) => (
-              order.order_status === 'pending' || order.order_status === 'in_progress' ?
+            {orders.map((order: Order, i) =>
+              order.order_status === "pending" ||
+              order.order_status === "in_progress" ? (
                 <div key={order.id} className="">
-                  <CardOrder order={order} modal={<FromPendingUpdate order={order} updateOrderStatus={updateOrderStatus} />} />
+                  <CardOrder
+                    order={order}
+                    modal={
+                      <FromPendingUpdate
+                        order={order}
+                        updateOrderStatus={updateOrderStatus}
+                      />
+                    }
+                  />
                 </div>
-                : null))}
+              ) : null,
+            )}
           </div>
         </div>
         <div className="overflow-y-scroll">
@@ -84,12 +104,13 @@ export default function Orders() {
           </div>
           {/* 3xl:  1660*/}
           <div className="grid-3xl grid grid-cols-1 gap-4 rounded-xl bg-white p-5">
-            {orders.map((order: Order, i) => (
-              order.order_status === 'ready_for_pickup' ?
+            {orders.map((order: Order, i) =>
+              order.order_status === "ready_for_pickup" ? (
                 <div key={order.id} className="">
                   <CardOrder order={order} modal={<></>} />
                 </div>
-                : null))}
+              ) : null,
+            )}
           </div>
         </div>
 

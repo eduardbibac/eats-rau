@@ -38,19 +38,27 @@ export default function LangSwitcher() {
   const currentLocale = useLocale();
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger>{currentLocale === 'ro' ? <RomaniaSVG /> : <UnitedStatesSVG />}</DropdownMenuTrigger>
+      <DropdownMenuTrigger>
+        {currentLocale === "ro" ? <RomaniaSVG /> : <UnitedStatesSVG />}
+      </DropdownMenuTrigger>
       <DropdownMenuContent>
-        {currentLocale !== 'en' && (
+        {currentLocale !== "en" && (
           <DropdownMenuItem>
-            <button className="flex items-center gap-1" onClick={ChangeLanguage("en")} >
+            <button
+              className="flex items-center gap-1"
+              onClick={ChangeLanguage("en")}
+            >
               <UnitedStatesSVG />
               English
             </button>
           </DropdownMenuItem>
         )}
-        {currentLocale !== 'ro' && (
+        {currentLocale !== "ro" && (
           <DropdownMenuItem>
-            <button className="flex items-center gap-1" onClick={ChangeLanguage("ro")} >
+            <button
+              className="flex items-center gap-1"
+              onClick={ChangeLanguage("ro")}
+            >
               <RomaniaSVG />
               Română
             </button>

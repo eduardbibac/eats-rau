@@ -9,11 +9,11 @@ import FromPendingUpdate from "./FromPendingModal";
 export function MobileLayout({
   orders,
   className,
-  updateOrderStatus
+  updateOrderStatus,
 }: {
   orders: Order[];
   className: string;
-  updateOrderStatus: any
+  updateOrderStatus: any;
 }) {
   return (
     <Tabs className={cn(className, "w-full")} defaultValue="incoming">
@@ -32,12 +32,21 @@ export function MobileLayout({
       <TabsContent value="incoming">
         <div className="m-5 w-full">
           <div className="grid gap-12 rounded-xl bg-white p-5 md:grid-cols-1">
-            {orders.map((order: Order, i) => (
-              order.order_status === 'pending' ?
+            {orders.map((order: Order, i) =>
+              order.order_status === "pending" ? (
                 <div key={order.id} className="">
-                  <CardOrder order={order} modal={<FromPendingUpdate order={order} updateOrderStatus={updateOrderStatus} />} />
+                  <CardOrder
+                    order={order}
+                    modal={
+                      <FromPendingUpdate
+                        order={order}
+                        updateOrderStatus={updateOrderStatus}
+                      />
+                    }
+                  />
                 </div>
-                : null))}
+              ) : null,
+            )}
           </div>
         </div>
       </TabsContent>

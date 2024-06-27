@@ -19,7 +19,7 @@ export default async function Navbar() {
   return (
     <>
       {/* <!-- ========== DESKTOP ========== --> */}
-      <header className="bg-white z-50 w-[98dvw] flex-wrap py-7 md:flex md:flex-nowrap md:justify-start">
+      <header className="z-50 w-[98dvw] flex-wrap bg-white py-7 md:flex md:flex-nowrap md:justify-start">
         <nav
           className="relative mx-auto flex w-full max-w-7xl basis-full flex-wrap items-center px-4 md:grid md:grid-cols-12 md:px-8"
           aria-label="Global"

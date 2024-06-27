@@ -22,7 +22,7 @@ import { CartItem, Product } from "@/types/ShopTypes";
 import { useTranslations } from "next-intl";
 
 export function CheckoutModal() {
-  const [dialog, setDialog] = useState(false)
+  const [dialog, setDialog] = useState(false);
   const [selectedDining, setSelectedDining] = useState("");
   const [selectedPayment, setSelectedPayment] = useState("");
   const [step, setStep] = useState<1 | 2>(1);
@@ -55,9 +55,8 @@ export function CheckoutModal() {
             sendOrder={() => {
               sendOrder(selectedDining, selectedPayment, products);
               setCart([]);
-              setDialog(false)
-            }
-            }
+              setDialog(false);
+            }}
             setStep={setStep}
             selectedPayment={selectedPayment}
             setSelectedPayment={setSelectedPayment}

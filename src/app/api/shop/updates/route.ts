@@ -1,7 +1,7 @@
 import { validateRequest } from "@/actions/auth/validateRequest";
 import sql from "@/lib/db";
 import { Order } from "@/types/dbTypes";
-import {QuantityUpdate} from "@/types/dbTypes";
+import { QuantityUpdate } from "@/types/dbTypes";
 export const runtime = "nodejs";
 // This is required to enable streaming
 export const dynamic = "force-dynamic";

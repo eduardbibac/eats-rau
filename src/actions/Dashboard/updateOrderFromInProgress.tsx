@@ -18,6 +18,5 @@ export async function updateOrderFromInProgress(order_id: number) {
     return;
   }
 
-
-  await sql`UPDATE orders SET order_status = 'ready_for_pickup', changed_by='staff' WHERE id=${order_id}`
+  await sql`UPDATE orders SET order_status = 'ready_for_pickup', changed_by='staff' WHERE id=${order_id}`;
 }

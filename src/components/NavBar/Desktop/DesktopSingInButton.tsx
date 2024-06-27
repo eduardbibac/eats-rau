@@ -10,7 +10,7 @@ export default function DesktopSingInButton({
   return (
     <Link
       href={href}
-      className="hidden md:inline-flex items-center gap-x-2 rounded-xl border border-transparent bg-lime-400 px-3 py-2 text-sm font-medium text-black transition hover:bg-lime-500 focus:bg-lime-500 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+      className="hidden items-center gap-x-2 rounded-xl border border-transparent bg-lime-400 px-3 py-2 text-sm font-medium text-black transition hover:bg-lime-500 focus:bg-lime-500 focus:outline-none disabled:pointer-events-none disabled:opacity-50 md:inline-flex"
     >
       {label}
     </Link>

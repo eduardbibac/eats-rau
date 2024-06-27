@@ -34,15 +34,13 @@ export default function ShopPage({ sort_options }: { sort_options: string[] }) {
     queryFn: () => getShopProducts(locale),
   });
 
-
   function moveZeroToEnd(arr: Product[]): Product[] {
-    const nonZeroItems = arr.filter(item => item.quantity !== 0);
-    const zeroItems = arr.filter(item => item.quantity === 0);
+    const nonZeroItems = arr.filter((item) => item.quantity !== 0);
+    const zeroItems = arr.filter((item) => item.quantity === 0);
 
     // Return the concatenated array of non-zero items followed by zero items
     return [...nonZeroItems, ...zeroItems];
   }
-
 
   useEffect(() => {
     const defaultProducts = products || [];
@@ -52,20 +50,21 @@ export default function ShopPage({ sort_options }: { sort_options: string[] }) {
       return;
     }
 
-    let filteredProducts = defaultProducts.filter(p => p.categories.includes(activeFilter));
+    let filteredProducts = defaultProducts.filter((p) =>
+      p.categories.includes(activeFilter),
+    );
     setFilter(moveZeroToEnd(filteredProducts));
   }, [products, activeFilter, t]);
 
   useEffect(() => {
-    queryClient.invalidateQueries({ queryKey: ['products'] });
-  }, [locale])
+    queryClient.invalidateQueries({ queryKey: ["products"] });
+  }, [locale]);
 
   useEffect(() => {
     const eventSource = new EventSource("/api/shop/updates");
     eventSource.addEventListener("message", (event) => {
       // TODO: this refreshes all data and it's not efficient, but it works.
-      queryClient.invalidateQueries({ queryKey: ['products'] });
-
+      queryClient.invalidateQueries({ queryKey: ["products"] });
 
       // const newQuantities: QuantityUpdate[] = JSON.parse(event.data);
       // setOrders((p) => [...p, ...newOrder].sort((a, b) => new Date(a.is_scheduled_at) - new Date(b.is_scheduled_at)));
