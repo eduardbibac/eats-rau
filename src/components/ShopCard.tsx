@@ -39,19 +39,19 @@ export default function ShopCard(props: ShopCardProps) {
           alt={product.name}
           width={500}
           height={500}
-          // width={500} automatically provided for local
-          // height={500} automatically provided for local
-          // blurDataURL="data:..." automatically provided
-          // placeholder="blur" // Optional blur-up while loading
+        // width={500} automatically provided for local
+        // height={500} automatically provided for local
+        // blurDataURL="data:..." automatically provided
+        // placeholder="blur" // Optional blur-up while loading
         />
 
-        {product.quantity <= 4 ? (
-          <div className="card-avilability z-2 absolute m-1 h-8 w-fit justify-center bg-red-500 p-1 pl-3 pr-3">
-            <p className="text-center text-sm text-gray-500">
-              {product.quantity} {t("Available", { count: product.quantity })}
-            </p>
-          </div>
-        ) : null}
+        {/* {product.quantity <= 4 ? ( */}
+        <div className="card-avilability z-2 absolute m-1 h-8 w-fit justify-center bg-red-500 p-1 pl-3 pr-3">
+          <p className="text-center text-sm text-gray-500">
+            {product.quantity} {t("Available", { count: product.quantity })}
+          </p>
+        </div>
+        {/* ) : null} */}
 
         {/* <img className="object-cover aspect-[4/3]" src={product.image} alt={product.name} /> */}
       </div>
