@@ -2,6 +2,7 @@ import { AvatarMenu } from "@/components/NavBar/AvatarMenu";
 import DesktopNavButton from "@/components/NavBar/Desktop/DesktopNavButton";
 import LogoButton from "@/components/NavBar/LogoButton";
 import { useTranslations } from "next-intl";
+import DashMobileNavBar from "./DashMobileNav";
 
 export default function DashNav() {
   const t = useTranslations("DashNav");
@@ -43,6 +44,8 @@ export default function DashNav() {
       </header>
       {/* <!-- ========== END DESKTOP ========== --> */}
       {/* <!-- ========== MOBILE ========== --> */}
+      <DashMobileNavBar />
     </>
+
   );
 }
