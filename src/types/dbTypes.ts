@@ -47,3 +47,19 @@ export type Menu = {
   is_active: boolean;
   list_position: number;
 };
+
+export interface OrderHistoryEntry {
+  id: number;
+  user_id: string;
+  order_status:
+    | "pending"
+    | "in_progress"
+    | "ready_for_pickup"
+    | "completed"
+    | "canceled";
+  order_type: "dine_in" | "pickup";
+  payment_method: "cash" | "card";
+  payment_status: "unpaid" | "paid";
+  is_scheduled_at: Date;
+  changed_by?: string;
+}
