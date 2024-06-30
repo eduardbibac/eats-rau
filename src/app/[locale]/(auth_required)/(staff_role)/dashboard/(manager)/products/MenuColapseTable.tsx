@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { ClipboardX, RotateCw, Unplug } from "lucide-react";
+import { ClipboardX, Indent, RotateCw, Unplug } from "lucide-react";
 import { debounce } from "lodash";
 
 import {
@@ -32,6 +32,8 @@ import { updateMenuListPositions } from "@/actions/Dashboard/updateMenuListPosit
 import { useRouter } from "next/navigation";
 import { refreshMenuProducts } from "@/actions/Dashboard/refreshMenuProducts";
 import { closeMneuProducts } from "@/actions/Dashboard/closeMneuProducts";
+import { updateCurrentAvailability } from "@/actions/Dashboard/updateCurrentAvailability";
+import { updateTotalAvailability } from "@/actions/Dashboard/updateTotalAvailability";
 export default function MenuColapseTable({
   products,
   label,
@@ -49,6 +51,8 @@ export default function MenuColapseTable({
     active !== undefined ? active : true,
   );
   const [inputValues, setInputValues] = React.useState<any[]>([]);
+  const [inputAvailable, setInputAvailable] = React.useState<any[]>([]);
+  const [inputTotal, setInputTotal] = React.useState<any[]>([]);
 
   React.useEffect(() => {
     updateMenuActiveState(menu_id, isActiveMenu);
@@ -101,6 +105,7 @@ export default function MenuColapseTable({
     // The index of the input and (to) the value of the input
     moveItemTo(index, inputValues[index] - 1);
   }
+
   function handleInputChange(e: any, index: number) {
     let { value } = e.target;
 
@@ -121,9 +126,47 @@ export default function MenuColapseTable({
     await updateMenuListPositions(menu_id, newListPositions);
   }
 
+  function handleAvaialableChange(e: any, index: number) {
+    let { value } = e.target;
+
+    const re = /^[0-9\b]+$/;
+    if (value === "" || re.test(value)) {
+      if (value > inputTotal[index]) value = inputTotal[index];
+      if (value < 0) if (value !== "") value = 0;
+      const newInputs = [...inputAvailable];
+      newInputs[index] = value;
+      setInputAvailable(newInputs);
+    }
+  }
+
+  function handleAvailableFocus(index: number, product_id: number) {
+    updateCurrentAvailability(menu_id, product_id, inputAvailable[index])
+  }
+
+  function handleTotalChange(e: any, index: number) {
+    let { value } = e.target;
+
+    const re = /^[0-9\b]+$/;
+    if (value === "" || re.test(value)) {
+      if (value < 0) if (value !== "") value = 0;
+      const newInputs = [...inputTotal];
+      newInputs[index] = value;
+      setInputTotal(newInputs);
+    }
+  }
+
+  function handleTotalFocus(index: number, product_id: number) {
+    updateTotalAvailability(menu_id, product_id, inputTotal[index])
+  }
+
+
   React.useEffect(() => {
     const newInputs = products.map((_, i) => i + 1);
     setInputValues(newInputs);
+
+    setInputAvailable(products.map((p, i) => p.current_quantity))
+    setInputTotal(products.map((p, i) => p.menu_quantity))
+
   }, [products]);
 
   return (
@@ -255,11 +298,22 @@ export default function MenuColapseTable({
                       {product.price}
                     </TableCell>
                     <TableCell className="hidden text-right md:table-cell">
-                      {product.current_quantity}
+                      <Input
+                        onBlur={() => handleAvailableFocus(i, product.id)}
+                        value={inputAvailable[i]}
+                        onChange={(e) => handleAvaialableChange(e, i)}
+                        className="float-end w-fit text-center max-w-[5rem]"
+                      />
+                      {/* {product.current_quantity} */}
                     </TableCell>
                     <TableCell className="hidden md:table-cell">/</TableCell>
                     <TableCell className="hidden text-left md:table-cell">
-                      {product.menu_quantity}
+                      <Input
+                        onBlur={() => handleTotalFocus(i, product.id)}
+                        value={inputTotal[i]}
+                        onChange={(e) => handleTotalChange(e, i)}
+                        className="float-left w-fit text-center max-w-[5rem]"
+                      />
                     </TableCell>
                     <TableCell className="w-[12em]">
                       <div className="hidden gap-8 group-hover/row:flex">
