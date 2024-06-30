@@ -100,7 +100,8 @@ export default function ShopPage({ sort_options }: { sort_options: string[] }) {
     <div className="shop-page">
       <div className="layout">
         <div className="shop grid lg:block">
-          <div className="no-scrollbar filters mb-2 flex max-h-12 gap-2 overflow-x-scroll rounded-b-lg bg-white p-2">
+          {/* max-w-md md:max-w-none md:overflow-x-auto filters mb-2 flex gap-2 overflow-x-scroll rounded-b-lg bg-white p-2 */}
+          <div className="max-md:no-scrollbar md:overflow-x-auto filters mb-2 flex max-h-12 gap-2 rounded-b-lg bg-white p-2">
             {sort_options.map((i) => (
               <ul key={i} className="list-none">
                 <li

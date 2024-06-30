@@ -47,7 +47,7 @@ export default function ShopCard(props: ShopCardProps) {
 
         {/* {product.quantity <= 4 ? ( */}
         <div className="card-avilability z-2 absolute m-1 h-8 w-fit justify-center bg-red-500 p-1 pl-3 pr-3">
-          <p className="text-center text-sm text-gray-500">
+          <p className="text-center text-[0.7rem] sm:text-sm text-gray-500">
             {product.quantity} {t("Available", { count: product.quantity })}
           </p>
         </div>
