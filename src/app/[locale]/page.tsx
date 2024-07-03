@@ -3,6 +3,7 @@ import Navbar from "@/components/NavBar/NavBar";
 import { Link } from "@/navigation";
 import "@/styles/shop-page.css";
 import { useLocale, useTranslations } from "next-intl";
+import Image from "next/image";
 
 export default function Home() {
   const t = useTranslations("Index");
@@ -49,11 +50,11 @@ export default function Home() {
 
               <div className="relative w-full overflow-hidden lg:order-1 lg:w-5/12">
                 <div className="lg:absolute lg:bottom-0 lg:left-0">
-                  <img
-                    // C: \Users\ed\Desktop\eats-rau\public\images\homepagepic.jpeg
-                    className="w-full"
-                    src="https://cdn.rareblocks.xyz/collection/celebration/images/hero/4/phone-mockup.png"
-                    alt=""
+                  <Image
+                    src="/images/phone-mockup.png"
+                    alt="RAU Eats phone-mockup"
+                    width={500}
+                    height={900}
                   />
                 </div>
               </div>
