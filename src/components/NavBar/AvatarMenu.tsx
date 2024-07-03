@@ -1,4 +1,4 @@
-import { LogOut, Settings } from "lucide-react";
+import { LogOut, Settings, User } from "lucide-react";
 
 import {
   DropdownMenu,
@@ -17,28 +17,39 @@ import {
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Link } from "@/navigation";
 import { logout } from "@/actions/auth/logout";
+import { getTranslations } from "next-intl/server";
+import { validateRequest } from "@/actions/auth/validateRequest";
 
-export function AvatarMenu() {
+export async function AvatarMenu() {
+  const t = await getTranslations("Navigation");
+  const { user } = await validateRequest();
+
+  function getInitials(name) {
+    const parts = name.split(/[\s-]+/);
+    const initials = parts.map(part => part[0].toUpperCase());
+    return initials.join('');
+  }
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Avatar>
-          <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-          <AvatarFallback>CN</AvatarFallback>
+          {/* <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" /> */}
+          <AvatarFallback>{getInitials(user?.username)}</AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="">
         <DropdownMenuGroup>
           <DropdownMenuItem>
             <Settings className="mr-2 h-4 w-4" />
-            <Link href="/settings">Settings</Link>
+            <Link href="/settings">{t('Settings')}</Link>
           </DropdownMenuItem>
 
           <DropdownMenuItem>
             <LogOut className="mr-2 h-4 w-4" />
             {/* <span onClick={}>Sign Out</span> */}
             <form action={logout}>
-              <button type="submit">Sign out</button>
+              <button type="submit">{t('Sign out')}</button>
             </form>
           </DropdownMenuItem>
         </DropdownMenuGroup>
