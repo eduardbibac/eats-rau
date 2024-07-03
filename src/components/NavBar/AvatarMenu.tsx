@@ -24,7 +24,7 @@ export async function AvatarMenu() {
   const t = await getTranslations("Navigation");
   const { user } = await validateRequest();
 
-  function getInitials(name) {
+  function getInitials(name: string) {
     const parts = name.split(/[\s-]+/);
     const initials = parts.map(part => part[0].toUpperCase());
     return initials.join('');
@@ -35,7 +35,7 @@ export async function AvatarMenu() {
       <DropdownMenuTrigger asChild>
         <Avatar>
           {/* <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" /> */}
-          <AvatarFallback>{getInitials(user?.username)}</AvatarFallback>
+          <AvatarFallback>{getInitials(user?.username as string)}</AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="">

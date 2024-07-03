@@ -4,7 +4,7 @@ import { getUserOrders } from '@/actions/(auth_required)/getUserOrders';
 import { OrderHistoryEntry } from '@/types/dbTypes';
 import OrderStepper from './OrderStepper';
 
-function getStatusColor(status) {
+function getStatusColor(status: string) {
   switch (status) {
     case 'pending':
       return 'orange';
