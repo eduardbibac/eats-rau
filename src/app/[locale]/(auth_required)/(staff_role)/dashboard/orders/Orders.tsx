@@ -7,14 +7,15 @@ import CardOrder from "./CardOrder";
 import { useTranslations } from "next-intl";
 import "./orders.css";
 import FromPendingUpdate from "./FromPendingModal";
+import FinishOrderModal from "./FinishOrderModal";
 
 export default function Orders() {
   const [orders, setOrders] = useState<Order[]>([]);
 
-  function updateOrderStatus(orderId: number) {
+  function updateOrderStatus(orderId: number, newStatus: string) {
     const updatedOrders = orders.map((order) => {
       if (order.id === orderId) {
-        return { ...order, order_status: "ready_for_pickup" };
+        return { ...order, order_status: newStatus };
       }
       return order;
     });
@@ -82,7 +83,7 @@ export default function Orders() {
           <div className="grid grid-cols-[repeat(auto-fit,_minmax(360px,_1fr))] gap-4 rounded-xl bg-white p-5">
             {orders.map((order: Order, i) =>
               order.order_status === "pending" ||
-              order.order_status === "in_progress" ? (
+                order.order_status === "in_progress" ? (
                 <div key={order.id} className="">
                   <CardOrder
                     order={order}
@@ -107,7 +108,13 @@ export default function Orders() {
             {orders.map((order: Order, i) =>
               order.order_status === "ready_for_pickup" ? (
                 <div key={order.id} className="">
-                  <CardOrder order={order} modal={<></>} />
+                  <CardOrder order={order} modal={
+                    <FinishOrderModal
+                      order={order}
+                      updateOrderStatus={updateOrderStatus}
+                    />
+                  }
+                  />
                 </div>
               ) : null,
             )}

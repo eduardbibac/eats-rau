@@ -34,8 +34,8 @@ export default function DashNav() {
                 href="/dashboard/products"
                 label={t("Manage Products")}
               />
-              <DesktopNavButton href="/dashboard/sales" label={t("Sales")} />
-              <DesktopNavButton href="/dashboard/users" label={t("Users")} />
+              {/* <DesktopNavButton href="/dashboard/sales" label={t("Sales")} /> */}
+              {/* <DesktopNavButton href="/dashboard/users" label={t("Users")} /> */}
 
               {/* <!-- End Collapse --> */}
             </div>

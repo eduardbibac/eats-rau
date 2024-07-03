@@ -21,7 +21,7 @@ export default async function DashMobileNavBar() {
             label={t("Manage Products")}
             icon=""
           />
-          <MobileNavButton
+          {/* <MobileNavButton
             href="/dashboard/sales"
             label={t("Sales")}
             icon=""
@@ -30,7 +30,7 @@ export default async function DashMobileNavBar() {
             href="/dashboard/users"
             label={t("Users")}
             icon=""
-          />
+          /> */}
         </div>
       </div>
     </div>

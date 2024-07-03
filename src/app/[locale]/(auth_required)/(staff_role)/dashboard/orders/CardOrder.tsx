@@ -47,7 +47,6 @@ export default function CardOrder({
             {order.username}
           </p>
           <div className="inline-flex gap-2">
-            {/* TODO: iterate over products... and count categs */}
             <ProductsBadge drinks={drinks} snacks={sancks} meals={meals} />
             <PriceBadge price={order.total_cost} />
           </div>
@@ -58,7 +57,7 @@ export default function CardOrder({
             </span>
 
             <span className="inline-flex max-h-5 w-fit items-center rounded-xl border border-gray-500 bg-white px-2.5 py-0.5 text-xs font-medium text-gray-600">
-              {`${order.payment_status}, with ${order.payment_method}`}
+              {`${order.payment_status}, cu ${order.payment_method}`}
             </span>
           </div>
         </div>
