@@ -92,9 +92,7 @@ export function AllProductsColapseTable({
               <DialogTrigger asChild>
                 <Button size="sm" disabled={!isActiveMenu} className="">
                   <CirclePlus className="mr-1 h-3.5 w-3.5" />
-                  <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
-                    Selectează Produse pentru Meniu
-                  </span>
+                  Selectează Produse pentru Meniu
                 </Button>
               </DialogTrigger>
               <DialogContent className="mb-6 w-full grid-rows-[80%_20%] sm:min-h-[400px] sm:max-w-[625px]">
@@ -128,7 +126,6 @@ export function AllProductsColapseTable({
                   onClick={add}
                   className="h-fit self-end"
                 >
-                  {" "}
                   Adaugă
                 </Button>
               </DialogContent>

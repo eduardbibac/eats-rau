@@ -13,7 +13,6 @@ import CartDesktop from "./_CartDesktop";
 import { useLocale, useTranslations } from "next-intl";
 import ShopSkeletonCard from "./_ShopSkeletionCard";
 import ShopCard from "@/components/ShopCard";
-import { QuantityUpdate } from "@/types/dbTypes";
 
 export default function ShopPage({ sort_options }: { sort_options: string[] }) {
   const [filter, setFilter] = useState<Product[]>();
@@ -96,52 +95,51 @@ export default function ShopPage({ sort_options }: { sort_options: string[] }) {
     return <span>Error: {error.message}</span>;
   }
 
-  return (
-    <div className="shop-page">
-      <div className="layout">
-        <div className="shop grid lg:block">
-          {/* max-w-md md:max-w-none md:overflow-x-auto filters mb-2 flex gap-2 overflow-x-scroll rounded-b-lg bg-white p-2 */}
-          <div className="max-md:no-scrollbar md:max-w-none md:overflow-x-auto filters mb-2 flex gap-2 overflow-x-scroll rounded-b-lg bg-white p-2">
-            {sort_options.map((i) => (
-              <ul key={i} className="list-none">
-                <li
-                  onClick={() => setActiveFilter(i)}
-                  className={cn({
-                    "bg-orange-500 text-white": activeFilter === i,
-                    "align-center flex max-h-fit min-w-14 select-none justify-center whitespace-nowrap rounded-full p-2 text-sm font-normal outline outline-orange-500 hover:bg-orange-500 hover:text-white":
-                      true,
-                  })}
-                >
-                  {i}
-                </li>
-              </ul>
-            ))}
-          </div>
-          {isPending ? (
-            <div className="products">
-              {new Array(32).fill(null).map((_, i) => (
-                <ShopSkeletonCard key={i} />
-              ))}
-            </div>
-          ) : (
-            <AnimatePresence initial={false}>
-              <motion.div initial={false} layout className="products">
-                <LayoutGroup>
-                  {filter?.map((product) => (
-                    <ShopCard key={product.id} product={product} />
-                  ))}
-                </LayoutGroup>
-              </motion.div>
-            </AnimatePresence>
-          )}
-        </div>
-
-        <CartDesktop>
-          <Cart />
-        </CartDesktop>
-
-        <CartTablet />
-      </div>
+return (
+<div className="shop-page">
+<div className="layout">
+  <div className="shop grid lg:block">
+    {/* max-w-md md:max-w-none md:overflow-x-auto filters mb-2 flex gap-2 overflow-x-scroll rounded-b-lg bg-white p-2 */}
+    <div className="max-md:no-scrollbar md:max-w-none md:overflow-x-auto filters mb-2 flex gap-2 overflow-x-scroll rounded-b-lg bg-white p-2">
+      {sort_options.map((i) => (
+      <ul key={i} className="list-none">
+      <li
+        onClick={() => setActiveFilter(i)}
+        className={cn({
+          "bg-orange-500 text-white": activeFilter === i,
+          "align-center flex max-h-fit min-w-14 select-none justify-center whitespace-nowrap rounded-full p-2 text-sm font-normal outline outline-orange-500 hover:bg-orange-500 hover:text-white":
+            true,
+        })}
+      >
+      {i}
+      </li>
+      </ul>
+      ))}
     </div>
-  );
-}
+    {isPending ? (
+      <div className="products">
+        {new Array(32).fill(null).map((_, i) => (
+          <ShopSkeletonCard key={i} />
+        ))}
+      </div>
+    ) : (
+      <AnimatePresence initial={false}>
+      <motion.div initial={false} layout className="products">
+      <LayoutGroup>
+        {filter?.map((product) => (
+          <ShopCard key={product.id} product={product} />
+        ))}
+      </LayoutGroup>
+      </motion.div>
+      </AnimatePresence>
+    )}
+  </div>
+
+  <CartDesktop>
+    <Cart />
+  </CartDesktop>
+
+  <CartTablet />
+</div>
+</div>
+)}

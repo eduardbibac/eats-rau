@@ -18,7 +18,7 @@ export default async function Settings() {
       <div className="container mt-12 flex max-w-[900px] flex-col gap-5">
         <form action={logout} className="ml-auto mt-12 w-full font-medium">
           <Button className="w-full" type="submit">
-            Sing out
+            Sign out
           </Button>
         </form>
 

@@ -35,9 +35,7 @@ export default function DeleteMenu({ menu_id }: { menu_id: number }) {
           className="absolute mr-20 h-8 gap-1 self-end"
         >
           <Trash2 className="h-3.5 w-3.5" />
-          <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
-            Șterge Meniu
-          </span>
+          Șterge Meniu
         </Button>
       </DialogTrigger>
 
