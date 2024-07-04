@@ -73,9 +73,7 @@ export default function CreateNewProduct() {
       <DialogTrigger asChild>
         <Button size="sm" className="">
           <CirclePlus className="mr-1 h-3.5 w-3.5" />
-          <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
-            Adaugă Produs Nou
-          </span>
+          Adaugă Produs Nou
         </Button>
       </DialogTrigger>
 
