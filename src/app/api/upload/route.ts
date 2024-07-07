@@ -6,6 +6,7 @@ import { isRoleOrHigher } from "@/lib/role";
 import { validateRequest } from "@/actions/auth/validateRequest";
 import { random } from "lodash";
 import { generateIdFromEntropySize } from "lucia";
+import getURL from "@/lib/getURL";
 
 export const POST = async (req: NextRequest) => {
   const { user } = await validateRequest();
@@ -32,7 +33,7 @@ export const POST = async (req: NextRequest) => {
     let imagePath, systemPath;
 
     if (process.env.NODE_ENV === "production") {
-      imagePath = `/uploads/${filename}`; // Adjust path for file access via Nginx.
+      imagePath = `${process.env.NEXT_PUBLIC_APP_URL}/uploads/${filename}`; // Adjust path for file access via Nginx.
       systemPath = `/var/www/html/uploads/${filename}`; // Adjust path for file storage.
     } else {
       imagePath = "/images/uploaded/" + filename;
