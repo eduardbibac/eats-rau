@@ -29,8 +29,16 @@ export const POST = async (req: NextRequest) => {
   const fileExtension = file.type.split("/")[1];
   const filename = `${generateIdFromEntropySize(10)}.${fileExtension}`;
   try {
-    const imagePath = "/images/uploaded/" + filename;
-    const systemPath = `${process.cwd()}/public${imagePath}`;
+    let imagePath, systemPath;
+
+    if (process.env.NODE_ENV === "production") {
+      imagePath = `/uploads/${filename}`; // Adjust path for file access via Nginx.
+      systemPath = `/var/www/html/uploads/${filename}`; // Adjust path for file storage.
+    } else {
+      imagePath = "/images/uploaded/" + filename;
+      systemPath = `${process.cwd()}/public${imagePath}`;
+    }
+
     await writeFile(systemPath, buffer);
     return NextResponse.json({
       Message: "Success",
