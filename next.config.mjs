@@ -22,6 +22,18 @@ const nextConfig = {
         port: "",
         pathname: "**",
       },
+      {
+        protocol: "http",
+        hostname: "rau.bibac.ro",
+        port: "",
+        pathname: "**",
+      },
+      {
+        protocol: "https",
+        hostname: "rau.bibac.ro",
+        port: "",
+        pathname: "**",
+      },
     ],
   },
 };
