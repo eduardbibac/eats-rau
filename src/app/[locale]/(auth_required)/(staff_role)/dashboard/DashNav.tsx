@@ -34,6 +34,7 @@ export default function DashNav() {
                 href="/dashboard/products"
                 label={t("Manage Products")}
               />
+              <DesktopNavButton href="/dashboard/reports" label={"Rapoarte"} />
               {/* <DesktopNavButton href="/dashboard/sales" label={t("Sales")} /> */}
               {/* <DesktopNavButton href="/dashboard/users" label={t("Users")} /> */}
 

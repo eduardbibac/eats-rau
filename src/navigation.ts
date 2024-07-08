@@ -41,6 +41,11 @@ export const pathnames = {
     ro: "/dashboard/comenzi",
   },
 
+  "/dashboard/reports": {
+    en: "/dashboard/reports",
+    ro: "/dashboard/rapoarte",
+  },
+
   // // Dynamic params are supported via square brackets
   // '/news/[articleSlug]-[articleId]': {
   //   en: '/news/[articleSlug]-[articleId]',
