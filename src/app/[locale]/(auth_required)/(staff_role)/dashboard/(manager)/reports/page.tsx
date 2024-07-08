@@ -22,9 +22,7 @@ export default async function ReportsPage() {
   const t7 = await usersWithMostSales();
 
   const g1 = await dailySales();
-  const g2 = await hourlySales();
-
-  console.log(g2)
+  // const g2 = await hourlySales();
 
   return (
     <>
@@ -34,9 +32,9 @@ export default async function ReportsPage() {
           Rapoarte
         </div>
 
-        <div className="flex gap-2 ">
+        <div className="flex gap-2 h-[500px]">
           <GraphSales data={g1} label={'Total Vânzări pe zi'} />
-          <GraphSales data={g2} label={'Total Vânzări pe oră'} />
+          {/* <GraphSales data={g2} label={'Total Vânzări pe oră'} /> */}
         </div>
 
         <div className="mb-4 mt-10 text-3xl font-extrabold leading-none tracking-tight text-gray-900 ">
