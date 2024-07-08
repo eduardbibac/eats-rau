@@ -32,7 +32,7 @@ export default async function ReportsPage() {
           Rapoarte
         </div>
 
-        <div className="flex gap-2 h-[500px]">
+        <div className="flex gap-2 ">
           <GraphSales data={g1} label={'Total Vânzări pe zi'} />
           {/* <GraphSales data={g2} label={'Total Vânzări pe oră'} /> */}
         </div>

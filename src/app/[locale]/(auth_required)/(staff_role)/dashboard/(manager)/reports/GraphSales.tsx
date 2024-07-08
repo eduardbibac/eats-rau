@@ -28,7 +28,7 @@ const chartConfig = {
 
 export function GraphSales({ data, label }: { data: any, label: string }) {
   return (
-    <Card className="w-full">
+    <Card className="w-full h-[500px]">
       <CardHeader>
         <CardTitle>{label}</CardTitle>
         <CardDescription>An 2024</CardDescription>
