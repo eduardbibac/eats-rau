@@ -18,14 +18,6 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart"
 
-const chartData = [
-  { month: "January", sales: 186 },
-  { month: "February", sales: 305 },
-  { month: "March", sales: 237 },
-  { month: "April", sales: 73 },
-  { month: "May", sales: 209 },
-  { month: "June", sales: 214 },
-]
 
 const chartConfig = {
   sales: {
@@ -58,7 +50,7 @@ export function GraphSales({ data, label }: { data: any, label: string }) {
               tickLine={false}
               axisLine={false}
               tickMargin={8}
-              tickFormatter={(value) => value.slice(0, 3)}
+              tickFormatter={(value) => value}
             />
             <ChartTooltip
               cursor={false}
