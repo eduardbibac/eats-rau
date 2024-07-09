@@ -1,7 +1,7 @@
 "use client"
 
 import { TrendingUp } from "lucide-react"
-import { CartesianGrid, LabelList, Line, LineChart, XAxis } from "recharts"
+import { CartesianGrid, Line, LineChart, XAxis } from "recharts"
 
 import {
   Card,
@@ -18,35 +18,33 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart"
 
-
 const chartConfig = {
   sales: {
-    label: "Vânzări",
+    label: "Vanzari",
     color: "hsl(var(--chart-1))",
-  }
+  },
 } satisfies ChartConfig
 
-export function GraphSales({ data, label }: { data: any, label: string }) {
+export function GraphSales({ data, label, description }: { data: any, label: string, description: string }) {
   return (
-    <Card className="w-[500px]">
+    <Card>
       <CardHeader>
         <CardTitle>{label}</CardTitle>
-        <CardDescription>An 2024</CardDescription>
+        <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig}>
+        <ChartContainer className="w-[500px]" config={chartConfig}>
           <LineChart
             accessibilityLayer
             data={data}
             margin={{
-              top: 20,
               left: 12,
               right: 12,
             }}
           >
             <CartesianGrid vertical={false} />
             <XAxis
-              dataKey={"time"}
+              dataKey="time"
               tickLine={false}
               axisLine={false}
               tickMargin={8}
@@ -54,27 +52,15 @@ export function GraphSales({ data, label }: { data: any, label: string }) {
             />
             <ChartTooltip
               cursor={false}
-              content={<ChartTooltipContent indicator="line" />}
+              content={<ChartTooltipContent hideLabel />}
             />
             <Line
               dataKey="sales"
               type="natural"
               stroke="var(--color-sales)"
               strokeWidth={2}
-              dot={{
-                fill: "var(--color-sales)",
-              }}
-              activeDot={{
-                r: 6,
-              }}
-            >
-              <LabelList
-                position="top"
-                offset={12}
-                className="fill-foreground"
-                fontSize={12}
-              />
-            </Line>
+              dot={false}
+            />
           </LineChart>
         </ChartContainer>
       </CardContent>

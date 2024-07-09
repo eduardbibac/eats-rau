@@ -21,8 +21,16 @@ export default async function ReportsPage() {
   const t6 = await salesCount();
   const t7 = await usersWithMostSales();
 
-  const g1 = await dailySales();
-  // const g2 = await hourlySales();
+  const g1 = await dailySales().then(data => data!.map(i => ({
+    time: i.time,
+    sales: parseInt(i.sales)
+  })));
+
+  const g2 = await hourlySales().then(data => data!.map(i => ({
+    time: i.time,
+    sales: parseInt(i.sales)
+  })));
+
 
   return (
     <>
@@ -33,8 +41,8 @@ export default async function ReportsPage() {
         </div>
 
         <div className="flex gap-2 justify-center ">
-          <GraphSales data={g1} label={'Total Vânzări pe zi'} />
-          {/* <GraphSales data={g2} label={'Total Vânzări pe oră'} /> */}
+          <GraphSales data={g1} label={'Total Vânzări pe zi'} description={'An 2024'} />
+          <GraphSales data={g2} label={'Total Vânzări pe oră'} description={'Azi'} />
         </div>
 
         <div className="mb-4 mt-10 text-3xl font-extrabold leading-none tracking-tight text-gray-900 ">
